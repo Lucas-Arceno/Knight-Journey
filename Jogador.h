@@ -30,6 +30,10 @@ public:
 
 	void move(const float dir_x, const float dir_y);
 
+
+	void setPosition(const float x, const float y);
+	void resetVelocity();
+
 	void update();
 	void updatePhysics();
 	void updateMovimento();

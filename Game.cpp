@@ -34,6 +34,12 @@ void Game::exec()
 		}
 		pGrafico->limpaJanela();
 		Teste.update();
+		if (Teste.getGlobalBounds().top + Teste.getGlobalBounds().height > pGrafico->getJanela()->getSize().y) {
+			Teste.resetVelocity();
+			Teste.setPosition(
+				Teste.getGlobalBounds().left, pGrafico->getJanela()->getSize().y - Teste.getGlobalBounds().height
+			);
+		}
 		pGrafico->desenhaElementos(Teste.getCorpo());
 		pGrafico->mostraElementos();
 	}

@@ -30,7 +30,17 @@ void Jogador::initPhysics()
 
 const sf::FloatRect Jogador::getGlobalBounds() const
 {
-	return sprite.getGlobalBounds();
+	return corpo.getGlobalBounds();
+}
+
+void Jogador::setPosition(const float x, const float y)
+{
+	this->corpo.setPosition(x, y);
+}
+
+void Jogador::resetVelocity()
+{
+	this->velocidade.y = 0.f;
 }
 
 void Jogador::move(const float dir_x, const float dir_y)
