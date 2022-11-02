@@ -8,7 +8,7 @@ Game::Game() : pGrafico(pGrafico->getGerenciadorGrafico())
 
 	}
 	else {
-		std::cout << "Gerenciador grafico criado com sucesso" << std::endl;
+		std::cout << "Gerenciador grafico criado com sucesso." << std::endl;
 	}
 	exec();
 }
