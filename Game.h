@@ -1,6 +1,7 @@
 #pragma once
 #include "GerenciadorGrafico.h"
-#include "Inimigo.h"
+#include "Cobra.h"
+#include "Morcego.h"
 
 class Game
 {

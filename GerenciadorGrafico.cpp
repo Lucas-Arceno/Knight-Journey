@@ -33,7 +33,7 @@ const bool GerenciadorGrafico::verificaJanelaAberta()
 GerenciadorGrafico* GerenciadorGrafico::getGerenciadorGrafico()
 {
 	if (pGraphics == nullptr) {
-		return new GerenciadorGrafico();
+		pGraphics = new GerenciadorGrafico();
 	}
 	return pGraphics;
 }

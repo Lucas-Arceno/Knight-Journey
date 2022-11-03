@@ -6,6 +6,7 @@ class GerenciadorGrafico
 {
 private:
 	sf::RenderWindow* window;
+
 	/*Singleton desing pattern*/
 	static GerenciadorGrafico* pGraphics;
 private:
