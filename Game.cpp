@@ -20,6 +20,7 @@ Game::~Game()
 void Game::exec()
 {
 	Jogador Teste(sf::Vector2f(50.f, 50.f), sf::Vector2f(100.f, 100.f));
+	Inimigo Jorge(&Teste, sf::Vector2f(800.f, 750.f), sf::Vector2f(50.f, 50.f));
 	while (pGrafico->verificaJanelaAberta()) {
 		sf::Event evento;
 		if (pGrafico->getJanela()->pollEvent(evento)) {
@@ -34,13 +35,10 @@ void Game::exec()
 		}
 		pGrafico->limpaJanela();
 		Teste.update();
-		if (Teste.getGlobalBounds().top + Teste.getGlobalBounds().height > pGrafico->getJanela()->getSize().y) {
-			Teste.resetVelocity();
-			Teste.setPosition(
-				Teste.getGlobalBounds().left, pGrafico->getJanela()->getSize().y - Teste.getGlobalBounds().height
-			);
-		}
+		Jorge.update();
+		Teste.collisionWindow(pGrafico->getJanela()->getSize().y);
 		pGrafico->desenhaElementos(Teste.getCorpo());
+		pGrafico->desenhaElementos(Jorge.getCorpo());
 		pGrafico->mostraElementos();
 	}
 }

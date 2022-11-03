@@ -1,6 +1,6 @@
 #pragma once
 #include "GerenciadorGrafico.h"
-#include "Jogador.h"
+#include "Inimigo.h"
 
 class Game
 {

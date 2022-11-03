@@ -33,6 +33,16 @@ const sf::FloatRect Jogador::getGlobalBounds() const
 	return corpo.getGlobalBounds();
 }
 
+void Jogador::collisionWindow(unsigned int y)
+{
+	if (getGlobalBounds().top + getGlobalBounds().height > y) {
+		resetVelocity();
+		setPosition(
+			getGlobalBounds().left, y - getGlobalBounds().height
+		);
+	}
+}
+
 void Jogador::setPosition(const float x, const float y)
 {
 	this->corpo.setPosition(x, y);
