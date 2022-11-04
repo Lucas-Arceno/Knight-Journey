@@ -34,12 +34,18 @@ bool Jogador::checkColisao(sf::RectangleShape outroCorpo)
 
 void Jogador::collisionWindow(unsigned int y)
 {
-	if (getGlobalBounds().top + getGlobalBounds().height > y) {
+	
+	if (this->corpo.getPosition().y + 50 > y) {
+		resetVelocity();
+		setPosition(corpo.getPosition().x, y - 50);
+	}
+
+	/*if (getGlobalBounds().top + getGlobalBounds().height > y) {
 		resetVelocity();
 		setPosition(
 			getGlobalBounds().left, y - getGlobalBounds().height
 		);
-	}
+	}*/
 }
 
 void Jogador::setPosition(const float x, const float y)
@@ -65,6 +71,7 @@ void Jogador::move(const float dir_x, const float dir_y)
 
 void Jogador::update()
 {
+	std::cout << this->corpo.getOrigin().y << std::endl;
 	updateMovimento();
 	updatePhysics();
 }

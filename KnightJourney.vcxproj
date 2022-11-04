@@ -147,6 +147,7 @@
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="KnightJourney.cpp" />
+    <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Morcego.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +158,8 @@
     <ClInclude Include="GerenciadorGrafico.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Morcego.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

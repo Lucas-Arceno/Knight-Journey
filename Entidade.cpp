@@ -2,6 +2,7 @@
 
 Entidade::Entidade(sf::Vector2f posicao, sf::Vector2f tamanho) : velocidadeMax(5.f), velocidadeMaxY(15.f), velocidadeMin(1.f)
 {
+	this->corpo.setOrigin(tamanho / 2.0f);
 	this->velocidade.x = 0.3f;
 	this->velocidade.y = 0.3f;
 	this->corpo.setPosition(posicao);
