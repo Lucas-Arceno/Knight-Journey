@@ -63,23 +63,12 @@ void Jogador::update()
 void Jogador::updateMovimento()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		this->move(-1.0f, 0);
+		this->move(-1.0f, 0.f);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		this->move(1.f, 0);
+		this->move(1.f, 0.f);
 	}
-	/*
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		corpo.move(-velocidade.x, 0);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+		corpo.move(0.f, -100.f);
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		corpo.move(velocidade.x, 0);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		corpo.move(0, -velocidade.y);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		corpo.move(0, velocidade.y);
-	}
-	*/
 }
