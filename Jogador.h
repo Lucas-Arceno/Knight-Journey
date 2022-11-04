@@ -1,5 +1,6 @@
 #pragma once
 #include "Entidade.h"
+#include <iostream>
 
 class Jogador : public Entidade
 {
@@ -17,10 +18,10 @@ public:
 
 	const sf::FloatRect getGlobalBounds() const;
 
+	bool checkColisao(sf::RectangleShape outroCorpo);
 	void collisionWindow(unsigned int y);
 
 	void move(const float dir_x, const float dir_y);
-
 	void setPosition(const float x, const float y);
 	void resetVelocity();
 

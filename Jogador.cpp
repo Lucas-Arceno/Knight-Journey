@@ -23,6 +23,15 @@ const sf::FloatRect Jogador::getGlobalBounds() const
 	return corpo.getGlobalBounds();
 }
 
+bool Jogador::checkColisao(sf::RectangleShape outroCorpo)
+{
+	if (this->corpo.getGlobalBounds().intersects(outroCorpo.getGlobalBounds())) {
+		std::cout << "Collision" << std::endl;
+		return true;
+	}
+	return false;
+}
+
 void Jogador::collisionWindow(unsigned int y)
 {
 	if (getGlobalBounds().top + getGlobalBounds().height > y) {
