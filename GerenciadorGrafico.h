@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+//Baseado no video do monitor : https://www.youtube.com/watch?v=RXmFcBGD8T8
+
 class GerenciadorGrafico
 {
 private:
@@ -21,6 +23,5 @@ public:
 	void desenhaElementos(sf::RectangleShape body);
 	void mostraElementos();
 	void fechaJanela();
-
 };
 

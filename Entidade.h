@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Colisao.h"
 
 class Entidade
 {
@@ -23,6 +24,8 @@ public:
 	~Entidade();
 
 	void initPhysics();
+
+	Colisao GetColisao() { return Colisao(corpo); }
 
 	virtual void update() = 0;
 	void updatePhysics();

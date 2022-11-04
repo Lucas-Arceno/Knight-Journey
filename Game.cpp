@@ -21,7 +21,7 @@ void Game::exec()
 {
 	Jogador Teste(sf::Vector2f(50.f, 50.f), sf::Vector2f(100.f, 100.f));
 	Morcego Joao(&Teste, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.f, 50.f));
-	Cobra Jorge(&Teste, sf::Vector2f(800.f, 770.f), sf::Vector2f(70.f, 30));
+	Cobra Jorge(&Teste, sf::Vector2f(800.f, 750.f), sf::Vector2f(50.f, 50.f));
 	while (pGrafico->verificaJanelaAberta()) {
 		sf::Event evento;
 		if (pGrafico->getJanela()->pollEvent(evento)) {
@@ -38,7 +38,14 @@ void Game::exec()
 		Teste.update();
 		Jorge.update();
 		Joao.update();
-		Teste.collisionWindow(pGrafico->getJanela()->getSize().y);
+
+		Joao.GetColisao().CheckCollision(Teste.GetColisao(), 1.0f);
+		Jorge.GetColisao().CheckCollision(Teste.GetColisao(), 1.0f);
+
+		Teste.checkColisao(Jorge.getCorpo());
+		Teste.collisionWindow(pGrafico->getJanela()->getSize().y);;
+
+
 		pGrafico->desenhaElementos(Teste.getCorpo());
 		pGrafico->desenhaElementos(Jorge.getCorpo());
 		pGrafico->desenhaElementos(Joao.getCorpo());
