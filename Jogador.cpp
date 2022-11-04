@@ -14,6 +14,7 @@ Jogador::~Jogador()
 
 void Jogador::initVariables()
 {
+	this->coldownPulo = false;
 	this->vidaJogador = vidaMaxima;
 	this->corpo.setFillColor(sf::Color::Blue);
 }
@@ -21,15 +22,6 @@ void Jogador::initVariables()
 const sf::FloatRect Jogador::getGlobalBounds() const
 {
 	return corpo.getGlobalBounds();
-}
-
-bool Jogador::checkColisao(sf::RectangleShape outroCorpo)
-{
-	if (this->corpo.getGlobalBounds().intersects(outroCorpo.getGlobalBounds())) {
-		std::cout << "Collision" << std::endl;
-		return true;
-	}
-	return false;
 }
 
 void Jogador::collisionWindow(unsigned int y)
@@ -71,7 +63,6 @@ void Jogador::move(const float dir_x, const float dir_y)
 
 void Jogador::update()
 {
-	std::cout << this->corpo.getOrigin().y << std::endl;
 	updateMovimento();
 	updatePhysics();
 }
@@ -84,7 +75,6 @@ void Jogador::updateMovimento()
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		this->move(1.f, 0.f);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-		corpo.move(0.f, -100.f);
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && coldownPulo == true)){
 	}
 }

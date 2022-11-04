@@ -7,6 +7,8 @@ class Jogador : public Entidade
 private:
 	sf::Sprite sprite;
 
+	bool coldownPulo;
+
 	const int vidaMaxima;
 	static int vidaJogador;
 
@@ -18,7 +20,8 @@ public:
 
 	const sf::FloatRect getGlobalBounds() const;
 
-	bool checkColisao(sf::RectangleShape outroCorpo);
+	void setColdownPulo(bool cd) { this->coldownPulo = cd; }
+
 	void collisionWindow(unsigned int y);
 
 	void move(const float dir_x, const float dir_y);

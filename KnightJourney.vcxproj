@@ -143,24 +143,28 @@
     <ClCompile Include="Colisao.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="KnightJourney.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Morcego.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cobra.h" />
     <ClInclude Include="Colisao.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Morcego.h" />
+    <ClInclude Include="Plataforma.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,12 +20,22 @@ Game::~Game()
 void Game::exec()
 {
 	Jogador Teste(sf::Vector2f(50.f, 50.f), sf::Vector2f(100.f, 100.f));
-	Morcego Joao(&Teste, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.f, 50.f));
-	Cobra Jorge(&Teste, sf::Vector2f(800.f, 750.f), sf::Vector2f(50.f, 50.f));
+	Morcego Joao(&Teste, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.0f, 50.0f));
+	Cobra Jorge(&Teste, sf::Vector2f(800.f, 750.f), sf::Vector2f(50.0f, 50.0f));
+
+	Plataforma chao(sf::Vector2f(200.0f, 700.0f), sf::Vector2f(400.0f, 50.0f));
+
+	GerenciadorColisoes Colisao(&Teste, &listaInimigos, &listaPlataformas);
 
 	listaEntidades.addEntidade(&Teste);
 	listaEntidades.addEntidade(&Joao);
 	listaEntidades.addEntidade(&Jorge);
+	listaEntidades.addEntidade(&chao);
+
+	listaInimigos.addEntidade(&Joao);
+	listaInimigos.addEntidade(&Jorge);
+
+	listaPlataformas.addEntidade(&chao);
 
 	while (pGrafico->verificaJanelaAberta()) {
 		sf::Event evento;
@@ -45,16 +55,14 @@ void Game::exec()
 			listaEntidades[i]->update();
 		}
 
-		Joao.GetColisao().CheckCollision(Teste.GetColisao(), 0.0f);
-		Jorge.GetColisao().CheckCollision(Teste.GetColisao(), 1.0f);
-
-		Teste.checkColisao(Jorge.getCorpo());
+		Colisao.updateColisao();
+;
 		Teste.collisionWindow(pGrafico->getJanela()->getSize().y);;
 
+		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+			pGrafico->desenhaElementos(listaEntidades[i]->getCorpo());
+		}
 
-		pGrafico->desenhaElementos(Teste.getCorpo());
-		pGrafico->desenhaElementos(Jorge.getCorpo());
-		pGrafico->desenhaElementos(Joao.getCorpo());
 		pGrafico->mostraElementos();
 	}
 }
