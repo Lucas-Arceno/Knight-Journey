@@ -1,6 +1,6 @@
 #include "Fase.h"
 
-Fase::Fase() : pGrafico(), pEvento(), pColisao(), pJogador(), listaEntidades(), listaInimigos(), listaObstaculos(), listaPlataformas()
+Fase::Fase() : pGrafico(), pEvento(), /*pColisao(),*/ pJogador(), listaEntidades(), listaInimigos(), listaObstaculos(), listaPlataformas()
 {
 }
 
@@ -14,10 +14,10 @@ Fase::~Fase()
 		delete(pEvento);
 		pEvento = NULL;
 	}
-	if (pColisao) {
-		delete(pColisao);
-		pColisao = NULL;
-	}
+	//if (pColisao) {
+	//	delete(pColisao);
+	//	pColisao = NULL;
+	//}
 	if (pJogador) {
 		delete(pJogador);
 		pJogador = NULL;

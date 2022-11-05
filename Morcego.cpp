@@ -52,6 +52,7 @@ void Morcego::update()
 	updateMovimento();
 	updatePhysics();
 	updateEmpuxo();
+	projetil.update();
 }
 
 void Morcego::updateMovimento()

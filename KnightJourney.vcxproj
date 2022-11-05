@@ -156,6 +156,7 @@
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="PrimeiraFase.cpp" />
+    <ClCompile Include="Projetil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Caixa.h" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="PrimeiraFase.h" />
+    <ClInclude Include="Projetil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
