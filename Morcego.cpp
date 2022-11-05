@@ -11,13 +11,13 @@ Morcego::~Morcego()
 
 void Morcego::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 {
-	if (posJogador.x - posInimigo.x > 100.0f) {
+	if (posJogador.x - posInimigo.x > 200.0f) {
 		corpo.move(3.f, 0.0f);
 	}
 	else {
 		corpo.move(-3.f, 0.0f);
 	}
-	if (posJogador.y - posInimigo.y > 100.0f) {
+	if (posJogador.y - posInimigo.y > 200.0f) {
 		corpo.move(0, 3.f);
 	}
 	else {
