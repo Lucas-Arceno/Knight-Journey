@@ -76,5 +76,9 @@ void Jogador::updateMovimento()
 		this->move(1.f, 0.f);
 	}
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && coldownPulo == true)){
+		this->velocidade.y -= 30.0 * this->gravity;
+		if (std::abs(this->velocidade.x) > this->velocidadeMaxY) {
+			this->velocidade.y = this->velocidadeMaxY * ((this->velocidade.y < 0.f) ? -1.f : 1.f);
+		}
 	}
 }
