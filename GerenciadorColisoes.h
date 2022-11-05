@@ -10,10 +10,13 @@ private:
 	Jogador* pJogador;
 	List::ListaEntidade* pListaInimigos;
 	List::ListaEntidade* pListaPlataformas;
+	List::ListaEntidade* pListaObstaculos;
 public:
-	GerenciadorColisoes(Jogador* jogador, List::ListaEntidade* listaInimigos, List::ListaEntidade* listaPlataformas);
+	GerenciadorColisoes(Jogador* jogador, List::ListaEntidade* listaInimigos, List::ListaEntidade* listaPlataformas, List::ListaEntidade* ListaObstaculos);
 	~GerenciadorColisoes();
 	void updateColisao();
 	void checkColPlataforma();
+	void checkColObstaculos();
+	void checkColInimigos();
 };
 
