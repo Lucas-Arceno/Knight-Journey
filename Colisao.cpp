@@ -1,4 +1,5 @@
 #include "Colisao.h"
+#include <iostream>
 
 Colisao::Colisao(sf::RectangleShape& corpo) : corpo(corpo)
 {
@@ -6,6 +7,16 @@ Colisao::Colisao(sf::RectangleShape& corpo) : corpo(corpo)
 
 Colisao::~Colisao()
 {
+}
+
+bool Colisao::verificaColisao(sf::RectangleShape outroCorpo)
+{
+	if (this->corpo.getGlobalBounds().intersects(outroCorpo.getGlobalBounds())) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 bool Colisao::CheckCollision(Colisao outro, float push)

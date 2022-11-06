@@ -13,6 +13,8 @@ protected:
 	sf::Vector2f posicao;
 	sf::Vector2f tamanho;
 
+	sf::Texture texture;
+
 	//Physics
 	float acceleration;
 	float drag;

@@ -2,6 +2,9 @@
 
 Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(pJogador, posicao, tamanho)
 {
+	this->corpo.setFillColor(sf::Color::White);
+	this->texture.loadFromFile("assets/cobra.png");
+	this->corpo.setTexture(&texture);
 }
 
 Cobra::~Cobra()

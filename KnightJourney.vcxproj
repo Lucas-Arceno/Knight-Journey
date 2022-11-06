@@ -143,7 +143,6 @@
     <ClCompile Include="Cobra.cpp" />
     <ClCompile Include="Colisao.cpp" />
     <ClCompile Include="Entidade.cpp" />
-    <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEvento.cpp" />
@@ -155,14 +154,12 @@
     <ClCompile Include="Morcego.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Plataforma.cpp" />
-    <ClCompile Include="PrimeiraFase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Caixa.h" />
     <ClInclude Include="Cobra.h" />
     <ClInclude Include="Colisao.h" />
     <ClInclude Include="Entidade.h" />
-    <ClInclude Include="Fase.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEvento.h" />
@@ -174,7 +171,6 @@
     <ClInclude Include="Morcego.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Plataforma.h" />
-    <ClInclude Include="PrimeiraFase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

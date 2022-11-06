@@ -28,6 +28,9 @@ public:
 	void setPosition(const float x, const float y);
 	void resetVelocity();
 
+	void setVelocityX(float vel_x);
+	void setVelocityY(float vel_y);
+
 	void update();
 	void updateMovimento();
 };

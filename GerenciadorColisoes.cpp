@@ -21,14 +21,7 @@ void GerenciadorColisoes::updateColisao()
 
 void GerenciadorColisoes::checkColPlataforma()
 {
-	for (int i = 0; i < pListaPlataformas->getTamanho(); i++) {
-		if (pJogador->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
-			pJogador->setColdownPulo(true);
-		}
-		else {
-			pJogador->setColdownPulo(false);
-		}
-	}
+	int aux = 0;
 	for (int j = 0; j < pListaInimigos->getTamanho(); j++) {
 		for (int k = 0; k < pListaPlataformas->getTamanho(); k++) {
 			(*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaPlataformas)[k]->GetColisao(), 0.0f);
@@ -39,27 +32,30 @@ void GerenciadorColisoes::checkColPlataforma()
 			(*pListaObstaculos)[h]->GetColisao().CheckCollision((*pListaPlataformas)[o]->GetColisao(), 0.0f);
 		}
 	}
+	for (int i = 0; i < pListaPlataformas->getTamanho(); i++) {
+		if (pJogador->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
+			pJogador->resetVelocity();
+//			printf("%f %f", (*pListaPlataformas)[i]->getCorpo().getPosition().y, pJogador->getCorpo().getPosition().y);
+			if ((*pListaPlataformas)[i]->getCorpo().getPosition().y > pJogador->getCorpo().getPosition().y) {
+				pJogador->setColdownPulo(true);
+				aux++;
+			}
+		}
+		else if(aux==0) {
+			pJogador->setColdownPulo(false);
+		}
+	}
 }
 
 void GerenciadorColisoes::checkColObstaculos()
 {
 	for (int i = 0; i < pListaObstaculos->getTamanho(); i++) {
-		if (pJogador->GetColisao().CheckCollision((*pListaObstaculos)[i]->GetColisao(), 1.0f)) {
-			pJogador->setColdownPulo(true);
+		if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
+			pJogador->setVelocityX(0.1f);
 		}
 	}
 }
 
 void GerenciadorColisoes::checkColInimigos()
 {
-	for (int i = 0; i < pListaInimigos->getTamanho(); i++) {
-		if (pJogador->GetColisao().CheckCollision((*pListaInimigos)[i]->GetColisao(), 0.0f)) {
-			std::cout << "Jogador tomou dano" << std::endl;
-		}
-	}
-	for (int j = 0; j < pListaInimigos->getTamanho(); j++) {
-		for (int k = 0; k < pListaObstaculos->getTamanho(); k++) {
-			(*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaObstaculos)[k]->GetColisao(), 0.0f);
-		}
-	}
 }

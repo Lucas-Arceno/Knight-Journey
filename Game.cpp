@@ -25,14 +25,14 @@ void Game::exec()
 	//Inimigos
 	Morcego Joao(&Teste, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.0f, 50.0f));
 	Cobra Jorge(&Teste, sf::Vector2f(800.f, 600.f), sf::Vector2f(50.0f, 50.0f));
-	Cobra Jorge1(&Teste, sf::Vector2f(400.f, 100.f), sf::Vector2f(50.0f, 50.0f));
-	Cobra Jorge2(&Teste, sf::Vector2f(10.f, 500.f), sf::Vector2f(50.0f, 50.0f));
 
 	//Plataformas
 	Plataforma chao(sf::Vector2f(200.0f, 700.0f), sf::Vector2f(5000.0f, 50.0f));
+	Plataforma chao2(sf::Vector2f(250.0f,500.0f), sf::Vector2f(300.0f, 150.0f));
+	Plataforma parede(sf::Vector2f(20, 800), sf::Vector2f(100.0f, 5000.0f));
 
 	//Obstaculos
-	Caixa caixa(sf::Vector2f(300.0f, 300.0f), sf::Vector2f(60.0f, 60.0f));
+	Caixa caixa(sf::Vector2f(300.0f, 300.0f), sf::Vector2f(50.0f, 50.0f));
 
 	GerenciadorColisoes GerenciadorColisoes(&Teste, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
@@ -40,19 +40,19 @@ void Game::exec()
 	listaEntidades.addEntidade(&Teste);
 	listaEntidades.addEntidade(&Joao);
 	listaEntidades.addEntidade(&Jorge);
-	listaEntidades.addEntidade(&Jorge1);
-	listaEntidades.addEntidade(&Jorge2);
 	listaEntidades.addEntidade(&caixa);
 	listaEntidades.addEntidade(&chao);
+	listaEntidades.addEntidade(&chao2);
+	listaEntidades.addEntidade(&parede);
 
 	//add na lista de inimigos
 	listaInimigos.addEntidade(&Joao);
 	listaInimigos.addEntidade(&Jorge);
-	listaInimigos.addEntidade(&Jorge1);
-	listaInimigos.addEntidade(&Jorge2);
 
 	//add na lista de plataformas
 	listaPlataformas.addEntidade(&chao);
+	listaPlataformas.addEntidade(&chao2);
+	listaPlataformas.addEntidade(&parede);
 
 	//add na lista de obstaculos
 	listaObstaculos.addEntidade(&caixa);
@@ -64,7 +64,6 @@ void Game::exec()
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 			listaEntidades[i]->update();
 		}
-
 		GerenciadorColisoes.updateColisao();
 
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {

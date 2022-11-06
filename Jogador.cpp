@@ -47,7 +47,7 @@ void Jogador::setPosition(const float x, const float y)
 
 void Jogador::resetVelocity()
 {
-	this->velocidade.y = 0.f;
+	this->velocidade.y = 0.0f;
 }
 
 void Jogador::move(const float dir_x, const float dir_y)
@@ -59,6 +59,16 @@ void Jogador::move(const float dir_x, const float dir_y)
 	if (std::abs(this->velocidade.x) > this->velocidadeMax) {
 		this->velocidade.x = this->velocidadeMax * ((this->velocidade.x < 0.f) ? -1.f : 1.f);
 	}
+}
+
+void Jogador::setVelocityX(float vel_x)
+{
+	this->velocidade.x = vel_x;
+}
+
+void Jogador::setVelocityY(float vel_y)
+{
+	this->velocidade.y = vel_y;
 }
 
 void Jogador::update()
@@ -76,9 +86,6 @@ void Jogador::updateMovimento()
 		this->move(1.f, 0.f);
 	}
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && coldownPulo == true)){
-		this->velocidade.y -= 30.0 * this->gravity;
-		if (std::abs(this->velocidade.x) > this->velocidadeMaxY) {
-			this->velocidade.y = this->velocidadeMaxY * ((this->velocidade.y < 0.f) ? -1.f : 1.f);
-		}
+		this->velocidade.y -= 20.0 * this->gravity;
 	}
 }
