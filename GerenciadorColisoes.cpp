@@ -58,4 +58,9 @@ void GerenciadorColisoes::checkColObstaculos()
 
 void GerenciadorColisoes::checkColInimigos()
 {
+	for (int i = 0; i < pListaInimigos->getTamanho(); i++) {
+		if (pJogador->getCorpoEspada().getGlobalBounds().intersects((*pListaInimigos)[i]->getCorpo().getGlobalBounds())) {
+			printf("acertei");
+		}
+	}
 }

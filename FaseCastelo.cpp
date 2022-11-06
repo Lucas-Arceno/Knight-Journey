@@ -51,9 +51,11 @@ void FaseCastelo::update()
 
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 			pGrafico->desenhaElementos(listaEntidades[i]->getCorpo());
+			pGrafico->desenhaElementos(pJogador->getCorpoEspada());
 		}
 
 		pGrafico->mostraElementos();
+		pJogador->setEspadaPosicao(sf::Vector2f(0.0f, 5000.0f));
 	}
 }
 

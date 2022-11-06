@@ -2,7 +2,9 @@
 
 Plataforma::Plataforma(int id, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(3, posicao, tamanho)
 {
-	this->corpo.setFillColor(sf::Color::Magenta);
+	this->corpo.setFillColor(sf::Color::White);
+	this->texture.loadFromFile("assets/minecraft.png");
+	this->corpo.setTexture(&texture);
 }
 
 Plataforma::~Plataforma()
