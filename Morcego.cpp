@@ -53,8 +53,11 @@ void Morcego::update()
 	updateMovimento();
 	updatePhysics();
 	updateEmpuxo();
+
+	// Mais uma gambiarra, passar jogador e o morcego por ponteiro e pegar posição por lá.
+	sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = corpo.getPosition();
-	projetil.updateProjetil(posInimigo.x ,posInimigo.y);
+	projetil.updateProjetil(posInimigo.x ,posInimigo.y, posJogador.x, posJogador.y);
 }
 
 void Morcego::updateMovimento()

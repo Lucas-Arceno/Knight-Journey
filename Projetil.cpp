@@ -20,16 +20,25 @@ void Projetil::updateMovimento()
 {
 }
 
-void Projetil::updateProjetil(float posX, float posY){
-	updateMovimentoProjetil(posX, posY);
+void Projetil::updateProjetil(float posX, float posY, float JposX, float JposY){
+	updateMovimentoProjetil(posX, posY, JposX, JposY);
 }
 
-void Projetil::updateMovimentoProjetil(float posX, float posY) {
+void Projetil::updateMovimentoProjetil(float posX, float posY, float JposX, float JposY) {
 	if (colisaoProjetil) { // Reseta o projetil
 		corpo.setPosition(sf::Vector2f(posX, posY));
-		cout << "posicao x" << posX << "posicao y" << posY << endl;
+		colisaoProjetil = 0;
+		contTempVida = 0;
+		// cout << "posicao x" << posX << "posicao y" << posY << endl;
 	}
 	else {
-
+		cout << "JOGADOR x e y :" << JposX << " " << JposY << " MORCEGO x e y :" << posX << " " << posY << endl;
+		Direcao.x = fabs(posX - JposX);
+		Direcao.y = fabs(posY - JposY);
+		corpo.move(0.01f * Direcao);
+		contTempVida++;
+	}
+	if (contTempVida >= 100) {
+		colisaoProjetil = 1;
 	}
 }
