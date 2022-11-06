@@ -19,17 +19,17 @@ FaseCastelo::FaseCastelo() : Fase()
 	listaEntidades.addEntidade(new Caixa(sf::Vector2f(300.0f, 300.0f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(3,sf::Vector2f(20, 800), sf::Vector2f(100.0f, 5000.0f)));
 
-	//add na lista de inimigos
-	/*listaInimigos.addEntidade(&Joao);
-	listaInimigos.addEntidade(&Jorge);
-
-	//add na lista de plataformas
-	listaPlataformas.addEntidade(&chao);
-	listaPlataformas.addEntidade(&chao2);
-	listaPlataformas.addEntidade(&parede);*/
-
-	//add na lista de obstaculos
-	//listaObstaculos.addEntidade(new Caixa(sf::Vector2f(300.0f, 300.0f), sf::Vector2f(50.0f, 50.0f)));
+	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+		if (listaEntidades[i]->getID() == 1) {
+			listaObstaculos.addEntidade(listaEntidades[i]);
+		}
+		else if (listaEntidades[i]->getID() == 2) {
+			listaInimigos.addEntidade(listaEntidades[i]);
+		}
+		else if (listaEntidades[i]->getID() == 3) {
+			listaPlataformas.addEntidade(listaEntidades[i]);
+		}
+	}
 
 }
 
