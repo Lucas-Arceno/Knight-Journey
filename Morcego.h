@@ -1,13 +1,19 @@
 #pragma once
 #include "Inimigo.h"
+#include "Projetil.h"
+#include "GerenciadorGrafico.h"
 
 class Morcego : public Inimigo
 {
 private:
 	const int vidaMaxima;
+	GerenciadorGrafico* pGrafico;
+
 public:
 	Morcego(Jogador* pJogador, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
 	virtual ~Morcego();
+
+	Projetil projetil;
 
 	void persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
 

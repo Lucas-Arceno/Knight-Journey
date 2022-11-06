@@ -7,6 +7,7 @@ namespace List {
 	{
 	private:
 		Lista<Entidade>lista;
+
 	public:
 		ListaEntidade();
 		~ListaEntidade();

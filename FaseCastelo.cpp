@@ -23,7 +23,8 @@ FaseCastelo::FaseCastelo() : Fase()
 		if (listaEntidades[i]->getID() == 1) {
 			listaObstaculos.addEntidade(listaEntidades[i]);
 		}
-		else if (listaEntidades[i]->getID() == 2) {
+		//
+		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4) {
 			listaInimigos.addEntidade(listaEntidades[i]);
 		}
 		else if (listaEntidades[i]->getID() == 3) {
@@ -39,6 +40,7 @@ FaseCastelo::~FaseCastelo()
 
 void FaseCastelo::update()
 {
+	//Morcego* pM;
 	while (pGrafico->verificaJanelaAberta()) {
 		pEvento->exec();
 		pGrafico->limpaJanela();
@@ -52,8 +54,11 @@ void FaseCastelo::update()
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 			pGrafico->desenhaElementos(listaEntidades[i]->getCorpo());
 			pGrafico->desenhaElementos(pJogador->getCorpoEspada());
+			//if (listaEntidades[i]->getID() == 4) {
+			//	pM = (Morcego*)(listaEntidades[i]);
+			//	pGrafico->desenhaElementos(pM.projetil.getCorpo());
+			//}
 		}
-
 		pGrafico->mostraElementos();
 		pJogador->setEspadaPosicao(sf::Vector2f(0.0f, 5000.0f));
 	}
