@@ -35,8 +35,8 @@ void GerenciadorColisoes::checkColPlataforma()
 	for (int i = 0; i < pListaPlataformas->getTamanho(); i++) {
 		if (pJogador->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
 			pJogador->resetVelocity();
-//			printf("%f %f", (*pListaPlataformas)[i]->getCorpo().getPosition().y, pJogador->getCorpo().getPosition().y);
-			if ((*pListaPlataformas)[i]->getCorpo().getPosition().y > pJogador->getCorpo().getPosition().y) {
+			if ((*pListaPlataformas)[i]->getCorpo().getPosition().y  >
+				pJogador->getCorpo().getPosition().y + pJogador->getCorpo().getGlobalBounds().height/2.0f) {
 				pJogador->setColdownPulo(true);
 				aux++;
 			}

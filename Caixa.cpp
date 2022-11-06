@@ -1,6 +1,6 @@
 #include "Caixa.h"
 
-Caixa::Caixa(sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(posicao, tamanho)
+Caixa::Caixa(sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(1, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/spider-web-drawing-desenho-de-teia-de-aranha-para-colorir-11563467477xgvcfeu44p.png");

@@ -143,6 +143,8 @@
     <ClCompile Include="Cobra.cpp" />
     <ClCompile Include="Colisao.cpp" />
     <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="Fase.cpp" />
+    <ClCompile Include="FaseCastelo.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEvento.cpp" />
@@ -160,6 +162,8 @@
     <ClInclude Include="Cobra.h" />
     <ClInclude Include="Colisao.h" />
     <ClInclude Include="Entidade.h" />
+    <ClInclude Include="Fase.h" />
+    <ClInclude Include="FaseCastelo.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEvento.h" />

@@ -2,7 +2,7 @@
 
 int Jogador::vidaJogador = 100;
 
-Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(posicao, tamanho) ,vidaMaxima(100)
+Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(0,posicao, tamanho) ,vidaMaxima(100)
 {
 	initVariables();
 	initPhysics();

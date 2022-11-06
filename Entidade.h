@@ -5,6 +5,8 @@
 class Entidade
 {
 protected:
+	const int ID;
+
 	sf::Vector2f velocidade;
 	const int velocidadeMax;
 	const int velocidadeMin;
@@ -22,12 +24,14 @@ protected:
 	const int velocidadeMaxY;
 
 public:
-	Entidade(sf::Vector2f posicao = sf::Vector2f(0.f,0.f),sf::Vector2f tamanho = sf::Vector2f(0.f, 0.f));
+	Entidade(int id = 0, sf::Vector2f posicao = sf::Vector2f(0.f,0.f),sf::Vector2f tamanho = sf::Vector2f(0.f, 0.f));
 	~Entidade();
 
 	void initPhysics();
 
 	Colisao GetColisao() { return Colisao(corpo); }
+
+	const int getID() { return ID; }
 
 	virtual void update() = 0;
 	void updatePhysics();

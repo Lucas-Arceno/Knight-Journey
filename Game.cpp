@@ -19,6 +19,15 @@ Game::~Game()
 
 void Game::exec()
 {
+	FaseCastelo Castelo;
+	Castelo.update();
+	/*
+	//Background
+	sf::RectangleShape Background;
+	Background.setSize(sf::Vector2f(1200.f, 800.f));
+	sf::Texture BackgroundT;
+	BackgroundT.loadFromFile("assets/backgroud.png");
+	Background.setTexture(&BackgroundT);
 	//Jogador 
 	Jogador Teste(sf::Vector2f(50.f, 50.f), sf::Vector2f(100.f, 100.f));
 
@@ -60,6 +69,7 @@ void Game::exec()
 	while (pGrafico->verificaJanelaAberta()) {
 		pEvento->exec();
 		pGrafico->limpaJanela();
+		pGrafico->desenhaElementos(Background);
 
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 			listaEntidades[i]->update();
@@ -71,5 +81,6 @@ void Game::exec()
 		}
 
 		pGrafico->mostraElementos();
-	}
+	}*/
+
 }

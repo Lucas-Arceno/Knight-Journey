@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(sf::Vector2f posicao, sf::Vector2f tamanho) : velocidadeMax(5.f), velocidadeMaxY(15.f), velocidadeMin(1.f)
+Entidade::Entidade(int id, sf::Vector2f posicao, sf::Vector2f tamanho) : ID(id), velocidadeMax(5.f), velocidadeMaxY(15.f), velocidadeMin(1.f)
 {
 	this->corpo.setOrigin(tamanho / 2.0f);
 	this->velocidade.x = 0.3f;
