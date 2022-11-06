@@ -9,8 +9,6 @@
 #include "Cobra.h"
 #include "Morcego.h"
 
-
-
 class Game
 {
 private:

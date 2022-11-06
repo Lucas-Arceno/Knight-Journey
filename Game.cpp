@@ -70,6 +70,9 @@ void Game::exec()
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 			pGrafico->desenhaElementos(listaEntidades[i]->getCorpo());
 		}
+		
+		// Solução temporaria -- Lista de morcego talvez ?
+		pGrafico->desenhaElementos(Joao.projetil.getCorpo());
 
 		pGrafico->mostraElementos();
 	}

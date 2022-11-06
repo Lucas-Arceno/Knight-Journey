@@ -1,4 +1,5 @@
 #include "Morcego.h"
+#include <iostream>
 
 Morcego::Morcego(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(pJogador, posicao, tamanho)
 {
@@ -52,7 +53,8 @@ void Morcego::update()
 	updateMovimento();
 	updatePhysics();
 	updateEmpuxo();
-	projetil.update();
+	sf::Vector2f posInimigo = corpo.getPosition();
+	projetil.updateProjetil(posInimigo.x ,posInimigo.y);
 }
 
 void Morcego::updateMovimento()
