@@ -2,6 +2,7 @@
 
 Entidade::Entidade(int id, sf::Vector2f posicao, sf::Vector2f tamanho) : ID(id), velocidadeMax(5.f), velocidadeMaxY(15.f), velocidadeMin(1.f)
 {
+	this->vida = 100;
 	this->corpo.setOrigin(tamanho / 2.0f);
 	this->velocidade.x = 0.3f;
 	this->velocidade.y = 0.3f;
@@ -12,6 +13,19 @@ Entidade::Entidade(int id, sf::Vector2f posicao, sf::Vector2f tamanho) : ID(id),
 
 Entidade::~Entidade()
 {
+}
+
+void Entidade::setVida(int dano) {
+	this->vida = this->vida - dano;
+}
+
+int Entidade::getVida(){
+	return this->vida;
+}
+
+void Entidade::setCorpoPosicao(sf::Vector2f pos)
+{
+	this->corpo.setPosition(pos);
 }
 
 void Entidade::initPhysics()

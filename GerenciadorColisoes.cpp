@@ -60,7 +60,10 @@ void GerenciadorColisoes::checkColInimigos()
 {
 	for (int i = 0; i < pListaInimigos->getTamanho(); i++) {
 		if (pJogador->getCorpoEspada().getGlobalBounds().intersects((*pListaInimigos)[i]->getCorpo().getGlobalBounds())) {
-			printf("acertei");
+			if ((*pListaInimigos)[i]->getVida() <= 0) {
+				(*pListaInimigos)[i]->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
+			}
+			(*pListaInimigos)[i]->setVida(10);
 		}
 	}
 }

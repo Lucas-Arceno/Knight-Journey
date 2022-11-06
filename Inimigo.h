@@ -6,6 +6,7 @@ class Inimigo : public Entidade
 {
 protected:
 	Jogador* pJogador;
+	int vida;
 public:
 	Inimigo(int id, Jogador* pJogador,sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
 	virtual ~Inimigo(); 

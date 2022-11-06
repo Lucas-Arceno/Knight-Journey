@@ -1,7 +1,9 @@
 #include "Morcego.h"
 
-Morcego::Morcego(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(2, pJogador, posicao, tamanho)
+Morcego::Morcego(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(2, pJogador, posicao, tamanho), vidaMaxima(100)
 {
+	this->vida = vidaMaxima;
+
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/morcego.png");
 	this->corpo.setTexture(&texture);

@@ -6,6 +6,7 @@ class Entidade
 {
 protected:
 	const int ID;
+	int vida;
 
 	sf::Vector2f velocidade;
 	const int velocidadeMax;
@@ -26,6 +27,11 @@ protected:
 public:
 	Entidade(int id = 0, sf::Vector2f posicao = sf::Vector2f(0.f,0.f),sf::Vector2f tamanho = sf::Vector2f(0.f, 0.f));
 	~Entidade();
+
+	void setVida(int vida);
+	int getVida();
+
+	void setCorpoPosicao(sf::Vector2f pos);
 
 	void initPhysics();
 
