@@ -12,7 +12,7 @@ FaseCastelo::FaseCastelo() : Fase()
 
 	//add na lista entidades geral
 	listaEntidades.addEntidade(pJogador);
-	listaEntidades.addEntidade(new Morcego(pJogador, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Morcego(&listaEntidades,pJogador, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(800.f, 600.f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(3,sf::Vector2f(200.0f, 700.0f), sf::Vector2f(5000.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(3,sf::Vector2f(250.0f, 500.0f), sf::Vector2f(300.0f, 150.0f)));

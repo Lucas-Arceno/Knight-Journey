@@ -22,10 +22,7 @@ public:
 
 	void update();
 	void updateMovimento();
-
-
-	// Gambiarra, alterar os parametros de update e updatemovimento transforma a classe em abstrata -- Procurar solução melhor
-	// Atualmente recebendo separadamente o valor x e y da posição -- Não consegui passar como um vector2f
+	void updateEmpuxo();
 	void updateProjetil(float posX, float posY);
 	void updateMovimentoProjetil(float posX, float posY);
 	sf::Vector2f normalizedVector(sf::Vector2f direcao); // Creditos : www.youtube.com/watch?v=_Qc_cj1Nggw&list=LL&index=14
