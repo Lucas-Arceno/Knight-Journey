@@ -7,6 +7,7 @@ Morcego::Morcego(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) 
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/morcego.png");
 	this->corpo.setTexture(&texture);
+	projetil.pJogador = pJogador;
 }
 
 Morcego::~Morcego()
@@ -59,12 +60,10 @@ void Morcego::update()
 	updateMovimento();
 	updatePhysics();
 	updateEmpuxo();
-	// Gambiarra para passar a pos do inimigo e depois a do jogador
-	sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
+	// Gambiarra para passar a pos do inimigo
 	sf::Vector2f posInimigo = corpo.getPosition();
-	projetil.updateProjetil(posInimigo.x, posInimigo.y, posJogador.x, posJogador.y);
-	
-
+	projetil.updateProjetil(posInimigo.x, posInimigo.y);
+	// Gambiarra para desenhar o projetil
 	pGrafico->desenhaElementos(projetil.getCorpo());
 
 }

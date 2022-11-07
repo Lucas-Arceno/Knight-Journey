@@ -6,6 +6,7 @@ Projetil::Projetil(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(2, pos
 	this->corpo.setFillColor(sf::Color::Red);
 }
 
+
 Projetil::~Projetil() {
 
 }
@@ -20,25 +21,43 @@ void Projetil::updateMovimento()
 {
 }
 
-void Projetil::updateProjetil(float posX, float posY, float JposX, float JposY) {
-	updateMovimentoProjetil(posX, posY, JposX, JposY);
+sf::Vector2f Projetil::normalizedVector(sf::Vector2f direcao)
+{
+	float m = sqrt(direcao.x * direcao.x + direcao.y * direcao.y);
+	
+	sf::Vector2f vetorNormalizado;
+
+	vetorNormalizado.x = direcao.x / m;
+	vetorNormalizado.y = direcao.y / m;
+
+	return vetorNormalizado;
 }
 
-void Projetil::updateMovimentoProjetil(float posX, float posY, float JposX, float JposY) {
+
+void Projetil::updateProjetil(float posX, float posY) {
+	updateMovimentoProjetil(posX, posY);
+}
+
+void Projetil::updateMovimentoProjetil(float posX, float posY) {
 	if (colisaoProjetil) { // Reseta o projetil
 		corpo.setPosition(sf::Vector2f(posX, posY));
+
+		posJogador = pJogador->getCorpo().getPosition();
+		Direcao.x = -(posX - posJogador.x);
+		Direcao.y = -(posY - posJogador.y);
+		Direcao = normalizedVector(Direcao);
+		cout << "DIRECAO BALA : " << Direcao.x << " " << Direcao.y << endl;
+
 		colisaoProjetil = 0;
 		contTempVida = 0;
-		// cout << "posicao x" << posX << "posicao y" << posY << endl;
 	}
 	else {
-		cout << "JOGADOR x e y :" << JposX << " " << JposY << " MORCEGO x e y :" << posX << " " << posY << endl;
-		Direcao.x = fabs(posX - JposX);
-		Direcao.y = fabs(posY - JposY);
-		corpo.move(0.01f * Direcao);
+		//cout << "JOGADOR x e y : " << posJogador.x << " " << posJogador.y << " MORCEGO x e y : " << posX << " " << posY << endl;
+		corpo.setPosition(corpo.getPosition() + 10.0f * Direcao); // Movimento da bala, velocidade constante.
 		contTempVida++;
 	}
 	if (contTempVida >= 100) {
 		colisaoProjetil = 1;
 	}
 }
+
