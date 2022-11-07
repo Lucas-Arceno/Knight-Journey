@@ -1,24 +1,33 @@
-#include "Plataforma.h"
+#include "Portal.h"
 
-Plataforma::Plataforma(int id, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(3, posicao, tamanho)
+Portal::Portal(Jogador* pJogador,sf::Vector2f(destino), sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(7, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
-	this->texture.loadFromFile("assets/plataforma.png");
+	this->texture.loadFromFile("assets/portal.png");
 	this->corpo.setTexture(&texture);
+	this->pJogador = pJogador;
+	this->destino = destino;
 }
 
-Plataforma::~Plataforma()
+Portal::~Portal()
 {
 }
 
-void Plataforma::update()
+void Portal::update()
 {
 	updateMovimento();
 	updatePhysics();
-	updateEmpuxo();
+
+	if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpoEspada().getGlobalBounds())) {
+		this->corpo.setPosition(-1441.f, 421.f);
+	}
+
+	if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {
+		pJogador->setPosition(destino.x, destino.y);
+	}
 }
 
-void Plataforma::updateEmpuxo()
+void Portal::updateMovimento()
 {
 	//Gravity
 	this->velocidade.y += 1.0 * this->gravity;
@@ -38,8 +47,4 @@ void Plataforma::updateEmpuxo()
 	}
 
 	this->corpo.move(-(this->velocidade));
-}
-
-void Plataforma::updateMovimento()
-{
 }

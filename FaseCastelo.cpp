@@ -18,9 +18,11 @@ FaseCastelo::FaseCastelo() : Fase()
 	listaEntidades.addEntidade(new Plataforma(3,sf::Vector2f(250.0f, 500.0f), sf::Vector2f(300.0f, 150.0f)));
 	listaEntidades.addEntidade(new Caixa(sf::Vector2f(300.0f, 300.0f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(3,sf::Vector2f(20, 800), sf::Vector2f(100.0f, 5000.0f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(900.f, 625.f)));
+	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.f, 620.f), sf::Vector2f(70.f, 70.f)));
 
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
-		if (listaEntidades[i]->getID() == 1) {
+		if (listaEntidades[i]->getID() == 1 || listaEntidades[i]->getID() == 6) {
 			listaObstaculos.addEntidade(listaEntidades[i]);
 		}
 		//
@@ -40,7 +42,6 @@ FaseCastelo::~FaseCastelo()
 
 void FaseCastelo::update()
 {
-	//Morcego* pM;
 	while (pGrafico->verificaJanelaAberta()) {
 		pEvento->exec();
 		pGrafico->limpaJanela();
@@ -54,10 +55,6 @@ void FaseCastelo::update()
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 			pGrafico->desenhaElementos(listaEntidades[i]->getCorpo());
 			pGrafico->desenhaElementos(pJogador->getCorpoEspada());
-			//if (listaEntidades[i]->getID() == 4) {
-			//	pM = (Morcego*)(listaEntidades[i]);
-			//	pGrafico->desenhaElementos(pM.projetil.getCorpo());
-			//}
 		}
 		pGrafico->mostraElementos();
 		pJogador->setEspadaPosicao(sf::Vector2f(0.0f, 5000.0f));

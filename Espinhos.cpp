@@ -1,24 +1,23 @@
-#include "Plataforma.h"
+#include "Espinhos.h"
 
-Plataforma::Plataforma(int id, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(3, posicao, tamanho)
+Espinhos::Espinhos(sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(6,posicao,tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
-	this->texture.loadFromFile("assets/plataforma.png");
+	this->texture.loadFromFile("assets/espinhos.png");
 	this->corpo.setTexture(&texture);
 }
 
-Plataforma::~Plataforma()
+Espinhos::~Espinhos()
 {
 }
 
-void Plataforma::update()
+void Espinhos::update()
 {
 	updateMovimento();
 	updatePhysics();
-	updateEmpuxo();
 }
 
-void Plataforma::updateEmpuxo()
+void Espinhos::updateMovimento()
 {
 	//Gravity
 	this->velocidade.y += 1.0 * this->gravity;
@@ -38,8 +37,4 @@ void Plataforma::updateEmpuxo()
 	}
 
 	this->corpo.move(-(this->velocidade));
-}
-
-void Plataforma::updateMovimento()
-{
 }

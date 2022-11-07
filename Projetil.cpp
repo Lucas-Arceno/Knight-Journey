@@ -2,8 +2,9 @@
 #include <iostream>
 using namespace std;
 
-Projetil::Projetil(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(2, posicao, tamanho) {
+Projetil::Projetil(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(2, posicao, tamanho) {
 	this->corpo.setFillColor(sf::Color::Red);
+	this->pJogador = pJogador;
 }
 
 
@@ -54,9 +55,13 @@ void Projetil::updateMovimentoProjetil(float posX, float posY) {
 	else {
 		//cout << "JOGADOR x e y : " << posJogador.x << " " << posJogador.y << " MORCEGO x e y : " << posX << " " << posY << endl;
 		corpo.setPosition(corpo.getPosition() + 10.0f * Direcao); // Movimento da bala, velocidade constante.
+		if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {
+			printf("Acertou\n");
+			this->corpo.setPosition(sf::Vector2f(5000.f, 2000.f));
+		}
 		contTempVida++;
 	}
-	if (contTempVida >= 100) {
+	if (contTempVida >= 200) {
 		colisaoProjetil = 1;
 	}
 }

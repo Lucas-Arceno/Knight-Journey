@@ -50,8 +50,16 @@ void GerenciadorColisoes::checkColPlataforma()
 void GerenciadorColisoes::checkColObstaculos()
 {
 	for (int i = 0; i < pListaObstaculos->getTamanho(); i++) {
-		if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-			pJogador->setVelocityX(0.1f);
+		if ((*pListaObstaculos)[i]->getID() == 1) {
+			if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
+				pJogador->setVelocityX(0.1f);
+			}
+		}
+		if ((*pListaObstaculos)[i]->getID() == 6) {
+			if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
+				pJogador->setVida(10);
+				printf("%d\n", pJogador->getVida());
+			}
 		}
 	}
 }

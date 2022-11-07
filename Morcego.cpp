@@ -1,13 +1,13 @@
 #include "Morcego.h"
 
 
-Morcego::Morcego(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(4, pJogador, posicao, tamanho), vidaMaxima(100), pGrafico(pGrafico->getGerenciadorGrafico())
+Morcego::Morcego(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(4, pJogador, posicao, tamanho), vidaMaxima(100), pGrafico(pGrafico->getGerenciadorGrafico()), projetil()
 {
 	this->vida = vidaMaxima;
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/morcego.png");
 	this->corpo.setTexture(&texture);
-	projetil.pJogador = pJogador;
+	projetil = new Projetil(pJogador);
 }
 
 Morcego::~Morcego()
@@ -54,17 +54,14 @@ void Morcego::updateEmpuxo()
 
 void Morcego::update()
 {
-	
-	
-
 	updateMovimento();
 	updatePhysics();
 	updateEmpuxo();
 	// Gambiarra para passar a pos do inimigo
 	sf::Vector2f posInimigo = corpo.getPosition();
-	projetil.updateProjetil(posInimigo.x, posInimigo.y);
+	projetil->updateProjetil(posInimigo.x, posInimigo.y);
 	// Gambiarra para desenhar o projetil
-	pGrafico->desenhaElementos(projetil.getCorpo());
+	pGrafico->desenhaElementos(projetil->getCorpo());
 
 }
 

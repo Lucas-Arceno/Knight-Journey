@@ -14,6 +14,8 @@ Jogador::~Jogador()
 
 void Jogador::initVariables()
 {
+	this->vida = 500;
+
 	//Personagem e afins
 	this->coldownPulo = false;
 	this->vidaJogador = vidaMaxima;

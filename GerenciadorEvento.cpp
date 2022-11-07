@@ -2,7 +2,7 @@
 
 GerenciadorEvento* GerenciadorEvento::pEvento = nullptr;
 
-GerenciadorEvento::GerenciadorEvento() : pGrafico(pGrafico->getGerenciadorGrafico()) {
+GerenciadorEvento::GerenciadorEvento() : pJogador(nullptr), pGrafico(pGrafico->getGerenciadorGrafico()) {
 
 }
 

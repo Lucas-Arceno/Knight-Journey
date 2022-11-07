@@ -17,7 +17,7 @@ public:
 
 	Jogador* pJogador;
 
-	Projetil(sf::Vector2f posicao = sf::Vector2f(5.f, 5.f), sf::Vector2f tamanho = sf::Vector2f(20.f, 10.f));
+	Projetil(Jogador *pJogador,sf::Vector2f posicao = sf::Vector2f(5.f, 5.f), sf::Vector2f tamanho = sf::Vector2f(20.f, 10.f));
 	~Projetil();
 
 	void update();
