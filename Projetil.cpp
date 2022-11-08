@@ -16,16 +16,11 @@ Projetil::~Projetil() {
 void Projetil::update()
 {
 	updatePhysics();
-	updateEmpuxo();
 	updateMovimento();
 }
 
 // Redundante 
 void Projetil::updateMovimento()
-{
-}
-
-void Projetil::updateEmpuxo()
 {
 	//Gravity
 	this->velocidade.y += 1.0 * this->gravity;
@@ -46,6 +41,7 @@ void Projetil::updateEmpuxo()
 
 	this->corpo.move(-(this->velocidade));
 }
+
 
 sf::Vector2f Projetil::normalizedVector(sf::Vector2f direcao)
 {

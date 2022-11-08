@@ -6,7 +6,7 @@ class Plataforma : public Entidade
 private:
 
 public:
-	Plataforma(int id, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(0.0f, 0.0f));
+	Plataforma(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(0.0f, 0.0f));
 	~Plataforma();
 
 	void update();

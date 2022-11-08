@@ -23,7 +23,7 @@ void Jogador::initVariables()
 
 	//Textura e cor
 	this->corpo.setFillColor(sf::Color::White);
-	this->texture.loadFromFile("assets/teste.png");
+	this->texture.loadFromFile("assets/knight.png");
 	this->corpo.setTexture(&texture);
 
 	//Espada e afins

@@ -1,7 +1,8 @@
 #include "Cobra.h"
 
-Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(2,pJogador, posicao, tamanho)
+Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(2,pJogador, posicao, tamanho), vidaMaxima(200)
 {
+	this->vida = vidaMaxima;
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/cobra.png");
 	this->corpo.setTexture(&texture);
@@ -19,12 +20,6 @@ void Cobra::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 	else {
 		corpo.move(-1.f, 0.0f);
 	}
-	/*if (posJogador.y - posInimigo.y > 0.0f) {
-		corpo.move(0, 1.f);
-	}
-	else {
-		corpo.move(0, -1.f);
-	}*/
 }
 
 void Cobra::update()
