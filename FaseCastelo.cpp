@@ -19,14 +19,23 @@ FaseCastelo::FaseCastelo() : Fase()
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 200.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 900.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2150.0f, 800.0f), sf::Vector2f(50.0f, 200.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(3200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(3700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(4200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(4700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
 
 	//blocos
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(500.0f, 550.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(500.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(700.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(950.0f, 400.0f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1200.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1400.0f, 550.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1400.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2050.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
 
 	//jogadores
 	listaEntidades.addEntidade(pJogador);
@@ -42,8 +51,10 @@ FaseCastelo::FaseCastelo() : Fase()
 	listaEntidades.addEntidade(new Caixa(sf::Vector2f(200.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
 	listaEntidades.addEntidade(new Caixa(sf::Vector2f(100.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
 	//espinhos
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(900.f, 625.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(850.f, 625.f)));
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(1000.f, 625.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(2000.f, 800.f)));
+
 	//portais
 	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
