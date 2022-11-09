@@ -1,13 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Ente.h"
 #include "Colisao.h"
 
-class Entidade
+class Entidade : public Ente
 {
 protected:
-	const int ID;
-	int vida;
-
 	sf::Vector2f velocidade;
 	const int velocidadeMax;
 	const int velocidadeMin;
@@ -28,19 +26,15 @@ public:
 	Entidade(int id = 0, sf::Vector2f posicao = sf::Vector2f(0.f,0.f),sf::Vector2f tamanho = sf::Vector2f(0.f, 0.f));
 	~Entidade();
 
-	void setVida(int vida);
-	int getVida();
-
 	void setCorpoPosicao(sf::Vector2f pos);
-
-	void initPhysics();
 
 	Colisao GetColisao() { return Colisao(corpo); }
 
 	const int getID() { return ID; }
 
-	virtual void update() = 0;
+	void initPhysics();
 	void updatePhysics();
+	virtual void update() = 0;
 	virtual void updateMovimento() = 0;
 
 	void setPosicao(sf::Vector2f pos);

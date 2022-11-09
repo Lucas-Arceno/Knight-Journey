@@ -142,6 +142,7 @@
     <ClCompile Include="Caixa.cpp" />
     <ClCompile Include="Cobra.cpp" />
     <ClCompile Include="Colisao.cpp" />
+    <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Espinhos.cpp" />
     <ClCompile Include="Fase.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Morcego.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="Projetil.cpp" />
@@ -164,6 +166,7 @@
     <ClInclude Include="Caixa.h" />
     <ClInclude Include="Cobra.h" />
     <ClInclude Include="Colisao.h" />
+    <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Espinhos.h" />
     <ClInclude Include="Fase.h" />
@@ -178,6 +181,7 @@
     <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Morcego.h" />
     <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="Projetil.h" />

@@ -2,7 +2,7 @@
 
 int Jogador::vidaJogador = 100;
 
-Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(0,posicao, tamanho) ,vidaMaxima(100)
+Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(100)
 {
 	initVariables();
 	initPhysics();
@@ -46,22 +46,6 @@ const sf::FloatRect Jogador::getEspadaGlobal() const
 void Jogador::setEspadaPosicao(sf::Vector2f(newPosicao))
 {
 	this->Espada.setPosition(newPosicao);
-}
-
-void Jogador::collisionWindow(unsigned int y)
-{
-	
-	if (this->corpo.getPosition().y + 50 > y) {
-		resetVelocity();
-		setPosition(corpo.getPosition().x, y - 50);
-	}
-
-	/*if (getGlobalBounds().top + getGlobalBounds().height > y) {
-		resetVelocity();
-		setPosition(
-			getGlobalBounds().left, y - getGlobalBounds().height
-		);
-	}*/
 }
 
 void Jogador::setPosition(const float x, const float y)

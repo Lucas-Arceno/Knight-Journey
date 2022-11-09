@@ -3,7 +3,7 @@
 FaseCastelo::FaseCastelo() : Fase()
 {
 
-	this->background.setSize(sf::Vector2f(1920.0f, 1080.0f));
+	this->background.setSize(sf::Vector2f(1920.0f , 1080.0f));
 	this->backgroundTexture.loadFromFile("assets/castle.png");
 	background.setTexture(&backgroundTexture);
 
@@ -19,9 +19,9 @@ FaseCastelo::FaseCastelo() : Fase()
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 200.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 900.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2150.0f, 800.0f), sf::Vector2f(50.0f, 200.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2150.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(3200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
@@ -41,8 +41,8 @@ FaseCastelo::FaseCastelo() : Fase()
 	listaEntidades.addEntidade(pJogador);
 
 	//inimigos
-	//listaEntidades.addEntidade(new Morcego(&listaEntidades,pJogador, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.0f, 50.0f)));
-	//listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(800.f, 600.f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Morcego(&listaEntidades,pJogador, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(800.f, 600.f), sf::Vector2f(50.0f, 50.0f)));
 
 	//obstaculos
 	//teias
@@ -60,12 +60,19 @@ FaseCastelo::FaseCastelo() : Fase()
 	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+		/// 1 = teia
+		/// 6 = espinhos
+		/// 7 = portal
 		if (listaEntidades[i]->getID() == 1 || listaEntidades[i]->getID() == 6 || listaEntidades[i]->getID() == 7) {
 			listaObstaculos.addEntidade(listaEntidades[i]);
 		}
+		/// 2 = cobra
+		/// 4 = morcego
+		/// 
 		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4) {
 			listaInimigos.addEntidade(listaEntidades[i]);
 		}
+		/// 3 = plataforma
 		else if (listaEntidades[i]->getID() == 3) {
 			listaPlataformas.addEntidade(listaEntidades[i]);
 		}
@@ -89,31 +96,19 @@ void FaseCastelo::update()
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 				listaEntidades[i]->update();
 		}	
-		
-
-
-
 		sf::Vector2f pos;
 		if (pJogador->getPosicao().y < 300.0f) {
 			pos = sf::Vector2f(pJogador->getCorpo().getPosition().x - 1200/2.0f, -200 );
         }
         else {
-
 			pos = sf::Vector2f(pJogador->getCorpo().getPosition().x - 1200 / 2.0f , 300 );
         }
 		background.setPosition(pos);
 		view.setCenter(pJogador->getCorpo().getPosition().x, 300);
-		
-		printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
-
-
-
-
-
 		this->GerenciadorColisao->updateColisao();
 
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
-			pGrafico->desenhaElementos(listaEntidades[i]->getCorpo());
+			listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
 			pGrafico->desenhaElementos(pJogador->getCorpoEspada());
 		}
 		pGrafico->mostraElementos();

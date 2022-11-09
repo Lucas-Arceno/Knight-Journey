@@ -26,6 +26,7 @@ void Cobra::update()
 {
 	updateMovimento();
 	updatePhysics();	
+	verificaDano();
 }
 
 void Cobra::updateMovimento()

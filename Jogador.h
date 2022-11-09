@@ -1,8 +1,8 @@
 #pragma once
-#include "Entidade.h"
+#include "Personagem.h"
 #include <iostream>
 
-class Jogador : public Entidade
+class Jogador : public Personagem
 {
 private:
 	sf::Sprite sprite;
@@ -29,9 +29,6 @@ public:
 
 	//Pulo manager
 	void setColdownPulo(bool cd) { this->coldownPulo = cd; }
-
-	//Colisao Janela
-	void collisionWindow(unsigned int y);
 
 	//Movimentacao Jogador
 	void move(const float dir_x, const float dir_y);
