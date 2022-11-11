@@ -1,7 +1,6 @@
 #pragma once
 #include "FaseCastelo.h"
 
-
 class Game
 {
 private:

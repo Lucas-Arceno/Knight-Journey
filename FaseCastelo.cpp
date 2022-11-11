@@ -2,7 +2,8 @@
 
 FaseCastelo::FaseCastelo() : Fase()
 {
-
+	this->num_Morcegos = -1;
+	this->num_Cobras = -1;
 	this->background.setSize(sf::Vector2f(1920.0f , 1080.0f));
 	this->backgroundTexture.loadFromFile("assets/castle.png");
 	background.setTexture(&backgroundTexture);
@@ -11,53 +12,11 @@ FaseCastelo::FaseCastelo() : Fase()
 
 	this->GerenciadorColisao = new GerenciadorColisoes(pJogador,&listaInimigos, &listaPlataformas, &listaObstaculos);
 
-									/*cria e add na lista entidades geral*/
-	//plataformas(posicao, tamanho)
-	
-	//chao
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 900.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2150.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(3200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(3700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(4200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(4700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
-
-	//blocos
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(500.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(700.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(950.0f, 400.0f), sf::Vector2f(50.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1200.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1400.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2050.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
-
-	//jogadores
 	listaEntidades.addEntidade(pJogador);
 
-	//inimigos
-	listaEntidades.addEntidade(new Morcego(&listaEntidades,pJogador, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.0f, 50.0f)));
-	listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(800.f, 600.f), sf::Vector2f(50.0f, 50.0f)));
-	listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(2500.f, 400.f), sf::Vector2f(75.f, 125.f)));
-	//obstaculos
-	//teias
-	listaEntidades.addEntidade(new Caixa(sf::Vector2f(400.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
-	listaEntidades.addEntidade(new Caixa(sf::Vector2f(300.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
-	listaEntidades.addEntidade(new Caixa(sf::Vector2f(200.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
-	listaEntidades.addEntidade(new Caixa(sf::Vector2f(100.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
-	//espinhos
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(850.f, 625.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(1000.f, 625.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(2000.f, 800.f)));
-
-	//portais
-	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
-	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+	criaMapa();
+	criaInimigos();
+	criaObstaculos();
 
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 1 = teia
@@ -82,6 +41,68 @@ FaseCastelo::FaseCastelo() : Fase()
 
 FaseCastelo::~FaseCastelo()
 {
+}
+
+void FaseCastelo::criaMapa()
+{
+	//chao
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 900.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2150.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(3200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(3700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(4200.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(4700.0f, 700.0f), sf::Vector2f(500.0f, 50.0f)));
+
+	//blocos
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(500.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(700.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(950.0f, 400.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1200.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1400.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2050.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+}
+
+void FaseCastelo::criaInimigos()
+{
+	std::srand(std::time(0));
+
+	this->num_Cobras = std::rand() % (15 + 1 - 3) + 5;
+	this->num_Morcegos = std::rand() % (15 + 1 - 3) + 5;
+
+
+
+	for (int i = 0; i < num_Cobras; i++) {
+		listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(500.f + (100.f * i), 600.f), sf::Vector2f(100.0f, 100.0f)));
+	}
+	for (int i = 0; i < num_Morcegos; i++) {
+		listaEntidades.addEntidade(new Morcego(&listaEntidades, pJogador, sf::Vector2f(500.f + (100.f * i), 400.f), sf::Vector2f(50.0f, 50.0f)));
+	}
+
+}
+
+void FaseCastelo::criaObstaculos()
+{
+
+	//teias
+	listaEntidades.addEntidade(new Caixa(sf::Vector2f(400.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
+	listaEntidades.addEntidade(new Caixa(sf::Vector2f(300.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
+	listaEntidades.addEntidade(new Caixa(sf::Vector2f(200.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
+	listaEntidades.addEntidade(new Caixa(sf::Vector2f(100.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
+	//espinhos
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(850.f, 625.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(1000.f, 625.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(2000.f, 800.f)));
+
+	//portais
+	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 }
 
 void FaseCastelo::update()

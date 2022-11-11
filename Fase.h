@@ -1,5 +1,8 @@
 #pragma once
 
+#include<cstdlib>
+#include<ctime>
+
 #include "GerenciadorEvento.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorColisoes.h"

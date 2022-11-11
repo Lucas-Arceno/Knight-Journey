@@ -27,7 +27,7 @@ void Jogador::initVariables()
 	this->corpo.setTexture(&texture);
 
 	//Espada e afins
-	this->Espada.setSize(sf::Vector2f(70.f, 10.f));
+	this->Espada.setSize(sf::Vector2f(70.f, 50.f));
 	this->Espada.setPosition(sf::Vector2f(0.0f, 5000.0f));
 	this->Espada.setFillColor(sf::Color::Green);
 	this->Espada.setOrigin(this->Espada.getSize() / 2.0f);

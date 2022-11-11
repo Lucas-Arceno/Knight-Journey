@@ -15,6 +15,7 @@ Inimigo::~Inimigo()
 void Inimigo::verificaDano()
 {
 	if (pJogador->getCorpoEspada().getGlobalBounds().intersects(this->getCorpo().getGlobalBounds())) {
+		printf("%d\n", this->getVida());
 		if (this->getVida() <= 0) {
 			this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
 		}
