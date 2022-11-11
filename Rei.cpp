@@ -16,6 +16,14 @@ void Rei::update() {
 	updateMovimento();
 	updatePhysics();
 	verificaDano();
+
+	// cooldown do pulo
+	this->i++;
+	if (this->i > 200) {
+		this->cooldownPulo = false;
+		this->i = 0;
+		std::cout << "COOLDOWN REI" << std::endl;
+	}
 }
 
 void Rei::updateMovimento() {
@@ -44,11 +52,5 @@ void Rei::ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 	if (cooldownPulo == false) {
 		this->velocidade.y -= 30.0 * this->gravity;
 		this->cooldownPulo = true;
-	}
-	this->i++;
-	if (this->i > 200) {
-		this->cooldownPulo = false;
-		this->i = 0;
-		std::cout << "COOLDOWN REI" << std::endl;
 	}
 }
