@@ -15,6 +15,7 @@
 #include "Inimigo.h"
 #include "Cobra.h"
 #include "Morcego.h"
+#include "Rei.h"
 
 
 class Fase

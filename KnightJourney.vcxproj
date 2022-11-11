@@ -155,12 +155,16 @@
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="KnightJourney.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Morcego.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="Projetil.cpp" />
+    <ClCompile Include="Rei.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="Stateman.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Caixa.h" />
@@ -179,12 +183,16 @@
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Morcego.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="Projetil.h" />
+    <ClInclude Include="Rei.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="Stateman.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

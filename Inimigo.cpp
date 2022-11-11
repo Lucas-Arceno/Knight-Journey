@@ -18,7 +18,7 @@ void Inimigo::verificaDano()
 		if (this->getVida() <= 0) {
 			this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
 		}
-		this->setVida(25);
+		this->giveDano(25);
 	}
 }
 

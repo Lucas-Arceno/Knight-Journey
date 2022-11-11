@@ -12,14 +12,14 @@ Projetil::~Projetil() {
 
 }
 
-// Redundante 
+ 
 void Projetil::update()
 {
 	updatePhysics();
 	updateMovimento();
 }
 
-// Redundante 
+
 void Projetil::updateMovimento()
 {
 	//Gravity
@@ -55,12 +55,7 @@ sf::Vector2f Projetil::normalizedVector(sf::Vector2f direcao)
 	return vetorNormalizado;
 }
 
-
 void Projetil::updateProjetil(float posX, float posY) {
-	updateMovimentoProjetil(posX, posY);
-}
-
-void Projetil::updateMovimentoProjetil(float posX, float posY) {
 	if (colisaoProjetil) { // Reseta o projetil
 		corpo.setPosition(sf::Vector2f(posX, posY));
 

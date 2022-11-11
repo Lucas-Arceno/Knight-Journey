@@ -57,7 +57,7 @@ void GerenciadorColisoes::checkColObstaculos()
 		}
 		if ((*pListaObstaculos)[i]->getID() == 6) {
 			if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-				pJogador->setVida(10);
+				pJogador->giveDano(10);
 				printf("%d\n", pJogador->getVida());
 			}
 		}

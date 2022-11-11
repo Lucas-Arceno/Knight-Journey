@@ -43,7 +43,7 @@ FaseCastelo::FaseCastelo() : Fase()
 	//inimigos
 	listaEntidades.addEntidade(new Morcego(&listaEntidades,pJogador, sf::Vector2f(500.f, 400.f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(800.f, 600.f), sf::Vector2f(50.0f, 50.0f)));
-
+	listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(2500.f, 400.f), sf::Vector2f(75.f, 125.f)));
 	//obstaculos
 	//teias
 	listaEntidades.addEntidade(new Caixa(sf::Vector2f(400.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
@@ -68,8 +68,8 @@ FaseCastelo::FaseCastelo() : Fase()
 		}
 		/// 2 = cobra
 		/// 4 = morcego
-		/// 
-		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4) {
+		/// 5 = rei
+		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4 || listaEntidades[i]->getID() == 5) {
 			listaInimigos.addEntidade(listaEntidades[i]);
 		}
 		/// 3 = plataforma

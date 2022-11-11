@@ -111,10 +111,10 @@ void Jogador::updateMovimento()
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && coldownPulo == true)){
 		this->velocidade.y -= 20.0 * this->gravity;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		atacarEsq();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
+	else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
 		atacarDir();
 	}
 }

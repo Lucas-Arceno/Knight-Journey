@@ -9,10 +9,15 @@ Personagem::~Personagem()
 {
 }
 
-void Personagem::setVida(int dano) {
+void Personagem::giveDano(int dano) {
 	this->vida = this->vida - dano;
+}
+
+void Personagem::setVida(int vida) {
+	this->vida = vida;
 }
 
 int Personagem::getVida() {
 	return this->vida;
 }
+
