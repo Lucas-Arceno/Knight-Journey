@@ -89,20 +89,32 @@ void FaseCastelo::criaInimigos()
 
 void FaseCastelo::criaObstaculos()
 {
+	std::srand(std::time(0));
+	this->num_Espinhos = std::rand() % (15 + 1 - 3) + 5;
+	this->num_Portais = std::rand() % (15 + 1 - 3) + 5;
+	this->num_Teias = std::rand() % (15 + 1 - 3) + 5;
 
-	//teias
-	listaEntidades.addEntidade(new Caixa(sf::Vector2f(400.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
-	listaEntidades.addEntidade(new Caixa(sf::Vector2f(300.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
-	listaEntidades.addEntidade(new Caixa(sf::Vector2f(200.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
-	listaEntidades.addEntidade(new Caixa(sf::Vector2f(100.0f, 300.0f), sf::Vector2f(100.0f, 100.0f)));
-	//espinhos
+	for (int i = 0; i < num_Espinhos; i++) {
+		
+	}
+
+	for (int i = 0; i < num_Teias; i++) {
+		
+	}
+
+	for (int i = 0; i < num_Portais; i++) {
+		
+	}
+
+	num_Espinhos = num_Espinhos + 3;
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(850.f, 625.f)));
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(1000.f, 625.f)));
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(2000.f, 800.f)));
 
-	//portais
+	num_Portais = num_Portais + 2;
 	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+
 }
 
 void FaseCastelo::update()
