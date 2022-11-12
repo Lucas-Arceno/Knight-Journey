@@ -155,6 +155,7 @@
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="KnightJourney.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Morcego.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Morcego.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />

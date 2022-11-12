@@ -1,5 +1,6 @@
 #pragma once
 #include "Fase.h"
+#include "Menu.h"
 
 class FaseCastelo : public Fase 
 {

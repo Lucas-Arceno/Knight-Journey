@@ -120,10 +120,12 @@ void FaseCastelo::criaObstaculos()
 void FaseCastelo::update()
 {
 	sf::View view;
+	Menu Menu(1200, 800);
 	while (pGrafico->verificaJanelaAberta()) {
 		pEvento->exec();
 		pGrafico->limpaJanela();
-		pGrafico->getJanela()->setView(view);
+
+		/*pGrafico->getJanela()->setView(view);
 		pGrafico->desenhaElementos(this->background);
 
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
@@ -143,9 +145,11 @@ void FaseCastelo::update()
 		for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 			listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
 			pGrafico->desenhaElementos(pJogador->getCorpoEspada());
-		}
+		}*/
+		Menu.Update();
+		Menu.draw(*pGrafico->getJanela());
 		pGrafico->mostraElementos();
-		pJogador->setEspadaPosicao(sf::Vector2f(0.0f, 5000.0f));
+		//pJogador->setEspadaPosicao(sf::Vector2f(0.0f, 5000.0f));
 	}
 }
 
