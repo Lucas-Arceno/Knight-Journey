@@ -18,7 +18,7 @@ public:
 	Menu(float widht, float height);
 	~Menu();
 
-	void Update();
+	void Update(int& aux);
 	void draw(sf::RenderWindow& window);
 	void MoveUp();
 	void MoveDown();

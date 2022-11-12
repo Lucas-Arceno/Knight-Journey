@@ -38,7 +38,7 @@ Menu::~Menu()
 {
 }
 
-void Menu::Update() {
+void Menu::Update(int& aux) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
 	}
@@ -53,6 +53,7 @@ void Menu::Update() {
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
 					printf("botao 1");
+					aux = 0;
 				}
 				else if (selectedItemIndex == 1) {
 					printf("botao 2");
