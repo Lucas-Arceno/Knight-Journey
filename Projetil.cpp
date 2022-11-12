@@ -56,7 +56,7 @@ sf::Vector2f Projetil::normalizedVector(sf::Vector2f direcao)
 }
 
 void Projetil::updateProjetil(float posX, float posY) {
-	if (colisaoProjetil) { // Reseta o projetil
+	if (colisaoProjetil) { 
 		corpo.setPosition(sf::Vector2f(posX, posY));
 
 		posJogador = pJogador->getCorpo().getPosition();
@@ -69,7 +69,9 @@ void Projetil::updateProjetil(float posX, float posY) {
 		contTempVida = 0;
 	}
 	else {
-		//cout << "JOGADOR x e y : " << posJogador.x << " " << posJogador.y << " MORCEGO x e y : " << posX << " " << posY << endl;
+		if (fabs(pJogador->getCorpo().getPosition().x - this->corpo.getPosition().x) > 300 || fabs(pJogador->getCorpo().getPosition().y - this->corpo.getPosition().y) > 1000) {
+			this->corpo.setPosition(sf::Vector2f(5000.f, 2000.f));
+		}
 		corpo.setPosition(corpo.getPosition() + 10.0f * Direcao); // Movimento da bala, velocidade constante.
 		if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {
 			printf("Acertou\n");

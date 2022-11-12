@@ -20,14 +20,24 @@ Game::~Game()
 void Game::exec()
 {
 	Menu Menu(1200, 800);
-	int i = 1;
-	while (pGrafico->verificaJanelaAberta() && i == 1) {
-		pEvento->exec();
-		pGrafico->limpaJanela();
-		Menu.Update(i);
-		Menu.draw(*pGrafico->getJanela());
-		pGrafico->mostraElementos();
-	}
 	FaseCastelo Castelo;
-	Castelo.update();
+	int i = 1;
+	while (i != -1) {
+		while (pGrafico->verificaJanelaAberta() && i != -1) {
+			pEvento->exec();
+			pGrafico->limpaJanela();
+			if (i == 2) {
+				Menu.Update(i);
+				Menu.draw(*pGrafico->getJanela());
+				pGrafico->mostraElementos();
+			}
+			else if (i == 1) {
+				if (Castelo.checkTerminou()) {
+					i = 2;
+				}
+				Castelo.update();
+			}
+			pGrafico->mostraElementos();
+		}
+	}
 }

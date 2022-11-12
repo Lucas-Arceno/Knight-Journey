@@ -61,7 +61,10 @@ void Morcego::update()
 	updateEmpuxo();
 	verificaDano();
 	// Gambiarra para passar a pos do inimigo
+
+	sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = corpo.getPosition();
+
 	projetil->updateProjetil(posInimigo.x, posInimigo.y);
 }
 
@@ -70,7 +73,7 @@ void Morcego::updateMovimento()
 	sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = corpo.getPosition();
 
-	if (fabs(posJogador.x - posInimigo.x) < 300 && fabs(posJogador.y - posInimigo.y) < 300) {
+	if (fabs(posJogador.x - posInimigo.x) < 300 && fabs(posJogador.y - posInimigo.y) < 1000) {
 		persegueJogador(posJogador, posInimigo);
 	}
 }
