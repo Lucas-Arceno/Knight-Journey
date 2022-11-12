@@ -141,7 +141,7 @@ bool FaseCastelo::checkTerminou() {
 	sf::RectangleShape final;
 	final.setSize(sf::Vector2f(100.f, 1000.f));
 	final.setFillColor(sf::Color::Blue);
-	final.setPosition(sf::Vector2f(4700.f, 600.f));
+	final.setPosition(sf::Vector2f(1000.f, 600.f));
 
 	if (pJogador->getCorpo().getGlobalBounds().intersects(final.getGlobalBounds())) {
 		return true;
@@ -158,11 +158,11 @@ void FaseCastelo::update()
 
 void FaseCastelo::render()
 {
-	sf::View view;
+	/*sf::View view;
 	pGrafico->getJanela()->setView(view);
 	pGrafico->desenhaElementos(this->background);
 	view.setCenter(pJogador->getCorpo().getPosition().x, 300);
-	pGrafico->getJanela()->setView(view);
+	pGrafico->getJanela()->setView(view); */
 
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());

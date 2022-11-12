@@ -32,10 +32,10 @@ void Game::exec()
 				pGrafico->mostraElementos();
 			}
 			else if (i == 1) {
-				if (Castelo.checkTerminou()) {
-					i = 2;
+				if (!Castelo.checkTerminou()) {
+					Castelo.update();
 				}
-				Castelo.update();
+				i = 2;
 			}
 			pGrafico->mostraElementos();
 		}
