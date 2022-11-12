@@ -26,16 +26,17 @@ void Game::exec()
 		while (pGrafico->verificaJanelaAberta() && i != -1) {
 			pEvento->exec();
 			pGrafico->limpaJanela();
-			if (i == 2) {
+			if (i == 1) {
 				Menu.Update(i);
 				Menu.draw(*pGrafico->getJanela());
-				pGrafico->mostraElementos();
 			}
-			else if (i == 1) {
+			else if (i == 2) {
 				if (!Castelo.checkTerminou()) {
 					Castelo.update();
 				}
-				i = 2;
+				else {
+					i = 1;
+				}
 			}
 			pGrafico->mostraElementos();
 		}

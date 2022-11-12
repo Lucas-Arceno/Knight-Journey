@@ -63,7 +63,6 @@ void Projetil::updateProjetil(float posX, float posY) {
 		Direcao.x = -(posX - posJogador.x);
 		Direcao.y = -(posY - posJogador.y);
 		Direcao = normalizedVector(Direcao);
-		cout << "DIRECAO BALA : " << Direcao.x << " " << Direcao.y << endl;
 
 		colisaoProjetil = 0;
 		contTempVida = 0;
@@ -74,7 +73,7 @@ void Projetil::updateProjetil(float posX, float posY) {
 		}
 		corpo.setPosition(corpo.getPosition() + 10.0f * Direcao); // Movimento da bala, velocidade constante.
 		if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {
-			printf("Acertou\n");
+			pJogador->giveDano(50);
 			this->corpo.setPosition(sf::Vector2f(5000.f, 2000.f));
 		}
 		contTempVida++;

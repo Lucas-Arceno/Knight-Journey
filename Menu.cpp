@@ -68,6 +68,9 @@ void Menu::Update(int& aux) {
 
 void Menu::draw(sf::RenderWindow& window)
 {
+	sf::View view;
+	pGraphics->getJanela()->setView(view);
+
 	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
 		window.draw(botoes[i]);
 		window.draw(menu[i]);

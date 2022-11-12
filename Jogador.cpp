@@ -1,8 +1,6 @@
 #include "Jogador.h"
 
-int Jogador::vidaJogador = 100;
-
-Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(100)
+Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(500)
 {
 	initVariables();
 	initPhysics();
@@ -14,11 +12,10 @@ Jogador::~Jogador()
 
 void Jogador::initVariables()
 {
-	this->vida = 500;
+	this->vida = vidaMaxima;
 
 	//Personagem e afins
 	this->coldownPulo = false;
-	this->vidaJogador = vidaMaxima;
 	this->corpo.setFillColor(sf::Color::Blue);
 
 	//Textura e cor
@@ -98,6 +95,11 @@ void Jogador::update()
 {
 	updateMovimento();
 	updatePhysics();
+	if(this->getVida() <= 0){
+		printf("Morreu");
+		this->corpo.setPosition(150.f, 600.f);
+		this->vida = vidaMaxima;
+	}
 }
 
 void Jogador::updateMovimento()

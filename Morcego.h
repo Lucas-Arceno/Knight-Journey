@@ -8,6 +8,7 @@ class Morcego : public Inimigo
 {
 private:
 	const int vidaMaxima;
+
 	List::ListaEntidade* pListaEntidade;
 	Projetil* projetil;
 
