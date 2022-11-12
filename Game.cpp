@@ -20,6 +20,8 @@ Game::~Game()
 void Game::exec()
 {
 	Menu Menu(1200, 800);
+	MenuFases MenuFases(1200, 800);
+	FasePalacio Palacio;
 	FaseCastelo Castelo;
 	int i = 1;
 	while (i != -1) {
@@ -35,8 +37,15 @@ void Game::exec()
 					Castelo.update();
 				}
 				else {
-					i = 1;
+					i = 4;
 				}
+			}
+			else if (i == 3) {
+				MenuFases.Update(i);
+				MenuFases.draw(*pGrafico->getJanela());
+			}
+			else if (i == 4) {
+				Palacio.update();
 			}
 			pGrafico->mostraElementos();
 		}

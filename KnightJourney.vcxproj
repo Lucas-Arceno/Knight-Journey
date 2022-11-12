@@ -147,6 +147,7 @@
     <ClCompile Include="Espinhos.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="FaseCastelo.cpp" />
+    <ClCompile Include="FasePalacio.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEvento.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="KnightJourney.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuFases.cpp" />
     <ClCompile Include="Morcego.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
@@ -173,6 +175,7 @@
     <ClInclude Include="Espinhos.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="FaseCastelo.h" />
+    <ClInclude Include="FasePalacio.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEvento.h" />
@@ -182,6 +185,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuFases.h" />
     <ClInclude Include="Morcego.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />

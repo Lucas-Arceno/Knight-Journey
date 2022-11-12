@@ -1,25 +1,20 @@
 #pragma once
 #include "Fase.h"
 
-class FaseCastelo : public Fase 
+class FasePalacio : public Fase
 {
 private:
 	Jogador* pJogador;
 
-	listaPos listaPosCobras[30];
-	listaPos listaPosMorcegos[30];
-	listaPos listaPosObstaculos[40];
+	listaPos listaPosCobras[20];
+	listaPos listaPosObstaculus[20];
 
-
-	int num_Morcegos;
 	int num_Cobras;
-	int num_Espinhos;
-	int num_Portais;
 	int num_Teias;
-
+	int num_Portais;
 public:
-	FaseCastelo();
-	~FaseCastelo();
+	FasePalacio();
+	~FasePalacio();
 
 	void setPosicoesLivres();
 

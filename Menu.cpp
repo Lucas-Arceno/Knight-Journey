@@ -53,13 +53,14 @@ void Menu::Update(int& aux) {
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
 					printf("botao 1");
-					aux = 2;
+					aux = 3;
 				}
 				else if (selectedItemIndex == 1) {
 					printf("botao 2");
 				}
 				else if (selectedItemIndex == 2) {
 					printf("botao 3");
+					exit(1);
 				}
 			}
 		}

@@ -20,6 +20,10 @@
 #include "Morcego.h"
 #include "Rei.h"
 
+struct listaPos {
+	sf::Vector2f cord;
+	bool isLivre = true;
+};
 
 class Fase
 {

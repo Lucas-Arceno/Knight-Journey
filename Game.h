@@ -1,6 +1,8 @@
 #pragma once
 #include "FaseCastelo.h"
+#include "FasePalacio.h"
 #include "Menu.h"
+#include "MenuFases.h"
 
 class Game
 {
