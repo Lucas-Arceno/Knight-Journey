@@ -4,6 +4,7 @@ Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posi
 {
 	initVariables();
 	initPhysics();
+	invFrame = 0;
 }
 
 Jogador::~Jogador()
@@ -55,6 +56,15 @@ sf::RectangleShape Jogador::getCorpoEspada()
 	return Espada;
 }
 
+int Jogador::getInvFrame()
+{
+	return invFrame;
+}
+
+void Jogador::setInvFrame()
+{
+	invFrame = 1;
+}
 void Jogador::atacarDir()
 {
 	this->Espada.setPosition(this->corpo.getPosition().x + 50, this->corpo.getPosition().y);
@@ -99,6 +109,12 @@ void Jogador::update()
 		printf("Morreu");
 		this->corpo.setPosition(150.f, 600.f);
 		this->vida = vidaMaxima;
+	}
+	
+	if (invFrame > 0) {
+		invFrame++;
+		if (invFrame > 50)
+			invFrame = 0;
 	}
 }
 

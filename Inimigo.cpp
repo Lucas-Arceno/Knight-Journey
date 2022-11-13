@@ -33,9 +33,10 @@ void Inimigo::updateDano(int dano)
 	}
 
 	// Dano do inimigo no player
-	else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {
+	else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds()) && pJogador->getInvFrame() == 0) {
 		printf("dano player %d\n", pJogador->getVida());
 		pJogador->giveDano(dano);
+		pJogador->setInvFrame();
 	}
 }
 
@@ -48,7 +49,7 @@ void Inimigo::randomMovimento()
 		this->corpo.move(-1.f, 0.0f);
 	}
 
-	if (cont_mov > 300) {
+	if (cont_mov > 250) {
 		cont_mov = rand() % 50;
 		dir_mov = -(dir_mov);
 	}

@@ -12,6 +12,9 @@ private:
 	bool coldownPulo;
 
 	const int vidaMaxima;
+
+	int invFrame; // Frame de invencibilidade.
+
 public:
 	//Constructors
 	Jogador(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
@@ -34,6 +37,10 @@ public:
 
 	//Espada
 	sf::RectangleShape getCorpoEspada();
+
+	//iFrame
+	int getInvFrame();
+	void setInvFrame();
 
 	//Ataque
 	void atacarDir();
