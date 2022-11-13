@@ -30,6 +30,10 @@ void Inimigo::updateDano(int dano)
 			this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
 		}
 		this->giveDano(25);
+		
+		//int pont = 1;
+		//	if (this->id == 5) { pont = 2; }
+		pJogador->givePontuacao(1);
 	}
 
 	// Dano do inimigo no player

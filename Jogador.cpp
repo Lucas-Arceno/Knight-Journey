@@ -5,6 +5,7 @@ Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posi
 	initVariables();
 	initPhysics();
 	invFrame = 0;
+	pontos = 0;
 }
 
 Jogador::~Jogador()
@@ -65,6 +66,13 @@ void Jogador::setInvFrame()
 {
 	invFrame = 1;
 }
+
+void Jogador::givePontuacao(int pts) 
+{
+	pontos = pontos + pts;
+	printf("pontuacao %d \n", pontos);
+}
+
 void Jogador::atacarDir()
 {
 	this->Espada.setPosition(this->corpo.getPosition().x + 50, this->corpo.getPosition().y);

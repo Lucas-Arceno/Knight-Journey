@@ -15,6 +15,8 @@ private:
 
 	int invFrame; // Frame de invencibilidade.
 
+	int pontos; // Pontuação
+
 public:
 	//Constructors
 	Jogador(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
@@ -41,6 +43,9 @@ public:
 	//iFrame
 	int getInvFrame();
 	void setInvFrame();
+
+	//Pontuação
+	void givePontuacao(int pts);
 
 	//Ataque
 	void atacarDir();
