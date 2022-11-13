@@ -20,9 +20,6 @@ FaseCastelo::FaseCastelo() : Fase()
 	criaInimigos();
 	criaObstaculos();
 
-	// REI - PARA TESTES//
-	listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(500.0f, 500.0f), sf::Vector2f(100.0f, 100.0f))); 
-
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 1 = teia
 		/// 6 = espinhos
@@ -50,6 +47,7 @@ FaseCastelo::~FaseCastelo()
 
 void FaseCastelo::setPosicoesLivres()
 {
+	//PARTE DOS INIMIGOS
 	int j = 9;
 	int k = 9;
 	for (int i = 0; i < 30; i++) {
@@ -70,12 +68,12 @@ void FaseCastelo::setPosicoesLivres()
 			j++;
 		}
 	}
-
+	//PARTE DOS OBSTACULOS
 	for (int i = 0; i < 20; i++) {
 		if (i <= 20) {
-			listaPosObstaculos[i].cord = sf::Vector2f(250.0f * i + 150, 625.f);
+			listaPosObstaculos[i].cord = sf::Vector2f(250.0f * i + 300, 625.f);
 		}
-		listaPosObstaculos[19+i].cord = sf::Vector2f(250.0f * i + 200, 250.0f);
+		listaPosObstaculos[19+i].cord = sf::Vector2f(250.0f * i + 300, 250.0f);
 	}
 }
 
@@ -102,25 +100,21 @@ void FaseCastelo::criaMapa()
 			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f + (i * 500), 350.0f), sf::Vector2f(500.0f, 50.0f)));
 		}
 	}
+
+	//"teto" dos corredos de cima
 	for (int i = 0; i < 6; i++) {
 		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f + (i * 500), 50.0f), sf::Vector2f(500.0f, 50.0f)));
 	}
-	for (int i = 0; i < 15; i++) {
-		if (i <= 2){
-			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(5000.0f + (i * 500), 700.0f + (i * 50)), sf::Vector2f(500.0f, 50.0f)));
-		}
-		else {
-			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(5000.0f + (i * 500), 900.0f - (i * 50)), sf::Vector2f(500.0f, 50.0f)));
-		}
-	}
-	//blocos
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(500.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+
+	//torres do comeco fase
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(450.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(700.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(950.0f, 400.0f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1200.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1400.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1450.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2050.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
 
+	//sorteia qual caminho vai ficar liberado 
 	int aux_rand = rand() % 3;
 	if (aux_rand == 2) {
 		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(5000.0f, 200.0f), sf::Vector2f(200.0f, 350.0f)));
@@ -131,7 +125,13 @@ void FaseCastelo::criaMapa()
 		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(3600.0f, 200.0f), sf::Vector2f(200.0f, 350.0f)));
 	}
 
+	//plataforma que permite o jogador voltar/descer entre os andares
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(4000.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+
+	//quadrados do final q tem pular
+	for (int i = 0; i < 10; i++) {
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(5250.0f + (150 * i), 600.0f), sf::Vector2f(50.0f, 50.0f)));
+	}
 	
 }
 
@@ -178,7 +178,7 @@ void FaseCastelo::criaObstaculos()
 		while (!(listaPosObstaculos[aux3].isLivre)) {
 			aux3 = rand() % 40;
 		}
-		listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
 		listaPosObstaculos[aux3].isLivre = false;
 	}
 
@@ -193,6 +193,21 @@ void FaseCastelo::criaObstaculos()
 
 }
 
+int const FaseCastelo::getPontuacao()
+{
+	return this->pJogador->getPontucao();
+}
+
+
+bool FaseCastelo::checkMorreu()
+{
+	if (pJogador->getVida() <= 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 bool FaseCastelo::checkTerminou() {
 	sf::RectangleShape final;
@@ -219,12 +234,9 @@ void FaseCastelo::update()
 
 void FaseCastelo::render()
 {
-	sf::View view;
-	pGrafico->getJanela()->setView(view);
+	pGrafico->setView(sf::Vector2f(pJogador->getCorpo().getPosition().x, 300));
 	pGrafico->desenhaElementos(this->background);
-	view.setCenter(pJogador->getCorpo().getPosition().x, 300);
-	pGrafico->getJanela()->setView(view); 
-	
+
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
 		pGrafico->desenhaElementos(pJogador->getCorpoEspada());

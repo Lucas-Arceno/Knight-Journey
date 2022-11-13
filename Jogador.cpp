@@ -67,7 +67,12 @@ void Jogador::setInvFrame()
 	invFrame = 1;
 }
 
-void Jogador::givePontuacao(int pts) 
+int Jogador::getPontucao()
+{
+	return this->pontos;
+}
+
+void Jogador::givePontuacao(int pts)
 {
 	pontos = pontos + pts;
 	printf("pontuacao %d \n", pontos);

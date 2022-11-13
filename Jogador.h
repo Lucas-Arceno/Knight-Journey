@@ -45,6 +45,7 @@ public:
 	void setInvFrame();
 
 	//Pontuação
+	int getPontucao();
 	void givePontuacao(int pts);
 
 	//Ataque

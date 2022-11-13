@@ -6,7 +6,7 @@ class FaseCastelo : public Fase
 private:
 	Jogador* pJogador;
 
-	listaPos listaPosCobras[30];
+	listaPos listaPosCobras[50];
 	listaPos listaPosMorcegos[30];
 	listaPos listaPosObstaculos[40];
 
@@ -27,6 +27,9 @@ public:
 	void criaInimigos();
 	void criaObstaculos();
 
+	const int getPontuacao();
+
+	bool checkMorreu();
 	bool checkTerminou();
 
 	void update();

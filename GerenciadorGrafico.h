@@ -23,5 +23,6 @@ public:
 	void desenhaElementos(sf::RectangleShape body);
 	void mostraElementos();
 	void fechaJanela();
+	void setView(sf::Vector2f(pos));
 };
 

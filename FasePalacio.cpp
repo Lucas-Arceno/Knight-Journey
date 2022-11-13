@@ -50,8 +50,8 @@ void FasePalacio::setPosicoesLivres()
 
 void FasePalacio::criaMapa()
 {
-	for (int i = 0; i < 4; i++) {
-		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 50.0f)));
+	for (int i = 0; i < 15; i++) {
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 50.0f), "assets/chao.png"));
 	}
 }
 
@@ -76,9 +76,7 @@ void FasePalacio::update()
 
 void FasePalacio::render()
 {
-	sf::View view;
-	pGrafico->getJanela()->setView(view);
-
+	pGrafico->setView(sf::Vector2f(pJogador->getCorpo().getPosition().x, 300.0f));
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
 		pGrafico->desenhaElementos(pJogador->getCorpoEspada());

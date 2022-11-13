@@ -1,5 +1,9 @@
 #include "Game.h"
 
+struct Ranking {
+	int pontos;
+};
+
 Game::Game() : pGrafico(pGrafico->getGerenciadorGrafico()), pEvento(pEvento->getGerenciadorEvento())
 {
 	if (pGrafico == nullptr) {
@@ -21,8 +25,12 @@ void Game::exec()
 {
 	Menu Menu(1200, 800);
 	MenuFases MenuFases(1200, 800);
-	FasePalacio Palacio;
+	MenuGameOver MenuGameOver(1200, 800);
 	FaseCastelo Castelo;
+	FasePalacio Palacio;
+
+	Ranking ListaPontos[10];
+
 	int i = 1;
 	while (i != -1) {
 		while (pGrafico->verificaJanelaAberta() && i != -1) {
@@ -35,6 +43,9 @@ void Game::exec()
 			else if (i == 2) {
 				if (!Castelo.checkTerminou()) {
 					Castelo.update();
+					if (Castelo.checkMorreu()) {
+						i = 5;
+					}
 				}
 				else {
 					i = 4;
@@ -46,6 +57,13 @@ void Game::exec()
 			}
 			else if (i == 4) {
 				Palacio.update();
+			}
+			else if (i == 5) {
+				MenuGameOver.Update(i);
+				MenuGameOver.draw(*pGrafico->getJanela());
+			}
+			else if (i == 6) {
+				ListaPontos[1].pontos = Castelo.getPontuacao();
 			}
 			pGrafico->mostraElementos();
 		}

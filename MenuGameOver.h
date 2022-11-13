@@ -1,24 +1,20 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "GerenciadorGrafico.h"
-#include "Botao.h"
 
-#define MAX_NUMBER_OF_ITEMS 3
-
-class Menu
+class MenuGameOver
 {
 private:
 	int selectedItemIndex;
 
 	GerenciadorGrafico* pGraphics;
 
-	Botao botoes[MAX_NUMBER_OF_ITEMS];
-
 	sf::Font font;
-	sf::Text menu[MAX_NUMBER_OF_ITEMS];
+	sf::RectangleShape botoes[2];
+	sf::Text menu[2];
 public:
-	Menu(float widht, float height);
-	~Menu();
+	MenuGameOver(float widht, float height);
+	~MenuGameOver();
 
 	void Update(int& aux);
 	void draw(sf::RenderWindow& window);

@@ -62,3 +62,10 @@ void GerenciadorGrafico::fechaJanela()
 {
 	window->close();
 }
+
+void GerenciadorGrafico::setView(sf::Vector2f(pos))
+{
+	sf::View view;
+	view.setCenter(pos);
+	this->getJanela()->setView(view);
+}
