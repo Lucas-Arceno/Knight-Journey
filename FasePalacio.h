@@ -20,6 +20,8 @@ public:
 
 	void setPosicoesLivres();
 
+	void checkQuarto();
+
 	void criaMapa();
 	void criaInimigos();
 	void criaObstaculos();
