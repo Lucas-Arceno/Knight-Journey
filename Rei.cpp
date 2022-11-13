@@ -66,9 +66,9 @@ void Rei::ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 	// PENSAR EM MANEIRAS DE PEGAR APENAS A COLISÃO INFERIOR DO REI OU A SUPERIOR DO JOGADOR.
 	// REI CONTINUA EMPURRANDO JOGADOR
 	if (cont_DMG < 100) {
-		updateDano(5000);
+		updateDano(5);
 	}
 	else {
-		updateDano(300);
+		updateDano(2);
 	}
 }

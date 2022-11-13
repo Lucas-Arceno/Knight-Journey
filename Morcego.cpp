@@ -59,7 +59,7 @@ void Morcego::update()
 	updateMovimento();
 	updatePhysics();
 	updateEmpuxo();
-	updateDano(10);
+	updateDano(1);
 	
 	// Gambiarra para passar a pos do inimigo
 	sf::Vector2f posInimigo = corpo.getPosition();

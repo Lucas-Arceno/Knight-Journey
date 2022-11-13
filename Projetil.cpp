@@ -73,7 +73,7 @@ void Projetil::updateProjetil(float posX, float posY) {
 		}
 		corpo.setPosition(corpo.getPosition() + 10.0f * Direcao); // Movimento da bala, velocidade constante.
 		if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {
-			pJogador->giveDano(50);
+			pJogador->giveDano(1);
 			this->corpo.setPosition(sf::Vector2f(5000.f, 2000.f));
 		}
 		contTempVida++;

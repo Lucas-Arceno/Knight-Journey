@@ -1,6 +1,6 @@
 #include "Jogador.h"
 
-Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(500)
+Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(5)
 {
 	initVariables();
 	initPhysics();

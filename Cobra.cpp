@@ -33,10 +33,10 @@ void Cobra::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 void Cobra::darBote()
 {
 	if (this->venenosa == true) {
-		updateDano(100);
+		updateDano(2);
 	}
 	else {
-		updateDano(50);
+		updateDano(1);
 	}
 
 
