@@ -158,6 +158,7 @@
     <ClCompile Include="KnightJourney.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuBase.cpp" />
     <ClCompile Include="MenuFases.cpp" />
     <ClCompile Include="MenuGameOver.cpp" />
     <ClCompile Include="Morcego.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuBase.h" />
     <ClInclude Include="MenuFases.h" />
     <ClInclude Include="MenuGameOver.h" />
     <ClInclude Include="Morcego.h" />

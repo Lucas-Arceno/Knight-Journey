@@ -1,17 +1,10 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "GerenciadorGrafico.h"
+#include "MenuBase.h"
 
-class MenuFases
+class MenuFases : public MenuBase
 {
 private:
-	int selectedItemIndex;
 
-	GerenciadorGrafico* pGraphics;
-
-	sf::Font font;
-	sf::RectangleShape botoes[2];
-	sf::Text menu[2];
 public:
 	MenuFases(float widht, float height);
 	~MenuFases();

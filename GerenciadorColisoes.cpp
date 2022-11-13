@@ -24,7 +24,9 @@ void GerenciadorColisoes::checkColPlataforma()
 	int aux = 0;
 	for (int j = 0; j < pListaInimigos->getTamanho(); j++) {
 		for (int k = 0; k < pListaPlataformas->getTamanho(); k++) {
-			(*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaPlataformas)[k]->GetColisao(), 0.0f);
+			if((*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaPlataformas)[k]->GetColisao(), 0.0f) && (*pListaInimigos)[j]->getID() == 10){
+				(*pListaInimigos)[j]->setCorpoPosicao(sf::Vector2f(-14004.f, 50041.f));
+			}
 		}
 	}
 	for (int h = 0; h < pListaObstaculos->getTamanho(); h++) {

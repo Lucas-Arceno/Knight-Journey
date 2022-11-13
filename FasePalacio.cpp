@@ -50,8 +50,17 @@ void FasePalacio::setPosicoesLivres()
 
 void FasePalacio::criaMapa()
 {
-	for (int i = 0; i < 15; i++) {
-		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 50.0f), "assets/chao.png"));
+	int k = 1;
+	for (int i = 0; i < 10; i++) {
+		if (i <= 5) {
+			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 50.0f), "assets/chao.png"));
+			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i * 500), 100.0f), sf::Vector2f(500.0f, 50.0f), "assets/chao.png"));
+		}
+		else {
+			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400 + (i*100), 700.0f - (50 * k)), sf::Vector2f(100.0f, 50.0f), "assets/chao.png"));
+			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400 + (i * 100), 100.0f - (50 * k)), sf::Vector2f(100.0f, 50.0f), "assets/chao.png"));
+			k++;
+		}
 	}
 }
 

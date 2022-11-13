@@ -1,6 +1,6 @@
 #include "MenuFases.h"
 
-MenuFases::MenuFases(float widht, float height) : pGraphics(pGraphics->getGerenciadorGrafico())
+MenuFases::MenuFases(float widht, float height) : MenuBase(2, widht, height)
 {
 	if (!font.loadFromFile("arial.ttf")) {
 		//handle error
@@ -8,21 +8,15 @@ MenuFases::MenuFases(float widht, float height) : pGraphics(pGraphics->getGerenc
 
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);
-	menu[0].setString("Fase Castelo");
+	menu[0].setString("Fase 1");
 	menu[0].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 1));
-	botoes[0].setSize(sf::Vector2f(200.f, 100.f));
-	botoes[0].setFillColor(sf::Color::Green);
 	botoes[0].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 1));
 
 	menu[1].setFont(font);
-	menu[1].setFillColor(sf::Color::White);
-	menu[1].setString("Fase Palacio");
+	menu[1].setFillColor(sf::Color::Black);
+	menu[1].setString("Fase 2");
 	menu[1].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 2));
-	botoes[1].setSize(sf::Vector2f(200.f, 100.f));
-	botoes[1].setFillColor(sf::Color::Green);
 	botoes[1].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 2));
-
-	selectedItemIndex = 0;
 }
 
 MenuFases::~MenuFases()
@@ -38,7 +32,7 @@ void MenuFases::Update(int& aux) {
 	}
 	for (int i = 0; i < 2; i++) {
 		if (botoes[i].getGlobalBounds().contains(pGraphics->getJanela()->mapPixelToCoords(sf::Mouse::getPosition(*pGraphics->getJanela())))) {
-			menu[selectedItemIndex].setFillColor(sf::Color::White);
+			menu[selectedItemIndex].setFillColor(sf::Color::Black);
 			menu[i].setFillColor(sf::Color::Red);
 			selectedItemIndex = i;
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -61,7 +55,7 @@ void MenuFases::draw(sf::RenderWindow& window)
 	pGraphics->getJanela()->setView(view);
 
 	for (int i = 0; i < 2; i++) {
-		window.draw(botoes[i]);
+		window.draw(botoes[i].getCorpo());
 		window.draw(menu[i]);
 	}
 }

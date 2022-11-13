@@ -38,19 +38,6 @@ void Cobra::darBote()
 	else {
 		updateDano(1);
 	}
-
-
-	
-	//if (pJogador->getCorpo().getGlobalBounds().intersects(this->corpo.getGlobalBounds())) {
-	//	if (this->venenosa == true) {
-	//		pJogador->giveDano(100);
-	//		printf("Cobra venenosa\n");
-	//	}
-	//	else {
-	//		pJogador->giveDano(50);
-	//		printf("Cobra normal\n");
-	//	}
-	//}
 }
 
 void Cobra::update()

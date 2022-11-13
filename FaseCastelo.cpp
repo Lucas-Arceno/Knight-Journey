@@ -30,7 +30,8 @@ FaseCastelo::FaseCastelo() : Fase()
 		/// 2 = cobra
 		/// 4 = morcego
 		/// 5 = rei
-		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4 || listaEntidades[i]->getID() == 5) {
+		/// 10 = projetil
+		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4 || listaEntidades[i]->getID() == 5 || listaEntidades[i]->getID() == 10 ) {
 			listaInimigos.addEntidade(listaEntidades[i]);
 		}
 		/// 3 = plataforma
@@ -81,7 +82,7 @@ void FaseCastelo::criaMapa()
 {
 	//chao
 	for (int i = 0; i < 4; i++) {
-		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i*500), 700.0f), sf::Vector2f(500.0f, 50.0f)));
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i*500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
 	}
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
 
@@ -90,20 +91,20 @@ void FaseCastelo::criaMapa()
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2150.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
 
 	for (int i = 0; i < 6; i++) {
-		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 50.0f)));
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
 	}
 	for (int i = 0; i < 6; i++) {
 		if (i == 3) {
 			continue;
 		}
 		else {
-			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f + (i * 500), 350.0f), sf::Vector2f(500.0f, 50.0f)));
+			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f + (i * 500), 350.0f), sf::Vector2f(500.0f, 70.0f)));
 		}
 	}
 
 	//"teto" dos corredos de cima
 	for (int i = 0; i < 6; i++) {
-		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f + (i * 500), 50.0f), sf::Vector2f(500.0f, 50.0f)));
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400.0f + (i * 500), 50.0f), sf::Vector2f(500.0f, 70.0f)));
 	}
 
 	//torres do comeco fase
@@ -213,7 +214,7 @@ bool FaseCastelo::checkTerminou() {
 	sf::RectangleShape final;
 	final.setSize(sf::Vector2f(100.f, 10000.f));
 	final.setFillColor(sf::Color::Blue);
-	final.setPosition(sf::Vector2f(70000.f, 0.f));
+	final.setPosition(sf::Vector2f(6600.0f, 515.0f));
 
 	if (pJogador->getCorpo().getGlobalBounds().intersects(final.getGlobalBounds())) {
 		pJogador->setPosition(150.f, 600.f);
@@ -229,7 +230,7 @@ void FaseCastelo::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
-	//printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
+	printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
 }
 
 void FaseCastelo::render()

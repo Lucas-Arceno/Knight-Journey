@@ -1,21 +1,9 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "GerenciadorGrafico.h"
-#include "Botao.h"
+#include "MenuBase.h"
 
-#define MAX_NUMBER_OF_ITEMS 3
-
-class Menu
+class Menu : public MenuBase
 {
 private:
-	int selectedItemIndex;
-
-	GerenciadorGrafico* pGraphics;
-
-	Botao botoes[MAX_NUMBER_OF_ITEMS];
-
-	sf::Font font;
-	sf::Text menu[MAX_NUMBER_OF_ITEMS];
 public:
 	Menu(float widht, float height);
 	~Menu();

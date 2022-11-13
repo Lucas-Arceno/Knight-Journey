@@ -1,31 +1,34 @@
 #include "Menu.h"
 
-Menu::Menu(float widht, float height) : pGraphics(pGraphics->getGerenciadorGrafico())
+Menu::Menu(float widht, float height) : MenuBase(3, widht, height)
 {
 	if (!font.loadFromFile("arial.ttf")) {
 		//handle error
 	}
 
+	background.setSize(sf::Vector2f(1600, 960));
+	backgroundTexture.loadFromFile("assets/MenuBackground.png");
+	background.setTexture(&backgroundTexture);
+	background.setPosition(sf::Vector2f(-500, 0));
+	background.setScale(1.0, 1.25);
+
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);
 	menu[0].setString("Play");
-	menu[0].setPosition(sf::Vector2f((widht / 2)+45, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
-	botoes[0].setPosition(sf::Vector2f(widht / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+	menu[0].setPosition(sf::Vector2f((widht / 2)+45, height / (3 + 1) * 1));
+	botoes[0].setPosition(sf::Vector2f(widht / 2, height / (3 + 1) * 1));
 
 	menu[1].setFont(font);
-	menu[1].setFillColor(sf::Color::White);
+	menu[1].setFillColor(sf::Color::Black);
 	menu[1].setString("Options");
-	menu[1].setPosition(sf::Vector2f((widht / 2)+25, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
-	botoes[1].setPosition(sf::Vector2f(widht / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
+	menu[1].setPosition(sf::Vector2f((widht / 2)+25, height / (3 + 1) * 2));
+	botoes[1].setPosition(sf::Vector2f(widht / 2, height / (3 + 1) * 2));
 
 	menu[2].setFont(font);
-	menu[2].setFillColor(sf::Color::White);
+	menu[2].setFillColor(sf::Color::Black);
 	menu[2].setString("Exit");
-	menu[2].setPosition(sf::Vector2f((widht / 2)+50, height / (MAX_NUMBER_OF_ITEMS + 1) * 3));
-	botoes[2].setPosition(sf::Vector2f(widht / 2 , height / (MAX_NUMBER_OF_ITEMS + 1) * 3));
-
-	selectedItemIndex = 0;
-
+	menu[2].setPosition(sf::Vector2f((widht / 2)+50, height / (3 + 1) * 3));
+	botoes[2].setPosition(sf::Vector2f(widht / 2 , height / (3 + 1) * 3));
 }
 
 Menu::~Menu()
@@ -39,11 +42,12 @@ void Menu::Update(int& aux) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
 		MoveDown();
 	}
-	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
+	for (int i = 0; i < 3; i++) {
 		if (botoes[i].getGlobalBounds().contains(pGraphics->getJanela()->mapPixelToCoords(sf::Mouse::getPosition(*pGraphics->getJanela())))) {
-			menu[selectedItemIndex].setFillColor(sf::Color::White);
+			menu[selectedItemIndex].setFillColor(sf::Color::Black);
 			menu[i].setFillColor(sf::Color::Red);
 			selectedItemIndex = i;
+			botoes[i].isPressed(true);
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
 					printf("botao 1");
@@ -58,6 +62,9 @@ void Menu::Update(int& aux) {
 				}
 			}
 		}
+		else {
+			botoes[i].isPressed(false);
+		}
 	}
 }
 
@@ -66,7 +73,9 @@ void Menu::draw(sf::RenderWindow& window)
 	sf::View view;
 	pGraphics->getJanela()->setView(view);
 
-	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
+	window.draw(background);
+
+	for (int i = 0; i < 3; i++) {
 		window.draw(botoes[i].getCorpo());
 		window.draw(menu[i]);
 	}
@@ -83,7 +92,7 @@ void Menu::MoveUp()
 
 void Menu::MoveDown()
 {
-	if (selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS) {
+	if (selectedItemIndex + 1 < 3) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
 		selectedItemIndex++;
 		menu[selectedItemIndex].setFillColor(sf::Color::Red);
