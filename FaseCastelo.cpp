@@ -20,6 +20,9 @@ FaseCastelo::FaseCastelo() : Fase()
 	criaInimigos();
 	criaObstaculos();
 
+	// REI - PARA TESTES//
+	listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(500.0f, 500.0f), sf::Vector2f(100.0f, 100.0f))); 
+
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 1 = teia
 		/// 6 = espinhos
@@ -211,7 +214,7 @@ void FaseCastelo::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
-	printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
+	//printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
 }
 
 void FaseCastelo::render()

@@ -32,23 +32,31 @@ void Cobra::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 
 void Cobra::darBote()
 {
-	if (pJogador->getCorpo().getGlobalBounds().intersects(this->corpo.getGlobalBounds())) {
-		if (this->venenosa == true) {
-			pJogador->giveDano(100);
-			printf("Cobra venenosa\n");
-		}
-		else {
-			pJogador->giveDano(50);
-			printf("Cobra normal\n");
-		}
+	if (this->venenosa == true) {
+		updateDano(100);
 	}
+	else {
+		updateDano(50);
+	}
+
+
+	
+	//if (pJogador->getCorpo().getGlobalBounds().intersects(this->corpo.getGlobalBounds())) {
+	//	if (this->venenosa == true) {
+	//		pJogador->giveDano(100);
+	//		printf("Cobra venenosa\n");
+	//	}
+	//	else {
+	//		pJogador->giveDano(50);
+	//		printf("Cobra normal\n");
+	//	}
+	//}
 }
 
 void Cobra::update()
 {
 	updateMovimento();
 	updatePhysics();	
-	verificaDano();
 	darBote();
 }
 
@@ -57,7 +65,8 @@ void Cobra::updateMovimento()
 	sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = corpo.getPosition();
 
-	if (fabs(posJogador.x - posInimigo.x) <= 500 && fabs(posJogador.y - posInimigo.y) <= 500) {
+	if (fabs(posJogador.x - posInimigo.x) <= 300 && fabs(posJogador.y - posInimigo.y) <= 300) {
 		persegueJogador(posJogador, posInimigo);
 	}
+	else randomMovimento();
 }
