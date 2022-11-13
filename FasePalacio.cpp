@@ -3,6 +3,7 @@
 
 FasePalacio::FasePalacio()
 {
+	this->num_sala = 0;
 
 	this->num_Cobras = -1;
 	this->num_Teias = -1;
@@ -50,18 +51,22 @@ void FasePalacio::setPosicoesLivres()
 
 void FasePalacio::criaMapa()
 {
-	int k = 1;
-	for (int i = 0; i < 10; i++) {
-		if (i <= 5) {
-			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 50.0f), "assets/chao.png"));
-			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i * 500), 100.0f), sf::Vector2f(500.0f, 50.0f), "assets/chao.png"));
-		}
-		else {
-			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400 + (i*100), 700.0f - (50 * k)), sf::Vector2f(100.0f, 50.0f), "assets/chao.png"));
-			listaEntidades.addEntidade(new Plataforma(sf::Vector2f(2400 + (i * 100), 100.0f - (50 * k)), sf::Vector2f(100.0f, 50.0f), "assets/chao.png"));
-			k++;
-		}
+	//CONSTRUCAO BASE DAS SALAS (CHAO E PAREDES)
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(35.0f, 15.0f), sf::Vector2f(50.0f, 1000.0f), "assets/chao.jpg"));
+	for (int i = 0; i < 2; i++) {
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(250.0f + (500 * i), 550.0f), sf::Vector2f(525.0f, 70.0f), "assets/chao.jpg"));
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(250.0f + (500 * i), -400.0f), sf::Vector2f(525.0f, 70.0f), "assets/chao.jpg"));
 	}
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(985.0f, 15.0f), sf::Vector2f(50.0f, 1000.0f), "assets/chao.jpg"));
+	//
+
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f, 400.0f), sf::Vector2f(50.0f, 50.0f), "assets/chao.jpg"));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(500.0f, 300.0f), sf::Vector2f(300.0f, 50.0f), "assets/chao.jpg"));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(900.0f, 200.0f), sf::Vector2f(300.0f, 50.0f), "assets/chao.jpg"));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(950.0f, 0.0f), sf::Vector2f(50.0f, 50.0f), "assets/chao.jpg"));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(650.0f, -100.0f), sf::Vector2f(300.0f, 50.0f), "assets/chao.jpg"));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(350.0f, 10.0f), sf::Vector2f(100.0f, 50.0f), "assets/chao.jpg"));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(50.0f, -100.0f), sf::Vector2f(300.0f, 50.0f), "assets/chao.jpg"));
 }
 
 void FasePalacio::criaInimigos()
@@ -70,6 +75,7 @@ void FasePalacio::criaInimigos()
 
 void FasePalacio::criaObstaculos()
 {
+	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(10000.f, 1000.f), sf::Vector2f(70.0f, -150.0f), sf::Vector2f(70.f, 70.f)));
 }
 
 bool FasePalacio::checkTerminou()
@@ -79,13 +85,16 @@ bool FasePalacio::checkTerminou()
 
 void FasePalacio::update()
 {
+	printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
 	this->GerenciadorColisao->updateColisao();
 	render();
 }
 
 void FasePalacio::render()
 {
-	pGrafico->setView(sf::Vector2f(pJogador->getCorpo().getPosition().x, 300.0f));
+	if (num_sala == 0) {
+		pGrafico->setView(sf::Vector2f(509.987488, 66.165459));
+	}
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
 		pGrafico->desenhaElementos(pJogador->getCorpoEspada());

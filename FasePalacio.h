@@ -9,6 +9,8 @@ private:
 	listaPos listaPosCobras[20];
 	listaPos listaPosObstaculus[20];
 
+	int num_sala;
+
 	int num_Cobras;
 	int num_Teias;
 	int num_Portais;
