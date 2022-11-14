@@ -20,6 +20,6 @@ class Rei : public Inimigo
 		void update();
 		void updateMovimento();
 		void persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
-		void ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
+		void ataqueJogador();
 };
 

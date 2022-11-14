@@ -47,6 +47,29 @@ FasePalacio::~FasePalacio()
 
 void FasePalacio::setPosicoesLivres()
 {
+	//POSSIVEIS POSICOES OBSTACULOS
+
+	listaPosObstaculos[0].cord = sf::Vector2f(300, 450);
+	listaPosObstaculos[1].cord = sf::Vector2f(700, 450);
+	listaPosObstaculos[2].cord = sf::Vector2f(500, 200);
+	listaPosObstaculos[3].cord = sf::Vector2f(860, 100);
+	listaPosObstaculos[4].cord = sf::Vector2f(-470, -120);
+	listaPosObstaculos[5].cord = sf::Vector2f(-700, 100);
+	listaPosObstaculos[6].cord = sf::Vector2f(-295, 100);
+	listaPosObstaculos[7].cord = sf::Vector2f(-280, 450);
+	listaPosObstaculos[8].cord = sf::Vector2f(-470, -120);
+	listaPosObstaculos[9].cord = sf::Vector2f(-780, 450);
+	listaPosObstaculos[10].cord = sf::Vector2f(-1188, 450);
+	listaPosObstaculos[11].cord = sf::Vector2f(-780, 450);
+	listaPosObstaculos[12].cord = sf::Vector2f(-1532, 450);
+	listaPosObstaculos[13].cord = sf::Vector2f(-1922, 450);
+
+	//POSSIVEIS POSICOES MORCEGOS
+
+
+
+	//POSSIVEIS POSICOES COBRAS
+
 }
 
 void FasePalacio::checkQuarto()
@@ -129,6 +152,26 @@ void FasePalacio::criaInimigos()
 
 void FasePalacio::criaObstaculos()
 {
+	this->num_Teias = std::rand() % (8 + 1 - 3) + 3;
+	this->num_Portais = std::rand() % (5 + 1 - 3) + 3;
+
+	for (int i = 0; i < num_Teias; i++) {
+		int aux2 = rand() % 14;
+		while (!(listaPosObstaculos[aux2].isLivre)) {
+			aux2 = rand() % 14;
+		}
+		listaEntidades.addEntidade(new Caixa(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaPosObstaculos[aux2].isLivre = false;
+	}
+
+	for (int i = 0; i < num_Portais; i++) {
+		int aux3 = rand() % 14;
+		while (!(listaPosObstaculos[aux3].isLivre)) {
+			aux3 = rand() % 14;
+		}
+		listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
+		listaPosObstaculos[aux3].isLivre = false;
+	}
 }
 
 bool FasePalacio::checkTerminou()
