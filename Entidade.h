@@ -22,7 +22,7 @@ protected:
 	float gravity;
 	const int velocidadeMaxY;
 
-	bool Vivo = 1;
+	bool isVivo = true;
 
 public:
 	Entidade(int id = 0, sf::Vector2f posicao = sf::Vector2f(0.f,0.f),sf::Vector2f tamanho = sf::Vector2f(0.f, 0.f));

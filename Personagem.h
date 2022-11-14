@@ -12,5 +12,7 @@ public:
 	void giveDano(int dano);
 	void setVida(int vida);
 	int getVida();
+
+	//void updateDano(int dano);
 };
 

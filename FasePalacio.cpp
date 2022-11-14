@@ -9,7 +9,7 @@ FasePalacio::FasePalacio()
 	this->num_Teias = -1;
 	this->num_Portais = -1;
 
-	this->pJogador = new Jogador(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
+	this->pJogador = new Jogador(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
 
 	this->GerenciadorColisao = new GerenciadorColisoes(pJogador, &listaInimigos, &listaPlataformas, &listaObstaculos);
 

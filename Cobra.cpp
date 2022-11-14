@@ -1,6 +1,6 @@
 #include "Cobra.h"
 
-Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(2,pJogador, posicao, tamanho), vidaMaxima(200), venenosa(false)
+Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(2,pJogador, posicao, tamanho), vidaMaxima(2), venenosa(false)
 {
 	int aux = rand() % 2 + 1;
 	if (aux == 1) {
@@ -11,7 +11,7 @@ Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : In
 		this->venenosa = true;
 		this->texture.loadFromFile("assets/cobravenenosa.png");
 	}
-	this->vida = vidaMaxima;
+	setVida(vidaMaxima);
 	this->corpo.setFillColor(sf::Color::White);
 	this->corpo.setTexture(&texture);
 }

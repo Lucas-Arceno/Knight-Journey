@@ -1,5 +1,7 @@
 #pragma once
+#include "ListaEntidade.h"
 #include "Personagem.h"
+#include "projetilEspada.h"
 #include <iostream>
 
 class Jogador : public Personagem
@@ -8,21 +10,24 @@ private:
 	sf::Sprite sprite;
 
 	sf::RectangleShape Espada;
+	
+	projetilEspada* espadaP;
+	List::ListaEntidade* pListaEntidade;
 
 	bool coldownPulo;
 
 	const int vidaMaxima;
 
 	int invFrame; // Frame de invencibilidade.
-	bool cd_ESP = false;// Cooldown espada
-	int aux_CD;	// Contador auxiliar para cooldown
-	int aux_ESP; // contador auxiliar para ataque
+	bool cd_ATK = false; // cooldown ataque
+	int cont_CD = 0; // contador cooldown
 
 	int pontos; // Pontuação
 
+	sf::Vector2f posJogador; // Posição do player para a espada
 public:
 	//Constructors
-	Jogador(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
+	Jogador(List::ListaEntidade* pListaEntidade, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
 	~Jogador();
 
 	//Init variaveis

@@ -56,7 +56,7 @@ sf::Vector2f Projetil::normalizedVector(sf::Vector2f direcao)
 }
 
 void Projetil::updateProjetil(float posX, float posY) {
-	if (colisaoProjetil) { 
+	if (colisaoProjetil == true) { 
 		corpo.setPosition(sf::Vector2f(posX, posY));
 
 		posJogador = pJogador->getCorpo().getPosition();
@@ -64,7 +64,7 @@ void Projetil::updateProjetil(float posX, float posY) {
 		Direcao.y = -(posY - posJogador.y);
 		Direcao = normalizedVector(Direcao);
 
-		colisaoProjetil = 0;
+		colisaoProjetil = false;
 		contTempVida = 0;
 	}
 	else {
@@ -79,7 +79,7 @@ void Projetil::updateProjetil(float posX, float posY) {
 		contTempVida++;
 	}
 	if (contTempVida >= 200) {
-		colisaoProjetil = 1;
+		colisaoProjetil = true;
 	}
 }
 

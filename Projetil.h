@@ -7,7 +7,7 @@ class Projetil : public Entidade
 {
 private:
 	
-	bool colisaoProjetil = 1;
+	bool colisaoProjetil = true;
 	int contTempVida = 0;
 	// Coordenadas que o projetil deverá ir ( diferença de pos do morcego e do player )
 	sf::Vector2f Direcao; 

@@ -1,11 +1,16 @@
 #include "Jogador.h"
 
-Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(5)
+Jogador::Jogador(List::ListaEntidade* pListaEntidade, sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(500)
 {
 	initVariables();
 	initPhysics();
 	invFrame = 0;
 	pontos = 0;
+
+	espadaP = new projetilEspada;
+	this->pListaEntidade = pListaEntidade;
+	this->pListaEntidade->addEntidade(espadaP);
+
 }
 
 Jogador::~Jogador()
@@ -80,26 +85,14 @@ void Jogador::givePontuacao(int pts)
 
 void Jogador::atacarDir()
 {
-	if (cd_ESP == false) { // Se cooldown disponivel
-		while (aux_ESP < 30) { // Ataque por 30 frames
-			this->Espada.setPosition(this->corpo.getPosition().x + 50, this->corpo.getPosition().y);
-			aux_ESP++;
-		}
-		cd_ESP = true;
-		aux_ESP = 0;
-	}
+	posJogador = corpo.getPosition();
+	espadaP->disparoEspada(posJogador, true);
 }
 
 void Jogador::atacarEsq()
 {
-	if (cd_ESP == false) { // Se cooldown disponivel
-		while (aux_ESP < 30) { // Ataque por 30 frames
-			this->Espada.setPosition(this->corpo.getPosition().x - 50, this->corpo.getPosition().y);
-			aux_ESP++;
-		}
-		cd_ESP = true;
-		aux_ESP = 0;
-	}
+	posJogador = corpo.getPosition();
+	espadaP->disparoEspada(posJogador, false);
 }
 
 void Jogador::resetVelocity()
@@ -140,15 +133,18 @@ void Jogador::update()
 	
 	if (invFrame > 0) {
 		invFrame++;
-		if (invFrame > 50)
+		if (invFrame > 55)
 			invFrame = 0;
 	}
-
-	aux_CD++;
-	if (aux_CD > 50) {
-		aux_CD = 0;
-		cd_ESP = false;
+	
+	if (cont_CD > 0) {
+		cont_CD++;
+		if (cont_CD > 75) {
+			cont_CD = 0;
+			cd_ATK = false;
+		}
 	}
+
 }
 
 void Jogador::updateMovimento()
@@ -162,10 +158,16 @@ void Jogador::updateMovimento()
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && coldownPulo == true)){
 		this->velocidade.y -= 20.0 * this->gravity;
 	}
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		atacarEsq();
-	}
-	else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-		atacarDir();
+	
+	if (cd_ATK == false) {
+		cd_ATK = true;
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+			atacarEsq();
+		}
+		else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+			atacarDir();
+		}
+		cont_CD++;
+		
 	}
 }

@@ -8,7 +8,7 @@ FaseCastelo::FaseCastelo() : Fase()
 	this->backgroundTexture.loadFromFile("assets/castle.png");
 	background.setTexture(&backgroundTexture);
 
-	this->pJogador = new Jogador(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
+	this->pJogador = new Jogador(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
 
 	this->GerenciadorColisao = new GerenciadorColisoes(pJogador,&listaInimigos, &listaPlataformas, &listaObstaculos);
 
@@ -20,8 +20,8 @@ FaseCastelo::FaseCastelo() : Fase()
 	criaInimigos();
 	criaObstaculos();
 
-	int kk =1;
-	listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(250.0f * kk + 200, 200.0f), sf::Vector2f(100.0f, 100.0f)));
+	//int kk =1;
+	//listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(250.0f * kk + 200, 200.0f), sf::Vector2f(100.0f, 100.0f)));
 
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 1 = teia
