@@ -7,7 +7,7 @@ private:
 	Jogador* pJogador;
 
 	listaPos listaPosMorcegos[20];
-	listaPos listaPosCobras[20];
+	listaPos listaPosCobras[10];
 	listaPos listaPosObstaculos[14];
 
 	int num_sala;

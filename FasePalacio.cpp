@@ -49,27 +49,35 @@ void FasePalacio::setPosicoesLivres()
 {
 	//POSSIVEIS POSICOES OBSTACULOS
 
-	listaPosObstaculos[0].cord = sf::Vector2f(300, 450);
-	listaPosObstaculos[1].cord = sf::Vector2f(700, 450);
-	listaPosObstaculos[2].cord = sf::Vector2f(500, 200);
-	listaPosObstaculos[3].cord = sf::Vector2f(860, 100);
-	listaPosObstaculos[4].cord = sf::Vector2f(-470, -120);
-	listaPosObstaculos[5].cord = sf::Vector2f(-700, 100);
-	listaPosObstaculos[6].cord = sf::Vector2f(-295, 100);
-	listaPosObstaculos[7].cord = sf::Vector2f(-280, 450);
-	listaPosObstaculos[8].cord = sf::Vector2f(-470, -120);
-	listaPosObstaculos[9].cord = sf::Vector2f(-780, 450);
-	listaPosObstaculos[10].cord = sf::Vector2f(-1188, 450);
-	listaPosObstaculos[11].cord = sf::Vector2f(-780, 450);
-	listaPosObstaculos[12].cord = sf::Vector2f(-1532, 450);
-	listaPosObstaculos[13].cord = sf::Vector2f(-1922, 450);
+	listaPosObstaculos[0].cord = sf::Vector2f(300.0f, 450.0f);
+	listaPosObstaculos[1].cord = sf::Vector2f(700.0f, 450.0f);
+	listaPosObstaculos[2].cord = sf::Vector2f(500.0f, 200.0f);
+	listaPosObstaculos[3].cord = sf::Vector2f(860.0f, 100.0f);
+	listaPosObstaculos[4].cord = sf::Vector2f(-470.0f, -120.0f);
+	listaPosObstaculos[5].cord = sf::Vector2f(-700.0f, 100.0f);
+	listaPosObstaculos[6].cord = sf::Vector2f(-295.0f, 100.0f);
+	listaPosObstaculos[7].cord = sf::Vector2f(-280.0f, 450.0f);
+	listaPosObstaculos[8].cord = sf::Vector2f(-470.0f, -120.0f);
+	listaPosObstaculos[9].cord = sf::Vector2f(-780.0f, 450.0f);
+	listaPosObstaculos[10].cord = sf::Vector2f(-1188.0f, 450.0f);
+	listaPosObstaculos[11].cord = sf::Vector2f(-780.0f, 450.0f);
+	listaPosObstaculos[12].cord = sf::Vector2f(-1532.0f, 450.0f);
+	listaPosObstaculos[13].cord = sf::Vector2f(-1922.0f, 450.0f);
 
 	//POSSIVEIS POSICOES MORCEGOS
 
-
-
 	//POSSIVEIS POSICOES COBRAS
 
+	listaPosCobras[0].cord = sf::Vector2f(860.0f, 450.0f);
+	listaPosCobras[1].cord = sf::Vector2f(500.0f, 450.0f);
+	listaPosCobras[2].cord = sf::Vector2f(795.0f, 100.0f);
+	listaPosCobras[3].cord = sf::Vector2f(570.0f, -194.0f);
+	listaPosCobras[4].cord = sf::Vector2f(-303.0f, -200.0f);
+	listaPosCobras[5].cord = sf::Vector2f(-685.0f, 450.0f);
+	listaPosCobras[6].cord = sf::Vector2f(-470, 100);
+	listaPosCobras[7].cord = sf::Vector2f(-520, 450);
+	listaPosCobras[8].cord = sf::Vector2f(-1300, 450);
+	listaPosCobras[9].cord = sf::Vector2f(-1735, 450);
 }
 
 void FasePalacio::checkQuarto()
@@ -148,12 +156,22 @@ void FasePalacio::criaMapa()
 
 void FasePalacio::criaInimigos()
 {
+	this->num_Cobras = std::rand() % (6 + 1 - 3) + 3;
+
+	for (int i = 0; i < num_Cobras; i++) {
+		int aux = rand() % 10;
+		while (!(listaPosCobras[aux].isLivre)) {
+			aux = rand() % 10;
+		}
+		listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaPosCobras[aux].isLivre = false;
+	}
 }
 
 void FasePalacio::criaObstaculos()
 {
 	this->num_Teias = std::rand() % (8 + 1 - 3) + 3;
-	this->num_Portais = std::rand() % (5 + 1 - 3) + 3;
+	this->num_Portais = std::rand() % (4 + 1 - 3) + 3;
 
 	for (int i = 0; i < num_Teias; i++) {
 		int aux2 = rand() % 14;
@@ -169,7 +187,7 @@ void FasePalacio::criaObstaculos()
 		while (!(listaPosObstaculos[aux3].isLivre)) {
 			aux3 = rand() % 14;
 		}
-		listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
+		//listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
 		listaPosObstaculos[aux3].isLivre = false;
 	}
 }
