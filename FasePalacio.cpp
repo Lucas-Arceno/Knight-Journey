@@ -73,6 +73,13 @@ void FasePalacio::checkQuarto()
 		num_sala = 2;
 	}
 	sf::RectangleShape quarto4;
+	quarto4.setSize(sf::Vector2f(10.0f, 200.0f));
+	quarto4.setPosition(sf::Vector2f(-2036.0f, 450.0f));
+	quarto4.setFillColor(sf::Color::Red);
+	if (pJogador->getCorpo().getGlobalBounds().intersects(quarto4.getGlobalBounds())) {
+		num_sala = 3;
+	}
+
 }
 
 void FasePalacio::criaMapa()
@@ -102,6 +109,18 @@ void FasePalacio::criaMapa()
 
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(-450.028027f,- 100.834564f), sf::Vector2f(800.0f, 70.0f), "assets/chao.jpg"));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(-650.028027f, 200.834564f), sf::Vector2f(950.0f, 70.0f), "assets/chao.jpg"));
+	//CONSTRUCAO CORREDOR SALA1 -> SALA2
+	for (int i = 0; i < 2; i++) {
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(-(1250.0f + (500 * i)), 550.0f), sf::Vector2f(575.0f, 70.0f), "assets/chao.jpg"));
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(-(1300.0f + (500 * i)), 200.0f), sf::Vector2f(575.0f, 70.0f), "assets/chao.jpg"));
+	}
+	//CONSTRUCAO SALA DO BOSS
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(-3000.0f, 285.0f), sf::Vector2f(50.0f, 1500.0f), "assets/chao.jpg"));
+	for (int i = 0; i < 2; i++) {
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(-(2300.0f + (500 * i)), 550.0f), sf::Vector2f(525.0f, 70.0f), "assets/chao.jpg"));
+		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(-(2300.0f + (500 * i)), -400.0f), sf::Vector2f(525.0f, 70.0f), "assets/chao.jpg"));
+	}
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(-2060.0f, -135.0f), sf::Vector2f(50.0f, 650.0f), "assets/chao.jpg"));
 }
 
 void FasePalacio::criaInimigos()
@@ -134,7 +153,10 @@ void FasePalacio::render()
 		pGrafico->setView(sf::Vector2f(-509.0f, 66.165459f));
 	}
 	if (num_sala == 2) {
-		pGrafico->setView(sf::Vector2f(-1018.0f, 66.165459f));
+		pGrafico->setView(sf::Vector2f(-1527.0f, 66.165459f));
+	}
+	if (num_sala == 3) {
+		pGrafico->setView(sf::Vector2f(-2527.0f, 66.165459f));
 	}
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
