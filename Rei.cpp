@@ -1,5 +1,5 @@
 #include "Rei.h"
-
+#include <iostream>
 
 Rei::Rei(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(5, pJogador, posicao, tamanho), vidaMaxima(1000)
 {
@@ -33,7 +33,7 @@ void Rei::updateMovimento() {
 		persegueJogador(posJogador, posInimigo);
 	}
 	if (fabs(posJogador.x - posInimigo.x) <= 200 && fabs(posJogador.y - posInimigo.y) <= 100) {
-		ataqueJogador(posJogador, posInimigo);
+		ataqueJogador();
 	}
 }
 
@@ -47,7 +47,7 @@ void Rei::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 }
 
 // O ataque do rei é um super pulo
-void Rei::ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
+void Rei::ataqueJogador() {
 	
 	if (cooldownPulo == false) {
 		this->velocidade.y -= 40.0 * this->gravity;
@@ -55,39 +55,21 @@ void Rei::ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 		//cont_DMG = 0;
 	}
 	
-	
-	//FloatRect playerBounds = player.getGlobalBounds();
-	//FloatRect wallBounds = parede.getGlobalBounds();
-	//// Colisão Topo
-	//if (playerBounds.top > wallBounds.top
-	//	&& playerBounds.top + playerBounds.height > wallBounds.top + wallBounds.height
-	//	&& playerBounds.left < wallBounds.left + wallBounds.width
-	//	&& playerBounds.left + playerBounds.width > wallBounds.left)
-	//{
-	//	velocidade.y = 0.f;
-	//	player.setPosition(playerBounds.left, wallBounds.top + wallBounds.height);
-	//	cout << "COLISAO TOPO" << endl;
-	//}
-	//
+	//TESTES
 
-	sf::FloatRect playerBounds = pJogador->getCorpo().getGlobalBounds();
-	sf::FloatRect bossBounds = corpo.getGlobalBounds();
+	sf::Vector2f outroPosicao = pJogador->getCorpo().getPosition();
+	sf::Vector2f outroHalfSize = pJogador->getCorpo().getSize() / 2.0f;
+	sf::Vector2f thisPosicao = this->getCorpo().getPosition();
+	sf::Vector2f thisHalfSize = this->getCorpo().getSize() / 2.0f;
 
-	if (playerBounds.top > bossBounds.top
-		&& playerBounds.top + playerBounds.height > bossBounds.top + bossBounds.height
-		&& playerBounds.left < bossBounds.left + bossBounds.width
-		&& playerBounds.left + playerBounds.width > bossBounds.left)
-	{
-		printf("colisao embaixo");
-			updateDano(5);
+	float deltaX = outroPosicao.x - thisPosicao.x;
+	float deltaY = outroPosicao.y - thisPosicao.y;
+
+	float intersecX = abs(deltaX) - (outroHalfSize.x + thisHalfSize.x);
+	float intersecY = abs(deltaY) - (outroHalfSize.y + thisHalfSize.y);
+	if (intersecX < 0.f && intersecY < 0.f) {
+		if (deltaY > 0.0f) {
+			printf("teste");
+		}
 	}
-	else {
-		updateDano(2);
-	}
-	//if (cont_DMG < 100) {
-	//	updateDano(5);
-	//}
-	//else {
-	//	updateDano(2);
-	//}
 }
