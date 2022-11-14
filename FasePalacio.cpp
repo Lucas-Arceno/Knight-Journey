@@ -31,7 +31,8 @@ FasePalacio::FasePalacio()
 		/// 2 = cobra
 		/// 4 = morcego
 		/// 5 = rei
-		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4 || listaEntidades[i]->getID() == 5) {
+		/// 10 = projetil
+		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4 || listaEntidades[i]->getID() == 5  || listaEntidades[i]->getID() == 10) {
 			listaInimigos.addEntidade(listaEntidades[i]);
 		}
 		/// 3 = plataforma
@@ -65,6 +66,13 @@ void FasePalacio::setPosicoesLivres()
 	listaPosObstaculos[13].cord = sf::Vector2f(-1922.0f, 450.0f);
 
 	//POSSIVEIS POSICOES MORCEGOS
+
+	listaPosMorcegos[0].cord = sf::Vector2f(700.0f, -40.0f);
+	listaPosMorcegos[1].cord = sf::Vector2f(910.0f, - 285.4f);
+	listaPosMorcegos[2].cord = sf::Vector2f(-451.0f, - 323.8f);
+	listaPosMorcegos[3].cord = sf::Vector2f(-586.4f, - 60.1f);
+	listaPosMorcegos[4].cord = sf::Vector2f(-350.4f, -60.1f);
+	listaPosMorcegos[5].cord = sf::Vector2f(-518.8f, 277.0f);
 
 	//POSSIVEIS POSICOES COBRAS
 
@@ -123,7 +131,7 @@ void FasePalacio::criaMapa()
 	}
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(985.0f, 15.0f), sf::Vector2f(50.0f, 1000.0f), "assets/chao.jpg"));
 
-	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f, 400.0f), sf::Vector2f(50.0f, 50.0f), "assets/chao.jpg"));
+	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(250.0f, 300.0f), sf::Vector2f(50.0f, 50.0f), "assets/chao.jpg"));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(500.0f, 300.0f), sf::Vector2f(300.0f, 70.0f), "assets/chao.jpg"));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(900.0f, 200.0f), sf::Vector2f(300.0f, 70.0f), "assets/chao.jpg"));
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(950.0f, 0.0f), sf::Vector2f(50.0f, 50.0f), "assets/chao.jpg"));
@@ -157,6 +165,7 @@ void FasePalacio::criaMapa()
 void FasePalacio::criaInimigos()
 {
 	this->num_Cobras = std::rand() % (6 + 1 - 3) + 3;
+	this->num_Morcegos = (rand() % (6 + 1 - 3) + 3);
 
 	for (int i = 0; i < num_Cobras; i++) {
 		int aux = rand() % 10;
@@ -165,6 +174,14 @@ void FasePalacio::criaInimigos()
 		}
 		listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosCobras[aux].isLivre = false;
+	}
+	for (int i = 0; i < num_Morcegos; i++) {
+		int aux = rand() % 6;
+		while (!(listaPosMorcegos[aux].isLivre)) {
+			aux = rand() % 6;
+		}
+		listaEntidades.addEntidade(new Morcego(&listaEntidades, pJogador, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
+		listaPosMorcegos[aux].isLivre = false;
 	}
 }
 

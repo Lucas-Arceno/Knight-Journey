@@ -6,7 +6,7 @@ class FasePalacio : public Fase
 private:
 	Jogador* pJogador;
 
-	listaPos listaPosMorcegos[20];
+	listaPos listaPosMorcegos[6];
 	listaPos listaPosCobras[10];
 	listaPos listaPosObstaculos[14];
 
