@@ -14,21 +14,21 @@ Menu::Menu(float widht, float height) : MenuBase(3, widht, height)
 
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);
-	menu[0].setString("Play");
-	menu[0].setPosition(sf::Vector2f((widht / 2)+45, height / (3 + 1) * 1));
-	botoes[0].setPosition(sf::Vector2f(widht / 2, height / (3 + 1) * 1));
+	menu[0].setString("Jogar");
+	menu[0].setPosition(sf::Vector2f((widht / 2) - 115, (height / (3 + 1) * 1) + 20));
+	botoes[0].setPosition(sf::Vector2f((widht / 2) - 150, height / (3 + 1) * 1));
 
 	menu[1].setFont(font);
 	menu[1].setFillColor(sf::Color::Black);
-	menu[1].setString("Options");
-	menu[1].setPosition(sf::Vector2f((widht / 2)+25, height / (3 + 1) * 2));
-	botoes[1].setPosition(sf::Vector2f(widht / 2, height / (3 + 1) * 2));
+	menu[1].setString("Opcoes");
+	menu[1].setPosition(sf::Vector2f((widht / 2) - 125, (height / (3 + 1) * 2) + 20));
+	botoes[1].setPosition(sf::Vector2f((widht / 2) - 150, height / (3 + 1) * 2));
 
 	menu[2].setFont(font);
 	menu[2].setFillColor(sf::Color::Black);
-	menu[2].setString("Exit");
-	menu[2].setPosition(sf::Vector2f((widht / 2)+50, height / (3 + 1) * 3));
-	botoes[2].setPosition(sf::Vector2f(widht / 2 , height / (3 + 1) * 3));
+	menu[2].setString("Sair");
+	menu[2].setPosition(sf::Vector2f((widht / 2) - 100, (height / (3 + 1) * 3) + 20));
+	botoes[2].setPosition(sf::Vector2f((widht / 2) - 150, height / (3 + 1) * 3));
 }
 
 Menu::~Menu()

@@ -6,6 +6,12 @@ MenuFases::MenuFases(float widht, float height) : MenuBase(2, widht, height)
 		//handle error
 	}
 
+	background.setSize(sf::Vector2f(1600, 960));
+	backgroundTexture.loadFromFile("assets/menu3.png");
+	background.setTexture(&backgroundTexture);
+	background.setPosition(sf::Vector2f(0, -100));
+	background.setScale(1.0, 1.3);
+
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);
 	menu[0].setString("Fase 1");
@@ -53,6 +59,8 @@ void MenuFases::draw(sf::RenderWindow& window)
 {
 	sf::View view;
 	pGraphics->getJanela()->setView(view);
+
+	window.draw(background);
 
 	for (int i = 0; i < 2; i++) {
 		window.draw(botoes[i].getCorpo());
