@@ -80,12 +80,26 @@ void Jogador::givePontuacao(int pts)
 
 void Jogador::atacarDir()
 {
-	this->Espada.setPosition(this->corpo.getPosition().x + 50, this->corpo.getPosition().y);
+	if (cd_ESP == false) { // Se cooldown disponivel
+		while (aux_ESP < 30) { // Ataque por 30 frames
+			this->Espada.setPosition(this->corpo.getPosition().x + 50, this->corpo.getPosition().y);
+			aux_ESP++;
+		}
+		cd_ESP = true;
+		aux_ESP = 0;
+	}
 }
 
 void Jogador::atacarEsq()
 {
-	this->Espada.setPosition(this->corpo.getPosition().x - 50, this->corpo.getPosition().y);
+	if (cd_ESP == false) { // Se cooldown disponivel
+		while (aux_ESP < 30) { // Ataque por 30 frames
+			this->Espada.setPosition(this->corpo.getPosition().x - 50, this->corpo.getPosition().y);
+			aux_ESP++;
+		}
+		cd_ESP = true;
+		aux_ESP = 0;
+	}
 }
 
 void Jogador::resetVelocity()
@@ -128,6 +142,12 @@ void Jogador::update()
 		invFrame++;
 		if (invFrame > 50)
 			invFrame = 0;
+	}
+
+	aux_CD++;
+	if (aux_CD > 50) {
+		aux_CD = 0;
+		cd_ESP = false;
 	}
 }
 

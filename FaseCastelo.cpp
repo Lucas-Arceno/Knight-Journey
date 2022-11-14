@@ -20,6 +20,9 @@ FaseCastelo::FaseCastelo() : Fase()
 	criaInimigos();
 	criaObstaculos();
 
+	int kk =1;
+	listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(250.0f * kk + 200, 200.0f), sf::Vector2f(100.0f, 100.0f)));
+
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 1 = teia
 		/// 6 = espinhos
@@ -52,6 +55,9 @@ void FaseCastelo::setPosicoesLivres()
 	int j = 9;
 	int k = 9;
 	for (int i = 0; i < 30; i++) {
+		//if (i == 3 || i == 4 || i == 5 || i == 8) {
+		//	continue;
+		//}
 		if (i <= 20) {
 			listaPosCobras[i].cord = sf::Vector2f(250.0f * i, 100.0f);
 		}
@@ -70,7 +76,7 @@ void FaseCastelo::setPosicoesLivres()
 		}
 	}
 	//PARTE DOS OBSTACULOS
-	for (int i = 0; i < 20; i++) {
+	for (int i = 2; i < 20; i++) {
 		if (i <= 20) {
 			listaPosObstaculos[i].cord = sf::Vector2f(250.0f * i + 300, 625.f);
 		}
@@ -143,7 +149,8 @@ void FaseCastelo::criaInimigos()
 
 	for (int i = 0; i < num_Cobras; i++) {
 		int aux = rand() % 30;
-		while (!(listaPosCobras[aux].isLivre)) {
+		// Exclui possivel spawn em cima de buracos
+		while (!(listaPosCobras[aux].isLivre) || aux < 9) {
 			aux = rand() % 30;
 		}
 		listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
@@ -162,12 +169,12 @@ void FaseCastelo::criaInimigos()
 
 void FaseCastelo::criaObstaculos()
 {
-	this->num_Teias = std::rand() % (20 + 1 - 3) + 3;
+	this->num_Teias = std::rand() % (18 + 1 - 3) + 3;
 	this->num_Portais = std::rand() % (5 + 1 - 3) + 3;
 
 	for (int i = 0; i < num_Teias; i++) {
 		int aux2 = rand() % 40;
-		while (!(listaPosObstaculos[aux2].isLivre)) {
+		while (!(listaPosObstaculos[aux2].isLivre) || aux2 < 8 ) {
 			aux2 = rand() % 40;
 		}
 		listaEntidades.addEntidade(new Caixa(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
@@ -176,7 +183,7 @@ void FaseCastelo::criaObstaculos()
 
 	for (int i = 0; i < num_Portais; i++) {
 		int aux3 = rand() % 40;
-		while (!(listaPosObstaculos[aux3].isLivre)) {
+		while (!(listaPosObstaculos[aux3].isLivre) || aux3 < 8 ) {
 			aux3 = rand() % 40;
 		}
 		listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
@@ -230,7 +237,7 @@ void FaseCastelo::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
-	printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
+	//printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
 }
 
 void FaseCastelo::render()

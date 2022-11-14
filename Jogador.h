@@ -14,6 +14,9 @@ private:
 	const int vidaMaxima;
 
 	int invFrame; // Frame de invencibilidade.
+	bool cd_ESP = false;// Cooldown espada
+	int aux_CD;	// Contador auxiliar para cooldown
+	int aux_ESP; // contador auxiliar para ataque
 
 	int pontos; // Pontuação
 

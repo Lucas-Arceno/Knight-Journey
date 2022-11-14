@@ -17,7 +17,7 @@ void Rei::update() {
 
 	// cooldown do pulo
 	cont_CD++;
-	cont_DMG++;
+	//cont_DMG++;
 	if (cont_CD > 200) {
 		cooldownPulo = false;
 		cont_CD = 0;
@@ -52,23 +52,42 @@ void Rei::ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 	if (cooldownPulo == false) {
 		this->velocidade.y -= 40.0 * this->gravity;
 		cooldownPulo = true;
-		cont_DMG = 0;
+		//cont_DMG = 0;
 	}
 	
 	
-	
-	//.top RETORNA FLOAT.
-	//if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds().top)) {
-	//	updateDano(5000);
+	//FloatRect playerBounds = player.getGlobalBounds();
+	//FloatRect wallBounds = parede.getGlobalBounds();
+	//// Colisão Topo
+	//if (playerBounds.top > wallBounds.top
+	//	&& playerBounds.top + playerBounds.height > wallBounds.top + wallBounds.height
+	//	&& playerBounds.left < wallBounds.left + wallBounds.width
+	//	&& playerBounds.left + playerBounds.width > wallBounds.left)
+	//{
+	//	velocidade.y = 0.f;
+	//	player.setPosition(playerBounds.left, wallBounds.top + wallBounds.height);
+	//	cout << "COLISAO TOPO" << endl;
 	//}
-	// 
-	// SOLUÇÃO TEMPORARIA ? 
-	// PENSAR EM MANEIRAS DE PEGAR APENAS A COLISÃO INFERIOR DO REI OU A SUPERIOR DO JOGADOR.
-	// REI CONTINUA EMPURRANDO JOGADOR
-	if (cont_DMG < 100) {
-		updateDano(5);
+	//
+
+	sf::FloatRect playerBounds = pJogador->getCorpo().getGlobalBounds();
+	sf::FloatRect bossBounds = corpo.getGlobalBounds();
+
+	if (playerBounds.top > bossBounds.top
+		&& playerBounds.top + playerBounds.height > bossBounds.top + bossBounds.height
+		&& playerBounds.left < bossBounds.left + bossBounds.width
+		&& playerBounds.left + playerBounds.width > bossBounds.left)
+	{
+		printf("colisao embaixo");
+			updateDano(5);
 	}
 	else {
 		updateDano(2);
 	}
+	//if (cont_DMG < 100) {
+	//	updateDano(5);
+	//}
+	//else {
+	//	updateDano(2);
+	//}
 }
