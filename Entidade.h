@@ -39,9 +39,6 @@ public:
 	virtual void update() = 0;
 	virtual void updateMovimento() = 0;
 
-	void setPosicao(sf::Vector2f pos);
 	const sf::RectangleShape getCorpo();
-	sf::Vector2f getPosicao() const;
-	sf::Vector2f getTamanho() const;
 };
 
