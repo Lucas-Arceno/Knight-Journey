@@ -8,7 +8,7 @@ private:
 
 	listaPos listaPosCobras[19];
 	listaPos listaPosMorcegos[27];
-	listaPos listaPosObstaculos[40];
+	listaPos listaPosObstaculos[29];
 
 	int num_Morcegos;
 	int num_Cobras;

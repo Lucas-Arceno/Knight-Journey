@@ -100,6 +100,40 @@ void FaseCastelo::setPosicoesLivres()
 	listaPosMorcegos[24].cord = sf::Vector2f(5400, 200);
 	listaPosMorcegos[25].cord = sf::Vector2f(5850, 200);
 	listaPosMorcegos[26].cord = sf::Vector2f(6300, 200);
+
+	//Obstaculos
+	listaPosObstaculos[0].cord = sf::Vector2f(450, 350);
+	listaPosObstaculos[1].cord = sf::Vector2f(1450, 350);
+	listaPosObstaculos[2].cord = sf::Vector2f(650, 150);
+	listaPosObstaculos[3].cord = sf::Vector2f(780, 150);
+	listaPosObstaculos[4].cord = sf::Vector2f(1140, 150);
+	listaPosObstaculos[5].cord = sf::Vector2f(1280, 150);
+	listaPosObstaculos[6].cord = sf::Vector2f(1750, 450);
+	listaPosObstaculos[7].cord = sf::Vector2f(2050, 250);
+	listaPosObstaculos[8].cord = sf::Vector2f(2750, 150);
+	listaPosObstaculos[9].cord = sf::Vector2f(2850, 150);
+	listaPosObstaculos[10].cord = sf::Vector2f(2950, 150);
+	listaPosObstaculos[11].cord = sf::Vector2f(3050, 150);
+	listaPosObstaculos[12].cord = sf::Vector2f(2400, 500);
+	listaPosObstaculos[13].cord = sf::Vector2f(2500, 500);
+	listaPosObstaculos[14].cord = sf::Vector2f(2600, 500);
+	listaPosObstaculos[15].cord = sf::Vector2f(2700, 500);
+	listaPosObstaculos[16].cord = sf::Vector2f(3150, 500);
+	listaPosObstaculos[17].cord = sf::Vector2f(3250, 500);
+	listaPosObstaculos[18].cord = sf::Vector2f(3350, 500);
+	listaPosObstaculos[19].cord = sf::Vector2f(3450, 500);
+	listaPosObstaculos[20].cord = sf::Vector2f(4000, 350);
+	listaPosObstaculos[21].cord = sf::Vector2f(4300, 150);
+	listaPosObstaculos[22].cord = sf::Vector2f(4400, 150);
+	listaPosObstaculos[23].cord = sf::Vector2f(4500, 150);
+	listaPosObstaculos[24].cord = sf::Vector2f(4600, 150);
+	listaPosObstaculos[25].cord = sf::Vector2f(4550, 500);
+	listaPosObstaculos[26].cord = sf::Vector2f(4650, 500);
+	listaPosObstaculos[27].cord = sf::Vector2f(4750, 500);
+	listaPosObstaculos[28].cord = sf::Vector2f(4850, 500);
+
+
+
 }
 
 void FaseCastelo::criaMapa()
@@ -164,7 +198,7 @@ void FaseCastelo::criaMapa()
 
 void FaseCastelo::criaInimigos()
 {
-	this->num_Cobras = (rand() % (15 + 1 - 3) + 3);
+	this->num_Cobras = (rand() % (10 + 1 - 3) + 3);
 	this->num_Morcegos = (rand() % (15 + 1 - 3) + 3);
 
 	for (int i = 0; i < num_Cobras; i++) {
@@ -192,24 +226,24 @@ void FaseCastelo::criaObstaculos()
 	this->num_Teias = std::rand() % (18 + 1 - 3) + 3;
 	this->num_Portais = std::rand() % (5 + 1 - 3) + 3;
 
-	/*for (int i = 0; i < num_Teias; i++) {
-		int aux2 = rand() % 40;
-		while (!(listaPosObstaculos[aux2].isLivre) || aux2 < 8 ) {
-			aux2 = rand() % 40;
+	for (int i = 0; i < num_Teias; i++) {
+		int aux2 = rand() % 29;
+		while (!(listaPosObstaculos[aux2].isLivre)) {
+			aux2 = rand() % 29;
 		}
 		listaEntidades.addEntidade(new Caixa(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosObstaculos[aux2].isLivre = false;
 	}
 
 	for (int i = 0; i < num_Portais; i++) {
-		int aux3 = rand() % 40;
-		while (!(listaPosObstaculos[aux3].isLivre) || aux3 < 8 ) {
-			aux3 = rand() % 40;
+		int aux3 = rand() % 29;
+		while (!(listaPosObstaculos[aux3].isLivre)) {
+			aux3 = rand() % 29;
 		}
 		listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
 		listaPosObstaculos[aux3].isLivre = false;
 	}
-	*/
+
 	num_Espinhos = num_Espinhos + 3;
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(850.f, 625.f)));
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(1000.f, 625.f)));
