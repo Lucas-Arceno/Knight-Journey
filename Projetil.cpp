@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Projetil::Projetil(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(10, posicao, tamanho) {
+Projetil::Projetil(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(23, posicao, tamanho) {
 	this->corpo.setFillColor(sf::Color::Red);
 	this->pJogador = pJogador;
 }

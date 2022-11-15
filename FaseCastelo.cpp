@@ -24,21 +24,21 @@ FaseCastelo::FaseCastelo() : Fase()
 	//listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(250.0f * kk + 200, 200.0f), sf::Vector2f(100.0f, 100.0f)));
 
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
-		/// 1 = teia
-		/// 6 = espinhos
-		/// 7 = portal
-		if (listaEntidades[i]->getID() == 1 || listaEntidades[i]->getID() == 6 || listaEntidades[i]->getID() == 7) {
+		/// 11 = teia
+		/// 12 = espinhos
+		/// 13 = portal
+		if (listaEntidades[i]->getID() == 11 || listaEntidades[i]->getID() == 12 || listaEntidades[i]->getID() == 13) {
 			listaObstaculos.addEntidade(listaEntidades[i]);
 		}
-		/// 2 = cobra
-		/// 4 = morcego
-		/// 5 = rei
-		/// 10 = projetil
-		else if (listaEntidades[i]->getID() == 2 || listaEntidades[i]->getID() == 4 || listaEntidades[i]->getID() == 5 || listaEntidades[i]->getID() == 10 ) {
+		/// 21 = cobra
+		/// 22 = morcego
+		/// 23 = projetil
+		/// 24 = rei
+		else if (listaEntidades[i]->getID() == 21 || listaEntidades[i]->getID() == 22 || listaEntidades[i]->getID() == 23 || listaEntidades[i]->getID() == 24 ) {
 			listaInimigos.addEntidade(listaEntidades[i]);
 		}
-		/// 3 = plataforma
-		else if (listaEntidades[i]->getID() == 3) {
+		/// 31 = plataforma
+		else if (listaEntidades[i]->getID() == 31) {
 			listaPlataformas.addEntidade(listaEntidades[i]);
 		}
 	}
@@ -231,7 +231,7 @@ void FaseCastelo::criaObstaculos()
 		while (!(listaPosObstaculos[aux2].isLivre)) {
 			aux2 = rand() % 29;
 		}
-		listaEntidades.addEntidade(new Caixa(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaEntidades.addEntidade(new Teia(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosObstaculos[aux2].isLivre = false;
 	}
 
@@ -292,7 +292,7 @@ void FaseCastelo::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
-	printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
+	//printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
 }
 
 void FaseCastelo::render()

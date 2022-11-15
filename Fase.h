@@ -11,7 +11,7 @@
 
 #include "Plataforma.h"
 
-#include "Caixa.h"
+#include "Teia.h"
 #include "Espinhos.h"
 #include "Portal.h"
 

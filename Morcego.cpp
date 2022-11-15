@@ -1,7 +1,7 @@
 #include "Morcego.h"
 
 
-Morcego::Morcego(List::ListaEntidade* pListaEntidade, Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(4, pJogador, posicao, tamanho), vidaMaxima(1), projetil()
+Morcego::Morcego(List::ListaEntidade* pListaEntidade, Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(22, pJogador, posicao, tamanho), vidaMaxima(1), projetil()
 {
 	this->pListaEntidade = pListaEntidade;
 	this->corpo.setFillColor(sf::Color::White);

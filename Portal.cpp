@@ -1,6 +1,6 @@
 #include "Portal.h"
 
-Portal::Portal(Jogador* pJogador,sf::Vector2f(destino), sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(7, posicao, tamanho)
+Portal::Portal(Jogador* pJogador,sf::Vector2f(destino), sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(13, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/portal.png");

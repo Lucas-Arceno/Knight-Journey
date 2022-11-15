@@ -7,16 +7,16 @@ Teia::Teia(sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(11, posicao, 
 	this->corpo.setTexture(&texture);
 }
 
-Caixa::~Caixa()
+Teia::~Teia()
 {
 }
 
-void Caixa::update()
+void Teia::update()
 {
 	updateMovimento();
 	updatePhysics();
 }
 
-void Caixa::updateMovimento()
+void Teia::updateMovimento()
 {
 }

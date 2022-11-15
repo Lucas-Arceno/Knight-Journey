@@ -140,9 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Botao.cpp" />
-    <ClCompile Include="Caixa.cpp" />
+    <ClCompile Include="Teia.cpp" />
     <ClCompile Include="Cobra.cpp" />
-    <ClCompile Include="Colisao.cpp" />
+    <ClCompile Include="efetuaColisao.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="projetilEspada.cpp" />
@@ -172,9 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao.h" />
-    <ClInclude Include="Caixa.h" />
+    <ClInclude Include="Teia.h" />
     <ClInclude Include="Cobra.h" />
-    <ClInclude Include="Colisao.h" />
+    <ClInclude Include="efetuaColisao.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="projetilEspada.h" />

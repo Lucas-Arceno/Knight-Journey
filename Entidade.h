@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Ente.h"
-#include "Colisao.h"
+#include "efetuaColisao.h"
 
 class Entidade : public Ente
 {
@@ -30,7 +30,7 @@ public:
 
 	void setCorpoPosicao(sf::Vector2f pos);
 
-	Colisao GetColisao() { return Colisao(corpo); }
+	calculoColisao GetColisao() { return calculoColisao(corpo); }
 
 	const int getID() { return ID; }
 
