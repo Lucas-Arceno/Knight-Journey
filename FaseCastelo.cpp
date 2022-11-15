@@ -247,10 +247,8 @@ void FaseCastelo::render()
 
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
-		pGrafico->desenhaElementos(pJogador->getCorpoEspada());
 	}
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->update();
 	}
-	pJogador->setEspadaPosicao(sf::Vector2f(0.0f, 5000.0f));
 }

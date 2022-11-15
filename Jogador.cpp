@@ -29,12 +29,6 @@ void Jogador::initVariables()
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/knight.png");
 	this->corpo.setTexture(&texture);
-
-	//Espada e afins
-	this->Espada.setSize(sf::Vector2f(100.f, 100.f));
-	this->Espada.setPosition(sf::Vector2f(0.0f, 5000.0f));
-	this->Espada.setFillColor(sf::Color::Green);
-	this->Espada.setOrigin(this->Espada.getSize() / 2.0f);
 }
 
 const sf::FloatRect Jogador::getGlobalBounds() const
@@ -42,24 +36,9 @@ const sf::FloatRect Jogador::getGlobalBounds() const
 	return corpo.getGlobalBounds();
 }
 
-const sf::FloatRect Jogador::getEspadaGlobal() const
-{
-	return this->Espada.getGlobalBounds();
-}
-
-void Jogador::setEspadaPosicao(sf::Vector2f(newPosicao))
-{
-	this->Espada.setPosition(newPosicao);
-}
-
 void Jogador::setPosition(const float x, const float y)
 {
 	this->corpo.setPosition(x, y);
-}
-
-sf::RectangleShape Jogador::getCorpoEspada()
-{
-	return Espada;
 }
 
 int Jogador::getInvFrame()
@@ -158,16 +137,11 @@ void Jogador::updateMovimento()
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && coldownPulo == true)){
 		this->velocidade.y -= 20.0 * this->gravity;
 	}
-	
-	if (cd_ATK == false) {
-		cd_ATK = true;
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-			atacarEsq();
-		}
-		else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-			atacarDir();
-		}
-		cont_CD++;
-		
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		atacarEsq();
 	}
+	else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+		atacarDir();
+	}
+
 }

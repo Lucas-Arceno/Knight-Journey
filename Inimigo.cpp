@@ -34,7 +34,7 @@ void Inimigo::updateDano(int dano)
 	}
 
 	// Dano do player no inimigo
-	if (pJogador->getCorpoEspada().getGlobalBounds().intersects(this->getCorpo().getGlobalBounds())) {
+	if (pJogador->espadaP->getEspadaProjetilGlobal().intersects(this->getCorpo().getGlobalBounds())) {
 		printf("%d\n", this->getVida());
 		if (iFrame == 0) {
 			this->giveDano(1);

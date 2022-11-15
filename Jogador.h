@@ -8,10 +8,9 @@ class Jogador : public Personagem
 {
 private:
 	sf::Sprite sprite;
-
-	sf::RectangleShape Espada;
-	
+public:
 	projetilEspada* espadaP;
+private:
 	List::ListaEntidade* pListaEntidade;
 
 	bool coldownPulo;
@@ -35,8 +34,6 @@ public:
 
 	//Pegar posicoes 
 	const sf::FloatRect getGlobalBounds() const;
-	const sf::FloatRect getEspadaGlobal() const;
-	void setEspadaPosicao(sf::Vector2f(newPosicao));
 
 	//Pulo manager
 	void setColdownPulo(bool cd) { this->coldownPulo = cd; }
@@ -44,9 +41,6 @@ public:
 	//Movimentacao Jogador
 	void move(const float dir_x, const float dir_y);
 	void setPosition(const float x, const float y);
-
-	//Espada
-	sf::RectangleShape getCorpoEspada();
 
 	//iFrame
 	int getInvFrame();

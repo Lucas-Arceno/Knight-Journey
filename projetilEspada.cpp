@@ -3,6 +3,7 @@
 projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(11, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::Yellow);
+	this->corpo.setSize(sf::Vector2f(100.0f, 100.0f));
 }
 
 projetilEspada::~projetilEspada() {
@@ -17,13 +18,37 @@ void projetilEspada::update()
 		timerVida++;
 		updateMovimento();
 
-		if (timerVida > 50) {
+		if (timerVida > 20) {
 			timerVida = 0;
 			disparo = false;
 			printf("timerVida \n");
 			corpo.setPosition(5000, 5000);
 		}
 	}
+	updatePhysics();
+	updateEmpuxo();
+}
+
+void projetilEspada::updateEmpuxo()
+{
+	//Gravity
+	this->velocidade.y += 1.0 * this->gravity;
+	if (std::abs(this->velocidade.x) > this->velocidadeMaxY) {
+		this->velocidade.y = this->velocidadeMaxY * ((this->velocidade.y < 0.f) ? -1.f : 1.f);
+	}
+
+	//Deceleration
+	this->velocidade *= this->drag;
+
+	//Limit deceleration
+	if (std::abs(this->velocidade.x) < this->velocidadeMin) {
+		this->velocidade.x = 0.0f;
+	}
+	if (std::abs(this->velocidade.y) < this->velocidadeMin) {
+		this->velocidade.y = 0.0f;
+	}
+
+	this->corpo.move(-(this->velocidade));
 }
 
 void projetilEspada::updateMovimento()

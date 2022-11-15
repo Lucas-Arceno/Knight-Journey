@@ -18,7 +18,7 @@ void Portal::update()
 	updateMovimento();
 	updatePhysics();
 
-	if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpoEspada().getGlobalBounds())) {
+	if (this->corpo.getGlobalBounds().intersects(pJogador->espadaP->getEspadaProjetilGlobal())) {
 		this->corpo.setPosition(-1441.f, 421.f);
 	}
 
