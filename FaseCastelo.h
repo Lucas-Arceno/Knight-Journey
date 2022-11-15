@@ -6,10 +6,9 @@ class FaseCastelo : public Fase
 private:
 	Jogador* pJogador;
 
-	listaPos listaPosCobras[50];
-	listaPos listaPosMorcegos[30];
+	listaPos listaPosCobras[19];
+	listaPos listaPosMorcegos[27];
 	listaPos listaPosObstaculos[40];
-
 
 	int num_Morcegos;
 	int num_Cobras;

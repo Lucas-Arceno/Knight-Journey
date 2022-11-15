@@ -68,7 +68,7 @@ void projetilEspada::disparoEspada(sf::Vector2f posJogador, bool isDir)
 {	
 	this->isDireita = isDir;
 	if (disparo == false) {
-		corpo.setPosition(posJogador);
+		corpo.setPosition(posJogador.x, posJogador.y - 50);
 		disparo = true;
 	}
 }
