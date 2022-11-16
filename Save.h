@@ -13,11 +13,14 @@ class Save
 {
 	private:
 		ofstream Gravador;
-		
+		ifstream Leitor;
+		info informacoes;
+
 	public:
 		Save();
 		~Save();
 
 		void savePontos(int pt, int idJog);
+		void loadPontos();
 };
 

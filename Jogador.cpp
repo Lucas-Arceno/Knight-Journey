@@ -64,7 +64,6 @@ void Jogador::givePontuacao(int pts)
 
 void Jogador::salvePontuacao() 
 {
-	printf("salvePontuacao \n");
 	gravador.savePontos(pontos, idJogador);
 }
 
