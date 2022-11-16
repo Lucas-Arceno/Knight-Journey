@@ -33,5 +33,9 @@ public:
 
 	void update();
 	void render();
+
+	// teste 
+
+	Save salve;
 };
 

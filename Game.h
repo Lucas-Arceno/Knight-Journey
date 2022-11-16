@@ -1,4 +1,4 @@
-#pragma once
+		#pragma once
 #include "FaseCastelo.h"
 #include "FasePalacio.h"
 #include "Menu.h"

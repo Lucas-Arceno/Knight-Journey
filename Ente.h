@@ -5,7 +5,7 @@ class Ente
 {
 protected:
 	const int ID;
-	GerenciadorGrafico* pGraphics;
+	GerenciadorGrafico* pGrafico;
 public:
 	Ente(int id = -1);
 	~Ente();

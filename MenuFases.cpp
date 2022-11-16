@@ -29,7 +29,7 @@ MenuFases::~MenuFases()
 {
 }
 
-void MenuFases::Update(int& aux) {
+void MenuFases::updateEstado(int& aux) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
 	}
@@ -37,7 +37,7 @@ void MenuFases::Update(int& aux) {
 		MoveDown();
 	}
 	for (int i = 0; i < 2; i++) {
-		if (botoes[i].getGlobalBounds().contains(pGraphics->getJanela()->mapPixelToCoords(sf::Mouse::getPosition(*pGraphics->getJanela())))) {
+		if (botoes[i].getGlobalBounds().contains(pGrafico->getJanela()->mapPixelToCoords(sf::Mouse::getPosition(*pGrafico->getJanela())))) {
 			menu[selectedItemIndex].setFillColor(sf::Color::Black);
 			menu[i].setFillColor(sf::Color::Red);
 			selectedItemIndex = i;
@@ -58,7 +58,7 @@ void MenuFases::Update(int& aux) {
 void MenuFases::draw(sf::RenderWindow& window)
 {
 	sf::View view;
-	pGraphics->getJanela()->setView(view);
+	pGrafico->getJanela()->setView(view);
 
 	window.draw(background);
 
@@ -84,4 +84,8 @@ void MenuFases::MoveDown()
 		selectedItemIndex++;
 		menu[selectedItemIndex].setFillColor(sf::Color::Red);
 	}
+}
+
+void MenuFases::update() {
+
 }

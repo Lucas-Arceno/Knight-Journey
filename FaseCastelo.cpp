@@ -300,6 +300,8 @@ void FaseCastelo::render()
 	pGrafico->setView(sf::Vector2f(pJogador->getCorpo().getPosition().x, 300));
 	pGrafico->desenhaElementos(this->background);
 
+	pJogador->salvePontuacao();
+
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
 	}

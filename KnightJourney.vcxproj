@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Botao.cpp" />
+    <ClCompile Include="Save.cpp" />
     <ClCompile Include="Teia.cpp" />
     <ClCompile Include="Cobra.cpp" />
     <ClCompile Include="efetuaColisao.cpp" />
@@ -172,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao.h" />
+    <ClInclude Include="Save.h" />
     <ClInclude Include="Teia.h" />
     <ClInclude Include="Cobra.h" />
     <ClInclude Include="efetuaColisao.h" />
