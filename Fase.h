@@ -3,6 +3,8 @@
 #include<cstdlib>
 #include<ctime>
 
+#include "Save.h"
+
 #include "GerenciadorEvento.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorColisoes.h"
@@ -11,7 +13,7 @@
 
 #include "Plataforma.h"
 
-#include "Caixa.h"
+#include "Teia.h"
 #include "Espinhos.h"
 #include "Portal.h"
 
@@ -25,7 +27,7 @@ struct listaPos {
 	bool isLivre = true;
 };
 
-class Fase
+class Fase : public Ente
 {
 protected:
 	sf::RectangleShape background;
@@ -36,7 +38,7 @@ protected:
 	List::ListaEntidade listaInimigos;
 	List::ListaEntidade listaPlataformas;
 
-	GerenciadorGrafico* pGrafico;
+	//GerenciadorGrafico* pGrafico;
 	GerenciadorEvento* pEvento;
 	GerenciadorColisoes* GerenciadorColisao;
 public:

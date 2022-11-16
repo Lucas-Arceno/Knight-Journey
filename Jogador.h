@@ -2,6 +2,7 @@
 #include "ListaEntidade.h"
 #include "Personagem.h"
 #include "projetilEspada.h"
+#include "Save.h"
 #include <iostream>
 
 class Jogador : public Personagem
@@ -12,16 +13,18 @@ public:
 	projetilEspada* espadaP;
 private:
 	List::ListaEntidade* pListaEntidade;
-
+	
 	bool coldownPulo;
-
 	const int vidaMaxima;
 
 	int invFrame; // Frame de invencibilidade.
 	bool cd_ATK = false; // cooldown ataque
 	int cont_CD = 0; // contador cooldown
 
-	int pontos; // Pontuação
+	Save gravador;
+
+	int pontos = 0; // Pontuação
+	int idJogador = 3; // id para diferenciar entre jogador 1 ou 2
 
 	sf::Vector2f posJogador; // Posição do player para a espada
 public:
@@ -49,6 +52,7 @@ public:
 	//Pontuação
 	int getPontucao();
 	void givePontuacao(int pts);
+	void salvePontuacao();
 
 	//Ataque
 	void atacarDir();

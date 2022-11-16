@@ -1,15 +1,15 @@
-#include "Colisao.h"
+#include "efetuaColisao.h"
 #include <iostream>
 
-Colisao::Colisao(sf::RectangleShape& corpo) : corpo(corpo)
+calculoColisao::calculoColisao(sf::RectangleShape& corpo) : corpo(corpo)
 {
 }
 
-Colisao::~Colisao()
+calculoColisao::~calculoColisao()
 {
 }
 
-bool Colisao::verificaColisao(sf::RectangleShape outroCorpo)
+bool calculoColisao::verificaColisao(sf::RectangleShape outroCorpo)
 {
 	if (this->corpo.getGlobalBounds().intersects(outroCorpo.getGlobalBounds())) {
 		return true;
@@ -19,7 +19,7 @@ bool Colisao::verificaColisao(sf::RectangleShape outroCorpo)
 	}
 }
 
-bool Colisao::CheckCollision(Colisao outro, float push)
+bool calculoColisao::CheckCollision(calculoColisao outro, float push)
 {
 	sf::Vector2f outroPosicao = outro.GetPosition();
 	sf::Vector2f outroHalfSize = outro.GetHalfSize();

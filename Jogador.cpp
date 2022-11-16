@@ -62,6 +62,12 @@ void Jogador::givePontuacao(int pts)
 	printf("pontuacao %d \n", pontos);
 }
 
+void Jogador::salvePontuacao() 
+{
+	printf("salvePontuacao \n");
+	gravador.savePontos(pontos, idJogador);
+}
+
 void Jogador::atacarDir()
 {
 	posJogador = corpo.getPosition();

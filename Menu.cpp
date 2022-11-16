@@ -35,7 +35,7 @@ Menu::~Menu()
 {
 }
 
-void Menu::Update(int& aux) {
+void Menu::updateEstado(int& aux) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
 	}
@@ -43,7 +43,7 @@ void Menu::Update(int& aux) {
 		MoveDown();
 	}
 	for (int i = 0; i < 3; i++) {
-		if (botoes[i].getGlobalBounds().contains(pGraphics->getJanela()->mapPixelToCoords(sf::Mouse::getPosition(*pGraphics->getJanela())))) {
+		if (botoes[i].getGlobalBounds().contains(pGrafico->getJanela()->mapPixelToCoords(sf::Mouse::getPosition(*pGrafico->getJanela())))) {
 			menu[selectedItemIndex].setFillColor(sf::Color::Black);
 			menu[i].setFillColor(sf::Color::Red);
 			selectedItemIndex = i;
@@ -71,7 +71,7 @@ void Menu::Update(int& aux) {
 void Menu::draw(sf::RenderWindow& window)
 {
 	sf::View view;
-	pGraphics->getJanela()->setView(view);
+	pGrafico->getJanela()->setView(view);
 
 	window.draw(background);
 
@@ -97,4 +97,8 @@ void Menu::MoveDown()
 		selectedItemIndex++;
 		menu[selectedItemIndex].setFillColor(sf::Color::Red);
 	}
+}
+
+void Menu::update() {
+
 }

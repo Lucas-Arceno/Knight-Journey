@@ -39,7 +39,7 @@
     <ClCompile Include="Morcego.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Colisao.cpp">
+    <ClCompile Include="efetuaColisao.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="ListaEntidade.cpp">
@@ -54,7 +54,7 @@
     <ClCompile Include="Obstaculo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Caixa.cpp">
+    <ClCompile Include="Teia.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="GerenciadorEvento.cpp">
@@ -105,6 +105,9 @@
     <ClCompile Include="projetilEspada.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Save.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -128,7 +131,7 @@
     <ClInclude Include="Morcego.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Colisao.h">
+    <ClInclude Include="efetuaColisao.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Lista.h">
@@ -146,7 +149,7 @@
     <ClInclude Include="Obstaculo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Caixa.h">
+    <ClInclude Include="Teia.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="GerenciadorEvento.h">
@@ -195,6 +198,9 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="projetilEspada.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Save.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,6 @@
 #include "Cobra.h"
 
-Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(2,pJogador, posicao, tamanho), vidaMaxima(2), venenosa(false)
+Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(21,pJogador, posicao, tamanho), vidaMaxima(2), venenosa(false)
 {
 	int aux = rand() % 2 + 1;
 	if (aux == 1) {

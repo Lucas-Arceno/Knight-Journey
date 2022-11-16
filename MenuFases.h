@@ -9,9 +9,10 @@ public:
 	MenuFases(float widht, float height);
 	~MenuFases();
 
-	void Update(int& aux);
+	void updateEstado(int& aux);
 	void draw(sf::RenderWindow& window);
 	void MoveUp();
 	void MoveDown();
+	void update();
 };
 

@@ -1,6 +1,6 @@
 #include "Espinhos.h"
 
-Espinhos::Espinhos(sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(6,posicao,tamanho)
+Espinhos::Espinhos(sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(12,posicao,tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/espinhos.png");

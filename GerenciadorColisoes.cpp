@@ -52,12 +52,12 @@ void GerenciadorColisoes::checkColPlataforma()
 void GerenciadorColisoes::checkColObstaculos()
 {
 	for (int i = 0; i < pListaObstaculos->getTamanho(); i++) {
-		if ((*pListaObstaculos)[i]->getID() == 1) {
+		if ((*pListaObstaculos)[i]->getID() == 11) { // Teia
 			if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
 				pJogador->setVelocityX(0.1f);
 			}
 		}
-		if ((*pListaObstaculos)[i]->getID() == 6) {
+		if ((*pListaObstaculos)[i]->getID() == 12) { // Espinho
 			if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
 				pJogador->giveDano(5);
 				printf("%d\n", pJogador->getVida());

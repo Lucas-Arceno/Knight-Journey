@@ -1,7 +1,7 @@
 #include "Rei.h"
 #include <iostream>
 
-Rei::Rei(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(5, pJogador, posicao, tamanho), vidaMaxima(1000)
+Rei::Rei(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(24, pJogador, posicao, tamanho), vidaMaxima(1000)
 {
 	this->corpo.setFillColor(sf::Color::Magenta);
 	this->vida = vidaMaxima;

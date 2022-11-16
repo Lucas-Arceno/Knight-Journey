@@ -1,6 +1,6 @@
 #include "MenuBase.h"
 
-MenuBase::MenuBase(int numItems, float widht, float height) : botoes(), menu(), selectedItemIndex(0), pGraphics(pGraphics->getGerenciadorGrafico()) {
+MenuBase::MenuBase(int numItems, float widht, float height) : botoes(), menu(), selectedItemIndex(0)/*, pGrafico(pGrafico->getGerenciadorGrafico())*/ {
 	if (!font.loadFromFile("arial.ttf")) {
 		//handle error
 	}

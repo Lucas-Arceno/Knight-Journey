@@ -37,7 +37,7 @@ void Game::exec()
 			pEvento->exec();
 			pGrafico->limpaJanela();
 			if (i == 1) {
-				Menu.Update(i);
+				Menu.updateEstado(i);
 				Menu.draw(*pGrafico->getJanela());
 			}
 			else if (i == 2) {
@@ -52,7 +52,7 @@ void Game::exec()
 				}
 			}
 			else if (i == 3) {
-				MenuFases.Update(i);
+				MenuFases.updateEstado(i);
 				MenuFases.draw(*pGrafico->getJanela());
 			}
 			else if (i == 4) {

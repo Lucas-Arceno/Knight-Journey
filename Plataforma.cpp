@@ -1,6 +1,6 @@
 #include "Plataforma.h"
 
-Plataforma::Plataforma(sf::Vector2f posicao, sf::Vector2f tamanho, const char* path) : Entidade(3, posicao, tamanho)
+Plataforma::Plataforma(sf::Vector2f posicao, sf::Vector2f tamanho, const char* path) : Entidade(31, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile(path);
