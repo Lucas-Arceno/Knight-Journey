@@ -1,5 +1,6 @@
 #pragma once
 #include "GerenciadorGrafico.h"
+#include <list>
 
 class Ente
 {

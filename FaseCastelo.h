@@ -4,7 +4,7 @@
 class FaseCastelo : public Fase 
 {
 private:
-	Jogador* pJogador;
+	JogadorPrincipal* pJogador;
 
 	listaPos listaPosCobras[19];
 	listaPos listaPosMorcegos[27];
@@ -36,6 +36,6 @@ public:
 
 	// teste 
 
-	Save salve;
+	//Save salve;
 };
 

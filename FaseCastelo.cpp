@@ -8,14 +8,13 @@ FaseCastelo::FaseCastelo() : Fase()
 	this->backgroundTexture.loadFromFile("assets/castle.png");
 	background.setTexture(&backgroundTexture);
 
-	this->pJogador = new Jogador(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
+	this->pJogador = new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
 
 	this->GerenciadorColisao = new GerenciadorColisoes(pJogador,&listaInimigos, &listaPlataformas, &listaObstaculos);
 
 	listaEntidades.addEntidade(pJogador);
 
 	setPosicoesLivres();
-
 	criaMapa();
 	criaInimigos();
 	criaObstaculos();
@@ -308,7 +307,7 @@ void FaseCastelo::render()
 	pGrafico->setView(sf::Vector2f(pJogador->getCorpo().getPosition().x, 300));
 	pGrafico->desenhaElementos(this->background);
 
-	pJogador->salvePontuacao();
+	//pJogador->salvePontuacao();
 
 	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());

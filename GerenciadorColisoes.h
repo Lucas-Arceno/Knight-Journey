@@ -1,5 +1,6 @@
 #pragma once
-#include "Jogador.h"
+#include "JogadorPrincipal.h"
+#include "JogadorSecundario.h"
 #include "Inimigo.h"
 #include "Plataforma.h"
 #include "ListaEntidade.h"

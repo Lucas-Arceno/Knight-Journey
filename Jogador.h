@@ -7,13 +7,15 @@
 
 class Jogador : public Personagem
 {
-private:
+protected:
 	sf::Sprite sprite;
+
 public:
 	projetilEspada* espadaP;
-private:
+
+protected:
 	List::ListaEntidade* pListaEntidade;
-	
+
 	bool coldownPulo;
 	const int vidaMaxima;
 
@@ -65,6 +67,6 @@ public:
 
 	//Updates
 	void update();
-	void updateMovimento();
+	virtual void updateMovimento() = 0;
 };
 

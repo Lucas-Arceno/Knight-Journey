@@ -1,4 +1,4 @@
-		#pragma once
+#pragma once
 #include "FaseCastelo.h"
 #include "FasePalacio.h"
 #include "Menu.h"
@@ -10,6 +10,7 @@ class Game
 private:
 	GerenciadorGrafico* pGrafico;
 	GerenciadorEvento* pEvento;
+	std::list<Jogador*>Jogadores;
 
 public:
 	Game();
