@@ -10,7 +10,6 @@ class Game
 private:
 	GerenciadorGrafico* pGrafico;
 	GerenciadorEvento* pEvento;
-	std::list<Jogador*>Jogadores;
 
 public:
 	Game();

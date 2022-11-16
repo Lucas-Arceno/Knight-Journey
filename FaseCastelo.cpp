@@ -8,11 +8,11 @@ FaseCastelo::FaseCastelo() : Fase()
 	this->backgroundTexture.loadFromFile("assets/castle.png");
 	background.setTexture(&backgroundTexture);
 
-	this->pJogador = new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
+	Jogadores.push_back(new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 
-	this->GerenciadorColisao = new GerenciadorColisoes(pJogador,&listaInimigos, &listaPlataformas, &listaObstaculos);
+	this->GerenciadorColisao = new GerenciadorColisoes(Jogadores.front(), &listaInimigos, &listaPlataformas, &listaObstaculos);
 
-	listaEntidades.addEntidade(pJogador);
+	listaEntidades.addEntidade(Jogadores.front());
 
 	setPosicoesLivres();
 	criaMapa();
@@ -206,7 +206,7 @@ void FaseCastelo::criaInimigos()
 		while (!(listaPosCobras[aux].isLivre)) {
 			aux = rand() % 19;
 		}
-		listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaEntidades.addEntidade(new Cobra(Jogadores.front(), sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosCobras[aux].isLivre = false;
 	}
 	for (int i = 0; i < num_Morcegos; i++) {
@@ -214,7 +214,7 @@ void FaseCastelo::criaInimigos()
 		while (!(listaPosMorcegos[aux].isLivre)) {
 			aux = rand() % 27;
 		}
-		listaEntidades.addEntidade(new Morcego(&listaEntidades, pJogador, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
+		listaEntidades.addEntidade(new Morcego(&listaEntidades, Jogadores.front(), sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
 		listaPosMorcegos[aux].isLivre = false;
 	}
 
@@ -239,7 +239,7 @@ void FaseCastelo::criaObstaculos()
 		while (!(listaPosObstaculos[aux3].isLivre)) {
 			aux3 = rand() % 29;
 		}
-		listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
+		listaEntidades.addEntidade(new Portal(Jogadores.front(), sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
 		listaPosObstaculos[aux3].isLivre = false;
 	}
 
@@ -258,20 +258,20 @@ void FaseCastelo::criaObstaculos()
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6500.f, 550.f)));
 
 	num_Portais = num_Portais + 2;
-	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
-	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+	listaEntidades.addEntidade(new Portal(Jogadores.front(), sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+	listaEntidades.addEntidade(new Portal(Jogadores.front(), sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 
 }
 
 int const FaseCastelo::getPontuacao()
 {
-	return this->pJogador->getPontucao();
+	return this->Jogadores.front()->getPontucao();
 }
 
 
 bool FaseCastelo::checkMorreu()
 {
-	if (pJogador->getVida() <= 0) {
+	if (Jogadores.front()->getVida() <= 0) {
 		return true;
 	}
 	else {
@@ -285,8 +285,8 @@ bool FaseCastelo::checkTerminou() {
 	final.setFillColor(sf::Color::Blue);
 	final.setPosition(sf::Vector2f(6600.0f, 515.0f));
 
-	if (pJogador->getCorpo().getGlobalBounds().intersects(final.getGlobalBounds())) {
-		pJogador->setPosition(150.f, 600.f);
+	if (Jogadores.front()->getCorpo().getGlobalBounds().intersects(final.getGlobalBounds())) {
+		Jogadores.front()->setPosition(150.f, 600.f);
 		return true;
 	}
 	else {
@@ -304,7 +304,7 @@ void FaseCastelo::update()
 
 void FaseCastelo::render()
 {
-	pGrafico->setView(sf::Vector2f(pJogador->getCorpo().getPosition().x, 300));
+	pGrafico->setView(sf::Vector2f(Jogadores.front()->getCorpo().getPosition().x, 300));
 	pGrafico->desenhaElementos(this->background);
 
 	//pJogador->salvePontuacao();
