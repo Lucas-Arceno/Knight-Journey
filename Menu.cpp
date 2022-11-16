@@ -2,33 +2,33 @@
 
 Menu::Menu(float widht, float height) : MenuBase(3, widht, height)
 {
-	if (!font.loadFromFile("arial.ttf")) {
+	if (!font.loadFromFile("unispace bd.ttf")) {
 		//handle error
 	}
 
 	background.setSize(sf::Vector2f(1600, 960));
-	backgroundTexture.loadFromFile("assets/MenuBackground.png");
+	backgroundTexture.loadFromFile("assets/menuteste2.png");
 	background.setTexture(&backgroundTexture);
-	background.setPosition(sf::Vector2f(-500, 0));
-	background.setScale(1.0, 1.25);
+	background.setPosition(sf::Vector2f(-150, 0));
+	background.setScale(0.8, 1.2);
 
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);
 	menu[0].setString("Jogar");
-	menu[0].setPosition(sf::Vector2f((widht / 2) - 115, (height / (3 + 1) * 1) + 20));
-	botoes[0].setPosition(sf::Vector2f((widht / 2) - 150, height / (3 + 1) * 1));
+	menu[0].setPosition(sf::Vector2f((widht / 2) - 125, (height / (3 + 1) * 1) + 320));
+	botoes[0].setPosition(sf::Vector2f((widht / 2) - 150, (height / (3 + 1) * 1)+300));
 
 	menu[1].setFont(font);
 	menu[1].setFillColor(sf::Color::Black);
-	menu[1].setString("Opcoes");
-	menu[1].setPosition(sf::Vector2f((widht / 2) - 125, (height / (3 + 1) * 2) + 20));
-	botoes[1].setPosition(sf::Vector2f((widht / 2) - 150, height / (3 + 1) * 2));
+	menu[1].setString(" Ver\nRanking");
+	menu[1].setPosition(sf::Vector2f((widht / 2) - 125, (height / (3 + 1) * 2) + 320));
+	botoes[1].setPosition(sf::Vector2f((widht / 2) - 150, (height / (3 + 1) * 2)+300));
 
 	menu[2].setFont(font);
 	menu[2].setFillColor(sf::Color::Black);
 	menu[2].setString("Sair");
-	menu[2].setPosition(sf::Vector2f((widht / 2) - 100, (height / (3 + 1) * 3) + 20));
-	botoes[2].setPosition(sf::Vector2f((widht / 2) - 150, height / (3 + 1) * 3));
+	menu[2].setPosition(sf::Vector2f((widht / 2) - 115, (height / (3 + 1) * 3) + 320));
+	botoes[2].setPosition(sf::Vector2f((widht / 2) - 150, (height / (3 + 1) * 3)+300));
 }
 
 Menu::~Menu()

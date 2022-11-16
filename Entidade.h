@@ -32,7 +32,7 @@ public:
 
 	Colisao GetColisao() { return Colisao(corpo); }
 
-	const int getID() { return ID; }
+	const int getID() { return ID; }	
 
 	void initPhysics();
 	void updatePhysics();

@@ -249,6 +249,14 @@ void FaseCastelo::criaObstaculos()
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(1000.f, 625.f)));
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(2000.f, 800.f)));
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5300.f, 550.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5450.f, 550.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5600.f, 550.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5750.f, 550.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5900.f, 550.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6050.f, 550.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6200.f, 550.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6350.f, 550.f)));
+	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6500.f, 550.f)));
 
 	num_Portais = num_Portais + 2;
 	listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));

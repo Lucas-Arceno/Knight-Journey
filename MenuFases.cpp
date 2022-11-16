@@ -7,7 +7,7 @@ MenuFases::MenuFases(float widht, float height) : MenuBase(2, widht, height)
 	}
 
 	background.setSize(sf::Vector2f(1600, 960));
-	backgroundTexture.loadFromFile("assets/menu3.png");
+	backgroundTexture.loadFromFile("assets/teste333.jpg");
 	background.setTexture(&backgroundTexture);
 	background.setPosition(sf::Vector2f(0, -100));
 	background.setScale(1.0, 1.3);
