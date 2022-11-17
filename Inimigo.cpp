@@ -1,10 +1,10 @@
 #include "Inimigo.h"
 #include <cmath>
 
-Inimigo::Inimigo(int id, Jogador* pJogador,sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(id, posicao, tamanho), pJogador(nullptr)
+Inimigo::Inimigo(int id, std::list<Jogador*>* Jogadores,sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(id, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::Green);
-	this->pJogador = pJogador;
+	this->pJogadores = Jogadores;
 	cont_mov = 0;
 	dir_mov = rand() % 2;
 		if (dir_mov == 1) {
@@ -34,23 +34,27 @@ void Inimigo::updateDano(int dano)
 	}
 
 	// Dano do player no inimigo
-	if (pJogador->espadaP->getEspadaProjetilGlobal().intersects(this->getCorpo().getGlobalBounds())) {
-		printf("%d\n", this->getVida());
-		if (iFrame == 0) {
-			this->giveDano(1);
-			this->isVivo = false;
-			iFrame++;
-			printf("hit : %d\n", this->getVida());
+
+	for (auto const& pJogador : *pJogadores)
+	{
+		if (pJogador->espadaP->getEspadaProjetilGlobal().intersects(this->getCorpo().getGlobalBounds())) {
+			printf("%d\n", this->getVida());
+			if (iFrame == 0) {
+				this->giveDano(1);
+				this->isVivo = false;
+				iFrame++;
+				printf("hit : %d\n", this->getVida());
+			}
+			//int pont = 1;
+			//	if (this->id == 5) { pont = 2; }
+			pJogador->givePontuacao(1);
 		}
-		//int pont = 1;
-		//	if (this->id == 5) { pont = 2; }
-		pJogador->givePontuacao(1);
-	}
-	// Dano do inimigo no player
-	else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds()) && pJogador->getInvFrame() == 0) {
-		printf("dano player %d \n", pJogador->getVida());
-		pJogador->giveDano(dano);
-		pJogador->setInvFrame();
+		// Dano do inimigo no player
+		else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds()) && pJogador->getInvFrame() == 0) {
+			printf("dano player %d \n", pJogador->getVida());
+			pJogador->giveDano(dano);
+			pJogador->setInvFrame();
+		}
 	}
 }
 

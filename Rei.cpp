@@ -1,7 +1,7 @@
 #include "Rei.h"
 #include <iostream>
 
-Rei::Rei(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(24, pJogador, posicao, tamanho), vidaMaxima(1000)
+Rei::Rei(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(24, nullptr, posicao, tamanho), vidaMaxima(1000)
 {
 	this->corpo.setFillColor(sf::Color::Magenta);
 	this->vida = vidaMaxima;
@@ -26,7 +26,7 @@ void Rei::update() {
 }
 
 void Rei::updateMovimento() {
-	sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
+	/*sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = corpo.getPosition();
 
 	if (fabs(posJogador.x - posInimigo.x) <= 400 && fabs(posJogador.y - posInimigo.y) <= 400) {
@@ -35,6 +35,7 @@ void Rei::updateMovimento() {
 	if (fabs(posJogador.x - posInimigo.x) <= 200 && fabs(posJogador.y - posInimigo.y) <= 100) {
 		ataqueJogador();
 	}
+	*/
 }
 
 void Rei::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
@@ -57,7 +58,7 @@ void Rei::ataqueJogador() {
 	
 	//TESTES
 
-	sf::Vector2f outroPosicao = pJogador->getCorpo().getPosition();
+	/*sf::Vector2f outroPosicao = pJogador->getCorpo().getPosition();
 	sf::Vector2f outroHalfSize = pJogador->getCorpo().getSize() / 2.0f;
 	sf::Vector2f thisPosicao = this->getCorpo().getPosition();
 	sf::Vector2f thisHalfSize = this->getCorpo().getSize() / 2.0f;
@@ -72,4 +73,5 @@ void Rei::ataqueJogador() {
 			printf("teste");
 		}
 	}
+	*/
 }

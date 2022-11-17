@@ -1,13 +1,13 @@
 #include "Morcego.h"
 
 
-Morcego::Morcego(List::ListaEntidade* pListaEntidade, Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(22, pJogador, posicao, tamanho), vidaMaxima(1), projetil()
+Morcego::Morcego(List::ListaEntidade* pListaEntidade, std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(22, pJogadores, posicao, tamanho), vidaMaxima(1), projetil()
 {
 	this->pListaEntidade = pListaEntidade;
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/morcego.png");
 	this->corpo.setTexture(&texture);
-	projetil = new Projetil(pJogador);
+	projetil = new Projetil(pJogadores);
 	this->pListaEntidade->addEntidade(projetil);
 	setVida(vidaMaxima);
 }
@@ -68,10 +68,22 @@ void Morcego::update()
 
 void Morcego::updateMovimento()
 {
-	sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = corpo.getPosition();
+	sf::Vector2f posJogador;
 
-	if (fabs(posJogador.x - posInimigo.x) < 300 && fabs(posJogador.y - posInimigo.y) < 1000) {
+	for (auto const& pJogador : *pJogadores)
+	{
+		if (pJogador == pJogadores->front()) {
+			posJogador = pJogador->getCorpo().getPosition();
+		}
+		else {
+			if (pJogador->getCorpo().getPosition().x < posJogador.x) {
+				posJogador = pJogador->getCorpo().getPosition();
+			}
+		}
+	}
+
+	if (fabs(posJogador.x - posInimigo.x) <= 300 && fabs(posJogador.y - posInimigo.y) <= 300) {
 		persegueJogador(posJogador, posInimigo);
 	}
 	else randomMovimento();

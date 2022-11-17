@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 
-Projetil::Projetil(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(23, posicao, tamanho) {
+Projetil::Projetil(std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(23, posicao, tamanho) {
 	this->corpo.setFillColor(sf::Color::Red);
-	this->pJogador = pJogador;
+	this->pJogadores = pJogadores;
 }
 
 
@@ -59,6 +59,13 @@ void Projetil::updateProjetil(float posX, float posY) {
 	if (colisaoProjetil == true) { 
 		corpo.setPosition(sf::Vector2f(posX, posY));
 
+		if (pJogadores->front()->getCorpo().getPosition().x > pJogadores->back()->getCorpo().getPosition().x) {
+			pJogador = pJogadores->back();
+		}
+		else {
+			pJogador = pJogadores->front();
+		}
+
 		posJogador = pJogador->getCorpo().getPosition();
 		Direcao.x = -(posX - posJogador.x);
 		Direcao.y = -(posY - posJogador.y);
@@ -68,6 +75,14 @@ void Projetil::updateProjetil(float posX, float posY) {
 		contTempVida = 0;
 	}
 	else {
+
+		if (pJogadores->front()->getCorpo().getPosition().x > pJogadores->back()->getCorpo().getPosition().x) {
+			pJogador = pJogadores->back();
+		}
+		else {
+			pJogador = pJogadores->front();
+		}
+
 		if (fabs(pJogador->getCorpo().getPosition().x - this->corpo.getPosition().x) > 300 || fabs(pJogador->getCorpo().getPosition().y - this->corpo.getPosition().y) > 1000) {
 			this->corpo.setPosition(sf::Vector2f(5000.f, 2000.f));
 		}

@@ -11,7 +11,7 @@ FasePalacio::FasePalacio()
 
 	this->pJogador = new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
 
-	this->GerenciadorColisao = new GerenciadorColisoes(pJogador, &listaInimigos, &listaPlataformas, &listaObstaculos);
+	//this->GerenciadorColisao = new GerenciadorColisoes(pJogador, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
 	listaEntidades.addEntidade(pJogador);
 
@@ -172,7 +172,7 @@ void FasePalacio::criaInimigos()
 		while (!(listaPosCobras[aux].isLivre)) {
 			aux = rand() % 10;
 		}
-		listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
+		//listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosCobras[aux].isLivre = false;
 	}
 	for (int i = 0; i < num_Morcegos; i++) {
@@ -180,7 +180,7 @@ void FasePalacio::criaInimigos()
 		while (!(listaPosMorcegos[aux].isLivre)) {
 			aux = rand() % 6;
 		}
-		listaEntidades.addEntidade(new Morcego(&listaEntidades, pJogador, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
+	//	listaEntidades.addEntidade(new Morcego(&listaEntidades, pJogador, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
 		listaPosMorcegos[aux].isLivre = false;
 	}
 }

@@ -1,6 +1,6 @@
 #include "Cobra.h"
 
-Cobra::Cobra(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(21,pJogador, posicao, tamanho), vidaMaxima(2), venenosa(false)
+Cobra::Cobra(std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(21, pJogadores, posicao, tamanho), vidaMaxima(2), venenosa(false)
 {
 	int aux = rand() % 2 + 1;
 	if (aux == 1) {
@@ -42,6 +42,7 @@ void Cobra::darBote()
 
 void Cobra::update()
 {
+	printf("cobra");
 	updateMovimento();
 	updatePhysics();	
 	darBote();
@@ -49,8 +50,20 @@ void Cobra::update()
 
 void Cobra::updateMovimento()
 {
-	sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = corpo.getPosition();
+	sf::Vector2f posJogador;
+
+	for (auto const& pJogador : *pJogadores)
+	{
+		if (pJogador == pJogadores->front()) {
+			posJogador = pJogador->getCorpo().getPosition();
+		}
+		else {
+			if (pJogador->getCorpo().getPosition().x < posJogador.x) {
+				posJogador = pJogador->getCorpo().getPosition();
+			}
+		}
+	}
 
 	if (fabs(posJogador.x - posInimigo.x) <= 300 && fabs(posJogador.y - posInimigo.y) <= 300) {
 		persegueJogador(posJogador, posInimigo);

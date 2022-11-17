@@ -14,10 +14,10 @@ private:
 	sf::Vector2f posJogador;
 	
 public:
+	Jogador* pJogador;
+	std::list<Jogador*>* pJogadores;
 
-	Jogador* pJogador;	
-
-	Projetil(Jogador *pJogador,sf::Vector2f posicao = sf::Vector2f(5.f, 5.f), sf::Vector2f tamanho = sf::Vector2f(20.f, 10.f));
+	Projetil(std::list<Jogador*>* pJogadores,sf::Vector2f posicao = sf::Vector2f(5.f, 5.f), sf::Vector2f tamanho = sf::Vector2f(20.f, 10.f));
 	~Projetil();
 
 	void update();

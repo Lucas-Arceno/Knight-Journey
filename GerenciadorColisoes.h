@@ -5,15 +5,16 @@
 #include "Plataforma.h"
 #include "ListaEntidade.h"
 
+
 class GerenciadorColisoes
 {
 private:
-	Jogador* pJogador;
+	std::list<Jogador*>* pJogadores;
 	List::ListaEntidade* pListaInimigos;
 	List::ListaEntidade* pListaPlataformas;
 	List::ListaEntidade* pListaObstaculos;
 public:
-	GerenciadorColisoes(Jogador* jogador, List::ListaEntidade* listaInimigos, List::ListaEntidade* listaPlataformas, List::ListaEntidade* ListaObstaculos);
+	GerenciadorColisoes(std::list<Jogador*>*pJogadores, List::ListaEntidade* listaInimigos, List::ListaEntidade* listaPlataformas, List::ListaEntidade* ListaObstaculos);
 	~GerenciadorColisoes();
 	void updateColisao();
 	void checkColPlataforma();
