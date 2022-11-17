@@ -1,6 +1,6 @@
-#include "MenuFases.h"
+#include "MenuEscolhaOnline.h"
 
-MenuFases::MenuFases(float widht, float height) : MenuBase(2, widht, height)
+MenuEscolhaOnline::MenuEscolhaOnline(float widht, float height) : MenuBase(2, widht, height)
 {
 	if (!font.loadFromFile("unispace bd.ttf")) {
 		//handle error
@@ -14,22 +14,23 @@ MenuFases::MenuFases(float widht, float height) : MenuBase(2, widht, height)
 
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);
-	menu[0].setString("Fase 1");
-	menu[0].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 1));
-	botoes[0].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 1));
+	menu[0].setString("Sozinho");
+	menu[0].setPosition(sf::Vector2f((widht / 2) - 500, height / (2 + 1) * 1));
+	botoes[0].setPosition(sf::Vector2f((widht / 2) - 500, height / (2 + 1) * 1));
 
 	menu[1].setFont(font);
 	menu[1].setFillColor(sf::Color::Black);
-	menu[1].setString("Fase 2");
-	menu[1].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 2));
-	botoes[1].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 2));
+	menu[1].setString("Online");
+	menu[1].setPosition(sf::Vector2f((widht / 2) - 500, height / (2 + 1) * 2));
+	botoes[1].setPosition(sf::Vector2f((widht / 2) - 500, height / (2 + 1) * 2));
 }
 
-MenuFases::~MenuFases()
+MenuEscolhaOnline::~MenuEscolhaOnline()
 {
 }
 
-void MenuFases::updateEstado(int& aux) {
+void MenuEscolhaOnline::updateEstado(int& aux)
+{
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
 	}
@@ -41,21 +42,23 @@ void MenuFases::updateEstado(int& aux) {
 			menu[selectedItemIndex].setFillColor(sf::Color::Black);
 			menu[i].setFillColor(sf::Color::Red);
 			selectedItemIndex = i;
+			botoes[i].isPressed(true);
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
-					printf("botao 1");
-					aux = 2;
+					aux = 7;
 				}
 				else if (selectedItemIndex == 1) {
-					printf("botao 2");
-					aux = 4;
+					aux = 8;
 				}
 			}
+		}
+		else {
+			botoes[i].isPressed(false);
 		}
 	}
 }
 
-void MenuFases::draw(sf::RenderWindow& window)
+void MenuEscolhaOnline::draw(sf::RenderWindow& window)
 {
 	sf::View view;
 	pGrafico->getJanela()->setView(view);
@@ -68,7 +71,7 @@ void MenuFases::draw(sf::RenderWindow& window)
 	}
 }
 
-void MenuFases::MoveUp()
+void MenuEscolhaOnline::MoveUp()
 {
 	if (selectedItemIndex - 1 >= 0) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -77,7 +80,7 @@ void MenuFases::MoveUp()
 	}
 }
 
-void MenuFases::MoveDown()
+void MenuEscolhaOnline::MoveDown()
 {
 	if (selectedItemIndex + 1 < 2) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -86,6 +89,6 @@ void MenuFases::MoveDown()
 	}
 }
 
-void MenuFases::update() {
-
+void MenuEscolhaOnline::update()
+{
 }

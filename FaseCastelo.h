@@ -31,6 +31,7 @@ public:
 	const int getPontuacao();
 
 	void multiplayer(bool status);
+
 	bool checkMorreu();
 	bool checkTerminou();
 

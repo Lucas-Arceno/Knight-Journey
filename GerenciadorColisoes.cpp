@@ -22,19 +22,19 @@ void GerenciadorColisoes::updateColisao()
 void GerenciadorColisoes::checkColPlataforma()
 {
 	int aux = 0;
-	for (int j = 0; j < pListaInimigos->getTamanho(); j++) {
-		for (int k = 0; k < pListaPlataformas->getTamanho(); k++) {
+	for (unsigned int j = 0; j < pListaInimigos->getTamanho(); j++) {
+		for (unsigned int k = 0; k < pListaPlataformas->getTamanho(); k++) {
 			if((*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaPlataformas)[k]->GetColisao(), 0.0f) && (*pListaInimigos)[j]->getID() == 10){
 				(*pListaInimigos)[j]->setCorpoPosicao(sf::Vector2f(-14004.f, 50041.f));
 			}
 		}
 	}
-	for (int h = 0; h < pListaObstaculos->getTamanho(); h++) {
-		for (int o = 0; o < pListaPlataformas->getTamanho(); o++) {
+	for (unsigned int h = 0; h < pListaObstaculos->getTamanho(); h++) {
+		for (unsigned int o = 0; o < pListaPlataformas->getTamanho(); o++) {
 			(*pListaObstaculos)[h]->GetColisao().CheckCollision((*pListaPlataformas)[o]->GetColisao(), 0.0f);
 		}
 	}
-	for (int i = 0; i < pListaPlataformas->getTamanho(); i++) {
+	for (unsigned int i = 0; i < pListaPlataformas->getTamanho(); i++) {
 		for (auto const& pJogador : *pJogadores)
 		{
 			if (pJogador->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
@@ -54,7 +54,7 @@ void GerenciadorColisoes::checkColPlataforma()
 
 void GerenciadorColisoes::checkColObstaculos()
 {
-	for (int i = 0; i < pListaObstaculos->getTamanho(); i++) {
+	for (unsigned int i = 0; i < pListaObstaculos->getTamanho(); i++) {
 		if ((*pListaObstaculos)[i]->getID() == 11) { // Teia
 			for (auto const& pJogador : *pJogadores)
 			{
@@ -77,7 +77,7 @@ void GerenciadorColisoes::checkColObstaculos()
 
 void GerenciadorColisoes::checkColInimigos()
 {
-	for (int i = 0; i < pListaInimigos->getTamanho(); i++) {
+	for (unsigned int i = 0; i < pListaInimigos->getTamanho(); i++) {
 		//(*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f);
 	}
 }

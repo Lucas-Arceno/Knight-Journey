@@ -10,7 +10,6 @@ FasePalacio::FasePalacio()
 	this->num_Portais = -1;
 
 	Jogadores.push_back(new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
-	Jogadores.push_back(new JogadorSecundario(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 
 	this->GerenciadorColisao = new GerenciadorColisoes(&Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
@@ -25,7 +24,7 @@ FasePalacio::FasePalacio()
 	criaInimigos();
 	criaObstaculos();
 
-	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 11 = teia
 		/// 12 = espinhos
 		/// 13 = portal
@@ -213,6 +212,15 @@ void FasePalacio::criaObstaculos()
 	}
 }
 
+void FasePalacio::multiplayer(bool status)
+{
+	if (status == true) {
+		Jogadores.push_back(new JogadorSecundario(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+		listaEntidades.addEntidade(Jogadores.back());
+		;
+	}
+}
+
 bool FasePalacio::checkTerminou()
 {
 	return true;
@@ -239,10 +247,10 @@ void FasePalacio::render()
 	if (num_sala == 3) {
 		pGrafico->setView(sf::Vector2f(-2527.0f, 66.165459f));
 	}
-	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
 	}
-	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->update();
 	}
 }

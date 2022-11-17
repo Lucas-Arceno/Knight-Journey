@@ -26,6 +26,7 @@ void Game::exec()
 	Menu Menu(1200, 800);
 	MenuFases MenuFases(1200, 800);
 	MenuGameOver MenuGameOver(1200, 800);
+	MenuEscolhaOnline MenuOnline(1200, 800);
 
 	FasePalacio Palacio;
 	FaseCastelo Castelo;
@@ -44,10 +45,6 @@ void Game::exec()
 				Menu.draw(*pGrafico->getJanela());
 			}
 			else if (i == 2) {
-				if (aux_x == 0) {
-					Castelo.multiplayer(true);
-					aux_x++;
-				}
 				if (!Castelo.checkTerminou()) {
 					Castelo.update();
 					if (Castelo.checkMorreu()) {
@@ -59,8 +56,17 @@ void Game::exec()
 				}
 			}
 			else if (i == 3) {
+				MenuOnline.updateEstado(i);
+				MenuOnline.draw(*pGrafico->getJanela());
+			}
+			else if (i == 7) {
 				MenuFases.updateEstado(i);
 				MenuFases.draw(*pGrafico->getJanela());
+			}
+			else if (i == 8) {
+				Castelo.multiplayer(true);
+				Palacio.multiplayer(true);
+				i = 7;
 			}
 			else if (i == 4) {
 				Palacio.update();

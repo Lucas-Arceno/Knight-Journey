@@ -25,7 +25,7 @@ FaseCastelo::FaseCastelo() : Fase()
 	//int kk =1;
 	//listaEntidades.addEntidade(new Rei(pJogador, sf::Vector2f(250.0f * kk + 200, 200.0f), sf::Vector2f(100.0f, 100.0f)));
 
-	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 11 = teia
 		/// 12 = espinhos
 		/// 13 = portal
@@ -319,10 +319,10 @@ void FaseCastelo::render()
 
 	//pJogador->salvePontuacao();
 
-	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
 	}
-	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->update();
 	}
 }

@@ -29,6 +29,8 @@ public:
 	void criaInimigos();
 	void criaObstaculos();
 
+	void multiplayer(bool status);
+
 	bool checkTerminou();
 
 	void update();
