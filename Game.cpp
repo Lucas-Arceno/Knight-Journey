@@ -26,10 +26,13 @@ void Game::exec()
 	Menu Menu(1200, 800);
 	MenuFases MenuFases(1200, 800);
 	MenuGameOver MenuGameOver(1200, 800);
-	FaseCastelo Castelo;
-	FasePalacio Palacio;
 
+	FasePalacio Palacio;
+	FaseCastelo Castelo;
+	
 	Ranking ListaPontos[10];
+
+	int aux_x = 0;
 
 	int i = 1;
 	while (i != -1) {
@@ -41,6 +44,10 @@ void Game::exec()
 				Menu.draw(*pGrafico->getJanela());
 			}
 			else if (i == 2) {
+				if (aux_x == 0) {
+					Castelo.multiplayer(true);
+					aux_x++;
+				}
 				if (!Castelo.checkTerminou()) {
 					Castelo.update();
 					if (Castelo.checkMorreu()) {
@@ -63,7 +70,7 @@ void Game::exec()
 				MenuGameOver.draw(*pGrafico->getJanela());
 			}
 			else if (i == 6) {
-				ListaPontos[1].pontos = Castelo.getPontuacao();
+				//ListaPontos[1].pontos = Castelo.getPontuacao();
 			}
 			pGrafico->mostraElementos();
 		}

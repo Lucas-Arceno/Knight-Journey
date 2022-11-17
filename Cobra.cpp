@@ -42,7 +42,6 @@ void Cobra::darBote()
 
 void Cobra::update()
 {
-	printf("cobra");
 	updateMovimento();
 	updatePhysics();	
 	darBote();

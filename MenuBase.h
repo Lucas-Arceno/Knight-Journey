@@ -9,7 +9,6 @@ class MenuBase : public Ente
 protected:
 	int selectedItemIndex;
 	sf::Font font;
-	//GerenciadorGrafico* pGraphics;
 
 	sf::RectangleShape background;
 	sf::Texture backgroundTexture;

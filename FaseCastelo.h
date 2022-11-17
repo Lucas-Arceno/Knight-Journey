@@ -16,6 +16,8 @@ private:
 	int num_Portais;
 	int num_Teias;
 
+	bool Multiplayer = false;
+
 public:
 	FaseCastelo();
 	~FaseCastelo();
@@ -28,6 +30,7 @@ public:
 
 	const int getPontuacao();
 
+	void multiplayer(bool status);
 	bool checkMorreu();
 	bool checkTerminou();
 

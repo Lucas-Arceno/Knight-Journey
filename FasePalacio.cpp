@@ -9,11 +9,15 @@ FasePalacio::FasePalacio()
 	this->num_Teias = -1;
 	this->num_Portais = -1;
 
-	this->pJogador = new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
+	Jogadores.push_back(new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+	Jogadores.push_back(new JogadorSecundario(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 
-	//this->GerenciadorColisao = new GerenciadorColisoes(pJogador, &listaInimigos, &listaPlataformas, &listaObstaculos);
+	this->GerenciadorColisao = new GerenciadorColisoes(&Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
-	listaEntidades.addEntidade(pJogador);
+	for (auto const& Jogador : Jogadores)
+	{
+		listaEntidades.addEntidade(Jogador);
+	}
 
 	setPosicoesLivres();
 
@@ -94,28 +98,28 @@ void FasePalacio::checkQuarto()
 	quarto1.setSize(sf::Vector2f(10.0f, 200.0f));
 	quarto1.setPosition(sf::Vector2f(100.0f, -183.0f));
 	quarto1.setFillColor(sf::Color::Red);
-	if (pJogador->getCorpo().getGlobalBounds().intersects(quarto1.getGlobalBounds())) {
+	if (Jogadores.front()->getCorpo().getGlobalBounds().intersects(quarto1.getGlobalBounds())) {
 		num_sala = 0;
 	}
 	sf::RectangleShape quarto2;
 	quarto2.setSize(sf::Vector2f(10.0f, 200.0f));
 	quarto2.setPosition(sf::Vector2f(0.0f, -183.0f));
 	quarto2.setFillColor(sf::Color::Red);
-	if (pJogador->getCorpo().getGlobalBounds().intersects(quarto2.getGlobalBounds())) {
+	if (Jogadores.front()->getCorpo().getGlobalBounds().intersects(quarto2.getGlobalBounds())) {
 		num_sala = 1;
 	}
 	sf::RectangleShape quarto3;
 	quarto3.setSize(sf::Vector2f(10.0f, 200.0f));
 	quarto3.setPosition(sf::Vector2f(-1000.0f, 450.0f));
 	quarto3.setFillColor(sf::Color::Red);
-	if (pJogador->getCorpo().getGlobalBounds().intersects(quarto3.getGlobalBounds())) {
+	if (Jogadores.front()->getCorpo().getGlobalBounds().intersects(quarto3.getGlobalBounds())) {
 		num_sala = 2;
 	}
 	sf::RectangleShape quarto4;
 	quarto4.setSize(sf::Vector2f(10.0f, 200.0f));
 	quarto4.setPosition(sf::Vector2f(-2036.0f, 450.0f));
 	quarto4.setFillColor(sf::Color::Red);
-	if (pJogador->getCorpo().getGlobalBounds().intersects(quarto4.getGlobalBounds())) {
+	if (Jogadores.front()->getCorpo().getGlobalBounds().intersects(quarto4.getGlobalBounds())) {
 		num_sala = 3;
 	}
 
@@ -172,7 +176,7 @@ void FasePalacio::criaInimigos()
 		while (!(listaPosCobras[aux].isLivre)) {
 			aux = rand() % 10;
 		}
-		//listaEntidades.addEntidade(new Cobra(pJogador, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaEntidades.addEntidade(new Cobra(&Jogadores, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosCobras[aux].isLivre = false;
 	}
 	for (int i = 0; i < num_Morcegos; i++) {
@@ -180,7 +184,7 @@ void FasePalacio::criaInimigos()
 		while (!(listaPosMorcegos[aux].isLivre)) {
 			aux = rand() % 6;
 		}
-	//	listaEntidades.addEntidade(new Morcego(&listaEntidades, pJogador, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
+		listaEntidades.addEntidade(new Morcego(&listaEntidades, &Jogadores, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
 		listaPosMorcegos[aux].isLivre = false;
 	}
 }
@@ -204,7 +208,7 @@ void FasePalacio::criaObstaculos()
 		while (!(listaPosObstaculos[aux3].isLivre)) {
 			aux3 = rand() % 14;
 		}
-		//listaEntidades.addEntidade(new Portal(pJogador, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
+		//listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
 		listaPosObstaculos[aux3].isLivre = false;
 	}
 }
@@ -216,7 +220,6 @@ bool FasePalacio::checkTerminou()
 
 void FasePalacio::update()
 {
-	printf("%f %f\n", pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y);
 	this->GerenciadorColisao->updateColisao();
 	render();
 	checkQuarto();

@@ -4,7 +4,7 @@
 class FasePalacio : public Fase
 {
 private:
-	Jogador* pJogador;
+	std::list<Jogador*>Jogadores;
 
 	listaPos listaPosMorcegos[6];
 	listaPos listaPosCobras[10];

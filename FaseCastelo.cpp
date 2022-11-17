@@ -9,7 +9,6 @@ FaseCastelo::FaseCastelo() : Fase()
 	background.setTexture(&backgroundTexture);
 
 	Jogadores.push_back(new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
-;	Jogadores.push_back(new JogadorSecundario(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 
 	this->GerenciadorColisao = new GerenciadorColisoes(&Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
@@ -244,7 +243,7 @@ void FaseCastelo::criaObstaculos()
 		while (!(listaPosObstaculos[aux3].isLivre)) {
 			aux3 = rand() % 29;
 		}
-		listaEntidades.addEntidade(new Portal(Jogadores.front(), sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
+		listaEntidades.addEntidade(new Portal(&Jogadores, sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
 		listaPosObstaculos[aux3].isLivre = false;
 	}
 
@@ -263,8 +262,8 @@ void FaseCastelo::criaObstaculos()
 	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6500.f, 550.f)));
 
 	num_Portais = num_Portais + 2;
-	listaEntidades.addEntidade(new Portal(Jogadores.front(), sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
-	listaEntidades.addEntidade(new Portal(Jogadores.front(), sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+	listaEntidades.addEntidade(new Portal(&Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+	listaEntidades.addEntidade(new Portal(&Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 
 }
 
@@ -273,6 +272,13 @@ int const FaseCastelo::getPontuacao()
 	return this->Jogadores.front()->getPontucao();
 }
 
+void FaseCastelo::multiplayer(bool status)
+{
+	if (status == true) {
+		Jogadores.push_back(new JogadorSecundario(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+		listaEntidades.addEntidade(Jogadores.back());
+;	}
+}
 
 bool FaseCastelo::checkMorreu()
 {
@@ -298,7 +304,6 @@ bool FaseCastelo::checkTerminou() {
 		return false;
 	}
 }
-
 
 void FaseCastelo::update()
 {
