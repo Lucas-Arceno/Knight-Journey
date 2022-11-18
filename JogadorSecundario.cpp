@@ -16,13 +16,13 @@ void JogadorSecundario::updateMovimento()
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)) {
 		this->move(1.f, 0.f);
 	}
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::I) && coldownPulo == true)) {
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && coldownPulo == true)) {
 		this->velocidade.y -= 20.0 * this->gravity;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
 		atacarEsq();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
 		atacarDir();
 	}
 }

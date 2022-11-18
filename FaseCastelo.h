@@ -4,8 +4,6 @@
 class FaseCastelo : public Fase 
 {
 private:
-	std::list<Jogador*>Jogadores;
-
 	listaPos listaPosCobras[19];
 	listaPos listaPosMorcegos[27];
 	listaPos listaPosObstaculos[29];
@@ -19,7 +17,7 @@ private:
 	bool Multiplayer = false;
 
 public:
-	FaseCastelo();
+	FaseCastelo(std::list<Jogador*>* pJogadores);
 	~FaseCastelo();
 
 	void setPosicoesLivres();

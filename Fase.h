@@ -30,13 +30,18 @@ struct listaPos {
 class Fase : public Ente
 {
 protected:
+	//Corpo, textura e afins
 	sf::RectangleShape background;
 	sf::Texture backgroundTexture;
 
+	//Listas
 	List::ListaEntidade listaEntidades;
 	List::ListaEntidade listaObstaculos;
 	List::ListaEntidade listaInimigos;
 	List::ListaEntidade listaPlataformas;
+	
+	//Jogadores
+	std::list<Jogador*>* Jogadores;
 
 	//GerenciadorGrafico* pGrafico;
 	GerenciadorEvento* pEvento;

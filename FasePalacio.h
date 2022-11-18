@@ -4,8 +4,6 @@
 class FasePalacio : public Fase
 {
 private:
-	std::list<Jogador*>Jogadores;
-
 	listaPos listaPosMorcegos[6];
 	listaPos listaPosCobras[10];
 	listaPos listaPosObstaculos[14];
@@ -18,7 +16,7 @@ private:
 	int num_Teias;
 	int num_Portais;
 public:
-	FasePalacio();
+	FasePalacio(std::list<Jogador*>* pJogadores);
 	~FasePalacio();
 
 	void setPosicoesLivres();

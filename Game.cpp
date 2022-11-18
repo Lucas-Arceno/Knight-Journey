@@ -23,13 +23,17 @@ Game::~Game()
 
 void Game::exec()
 {
+	std::list<Jogador*>Jogadores;
+	Jogadores.push_back(new JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+	JogadorSecundario* a = new JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f));
+
 	Menu Menu(1200, 800);
 	MenuFases MenuFases(1200, 800);
 	MenuGameOver MenuGameOver(1200, 800);
 	MenuEscolhaOnline MenuOnline(1200, 800);
 
-	FasePalacio Palacio;
-	FaseCastelo Castelo;
+	//FasePalacio Palacio(&Jogadores);
+	FaseCastelo Castelo(&Jogadores);
 	
 	Ranking ListaPontos[10];
 
@@ -62,12 +66,17 @@ void Game::exec()
 				MenuFases.draw(*pGrafico->getJanela());
 			}
 			else if (i == 8) {
+				Jogadores.push_back(a);
 				Castelo.multiplayer(true);
-				Palacio.multiplayer(true);
+				//Palacio.multiplayer(true);
 				i = 7;
 			}
 			else if (i == 4) {
-				Palacio.update();
+				for (auto const& Jogador : Jogadores)
+				{
+					Jogador->setPosition(100.0f,100.0f);
+				}
+				//Palacio.update();
 			}
 			else if (i == 5) {
 				MenuGameOver.Update(i);
