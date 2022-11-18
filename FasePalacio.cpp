@@ -10,9 +10,6 @@ FasePalacio::FasePalacio(std::list<Jogador*>* pJogadores) : Fase()
 	this->num_Teias = -1;
 	this->num_Portais = -1;
 
-	Jogadores->push_back(new JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
-	Jogadores->front()->setListaEntidade(&listaEntidades);
-
 	this->GerenciadorColisao = new GerenciadorColisoes(Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
 	for (auto const& Jogador : *Jogadores)
@@ -214,12 +211,24 @@ void FasePalacio::criaObstaculos()
 	}
 }
 
+void FasePalacio::teste()
+{
+	for (auto const& Jogador : *Jogadores)
+	{
+		Jogador->setListaEntidade(&listaEntidades);
+	}
+}
+
 void FasePalacio::multiplayer(bool status)
 {
 	if (status == true) {
-		Jogadores->push_back(new JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
-		listaEntidades.addEntidade(Jogadores->back());
-		Jogadores->front()->setListaEntidade(&listaEntidades);
+		for (auto const& Jogador : *Jogadores)
+		{
+			if (Jogador == (Jogadores)->back()) {
+				listaEntidades.addEntidade(Jogador);
+				Jogador->setListaEntidade(&listaEntidades);
+			}
+		}
 		;
 	}
 }
@@ -233,7 +242,8 @@ void FasePalacio::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
-	checkQuarto();
+	printf("%f %f\n %f %f", Jogadores->front()->getCorpo().getPosition().x, Jogadores->front()->getCorpo().getPosition().y, Jogadores->back()->getCorpo().getPosition().x, Jogadores->back()->getCorpo().getPosition().y);
+	//checkQuarto();
 }
 
 void FasePalacio::render()

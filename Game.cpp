@@ -32,11 +32,12 @@ void Game::exec()
 	MenuGameOver MenuGameOver(1200, 800);
 	MenuEscolhaOnline MenuOnline(1200, 800);
 
-	//FasePalacio Palacio(&Jogadores);
+	FasePalacio Palacio(&Jogadores);
 	FaseCastelo Castelo(&Jogadores);
 	
 	Ranking ListaPontos[10];
 
+	int aux_test = 0;
 	int i = 1;
 	while (i != -1) {
 		while (pGrafico->verificaJanelaAberta() && i != -1) {
@@ -68,16 +69,23 @@ void Game::exec()
 			else if (i == 8) {
 				Jogadores.push_back(a);
 				Castelo.multiplayer(true);
-				//Palacio.multiplayer(true);
+				Palacio.multiplayer(true);
 				i = 7;
 			}
 			else if (i == 4) {
-				for (auto const& Jogador : Jogadores)
-				{
-					Jogador->setPosition(100.0f,100.0f);
+				if (aux_test == 0) {
+					for (auto const& Jogador : Jogadores)
+					{
+						if (Jogador == (Jogadores).back()) {
+							Jogador->setPosition(100, 100);
+						}
+					}
+					Palacio.teste();
+					aux_test++;
 				}
-				//Palacio.update();
+				Palacio.update();
 			}
+
 			else if (i == 5) {
 				MenuGameOver.Update(i);
 				MenuGameOver.draw(*pGrafico->getJanela());

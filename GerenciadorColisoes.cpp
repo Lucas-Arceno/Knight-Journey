@@ -22,6 +22,7 @@ void GerenciadorColisoes::updateColisao()
 void GerenciadorColisoes::checkColPlataforma()
 {
 	int aux = 0;
+	int aux_2 = 0;
 
 	for (unsigned int j = 0; j < pListaInimigos->getTamanho(); j++) {
 		for (unsigned int k = 0; k < pListaPlataformas->getTamanho(); k++) {
@@ -38,22 +39,6 @@ void GerenciadorColisoes::checkColPlataforma()
 	}
 
 	for (unsigned int i = 0; i < pListaPlataformas->getTamanho(); i++) {
-		/*
-		for (auto const& pJogador : *pJogadores)
-		{
-			if (pJogador->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
-				pJogador->resetVelocity();
-				if ((*pListaPlataformas)[i]->getCorpo().getPosition().y >
-					pJogador->getCorpo().getPosition().y + pJogador->getCorpo().getGlobalBounds().height / 2.0f) {
-					pJogador->setColdownPulo(true);
-					aux++;
-				}
-			}
-			else if (aux == 0) {
-				pJogador->setColdownPulo(false);
-			}
-		}
-		*/
 		if ((pJogadores)->back()->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
 			(pJogadores)->back()->resetVelocity();
 			if ((*pListaPlataformas)[i]->getCorpo().getPosition().y >
@@ -65,16 +50,16 @@ void GerenciadorColisoes::checkColPlataforma()
 		else if (aux == 0) {
 			(pJogadores)->back()->setColdownPulo(false);
 		}
-
+		
 		if((pJogadores)->front()->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
 			(pJogadores)->front()->resetVelocity();
 			if ((*pListaPlataformas)[i]->getCorpo().getPosition().y >
 				(pJogadores)->front()->getCorpo().getPosition().y + (pJogadores)->front()->getCorpo().getGlobalBounds().height / 2.0f) {
 				(pJogadores)->front()->setColdownPulo(true);
-				aux++;
+				aux_2++;
 			}
 		}
-		else if (aux == 0) {
+		else if (aux_2 == 0) {
 			(pJogadores)->front()->setColdownPulo(false);
 		}
 	}
