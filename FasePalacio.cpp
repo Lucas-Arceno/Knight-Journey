@@ -11,10 +11,11 @@ FasePalacio::FasePalacio(std::list<Jogador*>* pJogadores) : Fase()
 	this->num_Portais = -1;
 
 
-	for (auto const& Jogador : *Jogadores)
+	/*for (auto const& Jogador : *Jogadores)
 	{
 		Jogador->setListaEntidade(&listaEntidades);
 	}
+	*/
 
 	this->GerenciadorColisao = new GerenciadorColisoes(Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
@@ -212,7 +213,7 @@ void FasePalacio::criaObstaculos()
 		while (!(listaPosObstaculos[aux3].isLivre)) {
 			aux3 = rand() % 14;
 		}
-		//listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
+		listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
 		listaPosObstaculos[aux3].isLivre = false;
 	}
 }
@@ -232,7 +233,6 @@ void FasePalacio::multiplayer(bool status)
 		{
 			if (Jogador == (Jogadores)->back()) {
 				listaEntidades.addEntidade(Jogador);
-				Jogador->setListaEntidade(&listaEntidades);
 			}
 		}
 	}

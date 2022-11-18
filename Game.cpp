@@ -39,6 +39,8 @@ void Game::exec()
 
 	int aux_test = 0;
 	int aux_test2 = 0;
+	int aux_test3 = 0;
+
 	int i = 1;
 	while (i != -1) {
 		while (pGrafico->verificaJanelaAberta() && i != -1) {
@@ -70,13 +72,14 @@ void Game::exec()
 			else if (i == 8) {
 				Jogadores.push_back(new JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 				Castelo.multiplayer(true);
-				//RESOLVER PROBLEMA A ESPADA VAI FICAR FIXADA NO ULTIMO Q RODAR
-				//TALVEZ A SOLUCAO SEJA CRIAR UMA VARIAVEL Q SÒ RODE O MULTIPLAYER NO INICIO
-				//DE CADA FASE
-				//Palacio.multiplayer(true);
 				i = 7;
+				aux_test3 = 1;
 			}
 			else if (i == 4) {
+				if (aux_test3 == 1) {
+					Palacio.multiplayer(true);
+					aux_test3++;
+				}
 				if (aux_test == 0) {
 					for (auto const& Jogador : Jogadores)
 					{
