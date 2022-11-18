@@ -1,6 +1,6 @@
 #include "JogadorPrincipal.h"
 
-JogadorPrincipal::JogadorPrincipal(List::ListaEntidade* pListaEntidade, sf::Vector2f posicao, sf::Vector2f tamanho) : Jogador(pListaEntidade, posicao, tamanho)
+JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : Jogador(posicao, tamanho)
 {
 }
 

@@ -1,20 +1,22 @@
 #include "Jogador.h"
 
-Jogador::Jogador(List::ListaEntidade* pListaEntidade, sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(500)
+Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(500)
 {
 	initVariables();
 	initPhysics();
 	invFrame = 0;
 	pontos = 0;
-
-	espadaP = new projetilEspada;
-	this->pListaEntidade = pListaEntidade;
-	this->pListaEntidade->addEntidade(espadaP);
-
 }
 
 Jogador::~Jogador()
 {
+}
+
+void Jogador::setListaEntidade(List::ListaEntidade* pListaEntidade)
+{
+	this->pListaEntidade = pListaEntidade;
+	espadaP = new projetilEspada;
+	this->pListaEntidade->addEntidade(espadaP);
 }
 
 void Jogador::initVariables()

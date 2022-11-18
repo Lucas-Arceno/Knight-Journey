@@ -1,6 +1,6 @@
 #include "JogadorSecundario.h"
 
-JogadorSecundario::JogadorSecundario(List::ListaEntidade* pListaEntidade, sf::Vector2f posicao, sf::Vector2f tamanho) : Jogador(pListaEntidade, posicao, tamanho)
+JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : Jogador(posicao, tamanho)
 {
 }
 

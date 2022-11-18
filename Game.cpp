@@ -33,8 +33,6 @@ void Game::exec()
 	
 	Ranking ListaPontos[10];
 
-	int aux_x = 0;
-
 	int i = 1;
 	while (i != -1) {
 		while (pGrafico->verificaJanelaAberta() && i != -1) {

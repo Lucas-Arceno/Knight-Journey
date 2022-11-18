@@ -9,7 +9,8 @@ FasePalacio::FasePalacio()
 	this->num_Teias = -1;
 	this->num_Portais = -1;
 
-	Jogadores.push_back(new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+	Jogadores.push_back(new JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+	Jogadores.front()->setListaEntidade(&listaEntidades);
 
 	this->GerenciadorColisao = new GerenciadorColisoes(&Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
@@ -215,8 +216,9 @@ void FasePalacio::criaObstaculos()
 void FasePalacio::multiplayer(bool status)
 {
 	if (status == true) {
-		Jogadores.push_back(new JogadorSecundario(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+		Jogadores.push_back(new JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 		listaEntidades.addEntidade(Jogadores.back());
+		Jogadores.front()->setListaEntidade(&listaEntidades);
 		;
 	}
 }

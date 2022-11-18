@@ -8,7 +8,8 @@ FaseCastelo::FaseCastelo() : Fase()
 	this->backgroundTexture.loadFromFile("assets/castle.png");
 	background.setTexture(&backgroundTexture);
 
-	Jogadores.push_back(new JogadorPrincipal(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+	Jogadores.push_back(new JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+	Jogadores.front()->setListaEntidade(&listaEntidades);
 
 	this->GerenciadorColisao = new GerenciadorColisoes(&Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
@@ -275,8 +276,9 @@ int const FaseCastelo::getPontuacao()
 void FaseCastelo::multiplayer(bool status)
 {
 	if (status == true) {
-		Jogadores.push_back(new JogadorSecundario(&listaEntidades, sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+		Jogadores.push_back(new JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 		listaEntidades.addEntidade(Jogadores.back());
+		Jogadores.back()->setListaEntidade(&listaEntidades);
 ;	}
 }
 
