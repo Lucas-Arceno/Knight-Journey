@@ -15,7 +15,6 @@ public:
 
 protected:
 	List::ListaEntidade* pListaEntidade;
-
 	bool coldownPulo;
 	const int vidaMaxima;
 

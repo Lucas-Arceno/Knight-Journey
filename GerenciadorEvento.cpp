@@ -28,6 +28,19 @@ void GerenciadorEvento::verificarTeclaPressionada(sf::Keyboard::Key tecla)
 	if (tecla == sf::Keyboard::Escape) {
 		pGrafico->fechaJanela();
 	}
+	if (tecla == sf::Keyboard::P) {
+		int aux = 1;
+		sf::Event evento2{};
+		while (aux == 1) {
+			if (pGrafico->getJanela()->pollEvent(evento2)) {
+				if (evento2.type == sf::Event::KeyPressed) {
+					if (evento2.key.code == sf::Keyboard::B) {
+						aux = 2;
+					}
+				}
+			}
+		}
+	}
 }
 
 void GerenciadorEvento::verificarTeclaSolta(sf::Keyboard::Key tecla)

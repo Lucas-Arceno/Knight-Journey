@@ -10,6 +10,12 @@ FasePalacio::FasePalacio(std::list<Jogador*>* pJogadores) : Fase()
 	this->num_Teias = -1;
 	this->num_Portais = -1;
 
+
+	for (auto const& Jogador : *Jogadores)
+	{
+		Jogador->setListaEntidade(&listaEntidades);
+	}
+
 	this->GerenciadorColisao = new GerenciadorColisoes(Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
 	for (auto const& Jogador : *Jogadores)
@@ -229,7 +235,6 @@ void FasePalacio::multiplayer(bool status)
 				Jogador->setListaEntidade(&listaEntidades);
 			}
 		}
-		;
 	}
 }
 
@@ -242,8 +247,8 @@ void FasePalacio::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
-	printf("%f %f\n %f %f", Jogadores->front()->getCorpo().getPosition().x, Jogadores->front()->getCorpo().getPosition().y, Jogadores->back()->getCorpo().getPosition().x, Jogadores->back()->getCorpo().getPosition().y);
-	//checkQuarto();
+	printf("%f %f\n %f %f\n", Jogadores->front()->getCorpo().getPosition().x, Jogadores->front()->getCorpo().getPosition().y, Jogadores->back()->getCorpo().getPosition().x, Jogadores->back()->getCorpo().getPosition().y);
+	checkQuarto();
 }
 
 void FasePalacio::render()

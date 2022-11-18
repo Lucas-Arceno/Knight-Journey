@@ -51,7 +51,7 @@ void Rei::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 void Rei::ataqueJogador() {
 	
 	if (cooldownPulo == false) {
-		this->velocidade.y -= 40.0 * this->gravity;
+		this->velocidade.y -= 40 * this->gravity;
 		cooldownPulo = true;
 		//cont_DMG = 0;
 	}

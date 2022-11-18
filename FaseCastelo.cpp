@@ -4,16 +4,16 @@ FaseCastelo::FaseCastelo(std::list<Jogador*>* pJogadores) : Fase()
 {
 	this->Jogadores = pJogadores;
 
-	for (auto const& Jogador : *Jogadores)
-	{
-		Jogador->setListaEntidade(&listaEntidades);
-	}
-
 	this->num_Morcegos = -1;
 	this->num_Cobras = -1;
 	this->background.setSize(sf::Vector2f(1920.0f , 1080.0f));
 	this->backgroundTexture.loadFromFile("assets/castle.png");
 	background.setTexture(&backgroundTexture);
+
+	for (auto const& Jogador : *Jogadores)
+	{
+		Jogador->setListaEntidade(&listaEntidades);
+	}
 
 	this->GerenciadorColisao = new GerenciadorColisoes(Jogadores, &listaInimigos, &listaPlataformas, &listaObstaculos);
 
@@ -275,6 +275,14 @@ void FaseCastelo::criaObstaculos()
 int const FaseCastelo::getPontuacao()
 {
 	return this->Jogadores->front()->getPontucao();
+}
+
+void FaseCastelo::teste()
+{
+	for (auto const& Jogador : *Jogadores)
+	{
+		Jogador->setListaEntidade(&listaEntidades);
+	}
 }
 
 void FaseCastelo::multiplayer(bool status)

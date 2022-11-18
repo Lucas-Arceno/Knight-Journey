@@ -28,6 +28,8 @@ public:
 
 	const int getPontuacao();
 
+	void teste();
+
 	void multiplayer(bool status);
 
 	bool checkMorreu();

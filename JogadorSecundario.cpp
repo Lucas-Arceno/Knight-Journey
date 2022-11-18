@@ -17,7 +17,7 @@ void JogadorSecundario::updateMovimento()
 		this->move(1.f, 0.f);
 	}
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && coldownPulo == true)) {
-		this->velocidade.y -= 20.0 * this->gravity;
+		this->velocidade.y -= 20 * this->gravity;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
 		atacarEsq();
