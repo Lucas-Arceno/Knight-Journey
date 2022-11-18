@@ -22,6 +22,7 @@ void GerenciadorColisoes::updateColisao()
 void GerenciadorColisoes::checkColPlataforma()
 {
 	int aux = 0;
+
 	for (unsigned int j = 0; j < pListaInimigos->getTamanho(); j++) {
 		for (unsigned int k = 0; k < pListaPlataformas->getTamanho(); k++) {
 			if((*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaPlataformas)[k]->GetColisao(), 0.0f) && (*pListaInimigos)[j]->getID() == 10){
@@ -29,12 +30,15 @@ void GerenciadorColisoes::checkColPlataforma()
 			}
 		}
 	}
+
 	for (unsigned int h = 0; h < pListaObstaculos->getTamanho(); h++) {
 		for (unsigned int o = 0; o < pListaPlataformas->getTamanho(); o++) {
 			(*pListaObstaculos)[h]->GetColisao().CheckCollision((*pListaPlataformas)[o]->GetColisao(), 0.0f);
 		}
 	}
+
 	for (unsigned int i = 0; i < pListaPlataformas->getTamanho(); i++) {
+		/*
 		for (auto const& pJogador : *pJogadores)
 		{
 			if (pJogador->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
@@ -48,6 +52,30 @@ void GerenciadorColisoes::checkColPlataforma()
 			else if (aux == 0) {
 				pJogador->setColdownPulo(false);
 			}
+		}
+		*/
+		if ((pJogadores)->back()->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
+			(pJogadores)->back()->resetVelocity();
+			if ((*pListaPlataformas)[i]->getCorpo().getPosition().y >
+				(pJogadores)->back()->getCorpo().getPosition().y + (pJogadores)->back()->getCorpo().getGlobalBounds().height / 2.0f) {
+				(pJogadores)->back()->setColdownPulo(true);
+				aux++;
+			}
+		}
+		else if (aux == 0) {
+			(pJogadores)->back()->setColdownPulo(false);
+		}
+
+		if((pJogadores)->front()->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
+			(pJogadores)->front()->resetVelocity();
+			if ((*pListaPlataformas)[i]->getCorpo().getPosition().y >
+				(pJogadores)->front()->getCorpo().getPosition().y + (pJogadores)->front()->getCorpo().getGlobalBounds().height / 2.0f) {
+				(pJogadores)->front()->setColdownPulo(true);
+				aux++;
+			}
+		}
+		else if (aux == 0) {
+			(pJogadores)->front()->setColdownPulo(false);
 		}
 	}
 }

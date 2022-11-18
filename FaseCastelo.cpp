@@ -146,7 +146,7 @@ void FaseCastelo::setPosicoesLivres()
 void FaseCastelo::criaMapa()
 {
 	//chao
-	for (int i = 1; i < 4; i++) {
+	for (int i = 0; i < 4; i++) {
 		listaEntidades.addEntidade(new Plataforma(sf::Vector2f(200.0f + (i*500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
 	}
 	listaEntidades.addEntidade(new Plataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
