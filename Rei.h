@@ -4,7 +4,6 @@
 
 class Rei : public Inimigo
 {
-
 	private:
 		const int vidaMaxima;
 		bool cooldownPulo = false;

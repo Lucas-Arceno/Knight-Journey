@@ -4,7 +4,6 @@
 class projetilEspada : public Entidade 
 {
 	private:
-
 		int timerVida = 0; // Tempo de vida da espada.
 		bool disparo = false;
 		bool isDireita = false; 

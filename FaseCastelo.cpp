@@ -243,32 +243,32 @@ void FaseCastelo::criaObstaculos()
 		listaPosObstaculos[aux2].isLivre = false;
 	}
 
-	for (int i = 0; i < num_Portais; i++) {
-		int aux3 = rand() % 29;
-		while (!(listaPosObstaculos[aux3].isLivre)) {
-			aux3 = rand() % 29;
-		}
-		listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f),sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
-		listaPosObstaculos[aux3].isLivre = false;
+for (int i = 0; i < num_Portais; i++) {
+	int aux3 = rand() % 29;
+	while (!(listaPosObstaculos[aux3].isLivre)) {
+		aux3 = rand() % 29;
 	}
+	listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
+	listaPosObstaculos[aux3].isLivre = false;
+}
 
-	num_Espinhos = num_Espinhos + 3;
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(850.f, 625.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(1000.f, 625.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(2000.f, 800.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5300.f, 550.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5450.f, 550.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5600.f, 550.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5750.f, 550.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5900.f, 550.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6050.f, 550.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6200.f, 550.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6350.f, 550.f)));
-	listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6500.f, 550.f)));
+num_Espinhos = num_Espinhos + 3;
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(850.f, 625.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(1000.f, 625.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(2000.f, 800.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5300.f, 550.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5450.f, 550.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5600.f, 550.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5750.f, 550.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(5900.f, 550.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6050.f, 550.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6200.f, 550.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6350.f, 550.f)));
+listaEntidades.addEntidade(new Espinhos(sf::Vector2f(6500.f, 550.f)));
 
-	num_Portais = num_Portais + 2;
-	listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
-	listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+num_Portais = num_Portais + 2;
+listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+listaEntidades.addEntidade(new Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 
 }
 
@@ -295,7 +295,8 @@ void FaseCastelo::multiplayer(bool status)
 				Jogador->setListaEntidade(&listaEntidades);
 			}
 		}
-;	}
+		;
+	}
 }
 
 bool FaseCastelo::checkMorreu()
@@ -327,7 +328,7 @@ void FaseCastelo::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
-	
+
 }
 
 void FaseCastelo::render()
@@ -335,10 +336,19 @@ void FaseCastelo::render()
 	pGrafico->setView(sf::Vector2f(Jogadores->front()->getCorpo().getPosition().x, 300));
 	pGrafico->desenhaElementos(this->background);
 
+
 	//pJogador->salvePontuacao();
 
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
-		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
+		/*if (listaEntidades[i] == Jogadores->back()) {
+			pGrafico->desenhaSprites(Jogadores->back()->sprite);
+		}*/
+		if (listaEntidades[i] == Jogadores->front()){
+			pGrafico->desenhaSprites(Jogadores->front()->sprite);
+		}
+		else {
+			listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
+		}
 	}
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->update();

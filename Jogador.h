@@ -7,10 +7,8 @@
 
 class Jogador : public Personagem
 {
-protected:
-	sf::Sprite sprite;
-
 public:
+	sf::Sprite sprite;
 	projetilEspada* espadaP;
 
 protected:
@@ -68,7 +66,7 @@ public:
 	void setVelocityY(float vel_y);
 
 	//Updates
-	void update();
+	virtual void update();
 	virtual void updateMovimento() = 0;
 };
 
