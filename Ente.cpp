@@ -13,7 +13,3 @@ void Ente::seImprime(sf::RectangleShape corpo)
 	pGrafico->desenhaElementos(corpo);
 }
 
-void Ente::seImprime(sf::Sprite sprite)
-{
-	pGrafico->desenhaSprites(sprite);
-}

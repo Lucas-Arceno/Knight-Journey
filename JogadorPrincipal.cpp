@@ -1,7 +1,8 @@
 #include "JogadorPrincipal.h"
 
-JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : Jogador(posicao, tamanho)
+JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(100), Jogador(posicao, tamanho)
 {
+	this->vida = vidaMaxima;
 	this->animState = IDLE;
 	this->currentFrame = sf::IntRect(0, 0, 96, 96);
 	initSprite();
@@ -81,9 +82,11 @@ void JogadorPrincipal::updateMovimento()
 	}
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		atacarEsq();
+		this->animState = JogadorPrincipal_Animation_States::HIT_LEFT;
 	}
 	else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
 		atacarDir();
+		this->animState = JogadorPrincipal_Animation_States::HIT_RIGHT;
 	}
 	sprite.setPosition(corpo.getPosition());
 }
@@ -136,6 +139,38 @@ void JogadorPrincipal::updateAnimations()
 			this->sprite.setTextureRect(this->currentFrame);
 		}
 		this->sprite.setScale(-1, 1);
+		this->sprite.setOrigin(50, 50);
+	}
+	else if (this->animState == JogadorPrincipal_Animation_States::HIT_LEFT) {
+		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Attacking.png");
+		sprite.setTexture(texture);
+		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f || this->getAnimSwitch()) {
+			this->currentFrame.top = 0;
+			this->currentFrame.left += 112;
+			if (this->currentFrame.left >= 1456) {
+				this->currentFrame.left = 0;
+			}
+
+			this->animationTimer.restart();
+			this->sprite.setTextureRect(this->currentFrame);
+		}
+		this->sprite.setScale(-1, 1);
+		this->sprite.setOrigin(50, 50);
+	}
+	else if (this->animState == JogadorPrincipal_Animation_States::HIT_RIGHT) {
+		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Attacking.png");
+		sprite.setTexture(texture);
+		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f || this->getAnimSwitch()) {
+			this->currentFrame.top = 0;
+			this->currentFrame.left += 112;
+			if (this->currentFrame.left >= 1456) {
+				this->currentFrame.left = 0;
+			}
+
+			this->animationTimer.restart();
+			this->sprite.setTextureRect(this->currentFrame);
+		}
+		this->sprite.setScale(1, 1);
 		this->sprite.setOrigin(50, 50);
 	}
 }

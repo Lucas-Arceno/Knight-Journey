@@ -29,7 +29,6 @@ void Game::exec()
 
 	Menu Menu(1200, 800);
 	MenuFases MenuFases(1200, 800);
-	MenuGameOver MenuGameOver(1200, 800);
 	MenuEscolhaOnline MenuOnline(1200, 800);
 
 	FasePalacio Palacio(&Jogadores);
@@ -90,11 +89,6 @@ void Game::exec()
 					aux_test++;
 				}
 				Palacio.update();
-			}
-
-			else if (i == 5) {
-				MenuGameOver.Update(i);
-				MenuGameOver.draw(*pGrafico->getJanela());
 			}
 			else if (i == 6) {
 				//ListaPontos[1].pontos = Castelo.getPontuacao();

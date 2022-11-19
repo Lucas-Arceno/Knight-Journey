@@ -40,6 +40,7 @@ void MenuFases::updateEstado(int& aux) {
 		if (botoes[i].getGlobalBounds().contains(pGrafico->getJanela()->mapPixelToCoords(sf::Mouse::getPosition(*pGrafico->getJanela())))) {
 			menu[selectedItemIndex].setFillColor(sf::Color::Black);
 			menu[i].setFillColor(sf::Color::Red);
+			botoes[i].isPressed(true);
 			selectedItemIndex = i;
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
@@ -51,6 +52,9 @@ void MenuFases::updateEstado(int& aux) {
 					aux = 4;
 				}
 			}
+		}
+		else {
+			botoes[i].isPressed(false);
 		}
 	}
 }

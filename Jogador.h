@@ -14,10 +14,10 @@ public:
 protected:
 	List::ListaEntidade* pListaEntidade;
 	bool coldownPulo;
-	const int vidaMaxima;
+
+	bool cd_ATK = false; // cooldown ataque
 
 	int invFrame; // Frame de invencibilidade.
-	bool cd_ATK = false; // cooldown ataque
 	int cont_CD = 0; // contador cooldown
 
 	Save gravador;

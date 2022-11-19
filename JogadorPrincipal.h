@@ -1,11 +1,13 @@
 #pragma once
 #include "Jogador.h"
 
-enum JogadorPrincipal_Animation_States { IDLE = 0, MOVING_LEFT = 1, MOVING_RIGHT = 2, JUMPING = 3};
+enum JogadorPrincipal_Animation_States { IDLE = 0, MOVING_LEFT = 1, MOVING_RIGHT = 2, JUMPING = 3, HIT_LEFT = 4, HIT_RIGHT = 5};
 
 class JogadorPrincipal : public Jogador
 {
 private:
+	const int vidaMaxima;
+
 	sf::Vector2i size;
 	sf::Clock animationTimer;
 

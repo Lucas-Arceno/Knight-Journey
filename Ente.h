@@ -11,7 +11,6 @@ public:
 	Ente(int id = -1);
 	~Ente();
 	void seImprime(sf::RectangleShape corpo);
-	void seImprime(sf::Sprite sprite);
 	virtual void update() = 0;
 };
 

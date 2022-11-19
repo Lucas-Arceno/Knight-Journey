@@ -6,8 +6,9 @@ void JogadorSecundario::initAnimations()
 	this->animationSwitch = true;
 }
 
-JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : Jogador(posicao, tamanho)
+JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(50), Jogador(posicao, tamanho)
 {
+	this->vida = vidaMaxima;
 	this->animState = IDLE2;
 	this->currentFrame = sf::IntRect(0, 0, 96, 96);
 	initSprite();

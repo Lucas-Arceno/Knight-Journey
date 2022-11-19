@@ -1,6 +1,6 @@
 #include "Jogador.h"
 
-Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho) ,vidaMaxima(500)
+Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho)
 {
 	initVariables();
 	initPhysics();
@@ -21,8 +21,6 @@ void Jogador::setListaEntidade(List::ListaEntidade* pListaEntidade)
 
 void Jogador::initVariables()
 {
-	this->vida = vidaMaxima;
-
 	//Personagem e afins
 	this->coldownPulo = false;
 	this->corpo.setFillColor(sf::Color::Blue);
@@ -107,22 +105,3 @@ void Jogador::setVelocityY(float vel_y)
 	this->velocidade.y = vel_y;
 }
 
-void Jogador::updateMovimento()
-{
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		this->move(-1.0f, 0.f);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		this->move(1.f, 0.f);
-	}
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && coldownPulo == true)){
-		this->velocidade.y -= 20 * this->gravity;
-	}
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		atacarEsq();
-	}
-	else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-		atacarDir();
-	}
-
-}

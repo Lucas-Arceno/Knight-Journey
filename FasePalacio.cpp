@@ -248,7 +248,6 @@ void FasePalacio::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
-	printf("%f %f\n %f %f\n", Jogadores->front()->getCorpo().getPosition().x, Jogadores->front()->getCorpo().getPosition().y, Jogadores->back()->getCorpo().getPosition().x, Jogadores->back()->getCorpo().getPosition().y);
 	checkQuarto();
 }
 

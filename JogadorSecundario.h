@@ -6,6 +6,8 @@ enum JogadorSecundarioAnimation_States { IDLE2 = 0, MOVING_LEFT2 = 1, MOVING_RIG
 class JogadorSecundario : public Jogador
 {
 private:
+	const int vidaMaxima;
+
 	sf::Vector2i size;
 	sf::Clock animationTimer;
 

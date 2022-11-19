@@ -21,7 +21,7 @@ void Portal::update()
 	for (auto const& pJogador : *pJogadores)
 	{
 		if (this->corpo.getGlobalBounds().intersects(pJogador->espadaP->getEspadaProjetilGlobal())) {
-			this->corpo.setPosition(-1441.f, 421.f);
+			this->corpo.setPosition(-1441.f, 5931.f);
 		}
 
 		if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {

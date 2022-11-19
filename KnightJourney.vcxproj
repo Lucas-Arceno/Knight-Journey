@@ -165,7 +165,6 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuBase.cpp" />
     <ClCompile Include="MenuFases.cpp" />
-    <ClCompile Include="MenuGameOver.cpp" />
     <ClCompile Include="Morcego.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
@@ -201,7 +200,6 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuBase.h" />
     <ClInclude Include="MenuFases.h" />
-    <ClInclude Include="MenuGameOver.h" />
     <ClInclude Include="Morcego.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />

@@ -2,7 +2,9 @@
 
 projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(11, posicao, tamanho)
 {
-	this->corpo.setFillColor(sf::Color::Yellow);
+	this->texture.loadFromFile("assets/vento.png");
+	this->corpo.setTexture(&texture);
+	this->corpo.setFillColor(sf::Color::White);
 	this->corpo.setSize(sf::Vector2f(100.0f, 100.0f));
 	this->corpo.setPosition(sf::Vector2f(412342.0f, 41231.0f));
 }
