@@ -107,32 +107,6 @@ void Jogador::setVelocityY(float vel_y)
 	this->velocidade.y = vel_y;
 }
 
-void Jogador::update()
-{
-	updateMovimento();
-	updatePhysics();
-	if(this->getVida() <= 0){
-		printf("Morreu");
-		this->corpo.setPosition(150.f, 600.f);
-		this->vida = vidaMaxima;
-	}
-	
-	if (invFrame > 0) {
-		invFrame++;
-		if (invFrame > 55)
-			invFrame = 0;
-	}
-	
-	if (cont_CD > 0) {
-		cont_CD++;
-		if (cont_CD > 75) {
-			cont_CD = 0;
-			cd_ATK = false;
-		}
-	}
-
-}
-
 void Jogador::updateMovimento()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {

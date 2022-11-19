@@ -71,6 +71,7 @@ void FasePalacio::setPosicoesLivres()
 	listaPosObstaculos[9].cord = sf::Vector2f(-780.0f, 450.0f);
 	listaPosObstaculos[10].cord = sf::Vector2f(-1188.0f, 450.0f);
 	listaPosObstaculos[11].cord = sf::Vector2f(-780.0f, 450.0f);
+	listaPosObstaculos[12].cord = sf::Vector2f(-780.0f, 450.0f);
 	listaPosObstaculos[12].cord = sf::Vector2f(-1532.0f, 450.0f);
 	listaPosObstaculos[13].cord = sf::Vector2f(-1922.0f, 450.0f);
 
@@ -197,7 +198,7 @@ void FasePalacio::criaInimigos()
 void FasePalacio::criaObstaculos()
 {
 	this->num_Teias = std::rand() % (8 + 1 - 3) + 3;
-	this->num_Portais = std::rand() % (4 + 1 - 3) + 3;
+	this->num_Portais = std::rand() % (3 + 1 - 3) + 3;
 
 	for (int i = 0; i < num_Teias; i++) {
 		int aux2 = rand() % 14;
@@ -266,7 +267,15 @@ void FasePalacio::render()
 		pGrafico->setView(sf::Vector2f(-2527.0f, 66.165459f));
 	}
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
-		listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
+		if (listaEntidades[i] == Jogadores->back()) {
+			pGrafico->desenhaSprites(Jogadores->back()->sprite);
+		}
+		else if (listaEntidades[i] == Jogadores->front()) {
+			pGrafico->desenhaSprites(Jogadores->front()->sprite);
+		}
+		else {
+			listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
+		}
 	}
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		listaEntidades[i]->update();

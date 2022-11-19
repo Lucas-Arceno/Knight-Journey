@@ -29,7 +29,7 @@ void GerenciadorColisoes::checkColPlataforma()
 	for (unsigned int j = 0; j < pListaInimigos->getTamanho(); j++) {
 		for (unsigned int k = 0; k < pListaPlataformas->getTamanho(); k++) {
 			if((*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaPlataformas)[k]->GetColisao(), 0.0f) && (*pListaInimigos)[j]->getID() == 10){
-				(*pListaInimigos)[j]->setCorpoPosicao(sf::Vector2f(-14004.f, 50041.f));
+				(*pListaInimigos)[j]->setCorpoPosicao(sf::Vector2f(140004.f, 5054041.f));
 			}
 		}
 	}

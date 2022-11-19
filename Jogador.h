@@ -66,7 +66,7 @@ public:
 	void setVelocityY(float vel_y);
 
 	//Updates
-	virtual void update();
+	virtual void update() = 0;
 	virtual void updateMovimento() = 0;
 };
 

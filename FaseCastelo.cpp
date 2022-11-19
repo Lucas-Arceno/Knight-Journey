@@ -340,10 +340,10 @@ void FaseCastelo::render()
 	//pJogador->salvePontuacao();
 
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
-		/*if (listaEntidades[i] == Jogadores->back()) {
+		if (listaEntidades[i] == Jogadores->back()) {
 			pGrafico->desenhaSprites(Jogadores->back()->sprite);
-		}*/
-		if (listaEntidades[i] == Jogadores->front()){
+		}
+		else if (listaEntidades[i] == Jogadores->front()){
 			pGrafico->desenhaSprites(Jogadores->front()->sprite);
 		}
 		else {

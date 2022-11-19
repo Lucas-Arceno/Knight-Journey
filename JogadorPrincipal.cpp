@@ -35,7 +35,7 @@ void JogadorPrincipal::resetAnimationTimer()
 
 void JogadorPrincipal::initSprite()
 {
-	this->sprite.setScale(sf::Vector2f(1, 1));
+	this->sprite.setScale(sf::Vector2f(1.5, 1.5));
 }
 
 void JogadorPrincipal::update()
@@ -104,7 +104,7 @@ void JogadorPrincipal::updateAnimations()
 			this->sprite.setTextureRect(this->currentFrame);
 		}
 		this->sprite.setScale(1, 1);
-		this->sprite.setOrigin(50.f, 50.f);
+		this->sprite.setOrigin(50, 50);
 	}
 	else if (this->animState == JogadorPrincipal_Animation_States::MOVING_RIGHT) {
 		texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Running.png");
@@ -136,6 +136,6 @@ void JogadorPrincipal::updateAnimations()
 			this->sprite.setTextureRect(this->currentFrame);
 		}
 		this->sprite.setScale(-1, 1);
-		this->sprite.setOrigin(50, 50.f);
+		this->sprite.setOrigin(50, 50);
 	}
 }
