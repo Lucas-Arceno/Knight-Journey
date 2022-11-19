@@ -1,7 +1,7 @@
 #include "Rei.h"
 #include <iostream>
 
-Rei::Rei(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(24, nullptr, posicao, tamanho), vidaMaxima(1000)
+Rei::Rei(std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(1000)
 {
 	this->corpo.setFillColor(sf::Color::Magenta);
 	this->vida = vidaMaxima;
@@ -26,8 +26,20 @@ void Rei::update() {
 }
 
 void Rei::updateMovimento() {
-	/*sf::Vector2f posJogador = pJogador->getCorpo().getPosition();
 	sf::Vector2f posInimigo = corpo.getPosition();
+	sf::Vector2f posJogador;
+
+	for (auto const& pJogador : *pJogadores)
+	{
+		if (pJogador == pJogadores->front()) {
+			posJogador = pJogador->getCorpo().getPosition();
+		}
+		else {
+			if (pJogador->getCorpo().getPosition().x < posJogador.x) {
+				posJogador = pJogador->getCorpo().getPosition();
+			}
+		}
+	}
 
 	if (fabs(posJogador.x - posInimigo.x) <= 400 && fabs(posJogador.y - posInimigo.y) <= 400) {
 		persegueJogador(posJogador, posInimigo);
@@ -35,7 +47,6 @@ void Rei::updateMovimento() {
 	if (fabs(posJogador.x - posInimigo.x) <= 200 && fabs(posJogador.y - posInimigo.y) <= 100) {
 		ataqueJogador();
 	}
-	*/
 }
 
 void Rei::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {

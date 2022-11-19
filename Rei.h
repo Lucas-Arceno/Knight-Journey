@@ -11,7 +11,7 @@ class Rei : public Inimigo
 		//int cont_DMG = 0; // Contador para o dano do pulo
 
 	public:
-		Rei(Jogador* pJogador, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
+		Rei(std::list<Jogador*>* pJogadores, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
 		~Rei();
 
 		void setColdownPulo(bool cd) { this->cooldownPulo = cd; }
