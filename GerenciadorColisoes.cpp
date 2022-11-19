@@ -1,4 +1,6 @@
 #include "GerenciadorColisoes.h"
+#include "Teia.h"
+#include "Espinhos.h"
 
 GerenciadorColisoes::GerenciadorColisoes(std::list<Jogador*>*Jogadores, List::ListaEntidade* listaInimigos, List::ListaEntidade* listaPlataformas, List::ListaEntidade* ListaObstaculos)
 {
@@ -72,7 +74,7 @@ void GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					pJogador->setVelocityX(0.1f);
+					pJogador->setVelocityX(0.1f  * (static_cast<Teia*>((*pListaObstaculos)[i])->getEstagio()));
 				}
 			}
 		}
@@ -80,7 +82,7 @@ void GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					pJogador->giveDano(5);
+					pJogador->giveDano(5 * (static_cast<Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
 					printf("%d\n", pJogador->getVida());
 				}
 			}

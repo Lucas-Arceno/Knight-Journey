@@ -2,6 +2,8 @@
 
 JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : Jogador(posicao, tamanho)
 {
+	this->texture.loadFromFile("assets/teste.png");
+	this->corpo.setTexture(&texture);
 }
 
 JogadorSecundario::~JogadorSecundario()

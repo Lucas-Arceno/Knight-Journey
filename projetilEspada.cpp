@@ -4,6 +4,7 @@ projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Ent
 {
 	this->corpo.setFillColor(sf::Color::Yellow);
 	this->corpo.setSize(sf::Vector2f(100.0f, 100.0f));
+	this->corpo.setPosition(sf::Vector2f(412342.0f, 41231.0f));
 }
 
 projetilEspada::~projetilEspada() {
