@@ -1,7 +1,13 @@
 #include "Save.h"
 
 Save::Save(){
-	//loadPontos();
+	//Gravador.open("Ranking.txt");
+	//if (!Gravador) {
+	//	cout << "erro ao abrir gravador" << endl;
+	//}
+	//Gravador.close();
+	
+	loadPontos();
 }
 
 Save::~Save() {
@@ -56,10 +62,20 @@ void Save::loadPontos() {
 
 	while (!Leitor.eof()) {
 		Leitor >> aux.idJog >> aux.nome >> aux.pont;
+		//cout << " || auxID : " << aux.idJog << " || auxNOME : " << aux.nome << " || auxPONT : " << aux.pont << endl;
 		if (aux.pont != -1) {
 			informacoes.push_back(aux);
 		}
 	}
 
+	if (informacoes.size() > 10) {
+		informacoes.resize(10);
+	}
+
 	Leitor.close();
+}
+
+vector<info> Save::getPontos()
+{
+	return informacoes;
 }

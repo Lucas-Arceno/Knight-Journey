@@ -143,6 +143,8 @@
     <ClCompile Include="JogadorPrincipal.cpp" />
     <ClCompile Include="JogadorSecundario.cpp" />
     <ClCompile Include="MenuEscolhaOnline.cpp" />
+    <ClCompile Include="MenuMorte.cpp" />
+    <ClCompile Include="MenuRank.cpp" />
     <ClCompile Include="Save.cpp" />
     <ClCompile Include="Teia.cpp" />
     <ClCompile Include="Cobra.cpp" />
@@ -178,6 +180,8 @@
     <ClInclude Include="JogadorPrincipal.h" />
     <ClInclude Include="JogadorSecundario.h" />
     <ClInclude Include="MenuEscolhaOnline.h" />
+    <ClInclude Include="MenuMorte.h" />
+    <ClInclude Include="MenuRank.h" />
     <ClInclude Include="Save.h" />
     <ClInclude Include="Teia.h" />
     <ClInclude Include="Cobra.h" />

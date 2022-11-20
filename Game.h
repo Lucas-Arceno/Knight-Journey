@@ -6,6 +6,8 @@
 #include "Menu.h"
 #include "MenuFases.h"
 #include "MenuEscolhaOnline.h"
+#include "MenuMorte.h"
+#include "MenuRank.h"
 
 class Game
 {

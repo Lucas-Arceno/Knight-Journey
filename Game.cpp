@@ -30,6 +30,8 @@ void Game::exec()
 	Menu Menu(1200, 800);
 	MenuFases MenuFases(1200, 800);
 	MenuEscolhaOnline MenuOnline(1200, 800);
+	//MenuMorte MenuMorte(1200, 800);
+	MenuRank MenuRank(1200, 800);
 
 	FasePalacio Palacio(&Jogadores);
 	FaseCastelo Castelo(&Jogadores);
@@ -48,6 +50,10 @@ void Game::exec()
 			if (i == 1) {
 				Menu.updateEstado(i);
 				Menu.draw(*pGrafico->getJanela());
+			}
+			else if (i == 11) {
+				MenuRank.updateEstado(i);
+				MenuRank.draw(*pGrafico->getJanela());
 			}
 			else if (i == 2) {
 				if (!Castelo.checkTerminou()) {
