@@ -6,6 +6,8 @@ Inimigo::Inimigo(int id, std::list<Jogador*>* Jogadores,sf::Vector2f posicao, sf
 	this->corpo.setFillColor(sf::Color::Green);
 	this->pJogadores = Jogadores;
 	cont_mov = 0;
+	
+	// Inicia o inimigo com a direção do movimento aleatorio.
 	dir_mov = rand() % 2;
 		if (dir_mov == 1) {
 			dir_mov = -1; // esquerda
@@ -19,8 +21,12 @@ Inimigo::~Inimigo()
 {
 }
 
+
+// Função que atualiza o dano recebido ou dado ao jogador
 void Inimigo::updateDano(int dano)
 {
+	
+	// Contador para o frame de invulnerabilidade
 	if (iFrame > 0) {
 		iFrame++;
 		if (iFrame > 30) {
@@ -52,12 +58,15 @@ void Inimigo::updateDano(int dano)
 		// Dano do inimigo no player
 		else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds()) && pJogador->getInvFrame() == 0) {
 			printf("dano player %d \n", pJogador->getVida());
-			pJogador->giveDano(dano);
-			pJogador->setInvFrame();
+			pJogador->operator-(dano);
+			//pJogador->giveDano(dano);
+			//pJogador->setInvFrame();
 		}
 	}
 }
 
+
+// Função para movimento aleatorio dos inimigos
 void Inimigo::randomMovimento()
 {
 	if (dir_mov == 1) {
