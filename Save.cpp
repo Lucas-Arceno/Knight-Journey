@@ -29,7 +29,7 @@ void Save::savePontos(int pt, int idJog) {
 	aux2.idJog = idJog;
 
 	informacoes.push_back(aux2);
-	sort(informacoes.begin(), informacoes.end(), comparacao);
+	//sort(informacoes.begin(), informacoes.end(), comparacao);
 
 	if (informacoes.size() > 10) {
 		informacoes.resize(10);
@@ -53,7 +53,9 @@ void Save::loadPontos() {
 
 	while (!Leitor.eof()) {
 		Leitor >> aux.idJog >> aux.nome >> aux.pont;
-		informacoes.push_back(aux);
+		if (aux.pont != -1) {
+			informacoes.push_back(aux);
+		}
 	}
 
 	Leitor.close();
