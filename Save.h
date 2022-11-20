@@ -24,9 +24,6 @@ class Save
 		Save();
 		~Save();
 		
-		//Comparacao para o sort()
-		bool comparacao(const info& a, const info& b);
-
 		//Save e load
 		void savePontos(int pt, int idJog);
 		void loadPontos();

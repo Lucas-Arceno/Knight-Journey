@@ -8,11 +8,6 @@ Save::~Save() {
 
 }
 
-bool Save::comparacao(const info& a, const info& b) {
-	return a.pont < b.pont;
-}
-
-
 void Save::savePontos(int pt, int idJog) {
 
 	Gravador.open("Ranking.txt");
@@ -29,7 +24,15 @@ void Save::savePontos(int pt, int idJog) {
 	aux2.idJog = idJog;
 
 	informacoes.push_back(aux2);
-	//sort(informacoes.begin(), informacoes.end(), comparacao);
+	// bubble sort
+	int i, j;
+	for (i = 0; i < informacoes.size() - 1; i++) {
+		for (j = 0; j < informacoes.size() - i - 1; j++) {
+			if (informacoes[j].pont < informacoes[j + 1].pont) {
+				swap(informacoes[j], informacoes[j + 1]);
+			}
+		}
+	}
 
 	if (informacoes.size() > 10) {
 		informacoes.resize(10);
