@@ -105,3 +105,8 @@ void Jogador::setVelocityY(float vel_y)
 	this->velocidade.y = vel_y;
 }
 
+void Jogador::operator- (int dano)
+{
+	this->giveDano(dano);
+	this->setInvFrame();
+}

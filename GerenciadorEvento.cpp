@@ -29,13 +29,13 @@ void GerenciadorEvento::verificarTeclaPressionada(sf::Keyboard::Key tecla)
 		pGrafico->fechaJanela();
 	}
 	if (tecla == sf::Keyboard::P) {
-		int aux = 1;
+		bool pausado = true;
 		sf::Event evento2{};
-		while (aux == 1) {
+		while (pausado == true) {
 			if (pGrafico->getJanela()->pollEvent(evento2)) {
 				if (evento2.type == sf::Event::KeyPressed) {
 					if (evento2.key.code == sf::Keyboard::B) {
-						aux = 2;
+						pausado = false;
 					}
 				}
 			}

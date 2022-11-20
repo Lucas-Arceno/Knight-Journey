@@ -1,48 +1,60 @@
 #include "Save.h"
 
 Save::Save(){
-	
-	Leitor.open("testejogo11.txt", ios::in);
-	if (!Leitor) {
-		cout << "Erro ao abrir leitor" << endl;
-		fflush(stdin);
-		exit;
-	}
-	
-	
-	Gravador.open("testejogo11.txt", ios::out);
-	if (!Gravador) {
-		cout << "erro ao abrir gravador" << endl;
-		fflush(stdin);
-		exit;
-	}
+	//loadPontos();
 }
 
 Save::~Save() {
 
 }
 
+bool Save::comparacao(const info& a, const info& b) {
+	return a.pont < b.pont;
+}
+
+
 void Save::savePontos(int pt, int idJog) {
 
-	string nomePlayer;
+	Gravador.open("Ranking.txt");
+	if (!Gravador) {
+		cout << "erro ao abrir gravador" << endl;
+	}
+
+	info aux2;
 
 	cout << "Digite nome do jogador" << endl;
-	//cin >> nomePlayer;
-	nomePlayer.assign("oi");
+	cin >> aux2.nome;
 
-	Gravador << idJog << ' ' << nomePlayer << ' ' << pt << endl;
+	aux2.pont = pt;
+	aux2.idJog = idJog;
+
+	informacoes.push_back(aux2);
+	sort(informacoes.begin(), informacoes.end(), comparacao);
+
+	if (informacoes.size() > 10) {
+		informacoes.resize(10);
+	}
+
+	for (int i = 0; i < informacoes.size(); i++) {
+		Gravador << informacoes[i].idJog << ' ' << informacoes[i].nome << ' ' << informacoes[i].pont << endl;
+	}
+
+	Gravador.close();
 }
 
 void Save::loadPontos() {
-
-	int id;
-	int pt;
-	string nome;
-
-	while (!Leitor.eof()) {
-
-		Leitor >> id >> nome >> pt;
-
+	
+	Leitor.open("Ranking.txt");
+	if (!Leitor) {
+		cout << "erro ao abrir leitor" << endl;
 	}
 
+	info aux;
+
+	while (!Leitor.eof()) {
+		Leitor >> aux.idJog >> aux.nome >> aux.pont;
+		informacoes.push_back(aux);
+	}
+
+	Leitor.close();
 }

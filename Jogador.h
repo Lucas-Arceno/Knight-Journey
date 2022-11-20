@@ -72,6 +72,8 @@ public:
 	void setVelocityX(float vel_x);
 	void setVelocityY(float vel_y);
 
+	void operator- (int dano);
+
 	//Updates
 	virtual void update() = 0;
 	virtual void updateMovimento() = 0;

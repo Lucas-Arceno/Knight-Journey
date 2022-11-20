@@ -45,7 +45,7 @@ void Rei::updateMovimento() {
 		persegueJogador(posJogador, posInimigo);
 	}
 	if (fabs(posJogador.x - posInimigo.x) <= 200 && fabs(posJogador.y - posInimigo.y) <= 100) {
-		ataqueJogador();
+		ataqueJogador(posJogador, posInimigo);
 	}
 }
 
@@ -59,7 +59,7 @@ void Rei::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 }
 
 // O ataque do rei é um super pulo
-void Rei::ataqueJogador() {
+void Rei::ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 	
 	if (cooldownPulo == false) {
 		this->velocidade.y -= 40 * this->gravity;
@@ -67,6 +67,8 @@ void Rei::ataqueJogador() {
 		//cont_DMG = 0;
 	}
 	
+
+	updateDano(10);
 	//TESTES
 
 	/*sf::Vector2f outroPosicao = pJogador->getCorpo().getPosition();
