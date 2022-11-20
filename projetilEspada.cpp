@@ -67,6 +67,11 @@ void projetilEspada::updateMovimento()
 
 }
 
+void projetilEspada::setScale(sf::Vector2f(scale))
+{
+	this->corpo.setScale(scale);
+}
+
 void projetilEspada::disparoEspada(sf::Vector2f posJogador, bool isDir)
 {	
 	this->isDireita = isDir;

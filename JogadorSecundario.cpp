@@ -82,9 +82,11 @@ void JogadorSecundario::updateMovimento()
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
 		atacarEsq();
+		this->animState = JogadorSecundarioAnimation_States::HIT_LEFT2;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
 		atacarDir();
+		this->animState = JogadorSecundarioAnimation_States::HIT_RIGHT2;
 	}
 	sprite.setPosition(corpo.getPosition());
 }
@@ -137,6 +139,40 @@ void JogadorSecundario::updateAnimations()
 			this->sprite.setTextureRect(this->currentFrame);
 		}
 		this->sprite.setScale(-1, 1);
+		this->sprite.setOrigin(50, 50);
+	}
+	else if (this->animState == JogadorSecundarioAnimation_States::HIT_LEFT2) {
+		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 2/Crusader-2-Attacking.png");
+		sprite.setTexture(texture);
+		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f || this->getAnimSwitch()) {
+			this->currentFrame.top = 0;
+			this->currentFrame.left += 112;
+			if (this->currentFrame.left >= 1456) {
+				this->currentFrame.left = 0;
+			}
+
+			this->animationTimer.restart();
+			this->sprite.setTextureRect(this->currentFrame);
+		}
+		this->sprite.setScale(-1, 1);
+		this->espadaP->setScale(sf::Vector2f(-1, 1));
+		this->sprite.setOrigin(50, 50);
+	}
+	else if (this->animState == JogadorSecundarioAnimation_States::HIT_RIGHT2) {
+		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 2/Crusader-2-Attacking.png");
+		sprite.setTexture(texture);
+		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f || this->getAnimSwitch()) {
+			this->currentFrame.top = 0;
+			this->currentFrame.left += 112;
+			if (this->currentFrame.left >= 1456) {
+				this->currentFrame.left = 0;
+			}
+
+			this->animationTimer.restart();
+			this->sprite.setTextureRect(this->currentFrame);
+		}
+		this->sprite.setScale(1, 1);
+		this->espadaP->setScale(sf::Vector2f(1, 1));
 		this->sprite.setOrigin(50, 50);
 	}
 }

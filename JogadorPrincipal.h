@@ -7,14 +7,6 @@ class JogadorPrincipal : public Jogador
 {
 private:
 	const int vidaMaxima;
-
-	sf::Vector2i size;
-	sf::Clock animationTimer;
-
-	//Animation
-	short animState;
-	sf::IntRect currentFrame;
-	bool animationSwitch;
 private:
 	void initAnimations();
 

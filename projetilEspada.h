@@ -19,6 +19,9 @@ class projetilEspada : public Entidade
 		void update();
 		void updateEmpuxo();
 		void updateMovimento();
+
+		void setScale(sf::Vector2f(scale));
+
 		void disparoEspada(sf::Vector2f posJogador, bool isDir);
 };
 

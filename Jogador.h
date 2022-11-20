@@ -7,11 +7,14 @@
 
 class Jogador : public Personagem
 {
-public:
-	sf::Sprite sprite;
-	projetilEspada* espadaP;
-
 protected:
+	//Animation
+	sf::Vector2i size;
+	sf::Clock animationTimer;
+	sf::IntRect currentFrame;
+	short animState;
+	bool animationSwitch;
+
 	List::ListaEntidade* pListaEntidade;
 	bool coldownPulo;
 
@@ -26,6 +29,10 @@ protected:
 	int idJogador = 3; // id para diferenciar entre jogador 1 ou 2
 
 	sf::Vector2f posJogador; // Posição do player para a espada
+public:
+	sf::Sprite sprite;
+	projetilEspada* espadaP;
+
 public:
 	//Constructors
 	Jogador(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));

@@ -92,6 +92,9 @@ void GerenciadorColisoes::checkColObstaculos()
 void GerenciadorColisoes::checkColInimigos()
 {
 	for (unsigned int i = 0; i < pListaInimigos->getTamanho(); i++) {
-		//(*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f);
+		for (auto const& pJogador : *pJogadores)
+		{
+			(*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f);
+		}
 	}
 }

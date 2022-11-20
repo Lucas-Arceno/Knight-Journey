@@ -1,6 +1,6 @@
 #include "JogadorPrincipal.h"
 
-JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(100), Jogador(posicao, tamanho)
+JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(10), Jogador(posicao, tamanho)
 {
 	this->vida = vidaMaxima;
 	this->animState = IDLE;
@@ -155,6 +155,7 @@ void JogadorPrincipal::updateAnimations()
 			this->sprite.setTextureRect(this->currentFrame);
 		}
 		this->sprite.setScale(-1, 1);
+		this->espadaP->setScale(sf::Vector2f(- 1, 1));
 		this->sprite.setOrigin(50, 50);
 	}
 	else if (this->animState == JogadorPrincipal_Animation_States::HIT_RIGHT) {
@@ -171,6 +172,7 @@ void JogadorPrincipal::updateAnimations()
 			this->sprite.setTextureRect(this->currentFrame);
 		}
 		this->sprite.setScale(1, 1);
+		this->espadaP->setScale(sf::Vector2f(1, 1));
 		this->sprite.setOrigin(50, 50);
 	}
 }
