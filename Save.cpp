@@ -1,21 +1,21 @@
 #include "Save.h"
 
 Save::Save(){
-	loadPontos();
+	//loadPontos();
 }
 
 Save::~Save() {
 
 }
 
-bool comparacao(const info& a, const info& b) {
+bool Save::comparacao(const info& a, const info& b) {
 	return a.pont < b.pont;
 }
 
 
 void Save::savePontos(int pt, int idJog) {
 
-	Gravador.open("Ranking.txt", ios::in);
+	Gravador.open("Ranking.txt");
 	if (!Gravador) {
 		cout << "erro ao abrir gravador" << endl;
 	}
@@ -44,7 +44,7 @@ void Save::savePontos(int pt, int idJog) {
 
 void Save::loadPontos() {
 	
-	Leitor.open("Ranking.txt", ios::in);
+	Leitor.open("Ranking.txt");
 	if (!Leitor) {
 		cout << "erro ao abrir leitor" << endl;
 	}
