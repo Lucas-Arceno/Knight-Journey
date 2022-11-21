@@ -1,6 +1,8 @@
 #include "Ente.h"
 
-Ente::Ente(int id) : ID(id), pGrafico(pGrafico->getGerenciadorGrafico())
+Gerenciadores::GerenciadorGrafico* Ente::pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
+
+Ente::Ente(int id) : ID(id)
 {
 }
 

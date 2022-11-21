@@ -1,9 +1,14 @@
 #include "Plataforma.h"
 
-Entidades::Plataforma::Plataforma(sf::Vector2f posicao, sf::Vector2f tamanho, const char* path) : Entidades::Entidade(31, posicao, tamanho)
+Entidades::Plataforma::Plataforma(sf::Vector2f posicao, sf::Vector2f tamanho, const int tipo) : tipo(tipo), Entidades::Entidade(31, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
-	this->texture.loadFromFile(path);
+	if (this->tipo == 0) {
+		this->texture.loadFromFile("assets/teste2.png");
+	}
+	else {
+		this->texture.loadFromFile("assets/chao.jpg");
+	}
 	this->corpo.setTexture(&texture);
 }
 

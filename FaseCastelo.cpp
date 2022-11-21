@@ -147,60 +147,61 @@ void Fases::FaseCastelo::criaMapa()
 {
 	//chao
 	for (int i = 0; i < 4; i++) {
-		listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(200.0f + (i*500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
+		//listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(200.0f + (i*500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
+		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(200.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 70.0f), 0));
 	}
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 250.0f), 0));
 
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(1950.0f, 900.0f), sf::Vector2f(500.0f, 50.0f)));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(1950.0f, 900.0f), sf::Vector2f(500.0f, 50.0f), 0));
 
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(2150.0f, 800.0f), sf::Vector2f(50.0f, 250.0f)));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(2150.0f, 800.0f), sf::Vector2f(50.0f, 250.0f), 0));
 
 	for (int i = 0; i < 6; i++) {
-		listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(2400.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
+		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(2400.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 70.0f), 0));
 	}
 	for (int i = 0; i < 6; i++) {
 		if (i == 3) {
 			continue;
 		}
 		else {
-			listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(2400.0f + (i * 500), 350.0f), sf::Vector2f(500.0f, 70.0f)));
+			listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(2400.0f + (i * 500), 350.0f), sf::Vector2f(500.0f, 70.0f), 0));
 		}
 	}
 
 	//"teto" dos corredos de cima
 	for (int i = 0; i < 6; i++) {
-		listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(2400.0f + (i * 500), 50.0f), sf::Vector2f(500.0f, 70.0f)));
+		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(2400.0f + (i * 500), 50.0f), sf::Vector2f(500.0f, 70.0f), 0));
 	}
 
 	//torres do comeco fase
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(450.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(700.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(950.0f, 400.0f), sf::Vector2f(50.0f, 50.0f)));
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(1200.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(1450.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(2050.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(450.0f, 540.0f), sf::Vector2f(50.0f, 50.0f), 0));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(700.0f, 500.0f), sf::Vector2f(200.0f, 350.0f), 0));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(950.0f, 400.0f), sf::Vector2f(50.0f, 50.0f), 0));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(1200.0f, 500.0f), sf::Vector2f(200.0f, 350.0f), 0));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(1450.0f, 540.0f), sf::Vector2f(50.0f, 50.0f), 0));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(2050.0f, 540.0f), sf::Vector2f(50.0f, 50.0f), 0));
 
 	//sorteia qual caminho vai ficar liberado 
 	int aux_rand = rand() % 3;
 	if (aux_rand == 2) {
-		listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(5000.0f, 200.0f), sf::Vector2f(200.0f, 350.0f)));
-		listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(3600.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
+		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(5000.0f, 200.0f), sf::Vector2f(200.0f, 350.0f), 0));
+		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(3600.0f, 500.0f), sf::Vector2f(200.0f, 350.0f), 0));
 	}
 	else {
-		listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(5050.0f, 500.0f), sf::Vector2f(200.0f, 350.0f)));
-		listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(3600.0f, 200.0f), sf::Vector2f(200.0f, 350.0f)));
+		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(5050.0f, 500.0f), sf::Vector2f(200.0f, 350.0f), 0));
+		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(3600.0f, 200.0f), sf::Vector2f(200.0f, 350.0f), 0));
 	}
 
 	//plataforma que permite o jogador voltar/descer entre os andares
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(4000.0f, 540.0f), sf::Vector2f(50.0f, 50.0f)));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(4000.0f, 540.0f), sf::Vector2f(50.0f, 50.0f), 0));
 
 	//quadrados do final q tem pular
 	for (int i = 0; i < 10; i++) {
-		listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(5250.0f + (150 * i), 600.0f), sf::Vector2f(50.0f, 50.0f)));
+		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(5250.0f + (150 * i), 600.0f), sf::Vector2f(50.0f, 50.0f), 0));
 	}
 	
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(5135.0f, 800.0f), sf::Vector2f(50.0f, 200.0f)));
-	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(5950.0f, 800.0f), sf::Vector2f(1500.0f, 50.0f)));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(5135.0f, 800.0f), sf::Vector2f(50.0f, 200.0f), 0));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(5950.0f, 800.0f), sf::Vector2f(1500.0f, 50.0f), 0));
 }
 
 void Fases::FaseCastelo::criaInimigos()
@@ -210,11 +211,10 @@ void Fases::FaseCastelo::criaInimigos()
 
 	for (int i = 0; i < num_Cobras; i++) {
 		int aux = rand() % 19;
-		// Exclui possivel spawn em cima de buracos
 		while (!(listaPosCobras[aux].isLivre)) {
 			aux = rand() % 19;
 		}
-		listaEntidades.addEntidade(new Entidades::Personagens::Inimigos::Cobra(Jogadores, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaEntidades.addEntidade(criaCobra(Jogadores, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosCobras[aux].isLivre = false;
 	}
 	for (int i = 0; i < num_Morcegos; i++) {
@@ -222,7 +222,7 @@ void Fases::FaseCastelo::criaInimigos()
 		while (!(listaPosMorcegos[aux].isLivre)) {
 			aux = rand() % 27;
 		}
-		listaEntidades.addEntidade(new Entidades::Personagens::Inimigos::Morcego(&listaEntidades, Jogadores, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
+		listaEntidades.addEntidade(criaMorcego(&listaEntidades, Jogadores, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
 		listaPosMorcegos[aux].isLivre = false;
 	}
 	
@@ -239,36 +239,36 @@ void Fases::FaseCastelo::criaObstaculos()
 		while (!(listaPosObstaculos[aux2].isLivre)) {
 			aux2 = rand() % 29;
 		}
-		listaEntidades.addEntidade(new Entidades::Obstaculos::Teia(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaEntidades.addEntidade(criaTeia(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosObstaculos[aux2].isLivre = false;
 	}
 
-for (int i = 0; i < num_Portais; i++) {
-	int aux3 = rand() % 29;
-	while (!(listaPosObstaculos[aux3].isLivre)) {
-		aux3 = rand() % 29;
+	for (int i = 0; i < num_Portais; i++) {
+		int aux3 = rand() % 29;
+		while (!(listaPosObstaculos[aux3].isLivre)) {
+			aux3 = rand() % 29;
+		}
+		listaEntidades.addEntidade(criaPortal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
+		listaPosObstaculos[aux3].isLivre = false;
 	}
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(listaPosObstaculos[aux3].cord), sf::Vector2f(70.0f, 70.0f)));
-	listaPosObstaculos[aux3].isLivre = false;
-}
 
-num_Espinhos = num_Espinhos + 3;
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(850.f, 625.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(1000.f, 625.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(2000.f, 800.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5300.f, 550.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5450.f, 550.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5600.f, 550.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5750.f, 550.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5900.f, 550.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6050.f, 550.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6200.f, 550.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6350.f, 550.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6500.f, 550.f)));
+	num_Espinhos = num_Espinhos + 3;
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(850.f, 625.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(1000.f, 625.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(2000.f, 800.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5300.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5450.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5600.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5750.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5900.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6050.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6200.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6350.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6500.f, 550.f)));
 
-num_Portais = num_Portais + 2;
-listaEntidades.addEntidade(new Entidades::Obstaculos::Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
-listaEntidades.addEntidade(new Entidades::Obstaculos::Portal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+	num_Portais = num_Portais + 2;
+	listaEntidades.addEntidade(criaPortal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
+	listaEntidades.addEntidade(criaPortal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 
 }
 

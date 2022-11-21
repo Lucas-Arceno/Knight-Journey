@@ -50,6 +50,13 @@ namespace Fases {
 	public:
 		Fase();
 		virtual ~Fase();
+
+		Entidades::Obstaculos::Teia* criaTeia(sf::Vector2f(posicao), sf::Vector2f(tamanho));
+		Entidades::Obstaculos::Portal* criaPortal(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f(destino), sf::Vector2f(posicao), sf::Vector2f(tamanho));
+		Entidades::Plataforma* criaPlataforma(sf::Vector2f(posicao), sf::Vector2f(tamanho), const int tipo);
+		Entidades::Personagens::Inimigos::Cobra* criaCobra(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f(posicao), sf::Vector2f(tamanho));
+		Entidades::Personagens::Inimigos::Morcego* criaMorcego(List::ListaEntidade* pListaEntidade, std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f(posicao), sf::Vector2f(tamanho));
+
 		virtual void update() = 0;
 		virtual void render() = 0;
 	};

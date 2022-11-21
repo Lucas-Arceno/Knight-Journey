@@ -6,7 +6,7 @@ class Ente
 {
 protected:
 	const int ID;
-	Gerenciadores::GerenciadorGrafico* pGrafico;
+	static Gerenciadores::GerenciadorGrafico* pGrafico;
 public:
 	Ente(int id = -1);
 	~Ente();

@@ -94,7 +94,7 @@ void Entidades::Personagens::Jogadores::JogadorPrincipal::updateMovimento()
 void Entidades::Personagens::Jogadores::JogadorPrincipal::updateAnimations()
 {
 	if (this->animState == JogadorPrincipal_Animation_States::IDLE) {
-		texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Idle.png");
+		texture.loadFromFile("assets/Pixel Art Crusader/Crusader 4/Crusader-4-Idle.png");
 		sprite.setTexture(texture);
 		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.2f || this->getAnimSwitch()) {
 			this->currentFrame.top = 0;
@@ -110,7 +110,7 @@ void Entidades::Personagens::Jogadores::JogadorPrincipal::updateAnimations()
 		this->sprite.setOrigin(50, 50);
 	}
 	else if (this->animState == JogadorPrincipal_Animation_States::MOVING_RIGHT) {
-		texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Running.png");
+		texture.loadFromFile("assets/Pixel Art Crusader/Crusader 4/Crusader-4-Running.png");
 		sprite.setTexture(texture);
 		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f || this->getAnimSwitch()) {
 			this->currentFrame.top = 0;
@@ -126,7 +126,7 @@ void Entidades::Personagens::Jogadores::JogadorPrincipal::updateAnimations()
 		this->sprite.setOrigin(50.f, 50.f);
 	}
 	else if (this->animState == JogadorPrincipal_Animation_States::MOVING_LEFT) {
-		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Running.png");
+		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 4/Crusader-4-Running.png");
 		sprite.setTexture(texture);
 		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f || this->getAnimSwitch()) {
 			this->currentFrame.top = 0;
@@ -142,7 +142,7 @@ void Entidades::Personagens::Jogadores::JogadorPrincipal::updateAnimations()
 		this->sprite.setOrigin(50, 50);
 	}
 	else if (this->animState == JogadorPrincipal_Animation_States::HIT_LEFT) {
-		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Attacking.png");
+		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 4/Crusader-4-Attacking.png");
 		sprite.setTexture(texture);
 		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f || this->getAnimSwitch()) {
 			this->currentFrame.top = 0;
@@ -159,7 +159,7 @@ void Entidades::Personagens::Jogadores::JogadorPrincipal::updateAnimations()
 		this->sprite.setOrigin(50, 50);
 	}
 	else if (this->animState == JogadorPrincipal_Animation_States::HIT_RIGHT) {
-		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Attacking.png");
+		this->texture.loadFromFile("assets/Pixel Art Crusader/Crusader 4/Crusader-4-Attacking.png");
 		sprite.setTexture(texture);
 		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f || this->getAnimSwitch()) {
 			this->currentFrame.top = 0;
