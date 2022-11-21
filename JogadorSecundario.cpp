@@ -44,11 +44,11 @@ void JogadorSecundario::update()
 	updateMovimento();
 	updateAnimations();
 	updatePhysics();
-	if (this->getVida() <= 0) {
-		printf("Morreu");
-		this->corpo.setPosition(150.f, 600.f);
-		this->vida = vidaMaxima;
-	}
+	//if (this->getVida() <= 0) {
+	//	printf("Morreu");
+	//	this->corpo.setPosition(150.f, 600.f);
+	//	this->vida = vidaMaxima;
+	//}
 
 	if (invFrame > 0) {
 		invFrame++;

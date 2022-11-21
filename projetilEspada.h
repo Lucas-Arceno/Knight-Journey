@@ -20,5 +20,7 @@ class projetilEspada : public Entidade
 		void updateEmpuxo();
 		void updateMovimento();
 		void disparoEspada(sf::Vector2f posJogador, bool isDir);
+
+		void setScalee(float x, float y) { this->corpo.setScale(x, y); }
 };
 

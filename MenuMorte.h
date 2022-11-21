@@ -1,9 +1,12 @@
 #pragma once
 #include "MenuBase.h"
+#include "Save.h"
 
 class MenuMorte : public MenuBase
 {
 private:
+	int pontPlayers;
+	Save saves;
 
 public:
 	MenuMorte(float widht, float height);
@@ -14,5 +17,7 @@ public:
 	void MoveUp();
 	void MoveDown();
 	void update();
+
+	void setPontPlayers(int pont);
 };
 

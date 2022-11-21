@@ -1,4 +1,5 @@
 #include "Save.h"
+#include <SFML/Graphics.hpp>
 
 Save::Save(){
 	//Gravador.open("Ranking.txt");

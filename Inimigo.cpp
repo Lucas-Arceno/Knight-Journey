@@ -53,7 +53,9 @@ void Inimigo::updateDano(int dano)
 			}
 			//int pont = 1;
 			//	if (this->id == 5) { pont = 2; }
-			pJogador->givePontuacao(1);
+			if (this->vida <= 0) {
+				pJogador->givePontuacao(5);
+			}
 		}
 		// Dano do inimigo no player
 		else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds()) && pJogador->getInvFrame() == 0) {

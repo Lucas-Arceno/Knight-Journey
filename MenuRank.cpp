@@ -69,7 +69,7 @@ void MenuRank::draw(sf::RenderWindow& window)
 	for (int i = 0; i < 10; i++) {
 		placar.setFont(font);
 		placar.setFillColor(sf::Color::White);
-		placar.setString(to_string(infos[i].pont) + " " + infos[i].nome);
+		placar.setString((to_string(i)) + "  " + (to_string(infos[i].pont)) + "  " + infos[i].nome);
 		placar.setCharacterSize(25);
 		placar.setPosition(sf::Vector2f(100, (40 * i)));
 

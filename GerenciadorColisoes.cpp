@@ -81,8 +81,8 @@ void GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					pJogador->giveDano(5 * (static_cast<Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
-					printf("%d\n", pJogador->getVida());
+					pJogador->operator-(1 * (static_cast<Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
+					//printf("VIDAAAAAA %d\n", pJogador->getVida());
 				}
 			}
 		}

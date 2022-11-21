@@ -23,6 +23,8 @@ MenuMorte::MenuMorte(float widht, float height) : MenuBase(2, widht, height)
 	menu[1].setString("Sair");
 	menu[1].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 2));
 	botoes[1].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 2));
+
+	pontPlayers = 0;
 }
 
 MenuMorte::~MenuMorte()
@@ -44,12 +46,13 @@ void MenuMorte::updateEstado(int& aux) {
 			selectedItemIndex = i;
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
-					printf("botao 1");
-					aux = 2;
+					printf("%d \n", pontPlayers);
+					saves.savePontos(pontPlayers, 0);
+					exit(1);
 				}
 				else if (selectedItemIndex == 1) {
 					printf("botao 2");
-					aux = 4;
+					exit(1);
 				}
 			}
 		}
@@ -92,4 +95,9 @@ void MenuMorte::MoveDown()
 
 void MenuMorte::update() {
 
+}
+
+void MenuMorte::setPontPlayers(int pont)
+{
+	pontPlayers += pont;
 }

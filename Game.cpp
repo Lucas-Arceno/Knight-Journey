@@ -30,7 +30,7 @@ void Game::exec()
 	Menu Menu(1200, 800);
 	MenuFases MenuFases(1200, 800);
 	MenuEscolhaOnline MenuOnline(1200, 800);
-	//MenuMorte MenuMorte(1200, 800);
+	MenuMorte MenuMorte(1200, 800);
 	MenuRank MenuRank(1200, 800);
 
 	FasePalacio Palacio(&Jogadores);
@@ -41,6 +41,7 @@ void Game::exec()
 	int aux_test = 0;
 	int aux_test2 = 0;
 	int aux_test3 = 0;
+	bool aux_test4 = true;
 
 	int i = 1;
 	while (i != -1) {
@@ -95,6 +96,17 @@ void Game::exec()
 					aux_test++;
 				}
 				Palacio.update();
+			}
+			else if (i == 5) {
+				if (aux_test4 == true) {
+					for (auto const& Jogador : Jogadores)
+					{
+						MenuMorte.setPontPlayers(Jogador->getPontucao());
+					}
+					aux_test4 = false;
+				}
+				MenuMorte.updateEstado(i);
+				MenuMorte.draw(*pGrafico->getJanela());
 			}
 			else if (i == 6) {
 				//ListaPontos[1].pontos = Castelo.getPontuacao();

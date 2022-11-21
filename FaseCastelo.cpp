@@ -28,7 +28,7 @@ FaseCastelo::FaseCastelo(std::list<Jogador*>* pJogadores) : Fase()
 	criaObstaculos();
 
 	//int kk =1;
-	listaEntidades.addEntidade(new Rei(Jogadores, sf::Vector2f(250.0f, 200.0f), sf::Vector2f(100.0f, 100.0f)));
+	//listaEntidades.addEntidade(new Rei(Jogadores, sf::Vector2f(250.0f, 200.0f), sf::Vector2f(100.0f, 100.0f)));
 
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 11 = teia
@@ -334,6 +334,7 @@ void FaseCastelo::update()
 void FaseCastelo::render()
 {
 	pGrafico->setView(sf::Vector2f(Jogadores->front()->getCorpo().getPosition().x, 300));
+	background.setPosition(sf::Vector2f(Jogadores->front()->getCorpo().getPosition().x - 1000, -200));
 	pGrafico->desenhaElementos(this->background);
 
 
