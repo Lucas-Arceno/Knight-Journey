@@ -1,6 +1,6 @@
 #include "MenuMorte.h"
 
-MenuMorte::MenuMorte(float widht, float height) : MenuBase(2, widht, height)
+Menus::MenuMorte::MenuMorte(float widht, float height) : MenuBase(2, widht, height)
 {
 	if (!font.loadFromFile("unispace bd.ttf")) {
 		//handle error
@@ -27,11 +27,11 @@ MenuMorte::MenuMorte(float widht, float height) : MenuBase(2, widht, height)
 	pontPlayers = 0;
 }
 
-MenuMorte::~MenuMorte()
+Menus::MenuMorte::~MenuMorte()
 {
 }
 
-void MenuMorte::updateEstado(int& aux) {
+void Menus::MenuMorte::updateEstado(int& aux) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
 	}
@@ -62,7 +62,7 @@ void MenuMorte::updateEstado(int& aux) {
 	}
 }
 
-void MenuMorte::draw(sf::RenderWindow& window)
+void Menus::MenuMorte::draw(sf::RenderWindow& window)
 {
 	sf::View view;
 	pGrafico->getJanela()->setView(view);
@@ -75,7 +75,7 @@ void MenuMorte::draw(sf::RenderWindow& window)
 	}
 }
 
-void MenuMorte::MoveUp()
+void Menus::MenuMorte::MoveUp()
 {
 	if (selectedItemIndex - 1 >= 0) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -84,7 +84,7 @@ void MenuMorte::MoveUp()
 	}
 }
 
-void MenuMorte::MoveDown()
+void Menus::MenuMorte::MoveDown()
 {
 	if (selectedItemIndex + 1 < 2) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -93,11 +93,11 @@ void MenuMorte::MoveDown()
 	}
 }
 
-void MenuMorte::update() {
+void Menus::MenuMorte::update() {
 
 }
 
-void MenuMorte::setPontPlayers(int pont)
+void Menus::MenuMorte::setPontPlayers(int pont)
 {
 	pontPlayers += pont;
 }

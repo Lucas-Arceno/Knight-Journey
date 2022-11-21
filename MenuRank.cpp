@@ -1,6 +1,6 @@
 #include "MenuRank.h"
 
-MenuRank::MenuRank(float width, float height) : MenuBase(1, width, height)
+Menus::MenuRank::MenuRank(float width, float height) : MenuBase(1, width, height)
 {
 	if (!font.loadFromFile("unispace bd.ttf")) {
 		//handle error
@@ -26,11 +26,11 @@ MenuRank::MenuRank(float width, float height) : MenuBase(1, width, height)
 	}
 }
 
-MenuRank::~MenuRank()
+Menus::MenuRank::~MenuRank()
 {
 }
 
-void MenuRank::updateEstado(int& aux) {
+void Menus::MenuRank::updateEstado(int& aux) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
 	}
@@ -55,7 +55,7 @@ void MenuRank::updateEstado(int& aux) {
 	}
 }
 
-void MenuRank::draw(sf::RenderWindow& window)
+void Menus::MenuRank::draw(sf::RenderWindow& window)
 {
 	sf::View view;
 	pGrafico->getJanela()->setView(view);
@@ -77,7 +77,7 @@ void MenuRank::draw(sf::RenderWindow& window)
 	}
 }
 
-void MenuRank::MoveUp()
+void Menus::MenuRank::MoveUp()
 {
 	if (selectedItemIndex - 1 >= 0) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -86,7 +86,7 @@ void MenuRank::MoveUp()
 	}
 }
 
-void MenuRank::MoveDown()
+void Menus::MenuRank::MoveDown()
 {
 	if (selectedItemIndex + 1 < 1) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -95,6 +95,6 @@ void MenuRank::MoveDown()
 	}
 }
 
-void MenuRank::update() {
+void Menus::MenuRank::update() {
 
 }

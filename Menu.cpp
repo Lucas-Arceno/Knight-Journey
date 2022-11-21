@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(float widht, float height) : MenuBase(3, widht, height)
+Menus::Menu::Menu(float widht, float height) : MenuBase(3, widht, height)
 {
 	if (!font.loadFromFile("unispace bd.ttf")) {
 		//handle error
@@ -31,11 +31,11 @@ Menu::Menu(float widht, float height) : MenuBase(3, widht, height)
 	botoes[2].setPosition(sf::Vector2f((widht / 2) - 150, (height / (3 + 1) * 3)+300));
 }
 
-Menu::~Menu()
+Menus::Menu::~Menu()
 {
 }
 
-void Menu::updateEstado(int& aux) {
+void Menus::Menu::updateEstado(int& aux) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
 	}
@@ -69,7 +69,7 @@ void Menu::updateEstado(int& aux) {
 	}
 }
 
-void Menu::draw(sf::RenderWindow& window)
+void Menus::Menu::draw(sf::RenderWindow& window)
 {
 	sf::View view;
 	pGrafico->getJanela()->setView(view);
@@ -82,7 +82,7 @@ void Menu::draw(sf::RenderWindow& window)
 	}
 }
 
-void Menu::MoveUp()
+void Menus::Menu::MoveUp()
 {
 	if (selectedItemIndex - 1 >= 0) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -91,7 +91,7 @@ void Menu::MoveUp()
 	}
 }
 
-void Menu::MoveDown()
+void Menus::Menu::MoveDown()
 {
 	if (selectedItemIndex + 1 < 3) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -100,6 +100,6 @@ void Menu::MoveDown()
 	}
 }
 
-void Menu::update() {
+void Menus::Menu::update() {
 
-}
+}	

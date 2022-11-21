@@ -1,6 +1,6 @@
 #include "MenuEscolhaOnline.h"
 
-MenuEscolhaOnline::MenuEscolhaOnline(float widht, float height) : MenuBase(2, widht, height)
+Menus::MenuEscolhaOnline::MenuEscolhaOnline(float widht, float height) : MenuBase(2, widht, height)
 {
 	if (!font.loadFromFile("unispace bd.ttf")) {
 		//handle error
@@ -25,11 +25,11 @@ MenuEscolhaOnline::MenuEscolhaOnline(float widht, float height) : MenuBase(2, wi
 	botoes[1].setPosition(sf::Vector2f((widht / 2) - 500, height / (2 + 1) * 2));
 }
 
-MenuEscolhaOnline::~MenuEscolhaOnline()
+Menus::MenuEscolhaOnline::~MenuEscolhaOnline()
 {
 }
 
-void MenuEscolhaOnline::updateEstado(int& aux)
+void Menus::MenuEscolhaOnline::updateEstado(int& aux)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
@@ -58,7 +58,7 @@ void MenuEscolhaOnline::updateEstado(int& aux)
 	}
 }
 
-void MenuEscolhaOnline::draw(sf::RenderWindow& window)
+void Menus::MenuEscolhaOnline::draw(sf::RenderWindow& window)
 {
 	sf::View view;
 	pGrafico->getJanela()->setView(view);
@@ -71,7 +71,7 @@ void MenuEscolhaOnline::draw(sf::RenderWindow& window)
 	}
 }
 
-void MenuEscolhaOnline::MoveUp()
+void Menus::MenuEscolhaOnline::MoveUp()
 {
 	if (selectedItemIndex - 1 >= 0) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -80,7 +80,7 @@ void MenuEscolhaOnline::MoveUp()
 	}
 }
 
-void MenuEscolhaOnline::MoveDown()
+void Menus::MenuEscolhaOnline::MoveDown()
 {
 	if (selectedItemIndex + 1 < 2) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -89,6 +89,6 @@ void MenuEscolhaOnline::MoveDown()
 	}
 }
 
-void MenuEscolhaOnline::update()
+void Menus::MenuEscolhaOnline::update()
 {
 }

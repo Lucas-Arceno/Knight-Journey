@@ -22,34 +22,36 @@
 #include "Morcego.h"
 #include "Rei.h"
 
-struct listaPos {
-	sf::Vector2f cord;
-	bool isLivre = true;
-};
+namespace Fases {
+	struct listaPos {
+		sf::Vector2f cord;
+		bool isLivre = true;
+	};
 
-class Fase : public Ente
-{
-protected:
-	//Corpo, textura e afins
-	sf::RectangleShape background;
-	sf::Texture backgroundTexture;
+	class Fase : public Ente
+	{
+	protected:
+		//Corpo, textura e afins
+		sf::RectangleShape background;
+		sf::Texture backgroundTexture;
 
-	//Listas
-	List::ListaEntidade listaEntidades;
-	List::ListaEntidade listaObstaculos;
-	List::ListaEntidade listaInimigos;
-	List::ListaEntidade listaPlataformas;
-	
-	//Jogadores
-	std::list<Entidades::Personagens::Jogadores::Jogador*>* Jogadores;
+		//Listas
+		List::ListaEntidade listaEntidades;
+		List::ListaEntidade listaObstaculos;
+		List::ListaEntidade listaInimigos;
+		List::ListaEntidade listaPlataformas;
 
-	//GerenciadorGrafico* pGrafico;
-	Gerenciadores::GerenciadorEvento* pEvento;
-	Gerenciadores::GerenciadorColisoes* GerenciadorColisao;
-public:
-	Fase();
-	virtual ~Fase();
-	virtual void update() = 0;
-	virtual void render() = 0;
-};
+		//Jogadores
+		std::list<Entidades::Personagens::Jogadores::Jogador*>* Jogadores;
+
+		//GerenciadorGrafico* pGrafico;
+		Gerenciadores::GerenciadorEvento* pEvento;
+		Gerenciadores::GerenciadorColisoes* GerenciadorColisao;
+	public:
+		Fase();
+		virtual ~Fase();
+		virtual void update() = 0;
+		virtual void render() = 0;
+	};
+}
 

@@ -1,6 +1,6 @@
 #include "MenuFases.h"
 
-MenuFases::MenuFases(float widht, float height) : MenuBase(2, widht, height)
+Menus::MenuFases::MenuFases(float widht, float height) : MenuBase(2, widht, height)
 {
 	if (!font.loadFromFile("unispace bd.ttf")) {
 		//handle error
@@ -25,11 +25,11 @@ MenuFases::MenuFases(float widht, float height) : MenuBase(2, widht, height)
 	botoes[1].setPosition(sf::Vector2f(widht / 2, height / (2 + 1) * 2));
 }
 
-MenuFases::~MenuFases()
+Menus::MenuFases::~MenuFases()
 {
 }
 
-void MenuFases::updateEstado(int& aux) {
+void Menus::MenuFases::updateEstado(int& aux) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		MoveUp();
 	}
@@ -59,7 +59,7 @@ void MenuFases::updateEstado(int& aux) {
 	}
 }
 
-void MenuFases::draw(sf::RenderWindow& window)
+void Menus::MenuFases::draw(sf::RenderWindow& window)
 {
 	sf::View view;
 	pGrafico->getJanela()->setView(view);
@@ -72,7 +72,7 @@ void MenuFases::draw(sf::RenderWindow& window)
 	}
 }
 
-void MenuFases::MoveUp()
+void Menus::MenuFases::MoveUp()
 {
 	if (selectedItemIndex - 1 >= 0) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -81,7 +81,7 @@ void MenuFases::MoveUp()
 	}
 }
 
-void MenuFases::MoveDown()
+void Menus::MenuFases::MoveDown()
 {
 	if (selectedItemIndex + 1 < 2) {
 		menu[selectedItemIndex].setFillColor(sf::Color::White);
@@ -90,6 +90,6 @@ void MenuFases::MoveDown()
 	}
 }
 
-void MenuFases::update() {
+void Menus::MenuFases::update() {
 
 }

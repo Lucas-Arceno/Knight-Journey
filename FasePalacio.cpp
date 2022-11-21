@@ -1,7 +1,7 @@
 #include "FasePalacio.h"
 
 
-FasePalacio::FasePalacio(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores) : Fase()
+Fases::FasePalacio::FasePalacio(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores) : Fase()
 {
 	this->Jogadores = pJogadores;
 
@@ -51,11 +51,11 @@ FasePalacio::FasePalacio(std::list<Entidades::Personagens::Jogadores::Jogador*>*
 	}
 }
 
-FasePalacio::~FasePalacio()
+Fases::FasePalacio::~FasePalacio()
 {
 }
 
-void FasePalacio::setPosicoesLivres()
+void Fases::FasePalacio::setPosicoesLivres()
 {
 	//POSSIVEIS POSICOES OBSTACULOS
 
@@ -98,7 +98,7 @@ void FasePalacio::setPosicoesLivres()
 	listaPosCobras[9].cord = sf::Vector2f(-1735, 450);
 }
 
-void FasePalacio::checkQuarto()
+void Fases::FasePalacio::checkQuarto()
 {
 	sf::RectangleShape quarto1;
 	quarto1.setSize(sf::Vector2f(10.0f, 200.0f));
@@ -131,7 +131,7 @@ void FasePalacio::checkQuarto()
 
 }
 
-void FasePalacio::criaMapa()
+void Fases::FasePalacio::criaMapa()
 {
 	//CONSTRUCAO DA SALA 0
 	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(35.0f, 285.0f), sf::Vector2f(50.0f, 800.0f), "assets/chao.jpg"));
@@ -172,7 +172,7 @@ void FasePalacio::criaMapa()
 	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(-2060.0f, -135.0f), sf::Vector2f(50.0f, 650.0f), "assets/chao.jpg"));
 }
 
-void FasePalacio::criaInimigos()
+void Fases::FasePalacio::criaInimigos()
 {
 	this->num_Cobras = std::rand() % (6 + 1 - 3) + 3;
 	this->num_Morcegos = (rand() % (6 + 1 - 3) + 3);
@@ -195,7 +195,7 @@ void FasePalacio::criaInimigos()
 	}
 }
 
-void FasePalacio::criaObstaculos()
+void Fases::FasePalacio::criaObstaculos()
 {
 	this->num_Teias = std::rand() % (8 + 1 - 3) + 3;
 	this->num_Portais = std::rand() % (3 + 1 - 3) + 3;
@@ -219,7 +219,7 @@ void FasePalacio::criaObstaculos()
 	}
 }
 
-void FasePalacio::teste()
+void Fases::FasePalacio::teste()
 {
 	for (auto const& Jogador : *Jogadores)
 	{
@@ -227,7 +227,7 @@ void FasePalacio::teste()
 	}
 }
 
-void FasePalacio::multiplayer(bool status)
+void Fases::FasePalacio::multiplayer(bool status)
 {
 	if (status == true) {
 		for (auto const& Jogador : *Jogadores)
@@ -239,7 +239,7 @@ void FasePalacio::multiplayer(bool status)
 	}
 }
 
-bool FasePalacio::checkTerminou()
+bool Fases::FasePalacio::checkTerminou()
 {
 	if (Jogadores->front()->getVida() <= 0) {
 		return true;
@@ -249,14 +249,14 @@ bool FasePalacio::checkTerminou()
 	}
 }
 
-void FasePalacio::update()
+void Fases::FasePalacio::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
 	checkQuarto();
 }
 
-void FasePalacio::render()
+void Fases::FasePalacio::render()
 {
 	if (num_sala == 0) {
 		pGrafico->setView(sf::Vector2f(509.987488f, 66.165459f));

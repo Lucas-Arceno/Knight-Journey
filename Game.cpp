@@ -27,16 +27,16 @@ void Game::exec()
 
 	Jogadores.push_back(new Entidades::Personagens::Jogadores::JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 
-	Menu Menu(1200, 800);
-	MenuFases MenuFases(1200, 800);
-	MenuEscolhaOnline MenuOnline(1200, 800);
-	MenuMorte MenuMorte(1200, 800);
-	MenuRank MenuRank(1200, 800);
+	Menus::Menu Menu(1200, 800);
+	Menus::MenuFases MenuFases(1200, 800);
+	Menus::MenuEscolhaOnline MenuOnline(1200, 800);
+	Menus::MenuMorte MenuMorte(1200, 800);
+	Menus::MenuRank MenuRank(1200, 800);
 
-	FasePalacio Palacio(&Jogadores);
-	FaseCastelo Castelo(&Jogadores);
+	Fases::FasePalacio Palacio(&Jogadores);
+	Fases::FaseCastelo Castelo(&Jogadores);
 	
-	Ranking ListaPontos[10];
+	Ranking ListaPontos[10]{};
 
 	int aux_test = 0;
 	int aux_test2 = 0;

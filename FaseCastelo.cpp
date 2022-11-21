@@ -1,6 +1,6 @@
 #include "FaseCastelo.h"
 
-FaseCastelo::FaseCastelo(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores) : Fase()
+Fases::FaseCastelo::FaseCastelo(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores) : Fase()
 {
 	this->Jogadores = pJogadores;
 
@@ -52,11 +52,11 @@ FaseCastelo::FaseCastelo(std::list<Entidades::Personagens::Jogadores::Jogador*>*
 
 }
 
-FaseCastelo::~FaseCastelo()
+Fases::FaseCastelo::~FaseCastelo()
 {
 }
 
-void FaseCastelo::setPosicoesLivres()
+void Fases::FaseCastelo::setPosicoesLivres()
 {
 	//Cobras
 	listaPosCobras[0].cord = sf::Vector2f(330.0f, 550.0f);
@@ -143,7 +143,7 @@ void FaseCastelo::setPosicoesLivres()
 
 }
 
-void FaseCastelo::criaMapa()
+void Fases::FaseCastelo::criaMapa()
 {
 	//chao
 	for (int i = 0; i < 4; i++) {
@@ -203,7 +203,7 @@ void FaseCastelo::criaMapa()
 	listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(5950.0f, 800.0f), sf::Vector2f(1500.0f, 50.0f)));
 }
 
-void FaseCastelo::criaInimigos()
+void Fases::FaseCastelo::criaInimigos()
 {
 	this->num_Cobras = (rand() % (10 + 1 - 3) + 3);
 	this->num_Morcegos = (rand() % (15 + 1 - 3) + 3);
@@ -229,7 +229,7 @@ void FaseCastelo::criaInimigos()
 
 }
 
-void FaseCastelo::criaObstaculos()
+void Fases::FaseCastelo::criaObstaculos()
 {
 	this->num_Teias = std::rand() % (18 + 1 - 3) + 3;
 	this->num_Portais = std::rand() % (5 + 1 - 3) + 3;
@@ -272,12 +272,12 @@ listaEntidades.addEntidade(new Entidades::Obstaculos::Portal(Jogadores, sf::Vect
 
 }
 
-int const FaseCastelo::getPontuacao()
+int const Fases::FaseCastelo::getPontuacao()
 {
 	return this->Jogadores->front()->getPontucao();
 }
 
-void FaseCastelo::teste()
+void Fases::FaseCastelo::teste()
 {
 	for (auto const& Jogador : *Jogadores)
 	{
@@ -285,7 +285,7 @@ void FaseCastelo::teste()
 	}
 }
 
-void FaseCastelo::multiplayer(bool status)
+void Fases::FaseCastelo::multiplayer(bool status)
 {
 	if (status == true) {
 		for (auto const& Jogador : *Jogadores)
@@ -299,7 +299,7 @@ void FaseCastelo::multiplayer(bool status)
 	}
 }
 
-bool FaseCastelo::checkMorreu()
+bool Fases::FaseCastelo::checkMorreu()
 {
 	if (Jogadores->front()->getVida() <= 0) {
 		return true;
@@ -309,7 +309,7 @@ bool FaseCastelo::checkMorreu()
 	}
 }
 
-bool FaseCastelo::checkTerminou() {
+bool Fases::FaseCastelo::checkTerminou() {
 	sf::RectangleShape final;
 	final.setSize(sf::Vector2f(100.f, 10000.f));
 	final.setFillColor(sf::Color::Blue);
@@ -324,14 +324,14 @@ bool FaseCastelo::checkTerminou() {
 	}
 }
 
-void FaseCastelo::update()
+void Fases::FaseCastelo::update()
 {
 	this->GerenciadorColisao->updateColisao();
 	render();
 
 }
 
-void FaseCastelo::render()
+void Fases::FaseCastelo::render()
 {
 	pGrafico->setView(sf::Vector2f(Jogadores->front()->getCorpo().getPosition().x, 300));
 	background.setPosition(sf::Vector2f(Jogadores->front()->getCorpo().getPosition().x - 1000, -200));

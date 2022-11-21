@@ -1,39 +1,42 @@
 #pragma once
 #include "Fase.h"
 
-class FasePalacio : public Fase
-{
-private:
-	listaPos listaPosMorcegos[6];
-	listaPos listaPosCobras[10];
-	listaPos listaPosObstaculos[14];
+namespace Fases {
+	class FasePalacio : public Fase
+	{
+	private:
+		listaPos listaPosMorcegos[6];
+		listaPos listaPosCobras[10];
+		listaPos listaPosObstaculos[14];
 
-	int num_sala;
+		int num_sala;
 
-	int num_Morcegos;
-	int num_Cobras;
+		int num_Morcegos;
+		int num_Cobras;
 
-	int num_Teias;
-	int num_Portais;
-public:
-	FasePalacio(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores);
-	~FasePalacio();
+		int num_Teias;
+		int num_Portais;
+	public:
+		FasePalacio(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores);
+		~FasePalacio();
 
-	void setPosicoesLivres();
+		void setPosicoesLivres();
 
-	void checkQuarto();
+		void checkQuarto();
 
-	void criaMapa();
-	void criaInimigos();
-	void criaObstaculos();
+		void criaMapa();
+		void criaInimigos();
+		void criaObstaculos();
 
-	void teste();
+		void teste();
 
-	void multiplayer(bool status);
+		void multiplayer(bool status);
 
-	bool checkTerminou();
+		bool checkTerminou();
 
-	void update();
-	void render();
-};
+		void update();
+		void render();
+	};
+}
+
 

@@ -2,22 +2,25 @@
 #include "MenuBase.h"
 #include "Save.h"
 
-class MenuMorte : public MenuBase
-{
-private:
-	int pontPlayers;
-	Save saves;
+namespace Menus {
+	class MenuMorte : public MenuBase
+	{
+	private:
+		int pontPlayers;
+		Save saves;
 
-public:
-	MenuMorte(float widht, float height);
-	~MenuMorte();
+	public:
+		MenuMorte(float widht, float height);
+		~MenuMorte();
 
-	void updateEstado(int& aux);
-	void draw(sf::RenderWindow& window);
-	void MoveUp();
-	void MoveDown();
-	void update();
+		void updateEstado(int& aux);
+		void draw(sf::RenderWindow& window);
+		void MoveUp();
+		void MoveDown();
+		void update();
 
-	void setPontPlayers(int pont);
-};
+		void setPontPlayers(int pont);
+	};
+}
+
 

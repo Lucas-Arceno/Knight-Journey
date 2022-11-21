@@ -5,6 +5,7 @@ using namespace std;
 Entidades::Projetil::Projetil(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(23, posicao, tamanho) {
 	this->corpo.setFillColor(sf::Color::Red);
 	this->pJogadores = pJogadores;
+	pJogador = NULL;
 }
 
 
