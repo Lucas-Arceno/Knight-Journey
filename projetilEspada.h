@@ -1,12 +1,13 @@
 #pragma once
 #include "Entidade.h"
 
-class projetilEspada : public Entidade 
-{
+namespace Entidades {
+	class projetilEspada : public Entidade
+	{
 	private:
 		int timerVida = 0; // Tempo de vida da espada.
 		bool disparo = false;
-		bool isDireita = false; 
+		bool isDireita = false;
 
 	public:
 
@@ -22,5 +23,7 @@ class projetilEspada : public Entidade
 		void disparoEspada(sf::Vector2f posJogador, bool isDir);
 
 		void setScalee(float x, float y) { this->corpo.setScale(x, y); }
-};
+	};
+}
+
 

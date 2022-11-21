@@ -41,11 +41,11 @@ protected:
 	List::ListaEntidade listaPlataformas;
 	
 	//Jogadores
-	std::list<Jogador*>* Jogadores;
+	std::list<Entidades::Personagens::Jogadores::Jogador*>* Jogadores;
 
 	//GerenciadorGrafico* pGrafico;
-	GerenciadorEvento* pEvento;
-	GerenciadorColisoes* GerenciadorColisao;
+	Gerenciadores::GerenciadorEvento* pEvento;
+	Gerenciadores::GerenciadorColisoes* GerenciadorColisao;
 public:
 	Fase();
 	virtual ~Fase();

@@ -3,21 +3,26 @@
 #include<cstdlib>
 #include<ctime>
 
+namespace Entidades {
+	namespace Personagens {
+		namespace Inimigos {
+			class Cobra : public Inimigo
+			{
+			private:
+				const int vidaMaxima;
+				bool venenosa;
+			public:
+				Cobra(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
+				virtual ~Cobra();
 
-class Cobra : public Inimigo
-{
-private:
-	const int vidaMaxima;
-	bool venenosa;
-public:
-	Cobra(std::list<Jogador*>* pJogadores, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
-	virtual ~Cobra();
+				void persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
 
-	void persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
+				void darBote();
 
-	void darBote();
-
-	void update();
-	void updateMovimento();
-};
+				void update();
+				void updateMovimento();
+			};
+		}
+	}
+}
 

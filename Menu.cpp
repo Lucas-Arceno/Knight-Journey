@@ -10,7 +10,7 @@ Menu::Menu(float widht, float height) : MenuBase(3, widht, height)
 	backgroundTexture.loadFromFile("assets/menuteste2.png");
 	background.setTexture(&backgroundTexture);
 	background.setPosition(sf::Vector2f(-150, 0));
-	background.setScale(0.8, 1.2);
+	background.setScale(0.8f, 1.2f);
 
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);

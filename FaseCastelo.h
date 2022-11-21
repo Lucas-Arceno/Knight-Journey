@@ -17,7 +17,7 @@ private:
 	bool Multiplayer = false;
 
 public:
-	FaseCastelo(std::list<Jogador*>* pJogadores);
+	FaseCastelo(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores);
 	~FaseCastelo();
 
 	void setPosicoesLivres();

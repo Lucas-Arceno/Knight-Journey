@@ -1,6 +1,6 @@
 #include "Jogador.h"
 
-Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posicao, tamanho)
+Entidades::Personagens::Jogadores::Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Personagem(0,posicao, tamanho)
 {
 	initVariables();
 	initPhysics();
@@ -8,18 +8,18 @@ Jogador::Jogador(sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(0,posi
 	pontos = 0;
 }
 
-Jogador::~Jogador()
+Entidades::Personagens::Jogadores::Jogador::~Jogador()
 {
 }
 
-void Jogador::setListaEntidade(List::ListaEntidade* pListaEntidade)
+void Entidades::Personagens::Jogadores::Jogador::setListaEntidade(List::ListaEntidade* pListaEntidade)
 {
 	this->pListaEntidade = pListaEntidade;
 	espadaP = new projetilEspada;
 	this->pListaEntidade->addEntidade(espadaP);
 }
 
-void Jogador::initVariables()
+void Entidades::Personagens::Jogadores::Jogador::initVariables()
 {
 	//Personagem e afins
 	this->coldownPulo = false;
@@ -31,60 +31,60 @@ void Jogador::initVariables()
 	this->corpo.setTexture(&texture);
 }
 
-const sf::FloatRect Jogador::getGlobalBounds() const
+const sf::FloatRect Entidades::Personagens::Jogadores::Jogador::getGlobalBounds() const
 {
 	return corpo.getGlobalBounds();
 }
 
-void Jogador::setPosition(const float x, const float y)
+void Entidades::Personagens::Jogadores::Jogador::setPosition(const float x, const float y)
 {
 	this->corpo.setPosition(x, y);
 }
 
-int Jogador::getInvFrame()
+int Entidades::Personagens::Jogadores::Jogador::getInvFrame()
 {
 	return invFrame;
 }
 
-void Jogador::setInvFrame()
+void Entidades::Personagens::Jogadores::Jogador::setInvFrame()
 {
 	invFrame = 1;
 }
 
-int Jogador::getPontucao()
+int Entidades::Personagens::Jogadores::Jogador::getPontucao()
 {
 	return this->pontos;
 }
 
-void Jogador::givePontuacao(int pts)
+void Entidades::Personagens::Jogadores::Jogador::givePontuacao(int pts)
 {
 	pontos = pontos + pts;
 	printf("pontuacao %d \n", pontos);
 }
 
-void Jogador::salvePontuacao() 
+void Entidades::Personagens::Jogadores::Jogador::salvePontuacao()
 {
 	gravador.savePontos(pontos, idJogador);
 }
 
-void Jogador::atacarDir()
+void Entidades::Personagens::Jogadores::Jogador::atacarDir()
 {
 	posJogador = corpo.getPosition();
 	espadaP->disparoEspada(posJogador, true);
 }
 
-void Jogador::atacarEsq()
+void Entidades::Personagens::Jogadores::Jogador::atacarEsq()
 {
 	posJogador = corpo.getPosition();
 	espadaP->disparoEspada(posJogador, false);
 }
 
-void Jogador::resetVelocity()
+void Entidades::Personagens::Jogadores::Jogador::resetVelocity()
 {
 	this->velocidade.y = 0.0f;
 }
 
-void Jogador::move(const float dir_x, const float dir_y)
+void Entidades::Personagens::Jogadores::Jogador::move(const float dir_x, const float dir_y)
 {
 	//Acceleration
 	this->velocidade.x += dir_x * this->acceleration;
@@ -95,17 +95,17 @@ void Jogador::move(const float dir_x, const float dir_y)
 	}
 }
 
-void Jogador::setVelocityX(float vel_x)
+void Entidades::Personagens::Jogadores::Jogador::setVelocityX(float vel_x)
 {
 	this->velocidade.x = vel_x;
 }
 
-void Jogador::setVelocityY(float vel_y)
+void Entidades::Personagens::Jogadores::Jogador::setVelocityY(float vel_y)
 {
 	this->velocidade.y = vel_y;
 }
 
-void Jogador::operator- (int dano)
+void Entidades::Personagens::Jogadores::Jogador::operator- (int dano)
 {
 	this->giveDano(dano);
 	this->setInvFrame();

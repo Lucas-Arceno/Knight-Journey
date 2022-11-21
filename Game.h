@@ -12,8 +12,8 @@
 class Game
 {
 private:
-	GerenciadorGrafico* pGrafico;
-	GerenciadorEvento* pEvento;
+	Gerenciadores::GerenciadorGrafico* pGrafico;
+	Gerenciadores::GerenciadorEvento* pEvento;
 
 public:
 	Game();

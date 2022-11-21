@@ -9,7 +9,7 @@ List::ListaEntidade::~ListaEntidade()
 	lista.limpar();
 }
 
-void List::ListaEntidade::addEntidade(Entidade* pEntidade)
+void List::ListaEntidade::addEntidade(Entidades::Entidade* pEntidade)
 {
 	if (pEntidade == NULL) {
 		std::cout << "Ponteiro vazio em addEntidade" << std::endl;
@@ -17,7 +17,7 @@ void List::ListaEntidade::addEntidade(Entidade* pEntidade)
 	lista.push(pEntidade);
 }
 
-void List::ListaEntidade::removeEntidade(Entidade* pEntidade)
+void List::ListaEntidade::removeEntidade(Entidades::Entidade* pEntidade)
 {
 	if (pEntidade == NULL) {
 		std::cout << "Ponteiro vazio em removeEntidade" << std::endl;
@@ -35,7 +35,7 @@ unsigned int List::ListaEntidade::getTamanho()
 	return lista.getTamanho();
 }
 
-Entidade* List::ListaEntidade::operator[](int index)
+Entidades::Entidade* List::ListaEntidade::operator[](int index)
 {
 	return	lista[index];
 }

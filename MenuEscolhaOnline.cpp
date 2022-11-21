@@ -10,7 +10,7 @@ MenuEscolhaOnline::MenuEscolhaOnline(float widht, float height) : MenuBase(2, wi
 	backgroundTexture.loadFromFile("assets/teste333.jpg");
 	background.setTexture(&backgroundTexture);
 	background.setPosition(sf::Vector2f(0, -100));
-	background.setScale(1.0, 1.3);
+	background.setScale(1.0f, 1.3f);
 
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);

@@ -1,8 +1,8 @@
 #include "GerenciadorGrafico.h"
 
-GerenciadorGrafico* GerenciadorGrafico::pGraphics = nullptr;
+Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::pGraphics = nullptr;
 
-GerenciadorGrafico::GerenciadorGrafico() : window(new sf::RenderWindow(sf::VideoMode(1200, 800), "Knight Journey")) 
+Gerenciadores::GerenciadorGrafico::GerenciadorGrafico() : window(new sf::RenderWindow(sf::VideoMode(1200, 800), "Knight Journey"))
 {
 	if (window == nullptr)
 	{
@@ -12,7 +12,7 @@ GerenciadorGrafico::GerenciadorGrafico() : window(new sf::RenderWindow(sf::Video
 	window->setFramerateLimit(60);
 }
 
-GerenciadorGrafico::~GerenciadorGrafico()
+Gerenciadores::GerenciadorGrafico::~GerenciadorGrafico()
 {
 	if (window) {
 		delete(window);
@@ -20,17 +20,17 @@ GerenciadorGrafico::~GerenciadorGrafico()
 	}
 }
 
-sf::RenderWindow* GerenciadorGrafico::getJanela()
+sf::RenderWindow* Gerenciadores::GerenciadorGrafico::getJanela()
 {
 	return window;
 }
 
-const bool GerenciadorGrafico::verificaJanelaAberta()
+const bool Gerenciadores::GerenciadorGrafico::verificaJanelaAberta()
 {
 	return window->isOpen();
 }
 
-GerenciadorGrafico* GerenciadorGrafico::getGerenciadorGrafico()
+Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico()
 {
 	if (pGraphics == nullptr) {
 		pGraphics = new GerenciadorGrafico();
@@ -38,32 +38,32 @@ GerenciadorGrafico* GerenciadorGrafico::getGerenciadorGrafico()
 	return pGraphics;
 }
 
-void GerenciadorGrafico::limpaJanela()
+void Gerenciadores::GerenciadorGrafico::limpaJanela()
 {
 	window->clear();
 }
 
-void GerenciadorGrafico::desenhaSprites(sf::Sprite sprite)
+void Gerenciadores::GerenciadorGrafico::desenhaSprites(sf::Sprite sprite)
 {
 	window->draw(sprite);
 }
 
-void GerenciadorGrafico::desenhaElementos(sf::RectangleShape body)
+void Gerenciadores::GerenciadorGrafico::desenhaElementos(sf::RectangleShape body)
 {
 	window->draw(body);
 }
 
-void GerenciadorGrafico::mostraElementos()
+void Gerenciadores::GerenciadorGrafico::mostraElementos()
 {
 	window->display();
 }
 
-void GerenciadorGrafico::fechaJanela()
+void Gerenciadores::GerenciadorGrafico::fechaJanela()
 {
 	window->close();
 }
 
-void GerenciadorGrafico::setView(sf::Vector2f(pos))
+void Gerenciadores::GerenciadorGrafico::setView(sf::Vector2f(pos))
 {
 	sf::View view;
 	view.setCenter(pos);

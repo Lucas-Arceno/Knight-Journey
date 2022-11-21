@@ -1,16 +1,16 @@
 #include "GerenciadorEvento.h"
 
-GerenciadorEvento* GerenciadorEvento::pEvento = nullptr;
+Gerenciadores::GerenciadorEvento* Gerenciadores::GerenciadorEvento::pEvento = nullptr;
 
-GerenciadorEvento::GerenciadorEvento() : pJogador(nullptr), pGrafico(pGrafico->getGerenciadorGrafico()) {
+Gerenciadores::GerenciadorEvento::GerenciadorEvento() : pJogador(nullptr), pGrafico(pGrafico->getGerenciadorGrafico()) {
 
 }
 
-GerenciadorEvento::~GerenciadorEvento()
+Gerenciadores::GerenciadorEvento::~GerenciadorEvento()
 {
 }
 
-GerenciadorEvento* GerenciadorEvento::getGerenciadorEvento()
+Gerenciadores::GerenciadorEvento* Gerenciadores::GerenciadorEvento::getGerenciadorEvento()
 {
 	if (pEvento == nullptr) {
 		pEvento = new GerenciadorEvento();
@@ -18,12 +18,12 @@ GerenciadorEvento* GerenciadorEvento::getGerenciadorEvento()
 	return pEvento;
 }
 
-void GerenciadorEvento::setJogador(Jogador* pJogador)
+void Gerenciadores::GerenciadorEvento::setJogador(Entidades::Personagens::Jogadores::Jogador* pJogador)
 {
 	this->pJogador = pJogador;
 }
 
-void GerenciadorEvento::verificarTeclaPressionada(sf::Keyboard::Key tecla)
+void Gerenciadores::GerenciadorEvento::verificarTeclaPressionada(sf::Keyboard::Key tecla)
 {
 	if (tecla == sf::Keyboard::Escape) {
 		pGrafico->fechaJanela();
@@ -43,11 +43,11 @@ void GerenciadorEvento::verificarTeclaPressionada(sf::Keyboard::Key tecla)
 	}
 }
 
-void GerenciadorEvento::verificarTeclaSolta(sf::Keyboard::Key tecla)
+void Gerenciadores::GerenciadorEvento::verificarTeclaSolta(sf::Keyboard::Key tecla)
 {
 }
 
-void GerenciadorEvento::exec()
+void Gerenciadores::GerenciadorEvento::exec()
 {
 	sf::Event evento;
 	if (pGrafico->getJanela()->pollEvent(evento)) {

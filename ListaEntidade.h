@@ -6,17 +6,17 @@ namespace List {
 	class ListaEntidade
 	{
 	private:
-		Lista<Entidade>lista;
+		Lista<Entidades::Entidade>lista;
 
 	public:
 		ListaEntidade();
 		~ListaEntidade();
 
-		void addEntidade(Entidade* pEntidade);
-		void removeEntidade(Entidade* pEntidade);
+		void addEntidade(Entidades::Entidade* pEntidade);
+		void removeEntidade(Entidades::Entidade* pEntidade);
 		void removeEntidade(unsigned int index);
 		unsigned int getTamanho();
-		Entidade* operator[](int index);
+		Entidades::Entidade* operator[](int index);
 	};
 }
 

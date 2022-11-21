@@ -1,17 +1,17 @@
 #include "Rei.h"
 #include <iostream>
 
-Rei::Rei(std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(1000)
+Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(1000)
 {
 	this->corpo.setFillColor(sf::Color::Magenta);
 	this->vida = vidaMaxima;
 }
 
-Rei::~Rei() {
+Entidades::Personagens::Inimigos::Rei::~Rei() {
 
 }
 
-void Rei::update() {
+void Entidades::Personagens::Inimigos::Rei::update() {
 	updateMovimento();
 	updatePhysics();
 
@@ -25,7 +25,7 @@ void Rei::update() {
 	}
 }
 
-void Rei::updateMovimento() {
+void Entidades::Personagens::Inimigos::Rei::updateMovimento() {
 	sf::Vector2f posInimigo = corpo.getPosition();
 	sf::Vector2f posJogador;
 
@@ -49,7 +49,7 @@ void Rei::updateMovimento() {
 	}
 }
 
-void Rei::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
+void Entidades::Personagens::Inimigos::Rei::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 	if (posJogador.x - posInimigo.x > 0.0f) {
 		corpo.move(2.f, 0.0f);
 	}
@@ -59,7 +59,7 @@ void Rei::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 }
 
 // O ataque do rei é um super pulo
-void Rei::ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
+void Entidades::Personagens::Inimigos::Rei::ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo) {
 	
 	if (cooldownPulo == false) {
 		this->velocidade.y -= 40 * this->gravity;

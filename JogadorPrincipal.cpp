@@ -1,6 +1,6 @@
 #include "JogadorPrincipal.h"
 
-JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(20), Jogador(posicao, tamanho)
+Entidades::Personagens::Jogadores::JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(20), Jogador(posicao, tamanho)
 {
 	this->vida = vidaMaxima;
 	this->animState = IDLE;
@@ -8,17 +8,17 @@ JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) :
 	initSprite();
 }
 
-JogadorPrincipal::~JogadorPrincipal()
+Entidades::Personagens::Jogadores::JogadorPrincipal::~JogadorPrincipal()
 {
 }
 
-void JogadorPrincipal::initAnimations()
+void Entidades::Personagens::Jogadores::JogadorPrincipal::initAnimations()
 {
 	this->animationTimer.restart();
 	this->animationSwitch = true;
 }
 
-const bool& JogadorPrincipal::getAnimSwitch()
+const bool& Entidades::Personagens::Jogadores::JogadorPrincipal::getAnimSwitch()
 {
 	bool anim_switch = this->animationSwitch;
 
@@ -28,18 +28,18 @@ const bool& JogadorPrincipal::getAnimSwitch()
 	return anim_switch;
 }
 
-void JogadorPrincipal::resetAnimationTimer()
+void Entidades::Personagens::Jogadores::JogadorPrincipal::resetAnimationTimer()
 {
 	this->animationTimer.restart();
 	this->animationSwitch = true;
 }
 
-void JogadorPrincipal::initSprite()
+void Entidades::Personagens::Jogadores::JogadorPrincipal::initSprite()
 {
 	this->sprite.setScale(sf::Vector2f(1.5, 1.5));
 }
 
-void JogadorPrincipal::update()
+void Entidades::Personagens::Jogadores::JogadorPrincipal::update()
 {
 	updateMovimento();
 	updateAnimations();
@@ -65,7 +65,7 @@ void JogadorPrincipal::update()
 	}
 }
 
-void JogadorPrincipal::updateMovimento()
+void Entidades::Personagens::Jogadores::JogadorPrincipal::updateMovimento()
 {
 	this->animState = JogadorPrincipal_Animation_States::IDLE;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
@@ -91,7 +91,7 @@ void JogadorPrincipal::updateMovimento()
 	sprite.setPosition(corpo.getPosition());
 }
 
-void JogadorPrincipal::updateAnimations()
+void Entidades::Personagens::Jogadores::JogadorPrincipal::updateAnimations()
 {
 	if (this->animState == JogadorPrincipal_Animation_States::IDLE) {
 		texture.loadFromFile("assets/Pixel Art Crusader/Crusader 1/Crusader-1-Idle.png");

@@ -3,42 +3,44 @@
 #include "Ente.h"
 #include "efetuaColisao.h"
 
-class Entidade : public Ente
-{
-protected:
-	sf::Vector2f velocidade;
-	const int velocidadeMax;
-	const int velocidadeMin;
+namespace Entidades {
+	class Entidade : public Ente
+	{
+	protected:
+		sf::Vector2f velocidade;
+		const int velocidadeMax;
+		const int velocidadeMin;
 
-	sf::RectangleShape corpo;
-	sf::Vector2f posicao;
-	sf::Vector2f tamanho;
+		sf::RectangleShape corpo;
+		sf::Vector2f posicao;
+		sf::Vector2f tamanho;
 
-	sf::Texture texture;
+		sf::Texture texture;
 
-	//Physics
-	float acceleration;
-	float drag;
-	float gravity;
-	const int velocidadeMaxY;
+		//Physics
+		float acceleration;
+		float drag;
+		float gravity;
+		const int velocidadeMaxY;
 
-	bool isVivo = true;
+		bool isVivo = true;
 
-public:
-	Entidade(int id = 0, sf::Vector2f posicao = sf::Vector2f(0.f,0.f),sf::Vector2f tamanho = sf::Vector2f(0.f, 0.f));
-	~Entidade();
+	public:
+		Entidade(int id = 0, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(0.f, 0.f));
+		~Entidade();
 
-	void setCorpoPosicao(sf::Vector2f pos);
+		void setCorpoPosicao(sf::Vector2f pos);
 
-	calculoColisao GetColisao() { return calculoColisao(corpo); }
+		calculoColisao GetColisao() { return calculoColisao(corpo); }
 
-	const int getID() { return ID; }	
+		const int getID() { return ID; }
 
-	void initPhysics();
-	void updatePhysics();
-	virtual void update() = 0;
-	virtual void updateMovimento() = 0;
+		void initPhysics();
+		void updatePhysics();
+		virtual void update() = 0;
+		virtual void updateMovimento() = 0;
 
-	const sf::RectangleShape getCorpo();
-};
+		const sf::RectangleShape getCorpo();
+	};
+}
 

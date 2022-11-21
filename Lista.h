@@ -196,7 +196,6 @@ namespace List {
 
 		return pInfo;
 	}
-	//template <class
 }
 
 

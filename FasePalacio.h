@@ -16,7 +16,7 @@ private:
 	int num_Teias;
 	int num_Portais;
 public:
-	FasePalacio(std::list<Jogador*>* pJogadores);
+	FasePalacio(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores);
 	~FasePalacio();
 
 	void setPosicoesLivres();

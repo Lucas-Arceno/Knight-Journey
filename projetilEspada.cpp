@@ -1,6 +1,6 @@
 #include "projetilEspada.h"
 
-projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(11, posicao, tamanho)
+Entidades::projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Entidade(11, posicao, tamanho)
 {
 	this->texture.loadFromFile("assets/vento.png");
 	this->corpo.setTexture(&texture);
@@ -9,11 +9,11 @@ projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Ent
 	this->corpo.setPosition(sf::Vector2f(412342.0f, 41231.0f));
 }
 
-projetilEspada::~projetilEspada() {
+Entidades::projetilEspada::~projetilEspada() {
 
 }
 
-void projetilEspada::update()
+void Entidades::projetilEspada::update()
 {
 	//updatePhysics();
 	
@@ -32,7 +32,7 @@ void projetilEspada::update()
 	updateEmpuxo();
 }
 
-void projetilEspada::updateEmpuxo()
+void Entidades::projetilEspada::updateEmpuxo()
 {
 	//Gravity
 	(this->velocidade).y += 1 * this->gravity;
@@ -54,7 +54,7 @@ void projetilEspada::updateEmpuxo()
 	this->corpo.move(-(this->velocidade));
 }
 
-void projetilEspada::updateMovimento()
+void Entidades::projetilEspada::updateMovimento()
 {
 	if (isDireita) {
 		corpo.move(10.0f, 0);
@@ -67,7 +67,7 @@ void projetilEspada::updateMovimento()
 
 }
 
-void projetilEspada::disparoEspada(sf::Vector2f posJogador, bool isDir)
+void Entidades::projetilEspada::disparoEspada(sf::Vector2f posJogador, bool isDir)
 {	
 	this->isDireita = isDir;
 	if (disparo == false) {

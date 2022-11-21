@@ -1,7 +1,7 @@
 #include "Morcego.h"
 
 
-Morcego::Morcego(List::ListaEntidade* pListaEntidade, std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(22, pJogadores, posicao, tamanho), vidaMaxima(1), projetil()
+Entidades::Personagens::Inimigos::Morcego::Morcego(List::ListaEntidade* pListaEntidade, std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(22, pJogadores, posicao, tamanho), vidaMaxima(1), projetil()
 {
 	this->pListaEntidade = pListaEntidade;
 	this->corpo.setFillColor(sf::Color::White);
@@ -12,11 +12,11 @@ Morcego::Morcego(List::ListaEntidade* pListaEntidade, std::list<Jogador*>* pJoga
 	setVida(vidaMaxima);
 }
 
-Morcego::~Morcego()
+Entidades::Personagens::Inimigos::Morcego::~Morcego()
 {
 }
 
-void Morcego::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
+void Entidades::Personagens::Inimigos::Morcego::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 {
 	if (posJogador.x - posInimigo.x > 200.0f) {
 		corpo.move(1.f, 0.0f);
@@ -32,7 +32,7 @@ void Morcego::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 	}
 }
 
-void Morcego::updateEmpuxo()
+void Entidades::Personagens::Inimigos::Morcego::updateEmpuxo()
 {
 	//Gravity
 	this->velocidade.y += 1 * this->gravity;
@@ -54,7 +54,7 @@ void Morcego::updateEmpuxo()
 	this->corpo.move(-(this->velocidade));
 }
 
-void Morcego::update()
+void Entidades::Personagens::Inimigos::Morcego::update()
 {
 	updateMovimento();
 	updatePhysics();
@@ -66,7 +66,7 @@ void Morcego::update()
 	projetil->updateProjetil(posInimigo.x, posInimigo.y);
 }
 
-void Morcego::updateMovimento()
+void Entidades::Personagens::Inimigos::Morcego::updateMovimento()
 {
 	sf::Vector2f posInimigo = corpo.getPosition();
 	sf::Vector2f posJogador;

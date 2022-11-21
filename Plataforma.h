@@ -1,16 +1,19 @@
 #pragma once
 #include "Entidade.h"
 
-class Plataforma : public Entidade
-{
-private:
+namespace Entidades {
+	class Plataforma : public Entidade
+	{
+	private:
 
-public:
-	Plataforma(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(0.0f, 0.0f), const char* path = "assets/teste2.png");
-	~Plataforma();
+	public:
+		Plataforma(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(0.0f, 0.0f), const char* path = "assets/teste2.png");
+		~Plataforma();
 
-	void update();
-	void updateEmpuxo();
-	void updateMovimento();
-};
+		void update();
+		void updateEmpuxo();
+		void updateMovimento();
+	};
+}
+
 

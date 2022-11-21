@@ -1,12 +1,12 @@
 #include "JogadorSecundario.h"
 
-void JogadorSecundario::initAnimations()
+void Entidades::Personagens::Jogadores::JogadorSecundario::initAnimations()
 {
 	this->animationTimer.restart();
 	this->animationSwitch = true;
 }
 
-JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(50), Jogador(posicao, tamanho)
+Entidades::Personagens::Jogadores::JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(50), Jogador(posicao, tamanho)
 {
 	this->vida = vidaMaxima;
 	this->animState = IDLE2;
@@ -14,11 +14,11 @@ JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho)
 	initSprite();
 }
 
-JogadorSecundario::~JogadorSecundario()
+Entidades::Personagens::Jogadores::JogadorSecundario::~JogadorSecundario()
 {
 }
 
-const bool& JogadorSecundario::getAnimSwitch()
+const bool& Entidades::Personagens::Jogadores::JogadorSecundario::getAnimSwitch()
 {
 	bool anim_switch = this->animationSwitch;
 
@@ -28,18 +28,18 @@ const bool& JogadorSecundario::getAnimSwitch()
 	return anim_switch;
 }
 
-void JogadorSecundario::resetAnimationTimer()
+void Entidades::Personagens::Jogadores::JogadorSecundario::resetAnimationTimer()
 {
 	this->animationTimer.restart();
 	this->animationSwitch = true;
 }
 
-void JogadorSecundario::initSprite()
+void Entidades::Personagens::Jogadores::JogadorSecundario::initSprite()
 {
 	this->sprite.setScale(sf::Vector2f(1, 1));
 }
 
-void JogadorSecundario::update()
+void Entidades::Personagens::Jogadores::JogadorSecundario::update()
 {
 	updateMovimento();
 	updateAnimations();
@@ -65,7 +65,7 @@ void JogadorSecundario::update()
 	}
 }
 
-void JogadorSecundario::updateMovimento()
+void Entidades::Personagens::Jogadores::JogadorSecundario::updateMovimento()
 {
 	this->animState = JogadorSecundarioAnimation_States::IDLE2;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
@@ -89,7 +89,7 @@ void JogadorSecundario::updateMovimento()
 	sprite.setPosition(corpo.getPosition());
 }
 
-void JogadorSecundario::updateAnimations()
+void Entidades::Personagens::Jogadores::JogadorSecundario::updateAnimations()
 {
 	if (this->animState == JogadorSecundarioAnimation_States::IDLE2) {
 		texture.loadFromFile("assets/Pixel Art Crusader/Crusader 2/Crusader-2-Idle.png");

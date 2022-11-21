@@ -4,6 +4,7 @@
 class Menu : public MenuBase
 {
 private:
+
 public:
 	Menu(float widht, float height);
 	~Menu();

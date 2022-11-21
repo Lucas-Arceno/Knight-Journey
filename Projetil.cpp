@@ -2,25 +2,25 @@
 #include <iostream>
 using namespace std;
 
-Projetil::Projetil(std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(23, posicao, tamanho) {
+Entidades::Projetil::Projetil(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(23, posicao, tamanho) {
 	this->corpo.setFillColor(sf::Color::Red);
 	this->pJogadores = pJogadores;
 }
 
 
-Projetil::~Projetil() {
+Entidades::Projetil::~Projetil() {
 
 }
 
  
-void Projetil::update()
+void Entidades::Projetil::update()
 {
 	updatePhysics();
 	updateMovimento();
 }
 
 
-void Projetil::updateMovimento()
+void Entidades::Projetil::updateMovimento()
 {
 	//Gravity
 	this->velocidade.y += 1 * this->gravity;
@@ -43,7 +43,7 @@ void Projetil::updateMovimento()
 }
 
 
-sf::Vector2f Projetil::normalizedVector(sf::Vector2f direcao)
+sf::Vector2f Entidades::Projetil::normalizedVector(sf::Vector2f direcao)
 {
 	float m = sqrt(direcao.x * direcao.x + direcao.y * direcao.y);
 	
@@ -55,7 +55,7 @@ sf::Vector2f Projetil::normalizedVector(sf::Vector2f direcao)
 	return vetorNormalizado;
 }
 
-void Projetil::updateProjetil(float posX, float posY) {
+void Entidades::Projetil::updateProjetil(float posX, float posY) {
 	if (colisaoProjetil == true) { 
 		corpo.setPosition(sf::Vector2f(posX, posY));
 

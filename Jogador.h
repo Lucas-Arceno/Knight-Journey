@@ -5,70 +5,77 @@
 #include "Save.h"
 #include <iostream>
 
-class Jogador : public Personagem
-{
-public:
-	sf::Sprite sprite;
-	projetilEspada* espadaP;
+namespace Entidades {
+	namespace Personagens {
+		namespace Jogadores {
+			class Jogador : public Personagem
+			{
+			public:
+				sf::Sprite sprite;
+				projetilEspada* espadaP;
 
-protected:
-	List::ListaEntidade* pListaEntidade;
-	bool coldownPulo;
+			protected:
+				List::ListaEntidade* pListaEntidade;
+				bool coldownPulo;
 
-	bool cd_ATK = false; // cooldown ataque
+				bool cd_ATK = false; // cooldown ataque
 
-	int invFrame; // Frame de invencibilidade.
-	int cont_CD = 0; // contador cooldown
+				int invFrame; // Frame de invencibilidade.
+				int cont_CD = 0; // contador cooldown
 
-	Save gravador;
+				Save gravador;
 
-	int pontos = 0; // Pontuação
-	int idJogador = 3; // id para diferenciar entre jogador 1 ou 2
+				int pontos = 0; // Pontuação
+				int idJogador = 3; // id para diferenciar entre jogador 1 ou 2
 
-	sf::Vector2f posJogador; // Posição do player para a espada
-public:
-	//Constructors
-	Jogador(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
-	~Jogador();
-	
-	//
-	void setListaEntidade(List::ListaEntidade* pListaEntidade);
+				sf::Vector2f posJogador; // Posição do player para a espada
+			public:
+				//Constructors
+				Jogador(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
+				~Jogador();
 
-	//Init variaveis
-	void initVariables();
+				//
+				void setListaEntidade(List::ListaEntidade* pListaEntidade);
 
-	//Pegar posicoes 
-	const sf::FloatRect getGlobalBounds() const;
+				//Init variaveis
+				void initVariables();
 
-	//Pulo manager
-	void setColdownPulo(bool cd) { this->coldownPulo = cd; }
+				//Pegar posicoes 
+				const sf::FloatRect getGlobalBounds() const;
 
-	//Movimentacao Jogador
-	void move(const float dir_x, const float dir_y);
-	void setPosition(const float x, const float y);
+				//Pulo manager
+				void setColdownPulo(bool cd) { this->coldownPulo = cd; }
 
-	//iFrame
-	int getInvFrame();
-	void setInvFrame();
+				//Movimentacao Jogador
+				void move(const float dir_x, const float dir_y);
+				void setPosition(const float x, const float y);
 
-	//Pontuação
-	int getPontucao();
-	void givePontuacao(int pts);
-	void salvePontuacao();
+				//iFrame
+				int getInvFrame();
+				void setInvFrame();
 
-	//Ataque
-	void atacarDir();
-	void atacarEsq();
+				//Pontuação
+				int getPontucao();
+				void givePontuacao(int pts);
+				void salvePontuacao();
 
-	//Velocidade
-	void resetVelocity();
-	void setVelocityX(float vel_x);
-	void setVelocityY(float vel_y);
+				//Ataque
+				void atacarDir();
+				void atacarEsq();
 
-	void operator- (int dano);
+				//Velocidade
+				void resetVelocity();
+				void setVelocityX(float vel_x);
+				void setVelocityY(float vel_y);
 
-	//Updates
-	virtual void update() = 0;
-	virtual void updateMovimento() = 0;
-};
+				void operator- (int dano);
 
+				//Updates
+				virtual void update() = 0;
+				virtual void updateMovimento() = 0;
+			};
+
+
+		}
+	}
+}

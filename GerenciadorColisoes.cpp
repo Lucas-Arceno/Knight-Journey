@@ -2,7 +2,7 @@
 #include "Teia.h"
 #include "Espinhos.h"
 
-GerenciadorColisoes::GerenciadorColisoes(std::list<Jogador*>*Jogadores, List::ListaEntidade* listaInimigos, List::ListaEntidade* listaPlataformas, List::ListaEntidade* ListaObstaculos)
+Gerenciadores::GerenciadorColisoes::GerenciadorColisoes(std::list<Entidades::Personagens::Jogadores::Jogador*>*Jogadores, List::ListaEntidade* listaInimigos, List::ListaEntidade* listaPlataformas, List::ListaEntidade* ListaObstaculos)
 {
 	this->pJogadores = Jogadores;
 	this->pListaObstaculos = ListaObstaculos;
@@ -10,18 +10,18 @@ GerenciadorColisoes::GerenciadorColisoes(std::list<Jogador*>*Jogadores, List::Li
 	this->pListaPlataformas = listaPlataformas;
 }
 
-GerenciadorColisoes::~GerenciadorColisoes()
+Gerenciadores::GerenciadorColisoes::~GerenciadorColisoes()
 {
 }
 
-void GerenciadorColisoes::updateColisao()
+void Gerenciadores::GerenciadorColisoes::updateColisao()
 {
 	checkColObstaculos();
 	checkColPlataforma();
 	checkColInimigos();
 }
 
-void GerenciadorColisoes::checkColPlataforma()
+void Gerenciadores::GerenciadorColisoes::checkColPlataforma()
 {
 	int aux = 0;
 	int aux_2 = 0;
@@ -66,14 +66,14 @@ void GerenciadorColisoes::checkColPlataforma()
 	}
 }
 
-void GerenciadorColisoes::checkColObstaculos()
+void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 {
 	for (unsigned int i = 0; i < pListaObstaculos->getTamanho(); i++) {
 		if ((*pListaObstaculos)[i]->getID() == 11) { // Teia
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					pJogador->setVelocityX(0.1f  * (static_cast<Teia*>((*pListaObstaculos)[i])->getEstagio()));
+					pJogador->setVelocityX(0.1f  * (static_cast<Entidades::Obstaculos::Teia*>((*pListaObstaculos)[i])->getEstagio()));
 				}
 			}
 		}
@@ -81,7 +81,7 @@ void GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					pJogador->operator-(1 * (static_cast<Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
+					pJogador->operator-(1 * (static_cast<Entidades::Obstaculos::Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
 					//printf("VIDAAAAAA %d\n", pJogador->getVida());
 				}
 			}
@@ -89,7 +89,7 @@ void GerenciadorColisoes::checkColObstaculos()
 	}
 }
 
-void GerenciadorColisoes::checkColInimigos()
+void Gerenciadores::GerenciadorColisoes::checkColInimigos()
 {
 	for (unsigned int i = 0; i < pListaInimigos->getTamanho(); i++) {
 		//(*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f);

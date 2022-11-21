@@ -1,6 +1,6 @@
 #include "Cobra.h"
 
-Cobra::Cobra(std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Inimigo(21, pJogadores, posicao, tamanho), vidaMaxima(2), venenosa(false)
+Entidades::Personagens::Inimigos::Cobra::Cobra(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(21, pJogadores, posicao, tamanho), vidaMaxima(2), venenosa(false)
 {
 	int aux = rand() % 2 + 1;
 	if (aux == 1) {
@@ -16,11 +16,11 @@ Cobra::Cobra(std::list<Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f
 	this->corpo.setTexture(&texture);
 }
 
-Cobra::~Cobra()
+Entidades::Personagens::Inimigos::Cobra::~Cobra()
 {
 }
 
-void Cobra::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
+void Entidades::Personagens::Inimigos::Cobra::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 {
 	if (posJogador.x - posInimigo.x > 0.0f) {
 		corpo.move(1.f, 0.0f);
@@ -30,7 +30,7 @@ void Cobra::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
 	}
 }
 
-void Cobra::darBote()
+void Entidades::Personagens::Inimigos::Cobra::darBote()
 {
 	if (this->venenosa == true) {
 		updateDano(2);
@@ -40,14 +40,14 @@ void Cobra::darBote()
 	}
 }
 
-void Cobra::update()
+void Entidades::Personagens::Inimigos::Cobra::update()
 {
 	updateMovimento();
 	updatePhysics();	
 	darBote();
 }
 
-void Cobra::updateMovimento()
+void Entidades::Personagens::Inimigos::Cobra::updateMovimento()
 {
 	sf::Vector2f posInimigo = corpo.getPosition();
 	sf::Vector2f posJogador;

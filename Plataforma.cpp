@@ -1,27 +1,27 @@
 #include "Plataforma.h"
 
-Plataforma::Plataforma(sf::Vector2f posicao, sf::Vector2f tamanho, const char* path) : Entidade(31, posicao, tamanho)
+Entidades::Plataforma::Plataforma(sf::Vector2f posicao, sf::Vector2f tamanho, const char* path) : Entidades::Entidade(31, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile(path);
 	this->corpo.setTexture(&texture);
 }
 
-Plataforma::~Plataforma()
+Entidades::Plataforma::~Plataforma()
 {
 }
 
-void Plataforma::update()
+void Entidades::Plataforma::update()
 {
 	updateMovimento();
 	updatePhysics();
 	updateEmpuxo();
 }
 
-void Plataforma::updateEmpuxo()
+void Entidades::Plataforma::updateEmpuxo()
 {
 	//Gravity
-	this->velocidade.y += 1.0 * this->gravity;
+	this->velocidade.y += 1 * this->gravity;
 	if (std::abs(this->velocidade.x) > this->velocidadeMaxY) {
 		this->velocidade.y = this->velocidadeMaxY * ((this->velocidade.y < 0.f) ? -1.f : 1.f);
 	}
@@ -40,6 +40,6 @@ void Plataforma::updateEmpuxo()
 	this->corpo.move(-(this->velocidade));
 }
 
-void Plataforma::updateMovimento()
+void Entidades::Plataforma::updateMovimento()
 {
 }

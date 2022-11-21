@@ -1,23 +1,23 @@
 #include "Personagem.h"
 
-Personagem::Personagem(int id, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(id, posicao, tamanho)
+Entidades::Personagens::Personagem::Personagem(int id, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Entidade(id, posicao, tamanho)
 {
 	this->vida = 1;
 }
 
-Personagem::~Personagem()
+Entidades::Personagens::Personagem::~Personagem()
 {
 }
 
-void Personagem::giveDano(int dano) {
+void Entidades::Personagens::Personagem::giveDano(int dano) {
 	this->vida = this->vida - dano;
 }
 
-void Personagem::setVida(int vida) {
+void Entidades::Personagens::Personagem::setVida(int vida) {
 	this->vida = vida;
 }
 
-int Personagem::getVida() {
+int Entidades::Personagens::Personagem::getVida() {
 	return this->vida;
 }
 

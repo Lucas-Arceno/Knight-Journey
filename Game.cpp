@@ -23,9 +23,9 @@ Game::~Game()
 
 void Game::exec()
 {
-	std::list<Jogador*>Jogadores;
+	std::list<Entidades::Personagens::Jogadores::Jogador*>Jogadores;
 
-	Jogadores.push_back(new JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+	Jogadores.push_back(new Entidades::Personagens::Jogadores::JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 
 	Menu Menu(1200, 800);
 	MenuFases MenuFases(1200, 800);
@@ -76,7 +76,7 @@ void Game::exec()
 				MenuFases.draw(*pGrafico->getJanela());
 			}
 			else if (i == 8) {
-				Jogadores.push_back(new JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+				Jogadores.push_back(new Entidades::Personagens::Jogadores::JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 				Castelo.multiplayer(true);
 				i = 7;
 				aux_test3 = 1;
@@ -96,6 +96,9 @@ void Game::exec()
 					aux_test++;
 				}
 				Palacio.update();
+				if (Palacio.checkTerminou()) {
+					i = 5;
+				}
 			}
 			else if (i == 5) {
 				if (aux_test4 == true) {

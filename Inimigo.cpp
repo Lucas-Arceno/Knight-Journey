@@ -1,7 +1,7 @@
 #include "Inimigo.h"
 #include <cmath>
 
-Inimigo::Inimigo(int id, std::list<Jogador*>* Jogadores,sf::Vector2f posicao, sf::Vector2f tamanho) : Personagem(id, posicao, tamanho)
+Entidades::Personagens::Inimigos::Inimigo::Inimigo(int id, std::list<Entidades::Personagens::Jogadores::Jogador*>* Jogadores,sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Personagem(id, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::Green);
 	this->pJogadores = Jogadores;
@@ -17,13 +17,13 @@ Inimigo::Inimigo(int id, std::list<Jogador*>* Jogadores,sf::Vector2f posicao, sf
 		}
 }
 
-Inimigo::~Inimigo()
+Entidades::Personagens::Inimigos::Inimigo::~Inimigo()
 {
 }
 
 
 // Função que atualiza o dano recebido ou dado ao jogador
-void Inimigo::updateDano(int dano)
+void Entidades::Personagens::Inimigos::Inimigo::updateDano(int dano)
 {
 	
 	// Contador para o frame de invulnerabilidade
@@ -69,7 +69,7 @@ void Inimigo::updateDano(int dano)
 
 
 // Função para movimento aleatorio dos inimigos
-void Inimigo::randomMovimento()
+void Entidades::Personagens::Inimigos::Inimigo::randomMovimento()
 {
 	if (dir_mov == 1) {
 		this->corpo.move(1.f, 0.0f);

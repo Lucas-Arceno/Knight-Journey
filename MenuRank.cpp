@@ -10,7 +10,7 @@ MenuRank::MenuRank(float width, float height) : MenuBase(1, width, height)
 	backgroundTexture.loadFromFile("assets/teste333.jpg");
 	background.setTexture(&backgroundTexture);
 	background.setPosition(sf::Vector2f(0, -100));
-	background.setScale(1.0, 1.3);
+	background.setScale(1.0f, 1.3f);
 
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);
@@ -71,7 +71,7 @@ void MenuRank::draw(sf::RenderWindow& window)
 		placar.setFillColor(sf::Color::White);
 		placar.setString((to_string(i)) + "  " + (to_string(infos[i].pont)) + "  " + infos[i].nome);
 		placar.setCharacterSize(25);
-		placar.setPosition(sf::Vector2f(100, (40 * i)));
+		placar.setPosition(sf::Vector2f(100, (40.0f * i)));
 
 		window.draw(placar);
 	}

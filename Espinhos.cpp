@@ -1,6 +1,6 @@
 #include "Espinhos.h"
 
-Espinhos::Espinhos(sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(12,posicao,tamanho)
+Entidades::Obstaculos::Espinhos::Espinhos(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Obstaculos::Obstaculo(12,posicao,tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/espinhos.png");
@@ -9,11 +9,11 @@ Espinhos::Espinhos(sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(12,po
 	this->nivelAfiado = rand() % 3 + 1;
 }
 
-Espinhos::~Espinhos()
+Entidades::Obstaculos::Espinhos::~Espinhos()
 {
 }
 
-const int Espinhos::getNivelAfiado()
+const int Entidades::Obstaculos::Espinhos::getNivelAfiado()
 {
 	if (clock == 0) {
 		clock++;
@@ -24,7 +24,7 @@ const int Espinhos::getNivelAfiado()
 	}
 }
 
-void Espinhos::update()
+void Entidades::Obstaculos::Espinhos::update()
 {
 	updateMovimento();
 	updatePhysics();
@@ -36,6 +36,6 @@ void Espinhos::update()
 	}
 }
 
-void Espinhos::updateMovimento()
+void Entidades::Obstaculos::Espinhos::updateMovimento()
 {
 }
