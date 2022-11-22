@@ -341,6 +341,9 @@ void Fases::FaseCastelo::render()
 	//pJogador->salvePontuacao();
 
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
+		
+		
+		
 		if (listaEntidades[i] == Jogadores->back()) {
 			pGrafico->desenhaSprites(Jogadores->back()->sprite);
 		}
@@ -352,6 +355,8 @@ void Fases::FaseCastelo::render()
 		}
 	}
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
-		listaEntidades[i]->update();
+		if (listaEntidades[i]->getIsVivo()) {
+			listaEntidades[i]->update();
+		}
 	}
 }

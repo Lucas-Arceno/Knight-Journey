@@ -21,7 +21,8 @@ void Entidades::Obstaculos::Portal::update()
 	for (auto const& pJogador : *pJogadores)
 	{
 		if (this->corpo.getGlobalBounds().intersects(pJogador->espadaP->getEspadaProjetilGlobal())) {
-			this->corpo.setPosition(-1441.f, 5931.f);
+			this->corpo.setPosition(0.f, 6000.f);
+			this->isVivo = false;
 		}
 
 		if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {

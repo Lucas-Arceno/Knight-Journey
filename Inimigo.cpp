@@ -33,28 +33,24 @@ void Entidades::Personagens::Inimigos::Inimigo::updateDano(int dano)
 			iFrame = 0;
 		}
 	}
-
-	//Verifica se morto
-	if (this->getVida() <= 0) {
-		this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
-	}
-
+	
 	// Dano do player no inimigo
-
 	for (auto const& pJogador : *pJogadores)
 	{
 		if (pJogador->espadaP->getEspadaProjetilGlobal().intersects(this->getCorpo().getGlobalBounds())) {
 			printf("%d\n", this->getVida());
 			if (iFrame == 0) {
 				this->giveDano(1);
-				this->isVivo = false;
 				iFrame++;
 				printf("hit : %d\n", this->getVida());
 			}
-			//int pont = 1;
-			//	if (this->id == 5) { pont = 2; }
+			
+
+			//Verifica se morto
 			if (this->vida <= 0) {
 				pJogador->givePontuacao(5);
+				this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
+				this->isVivo = false;
 			}
 		}
 		// Dano do inimigo no player

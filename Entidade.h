@@ -34,7 +34,8 @@ namespace Entidades {
 		calculoColisao GetColisao() { return calculoColisao(corpo); }
 
 		const int getID() { return ID; }
-
+		bool getIsVivo() { return isVivo; }
+		
 		void initPhysics();
 		void updatePhysics();
 		virtual void update() = 0;
