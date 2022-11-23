@@ -15,7 +15,7 @@ Save::~Save() {
 
 }
 
-void Save::savePontos(int pt, string nome, int idJog) {
+void Save::savePontos(int pt, string nome) {
 
 	Gravador.open("Ranking.txt");
 	if (!Gravador) {
@@ -26,7 +26,6 @@ void Save::savePontos(int pt, string nome, int idJog) {
 	info aux2;
 	aux2.nome = nome;
 	aux2.pont = pt;
-	aux2.idJog = idJog;
 
 	informacoes.push_back(aux2);
 	
@@ -47,7 +46,7 @@ void Save::savePontos(int pt, string nome, int idJog) {
 
 	//Grava a lista em ranking.txt
 	for (int i = 0; i < informacoes.size(); i++) {
-		Gravador << informacoes[i].idJog << ' ' << informacoes[i].nome << ' ' << informacoes[i].pont << endl;
+		Gravador << ' ' << informacoes[i].nome << ' ' << informacoes[i].pont << endl;
 	}
 
 	Gravador.close();
@@ -63,8 +62,8 @@ void Save::loadPontos() {
 	info aux;
 
 	while (!Leitor.eof()) {
-		Leitor >> aux.idJog >> aux.nome >> aux.pont;
-		//cout << " || auxID : " << aux.idJog << " || auxNOME : " << aux.nome << " || auxPONT : " << aux.pont << endl;
+		Leitor >> aux.nome >> aux.pont;
+		//cout << "auxNOME : " << aux.nome << " || auxPONT : " << aux.pont << endl;
 		if (aux.pont != -1) {
 			informacoes.push_back(aux);
 		}

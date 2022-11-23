@@ -109,6 +109,7 @@ void Game::exec()
 					aux_test4 = false;
 				}
 				MenuMorte.updateEstado(i);
+				MenuMorte.getStringPlayer();
 				MenuMorte.draw(*pGrafico->getJanela());
 			}
 			else if (i == 6) {

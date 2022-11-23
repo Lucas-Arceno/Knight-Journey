@@ -8,7 +8,6 @@
 using namespace std;
 
 struct info {
-	int idJog;
 	int pont;
 	string nome;
 };
@@ -25,7 +24,7 @@ class Save
 		~Save();
 		
 		//Save e load
-		void savePontos(int pt, string nome, int idJog);
+		void savePontos(int pt, string nome);
 		void loadPontos();
 		vector<info> getPontos();
 };

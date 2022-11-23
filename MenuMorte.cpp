@@ -12,6 +12,12 @@ Menus::MenuMorte::MenuMorte(float widht, float height) : MenuBase(2, widht, heig
 	background.setPosition(sf::Vector2f(0, -100));
 	background.setScale(1.0f, 1.3f);
 
+	inputText.setFont(font);
+	inputText.setFillColor(sf::Color::White);
+	inputText.setCharacterSize(25);
+	inputText.setPosition(sf::Vector2f(100, 40.0f));
+	inputText.setString("Digite seu nome : ");
+
 	menu[0].setFont(font);
 	menu[0].setFillColor(sf::Color::Red);
 	menu[0].setString("Salvar");
@@ -46,7 +52,8 @@ void Menus::MenuMorte::updateEstado(int& aux) {
 			selectedItemIndex = i;
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
-					getStringPlayer();
+					saves.savePontos(pontPlayers, playerInput);
+					exit(1);
 				}
 				else if (selectedItemIndex == 1) {
 					printf("botao 2");
@@ -71,6 +78,7 @@ void Menus::MenuMorte::draw(sf::RenderWindow& window)
 		window.draw(botoes[i].getCorpo());
 		window.draw(menu[i]);
 	}
+	window.draw(inputText);
 }
 
 void Menus::MenuMorte::MoveUp()
@@ -103,39 +111,23 @@ void Menus::MenuMorte::setPontPlayers(int pont)
 void Menus::MenuMorte::getStringPlayer() {
 
 	sf::Event evento;
-	std::string playerInput;
 	bool flag = true;
 
-
-	while (flag) {
-		if (pGrafico->getJanela()->pollEvent(evento)) {
-			if (evento.type == sf::Event::TextEntered)
-			{
-				if (evento.text.unicode < 128) { // Somente ASCII
-					if (playerInput.size() < 20) {
-						playerInput += evento.text.unicode;
-					}
-					cout << playerInput << endl;
-					//playerText.setString(playerInput);
-				}
-				if (evento.text.unicode == 8) { // Backspace
-					//printf("deletado \n");
-
-							//playerInput.pop_back();
-							//playerInput.erase(playerInput.size()-1);
-							//playerInput = playerInput.substr(0, playerInput.size() - 1);
-							//playerInput.resize(playerInput.size() - 1);
-
-					cout << playerInput << endl;
-					//playerText.setString(playerInput);
+	if (pGrafico->getJanela()->pollEvent(evento)) {
+		if (evento.type == sf::Event::TextEntered)
+		{
+			if (evento.text.unicode < 128 && evento.text.unicode != 8) { // Somente ASCII
+				if (playerInput.size() < 10) {
+					playerInput += evento.text.unicode;
+						
 				}
 			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-				saves.savePontos(pontPlayers, playerInput, 0);
-				flag = false;
+			if (evento.text.unicode == 8) { // Backspace
+				playerInput = playerInput.substr(0, playerInput.size() - 1);
 			}
 		}
+		cout << playerInput << endl;
+		inputText.setString("Digite seu nome : " + playerInput);
 	}
-	exit(1);
+	
 }

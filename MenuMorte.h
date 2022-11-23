@@ -8,6 +8,8 @@ namespace Menus {
 	private:
 		int pontPlayers;
 		Save saves;
+		sf::Text inputText;
+		std::string playerInput;
 
 	public:
 		MenuMorte(float widht, float height);
