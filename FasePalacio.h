@@ -28,7 +28,7 @@ namespace Fases {
 		void criaInimigos();
 		void criaObstaculos();
 
-		//void teste();
+		void teste();
 
 		void multiplayer(bool status);
 

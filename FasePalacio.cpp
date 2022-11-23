@@ -219,13 +219,13 @@ void Fases::FasePalacio::criaObstaculos()
 	}
 }
 
-//void Fases::FasePalacio::teste()
-//{
-//	for (auto const& Jogador : *Jogadores)
-//	{
-//		Jogador->setListaEntidade(&listaEntidades);
-//	}
-//}
+void Fases::FasePalacio::teste()
+{
+	for (auto const& Jogador : *Jogadores)
+	{
+		Jogador->setListaEntidade(&listaEntidades);
+	}
+}
 
 void Fases::FasePalacio::multiplayer(bool status)
 {

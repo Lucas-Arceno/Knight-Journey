@@ -50,7 +50,7 @@ void Entidades::Personagens::Inimigos::Inimigo::updateDano(int dano)
 			if (this->vida <= 0) {
 				//pJogador->givePontuacao(5);
 				//this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
-				++pJogador;
+				pJogador->operator++();
 				this->isVivo = false;
 			}
 		}
