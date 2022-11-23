@@ -18,13 +18,18 @@ void Entidades::Obstaculos::Portal::update()
 	updateMovimento();
 	updatePhysics();
 
+
+	
 	for (auto const& pJogador : *pJogadores)
 	{
+		// Portal é um obstaculo destrutivel
+		// Se houver colisão com a espada o objeto é desligado.
 		if (this->corpo.getGlobalBounds().intersects(pJogador->espadaP->getEspadaProjetilGlobal())) {
-			this->corpo.setPosition(0.f, 6000.f);
+			//this->corpo.setPosition(0.f, 6000.f);
 			this->isVivo = false;
 		}
 
+		// Se o jogador colidir com o portal ele é teleportado para o inicio
 		if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {
 			pJogador->setPosition(destino.x, destino.y);
 		}

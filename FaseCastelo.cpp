@@ -145,7 +145,7 @@ void Fases::FaseCastelo::setPosicoesLivres()
 
 void Fases::FaseCastelo::criaMapa()
 {
-	//chao
+	// Chao
 	for (int i = 0; i < 4; i++) {
 		//listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(200.0f + (i*500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
 		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(200.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 70.0f), 0));
@@ -168,12 +168,12 @@ void Fases::FaseCastelo::criaMapa()
 		}
 	}
 
-	//"teto" dos corredos de cima
+	// "Teto" dos corredos de cima
 	for (int i = 0; i < 6; i++) {
 		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(2400.0f + (i * 500), 50.0f), sf::Vector2f(500.0f, 70.0f), 0));
 	}
 
-	//torres do comeco fase
+	// Torres do comeco fase
 	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(450.0f, 540.0f), sf::Vector2f(50.0f, 50.0f), 0));
 	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(700.0f, 500.0f), sf::Vector2f(200.0f, 350.0f), 0));
 	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(950.0f, 400.0f), sf::Vector2f(50.0f, 50.0f), 0));
@@ -181,7 +181,7 @@ void Fases::FaseCastelo::criaMapa()
 	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(1450.0f, 540.0f), sf::Vector2f(50.0f, 50.0f), 0));
 	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(2050.0f, 540.0f), sf::Vector2f(50.0f, 50.0f), 0));
 
-	//sorteia qual caminho vai ficar liberado 
+	// Sorteia qual caminho vai ficar liberado 
 	int aux_rand = rand() % 3;
 	if (aux_rand == 2) {
 		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(5000.0f, 200.0f), sf::Vector2f(200.0f, 350.0f), 0));
@@ -192,10 +192,10 @@ void Fases::FaseCastelo::criaMapa()
 		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(3600.0f, 200.0f), sf::Vector2f(200.0f, 350.0f), 0));
 	}
 
-	//plataforma que permite o jogador voltar/descer entre os andares
+	// Plataforma que permite o jogador voltar/descer entre os andares
 	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(4000.0f, 540.0f), sf::Vector2f(50.0f, 50.0f), 0));
 
-	//quadrados do final q tem pular
+	// Plataformas do final que deve-se pular
 	for (int i = 0; i < 10; i++) {
 		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(5250.0f + (150 * i), 600.0f), sf::Vector2f(50.0f, 50.0f), 0));
 	}
@@ -272,18 +272,18 @@ void Fases::FaseCastelo::criaObstaculos()
 
 }
 
-int const Fases::FaseCastelo::getPontuacao()
-{
-	return this->Jogadores->front()->getPontucao();
-}
+//int const Fases::FaseCastelo::getPontuacao()
+//{
+//	return this->Jogadores->front()->getPontucao();
+//}
 
-void Fases::FaseCastelo::teste()
-{
-	for (auto const& Jogador : *Jogadores)
-	{
-		Jogador->setListaEntidade(&listaEntidades);
-	}
-}
+//void Fases::FaseCastelo::teste()
+//{
+//	for (auto const& Jogador : *Jogadores)
+//	{
+//		Jogador->setListaEntidade(&listaEntidades);
+//	}
+//}
 
 void Fases::FaseCastelo::multiplayer(bool status)
 {
@@ -309,8 +309,9 @@ bool Fases::FaseCastelo::checkMorreu()
 	}
 }
 
+//Funcao para determinar se o jogador terminou a fase 1
 bool Fases::FaseCastelo::checkTerminou() {
-	sf::RectangleShape final;
+	sf::RectangleShape final; // "Portal" invisivel
 	final.setSize(sf::Vector2f(100.f, 10000.f));
 	final.setFillColor(sf::Color::Blue);
 	final.setPosition(sf::Vector2f(6600.0f, 515.0f));

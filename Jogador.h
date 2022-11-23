@@ -30,14 +30,13 @@ namespace Entidades {
 
 				sf::Vector2f posJogador; // Posição do player para a espada
 			public:
-				//Constructors
 				Jogador(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
 				~Jogador();
 
-				//
+				
 				void setListaEntidade(List::ListaEntidade* pListaEntidade);
 
-				//Init variaveis
+				//Inicializacao variaveis
 				void initVariables();
 
 				//Pegar posicoes 
@@ -57,7 +56,6 @@ namespace Entidades {
 				//Pontuação
 				int getPontucao();
 				void givePontuacao(int pts);
-				void salvePontuacao();
 
 				//Ataque
 				void atacarDir();

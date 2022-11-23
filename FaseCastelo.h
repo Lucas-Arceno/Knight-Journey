@@ -27,9 +27,9 @@ namespace Fases {
 		void criaInimigos();
 		void criaObstaculos();
 
-		const int getPontuacao();
+		//const int getPontuacao();
 
-		void teste();
+		//void teste();
 
 		void multiplayer(bool status);
 
@@ -39,9 +39,6 @@ namespace Fases {
 		void update();
 		void render();
 
-		// teste 
-
-		//Save salve;
 	};
 }
 

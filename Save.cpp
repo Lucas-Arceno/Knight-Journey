@@ -69,6 +69,7 @@ void Save::loadPontos() {
 		}
 	}
 
+	// Leitor sempre duplica a ultima linha
 	if (informacoes.size() > 10) {
 		informacoes.resize(10);
 	}

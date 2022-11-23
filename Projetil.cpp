@@ -43,7 +43,8 @@ void Entidades::Projetil::updateMovimento()
 	this->corpo.move(-(this->velocidade));
 }
 
-
+// Vetor unitario
+// Retorna um vetor de comprimento 1
 sf::Vector2f Entidades::Projetil::normalizedVector(sf::Vector2f direcao)
 {
 	float m = sqrt(direcao.x * direcao.x + direcao.y * direcao.y);
@@ -60,6 +61,7 @@ void Entidades::Projetil::updateProjetil(float posX, float posY) {
 	if (colisaoProjetil == true) { 
 		corpo.setPosition(sf::Vector2f(posX, posY));
 
+		// O alvo se torna o jogador mais proximo
 		if (pJogadores->front()->getCorpo().getPosition().x > pJogadores->back()->getCorpo().getPosition().x) {
 			pJogador = pJogadores->back();
 		}

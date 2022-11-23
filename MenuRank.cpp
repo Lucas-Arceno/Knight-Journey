@@ -18,7 +18,6 @@ Menus::MenuRank::MenuRank(float width, float height) : MenuBase(1, width, height
 	menu[0].setPosition(sf::Vector2f(width / 2, height / (2 + 1) * 1));
 	botoes[0].setPosition(sf::Vector2f(width / 2, height / (2 + 1) * 1));
 	
-	//placar = new sf::Text[10];
 	infos = saves.getPontos();
 
 	for (int i = 0; i < infos.size(); i++) {
@@ -66,6 +65,8 @@ void Menus::MenuRank::draw(sf::RenderWindow& window)
 		window.draw(botoes[i].getCorpo());
 		window.draw(menu[i]);
 	}
+
+	// Imprime as dez posicoes do placar.
 	for (int i = 0; i < 10; i++) {
 		placar.setFont(font);
 		placar.setFillColor(sf::Color::White);

@@ -62,11 +62,6 @@ void Entidades::Personagens::Jogadores::Jogador::givePontuacao(int pts)
 	printf("pontuacao %d \n", pontos);
 }
 
-void Entidades::Personagens::Jogadores::Jogador::salvePontuacao()
-{
-	//gravador.savePontos(pontos, idJogador);
-}
-
 void Entidades::Personagens::Jogadores::Jogador::atacarDir()
 {
 	posJogador = corpo.getPosition();
