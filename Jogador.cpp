@@ -105,3 +105,7 @@ void Entidades::Personagens::Jogadores::Jogador::operator- (int dano)
 	this->giveDano(dano);
 	this->setInvFrame();
 }
+
+void Entidades::Personagens::Jogadores::Jogador::operator++() {
+	this->givePontuacao(5);
+}

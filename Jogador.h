@@ -67,6 +67,7 @@ namespace Entidades {
 				void setVelocityY(float vel_y);
 
 				void operator- (int dano);
+				void operator++ ();
 
 				//Updates
 				virtual void update() = 0;
