@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+//#include <SFML/Window.hpp>
 #include <iostream>
 
 //Baseado no video do monitor : https://www.youtube.com/watch?v=RXmFcBGD8T8

@@ -15,23 +15,22 @@ Save::~Save() {
 
 }
 
-void Save::savePontos(int pt, int idJog) {
+void Save::savePontos(int pt, string nome, int idJog) {
 
 	Gravador.open("Ranking.txt");
 	if (!Gravador) {
 		cout << "erro ao abrir gravador" << endl;
 	}
 
+	//Auxiliar para copia de informações
 	info aux2;
-
-	cout << "Digite nome do jogador" << endl;
-	cin >> aux2.nome;
-
+	aux2.nome = nome;
 	aux2.pont = pt;
 	aux2.idJog = idJog;
 
 	informacoes.push_back(aux2);
-	// bubble sort
+	
+	// Bubble sort
 	int i, j;
 	for (i = 0; i < informacoes.size() - 1; i++) {
 		for (j = 0; j < informacoes.size() - i - 1; j++) {
@@ -41,10 +40,12 @@ void Save::savePontos(int pt, int idJog) {
 		}
 	}
 
+	// Maximo de 10 scores
 	if (informacoes.size() > 10) {
 		informacoes.resize(10);
 	}
 
+	//Grava a lista em ranking.txt
 	for (int i = 0; i < informacoes.size(); i++) {
 		Gravador << informacoes[i].idJog << ' ' << informacoes[i].nome << ' ' << informacoes[i].pont << endl;
 	}

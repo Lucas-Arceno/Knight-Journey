@@ -66,9 +66,9 @@ void Entidades::Personagens::Inimigos::Rei::ataqueJogador(sf::Vector2f posJogado
 		cooldownPulo = true;
 		//cont_DMG = 0;
 	}
-	
-
 	updateDano(10);
+
+
 	//TESTES
 
 	/*sf::Vector2f outroPosicao = pJogador->getCorpo().getPosition();

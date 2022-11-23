@@ -278,10 +278,14 @@ void Fases::	FasePalacio::render()
 			pGrafico->desenhaSprites(Jogadores->front()->sprite);
 		}
 		else {
-			listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
+			if (listaEntidades[i]->getIsVivo()) {
+				listaEntidades[i]->seImprime(listaEntidades[i]->getCorpo());
+			}
 		}
 	}
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
-		listaEntidades[i]->update();
+		if (listaEntidades[i]->getIsVivo()) {
+			listaEntidades[i]->update();
+		}
 	}
 }

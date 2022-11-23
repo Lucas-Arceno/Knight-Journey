@@ -26,6 +26,9 @@ void Gerenciadores::GerenciadorColisoes::checkColPlataforma()
 	int aux = 0;
 	int aux_2 = 0;
 
+
+	// Colisão de projetilInimigo com plataforma
+	// Se colisão, projetil teleportado para longe.
 	for (unsigned int j = 0; j < pListaInimigos->getTamanho(); j++) {
 		for (unsigned int k = 0; k < pListaPlataformas->getTamanho(); k++) {
 			if((*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaPlataformas)[k]->GetColisao(), 0.0f) && (*pListaInimigos)[j]->getID() == 23){
@@ -34,12 +37,15 @@ void Gerenciadores::GerenciadorColisoes::checkColPlataforma()
 		}
 	}
 
+	//Colisão de Obstaculo com Plataforma
 	for (unsigned int h = 0; h < pListaObstaculos->getTamanho(); h++) {
 		for (unsigned int o = 0; o < pListaPlataformas->getTamanho(); o++) {
 			(*pListaObstaculos)[h]->GetColisao().CheckCollision((*pListaPlataformas)[o]->GetColisao(), 0.0f);
 		}
 	}
 
+	//Colisao de Jogador com Plataforma
+	//Ao colidir com o chão o cooldown do pulo é reiniciado.
 	for (unsigned int i = 0; i < pListaPlataformas->getTamanho(); i++) {
 		for (auto const& pJogador : *pJogadores)
 		{
@@ -66,6 +72,7 @@ void Gerenciadores::GerenciadorColisoes::checkColPlataforma()
 	}
 }
 
+//Colisão Jogador com Obstaculos
 void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 {
 	for (unsigned int i = 0; i < pListaObstaculos->getTamanho(); i++) {
@@ -82,7 +89,7 @@ void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
 					pJogador->operator-(1 * (static_cast<Entidades::Obstaculos::Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
-					//printf("VIDAAAAAA %d\n", pJogador->getVida());
+					//printf("danoEspinho %d\n", pJogador->getVida());
 				}
 			}
 		}

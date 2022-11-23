@@ -20,6 +20,7 @@ namespace Menus {
 		void update();
 
 		void setPontPlayers(int pont);
+		void getStringPlayer();
 	};
 }
 

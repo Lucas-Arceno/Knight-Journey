@@ -24,7 +24,7 @@ void Entidades::projetilEspada::update()
 		if (timerVida > 20) {
 			timerVida = 0;
 			disparo = false;
-			printf("timerVida \n");
+			printf("timerVida espada \n");
 			corpo.setPosition(5000, 5000);
 		}
 	}

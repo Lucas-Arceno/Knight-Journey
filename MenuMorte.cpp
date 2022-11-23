@@ -46,9 +46,7 @@ void Menus::MenuMorte::updateEstado(int& aux) {
 			selectedItemIndex = i;
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
-					printf("%d \n", pontPlayers);
-					saves.savePontos(pontPlayers, 0);
-					exit(1);
+					getStringPlayer();
 				}
 				else if (selectedItemIndex == 1) {
 					printf("botao 2");
@@ -100,4 +98,44 @@ void Menus::MenuMorte::update() {
 void Menus::MenuMorte::setPontPlayers(int pont)
 {
 	pontPlayers += pont;
+}
+
+void Menus::MenuMorte::getStringPlayer() {
+
+	sf::Event evento;
+	std::string playerInput;
+	bool flag = true;
+
+
+	while (flag) {
+		if (pGrafico->getJanela()->pollEvent(evento)) {
+			if (evento.type == sf::Event::TextEntered)
+			{
+				if (evento.text.unicode < 128) { // Somente ASCII
+					if (playerInput.size() < 20) {
+						playerInput += evento.text.unicode;
+					}
+					cout << playerInput << endl;
+					//playerText.setString(playerInput);
+				}
+				if (evento.text.unicode == 8) { // Backspace
+					//printf("deletado \n");
+
+							//playerInput.pop_back();
+							//playerInput.erase(playerInput.size()-1);
+							//playerInput = playerInput.substr(0, playerInput.size() - 1);
+							//playerInput.resize(playerInput.size() - 1);
+
+					cout << playerInput << endl;
+					//playerText.setString(playerInput);
+				}
+			}
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+				saves.savePontos(pontPlayers, playerInput, 0);
+				flag = false;
+			}
+		}
+	}
+	exit(1);
 }

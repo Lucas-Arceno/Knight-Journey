@@ -25,7 +25,7 @@ class Save
 		~Save();
 		
 		//Save e load
-		void savePontos(int pt, int idJog);
+		void savePontos(int pt, string nome, int idJog);
 		void loadPontos();
 		vector<info> getPontos();
 };

@@ -1,5 +1,4 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include "GerenciadorGrafico.h"
 #include "Botao.h"
 #include "Ente.h"
