@@ -51,7 +51,7 @@ void Save::savePontos(int pt, string nome) {
 		Gravador.close();
 	}
 	catch (std::exception const& e) {
-		cout << "Erro ao ler arquivo : " << e.what() << endl;
+		cout << "Erro ao gravar arquivo : " << e.what() << endl;
 	}
 }
 

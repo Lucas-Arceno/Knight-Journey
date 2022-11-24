@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Entidades::Projetil::Projetil(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidade(23, posicao, tamanho) {
+Entidades::Projetil::Projetil(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : ProjetilBase(23, posicao, tamanho) {
 	this->corpo.setFillColor(sf::Color::Red);
 	this->pJogadores = pJogadores;
 	pJogador = NULL;
@@ -58,7 +58,7 @@ sf::Vector2f Entidades::Projetil::normalizedVector(sf::Vector2f direcao)
 }
 
 void Entidades::Projetil::updateProjetil(float posX, float posY) {
-	if (colisaoProjetil == true) { 
+	if (disparo == true) { 
 		corpo.setPosition(sf::Vector2f(posX, posY));
 
 		// O alvo se torna o jogador mais proximo
@@ -74,8 +74,8 @@ void Entidades::Projetil::updateProjetil(float posX, float posY) {
 		Direcao.y = -(posY - posJogador.y);
 		Direcao = normalizedVector(Direcao);
 
-		colisaoProjetil = false;
-		contTempVida = 0;
+		disparo = false;
+		tempVida = 0;
 	}
 	else {
 
@@ -89,15 +89,17 @@ void Entidades::Projetil::updateProjetil(float posX, float posY) {
 		if (fabs(pJogador->getCorpo().getPosition().x - this->corpo.getPosition().x) > 300 || fabs(pJogador->getCorpo().getPosition().y - this->corpo.getPosition().y) > 1000) {
 			this->corpo.setPosition(sf::Vector2f(5000.f, 2000.f));
 		}
-		corpo.setPosition(corpo.getPosition() + 10.0f * Direcao); // Movimento da bala, velocidade constante.
+		// Movimento da bala, velocidade constante.
+		corpo.setPosition(corpo.getPosition() + 10.0f * Direcao); 
+		
 		if (this->corpo.getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds())) {
 			pJogador->giveDano(1);
 			this->corpo.setPosition(sf::Vector2f(5000.f, 2000.f));
 		}
-		contTempVida++;
+		tempVida++;
 	}
-	if (contTempVida >= 200) {
-		colisaoProjetil = true;
+	if (tempVida >= 200) {
+		disparo = true;
 	}
 }
 

@@ -1,14 +1,13 @@
 #pragma once
-#include "Entidade.h"
+#include "ProjetilBase.h"
 #include "Jogador.h"
-#include <math.h>
+
 
 namespace Entidades {
-	class Projetil : public Entidade
+	class Projetil : public ProjetilBase
 	{
 	private:
-		bool colisaoProjetil = true;
-		int contTempVida = 0;
+		//bool colisaoProjetil = true;
 		// Coordenadas que o projetil deverá ir ( diferença de pos do morcego e do player )
 		sf::Vector2f Direcao;
 		sf::Vector2f posJogador;

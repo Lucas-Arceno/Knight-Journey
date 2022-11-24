@@ -1,12 +1,12 @@
 #pragma once
-#include "Entidade.h"
+#include "ProjetilBase.h"
 
 namespace Entidades {
-	class projetilEspada : public Entidade
+	class projetilEspada : public ProjetilBase
 	{
 	private:
-		int timerVida = 0; // Tempo de vida da espada.
-		bool disparo = false;
+		//int timerVida = 0; // Tempo de vida da espada.
+		//bool disparo = false;
 		bool isDireita = false;
 
 	public:

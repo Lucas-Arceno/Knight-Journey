@@ -145,6 +145,7 @@
     <ClCompile Include="MenuEscolhaOnline.cpp" />
     <ClCompile Include="MenuMorte.cpp" />
     <ClCompile Include="MenuRank.cpp" />
+    <ClCompile Include="ProjetilBase.cpp" />
     <ClCompile Include="Save.cpp" />
     <ClCompile Include="Teia.cpp" />
     <ClCompile Include="Cobra.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="MenuEscolhaOnline.h" />
     <ClInclude Include="MenuMorte.h" />
     <ClInclude Include="MenuRank.h" />
+    <ClInclude Include="ProjetilBase.h" />
     <ClInclude Include="Save.h" />
     <ClInclude Include="Teia.h" />
     <ClInclude Include="Cobra.h" />
