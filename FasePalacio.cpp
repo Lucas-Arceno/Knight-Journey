@@ -23,7 +23,7 @@ Fases::FasePalacio::FasePalacio(std::list<Entidades::Personagens::Jogadores::Jog
 	{
 		listaEntidades.addEntidade(Jogador);
 	}
-
+	
 	setPosicoesLivres();
 
 	criaMapa();
@@ -53,6 +53,12 @@ Fases::FasePalacio::FasePalacio(std::list<Entidades::Personagens::Jogadores::Jog
 
 Fases::FasePalacio::~FasePalacio()
 {
+	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+		if (listaEntidades[i]->getID() == 0) {
+			listaEntidades.removeEntidade(listaEntidades[i]);
+		}
+	}
+	listaEntidades.limpar();
 }
 
 void Fases::FasePalacio::setPosicoesLivres()

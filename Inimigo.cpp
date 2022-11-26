@@ -55,7 +55,7 @@ void Entidades::Personagens::Inimigos::Inimigo::updateDano(int dano)
 			}
 		}
 		// Dano do inimigo no player
-		else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds()) && pJogador->getInvFrame() == 0) {
+		else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds()) && pJogador->isInvencivel() == false) {
 			printf("dano player %d \n", pJogador->getVida());
 			pJogador->operator-(dano);
 			//pJogador->giveDano(dano);
@@ -80,4 +80,12 @@ void Entidades::Personagens::Inimigos::Inimigo::randomMovimento()
 		dir_mov = -(dir_mov);
 	}
 	cont_mov++;
+}
+
+void Entidades::Personagens::Inimigos::Inimigo::updateDanotest(int dano) {
+	for (auto const& pJogador : *pJogadores) {
+		if (!pJogador->isInvencivel()) {
+			pJogador->operator-(dano);
+		}
+	}
 }

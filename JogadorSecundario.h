@@ -14,12 +14,9 @@ namespace Entidades {
 				sf::Vector2i size;
 				sf::Clock animationTimer;
 
-				//Animation
-				short animState;
-				sf::IntRect currentFrame;
-				bool animationSwitch;
 			private:
 				void initAnimations();
+
 			public:
 				JogadorSecundario(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
 				~JogadorSecundario();

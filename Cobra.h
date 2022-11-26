@@ -17,8 +17,6 @@ namespace Entidades {
 
 				void persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
 
-				void darBote();
-
 				void update();
 				void updateMovimento();
 				void reagir();

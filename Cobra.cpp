@@ -30,21 +30,11 @@ void Entidades::Personagens::Inimigos::Cobra::persegueJogador(sf::Vector2f posJo
 	}
 }
 
-void Entidades::Personagens::Inimigos::Cobra::darBote()
-{
-	if (this->venenosa == true) {
-		updateDano(2);
-	}
-	else {
-		updateDano(1);
-	}
-}
 
 void Entidades::Personagens::Inimigos::Cobra::update()
 {
 	updateMovimento();
 	updatePhysics();	
-	darBote();
 }
 
 void Entidades::Personagens::Inimigos::Cobra::updateMovimento()
@@ -71,5 +61,10 @@ void Entidades::Personagens::Inimigos::Cobra::updateMovimento()
 }
 
 void Entidades::Personagens::Inimigos::Cobra::reagir() {
-
+	if (this->venenosa == true) {
+		updateDanotest(2);
+	}
+	else {
+		updateDanotest(1);
+	}
 }

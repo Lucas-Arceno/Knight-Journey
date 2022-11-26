@@ -10,8 +10,9 @@ namespace Entidades {
 			private:
 				const int vidaMaxima;
 				bool cooldownPulo = false;
-				int cont_CD = 0; // Contador para cooldownPulo
-				//int cont_DMG = 0; // Contador para o dano do pulo
+
+				// Contador para cooldownPulo
+				int cont_CD = 0; 
 
 			public:
 				Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
@@ -21,8 +22,10 @@ namespace Entidades {
 
 				void update();
 				void updateMovimento();
+
 				void persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
 				void ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
+
 				void reagir();
 			};
 		}

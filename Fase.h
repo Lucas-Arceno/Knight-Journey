@@ -44,8 +44,8 @@ namespace Fases {
 
 		//Jogadores
 		std::list<Entidades::Personagens::Jogadores::Jogador*>* Jogadores;
-
-		//GerenciadorGrafico* pGrafico;
+	
+		//Gerenciadores
 		Gerenciadores::GerenciadorEvento* pEvento;
 		Gerenciadores::GerenciadorColisoes* GerenciadorColisao;
 	public:

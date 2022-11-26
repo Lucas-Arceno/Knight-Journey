@@ -210,12 +210,16 @@ void Fases::FaseCastelo::criaMapa()
 
 void Fases::FaseCastelo::criaInimigos()
 {
-	for (int i = 0; i < 100; i++) {
-		listaEntidades.addEntidade(criaCobra(Jogadores, sf::Vector2f(10, 10), sf::Vector2f(100.0f, 100.0f)));
-	}
+	//for (int i = 0; i < 100; i++) {
+	//	listaEntidades.addEntidade(criaCobra(Jogadores, sf::Vector2f(10, 10), sf::Vector2f(100.0f, 100.0f)));
+	//}
+
+	// define a quantidade de inimigos
 	this->num_Cobras = (rand() % (10 + 1 - 3) + 3);
 	this->num_Morcegos = (rand() % (15 + 1 - 3) + 3);
 
+
+	// loop adição de cobras
 	for (int i = 0; i < num_Cobras; i++) {
 		int aux = rand() % 19;
 		while (!(listaPosCobras[aux].isLivre)) {
@@ -224,6 +228,8 @@ void Fases::FaseCastelo::criaInimigos()
 		listaEntidades.addEntidade(criaCobra(Jogadores, sf::Vector2f(listaPosCobras[aux].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosCobras[aux].isLivre = false;
 	}
+
+	// loop adição de morcego
 	for (int i = 0; i < num_Morcegos; i++) {
 		int aux = rand() % 27;
 		while (!(listaPosMorcegos[aux].isLivre)) {
@@ -232,8 +238,6 @@ void Fases::FaseCastelo::criaInimigos()
 		listaEntidades.addEntidade(criaMorcego(&listaEntidades, Jogadores, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
 		listaPosMorcegos[aux].isLivre = false;
 	}
-	
-
 }
 
 void Fases::FaseCastelo::criaObstaculos()

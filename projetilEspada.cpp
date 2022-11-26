@@ -1,6 +1,6 @@
 #include "projetilEspada.h"
 
-Entidades::projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::ProjetilBase(11, posicao, tamanho)
+Entidades::projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::ProjetilBase(1, posicao, tamanho)
 {
 	this->texture.loadFromFile("assets/vento.png");
 	this->corpo.setTexture(&texture);
@@ -24,7 +24,6 @@ void Entidades::projetilEspada::update()
 		if (tempVida > 20) {
 			tempVida = 0;
 			disparo = false;
-			printf("timerVida espada \n");
 			corpo.setPosition(5000, 5000);
 		}
 	}
@@ -58,11 +57,9 @@ void Entidades::projetilEspada::updateMovimento()
 {
 	if (isDireita) {
 		corpo.move(10.0f, 0);
-		//printf("dir + corpo pos %f || %f \n", corpo.getPosition().x, corpo.getPosition().y);
 	}
 	else {
 		corpo.move(-10.0f, 0);
-		//printf("esq \n");
 	}
 
 }

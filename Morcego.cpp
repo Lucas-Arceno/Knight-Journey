@@ -90,5 +90,5 @@ void Entidades::Personagens::Inimigos::Morcego::updateMovimento()
 }
 
 void Entidades::Personagens::Inimigos::Morcego::reagir() {
-
+	updateDanotest(1);
 }
