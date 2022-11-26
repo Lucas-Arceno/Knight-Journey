@@ -1,19 +1,22 @@
 #include "projetilEspada.h"
 
-Entidades::projetilEspada::projetilEspada(sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::ProjetilBase(11, posicao, tamanho)
+
+
+Entidades::Personagens::Jogadores::projetilEspada::projetilEspada(Jogador* pJogador, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::ProjetilBase(11, posicao, tamanho)
 {
 	this->texture.loadFromFile("assets/vento.png");
 	this->corpo.setTexture(&texture);
 	this->corpo.setFillColor(sf::Color::White);
 	this->corpo.setSize(sf::Vector2f(100.0f, 100.0f));
 	this->corpo.setPosition(sf::Vector2f(412342.0f, 41231.0f));
+	this->pJogador = pJogador;
 }
 
-Entidades::projetilEspada::~projetilEspada() {
+Entidades::Personagens::Jogadores::projetilEspada::~projetilEspada() {
 
 }
 
-void Entidades::projetilEspada::update()
+void Entidades::Personagens::Jogadores::projetilEspada::update()
 {
 	//updatePhysics();
 	
@@ -32,7 +35,7 @@ void Entidades::projetilEspada::update()
 	updateEmpuxo();
 }
 
-void Entidades::projetilEspada::updateEmpuxo()
+void Entidades::Personagens::Jogadores::projetilEspada::updateEmpuxo()
 {
 	//Gravity
 	(this->velocidade).y += 1 * this->gravity;
@@ -54,7 +57,7 @@ void Entidades::projetilEspada::updateEmpuxo()
 	this->corpo.move(-(this->velocidade));
 }
 
-void Entidades::projetilEspada::updateMovimento()
+void Entidades::Personagens::Jogadores::projetilEspada::updateMovimento()
 {
 	if (isDireita) {
 		corpo.move(10.0f, 0);
@@ -67,15 +70,15 @@ void Entidades::projetilEspada::updateMovimento()
 
 }
 
-void Entidades::projetilEspada::disparoEspada(sf::Vector2f posJogador, bool isDir)
+void Entidades::Personagens::Jogadores::projetilEspada::disparoEspada(bool isDir)
 {	
 	if (disparo == false) {
 		this->isDireita = isDir;
-		corpo.setPosition(posJogador.x, posJogador.y - 50);
+		corpo.setPosition(pJogador->getCorpo().getPosition().x, pJogador->getCorpo().getPosition().y - 50);
 		disparo = true;
 	}
 }
 
-void Entidades::projetilEspada::reagir() {
+void Entidades::Personagens::Jogadores::projetilEspada::reagir() {
 
 }

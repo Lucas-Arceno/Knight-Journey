@@ -8,6 +8,8 @@
 namespace Entidades {
 	namespace Personagens {
 		namespace Jogadores {
+			class projetilEspada;
+
 			class Jogador : public Personagem
 			{
 			public:

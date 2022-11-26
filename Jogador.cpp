@@ -15,7 +15,7 @@ Entidades::Personagens::Jogadores::Jogador::~Jogador()
 void Entidades::Personagens::Jogadores::Jogador::setListaEntidade(List::ListaEntidade* pListaEntidade)
 {
 	this->pListaEntidade = pListaEntidade;
-	espadaP = new projetilEspada;
+	espadaP = new projetilEspada(this);
 	this->pListaEntidade->addEntidade(espadaP);
 }
 
@@ -65,13 +65,13 @@ void Entidades::Personagens::Jogadores::Jogador::givePontuacao(int pts)
 void Entidades::Personagens::Jogadores::Jogador::atacarDir()
 {
 	posJogador = corpo.getPosition();
-	espadaP->disparoEspada(posJogador, true);
+	espadaP->disparoEspada(true);
 }
 
 void Entidades::Personagens::Jogadores::Jogador::atacarEsq()
 {
 	posJogador = corpo.getPosition();
-	espadaP->disparoEspada(posJogador, false);
+	espadaP->disparoEspada(false);
 }
 
 void Entidades::Personagens::Jogadores::Jogador::resetVelocity()
