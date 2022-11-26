@@ -9,7 +9,7 @@ namespace Entidades {
 			int vida;
 		public:
 			Personagem(int id = 0, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(0.f, 0.f));
-			~Personagem();
+			virtual ~Personagem();
 
 			void giveDano(int dano);
 			void setVida(int vida);

@@ -193,6 +193,8 @@ void Fases::FasePalacio::criaInimigos()
 		listaEntidades.addEntidade(criaMorcego(&listaEntidades, Jogadores, sf::Vector2f(listaPosMorcegos[aux].cord), sf::Vector2f(50.0f, 50.0f)));
 		listaPosMorcegos[aux].isLivre = false;
 	}
+
+	listaEntidades.addEntidade(new Entidades::Personagens::Inimigos::Rei(Jogadores, sf::Vector2f(-2600.0f, 400.0f), sf::Vector2f(100.0f, 100.0f)));
 }
 
 void Fases::FasePalacio::criaObstaculos()

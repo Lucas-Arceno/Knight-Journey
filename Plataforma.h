@@ -8,7 +8,7 @@ namespace Entidades {
 		const int tipo;
 	public:
 		Plataforma(sf::Vector2f posicao, sf::Vector2f tamanho, const int tipo);
-		~Plataforma();
+		virtual ~Plataforma();
 
 		void update();
 		void updateEmpuxo();
