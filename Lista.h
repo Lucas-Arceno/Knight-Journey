@@ -64,7 +64,7 @@ namespace List {
 
 	template <class TL>
 	Lista<TL>::~Lista() {
-		limpar();
+		//limpar();
 	}
 
 	template <class TL>
@@ -76,9 +76,9 @@ namespace List {
 		paux2 = paux1;
 
 		while (paux1 != NULL) {
-			paux1->setInfo(NULL);
 			paux2 = paux1->getProximo();
-			delete (paux1);
+			delete(paux1->getInfo());
+			paux1 = nullptr;
 			paux1 = paux2;
 			tam--;
 		}

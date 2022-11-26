@@ -14,27 +14,28 @@ Game::Game() : pGrafico(pGrafico->getGerenciadorGrafico()), pEvento(pEvento->get
 	else {
 		std::cout << "Gerenciador grafico criado com sucesso." << std::endl;
 	}
+
+	Jogadores.push_back(new Entidades::Personagens::Jogadores::JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
+
+	Palacio = new Fases::FasePalacio(&Jogadores);
+	Castelo = new Fases::FaseCastelo(&Jogadores);
 	exec();
 }
 
 Game::~Game()
 {
+	printf("oi");
+	delete Palacio;
+	delete Castelo;
 }
 
 void Game::exec()
 {
-	std::list<Entidades::Personagens::Jogadores::Jogador*>Jogadores;
-
-	Jogadores.push_back(new Entidades::Personagens::Jogadores::JogadorPrincipal(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
-
 	Menus::Menu Menu(1200, 800);
 	Menus::MenuFases MenuFases(1200, 800);
 	Menus::MenuEscolhaOnline MenuOnline(1200, 800);
 	Menus::MenuMorte MenuMorte(1200, 800);
 	Menus::MenuRank MenuRank(1200, 800);
-
-	Fases::FasePalacio Palacio(&Jogadores);
-	Fases::FaseCastelo Castelo(&Jogadores);
 	
 	Ranking ListaPontos[10]{};
 
@@ -57,13 +58,15 @@ void Game::exec()
 				MenuRank.draw(*pGrafico->getJanela());
 			}
 			else if (i == 2) {
-				if (!Castelo.checkTerminou()) {
-					Castelo.update();
-					if (Castelo.checkMorreu()) {
+				if (!Castelo->checkTerminou()) {
+					Castelo->update();
+					if (Castelo->checkMorreu()) {
+						delete Castelo;
 						i = 5;
 					}
 				}
 				else {
+					delete Castelo;
 					i = 4;
 				}
 			}
@@ -77,13 +80,13 @@ void Game::exec()
 			}
 			else if (i == 8) {
 				Jogadores.push_back(new Entidades::Personagens::Jogadores::JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
-				Castelo.multiplayer(true);
+				Castelo->multiplayer(true);
 				i = 7;
 				aux_test3 = 1;
 			}
 			else if (i == 4) {
 				if (aux_test3 == 1) {
-					Palacio.multiplayer(true);
+					Palacio->multiplayer(true);
 					aux_test3++;
 				}
 				if (aux_test == 0) {
@@ -92,11 +95,11 @@ void Game::exec()
 						Jogador->setCorpoPosicao(sf::Vector2f(100, 100));
 					}
 
-					Palacio.teste();
+					Palacio->teste();
 					aux_test++;
 				}
-				Palacio.update();
-				if (Palacio.checkTerminou()) {
+				Palacio->update();
+				if (Palacio->checkTerminou()) {
 					i = 5;
 				}
 			}
@@ -111,9 +114,6 @@ void Game::exec()
 				MenuMorte.updateEstado(i);
 				MenuMorte.getStringPlayer();
 				MenuMorte.draw(*pGrafico->getJanela());
-			}
-			else if (i == 6) {
-				//ListaPontos[1].pontos = Castelo.getPontuacao();
 			}
 			pGrafico->mostraElementos();
 		}

@@ -6,7 +6,7 @@ List::ListaEntidade::ListaEntidade()
 
 List::ListaEntidade::~ListaEntidade()
 {
-	lista.limpar();
+	//lista.limpar();
 }
 
 void List::ListaEntidade::addEntidade(Entidades::Entidade* pEntidade)
@@ -28,6 +28,11 @@ void List::ListaEntidade::removeEntidade(Entidades::Entidade* pEntidade)
 void List::ListaEntidade::removeEntidade(unsigned int index)
 {
 	lista.pop(index);
+}
+
+void List::ListaEntidade::limpar()
+{
+	lista.limpar();
 }
 
 unsigned int List::ListaEntidade::getTamanho()

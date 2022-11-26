@@ -15,6 +15,10 @@ private:
 	Gerenciadores::GerenciadorGrafico* pGrafico;
 	Gerenciadores::GerenciadorEvento* pEvento;
 
+	std::list<Entidades::Personagens::Jogadores::Jogador*>Jogadores;
+
+	Fases::FasePalacio* Palacio;
+	Fases::FaseCastelo* Castelo;
 public:
 	Game();
 	~Game();

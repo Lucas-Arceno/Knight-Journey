@@ -37,6 +37,7 @@ namespace Fases {
 
 		//Listas
 		List::ListaEntidade listaEntidades;
+
 		List::ListaEntidade listaObstaculos;
 		List::ListaEntidade listaInimigos;
 		List::ListaEntidade listaPlataformas;

@@ -27,9 +27,6 @@ Fases::FaseCastelo::FaseCastelo(std::list<Entidades::Personagens::Jogadores::Jog
 	criaInimigos();
 	criaObstaculos();
 
-	//int kk =1;
-	//listaEntidades.addEntidade(new Rei(Jogadores, sf::Vector2f(250.0f, 200.0f), sf::Vector2f(100.0f, 100.0f)));
-
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		/// 11 = teia
 		/// 12 = espinhos
@@ -54,6 +51,12 @@ Fases::FaseCastelo::FaseCastelo(std::list<Entidades::Personagens::Jogadores::Jog
 
 Fases::FaseCastelo::~FaseCastelo()
 {
+	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+		if(listaEntidades[i]->getID() == 0) {
+			listaEntidades.removeEntidade(listaEntidades[i]);
+		}
+	}
+	listaEntidades.limpar();
 }
 
 void Fases::FaseCastelo::setPosicoesLivres()
@@ -145,6 +148,7 @@ void Fases::FaseCastelo::setPosicoesLivres()
 
 void Fases::FaseCastelo::criaMapa()
 {
+
 	// Chao
 	for (int i = 0; i < 4; i++) {
 		//listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(200.0f + (i*500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
@@ -206,6 +210,9 @@ void Fases::FaseCastelo::criaMapa()
 
 void Fases::FaseCastelo::criaInimigos()
 {
+	for (int i = 0; i < 100; i++) {
+		listaEntidades.addEntidade(criaCobra(Jogadores, sf::Vector2f(10, 10), sf::Vector2f(100.0f, 100.0f)));
+	}
 	this->num_Cobras = (rand() % (10 + 1 - 3) + 3);
 	this->num_Morcegos = (rand() % (15 + 1 - 3) + 3);
 
