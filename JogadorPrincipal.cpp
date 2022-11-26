@@ -176,3 +176,7 @@ void Entidades::Personagens::Jogadores::JogadorPrincipal::updateAnimations()
 		this->sprite.setOrigin(50, 50);
 	}
 }
+
+void Entidades::Personagens::Jogadores::JogadorPrincipal::reagir() {
+
+}

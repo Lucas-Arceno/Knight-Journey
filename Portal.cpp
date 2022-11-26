@@ -39,3 +39,7 @@ void Entidades::Obstaculos::Portal::update()
 void Entidades::Obstaculos::Portal::updateMovimento()
 {
 }
+
+void Entidades::Obstaculos::Portal::reagir()
+{
+}

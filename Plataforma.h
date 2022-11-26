@@ -13,6 +13,8 @@ namespace Entidades {
 		void update();
 		void updateEmpuxo();
 		void updateMovimento();
+
+		void reagir();
 	};
 }
 

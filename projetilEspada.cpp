@@ -76,4 +76,6 @@ void Entidades::projetilEspada::disparoEspada(sf::Vector2f posJogador, bool isDi
 	}
 }
 
+void Entidades::projetilEspada::reagir() {
 
+}

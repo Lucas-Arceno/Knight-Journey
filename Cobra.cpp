@@ -69,3 +69,7 @@ void Entidades::Personagens::Inimigos::Cobra::updateMovimento()
 	}
 	else randomMovimento();
 }
+
+void Entidades::Personagens::Inimigos::Cobra::reagir() {
+
+}

@@ -48,3 +48,7 @@ void Entidades::Plataforma::updateEmpuxo()
 void Entidades::Plataforma::updateMovimento()
 {
 }
+
+void Entidades::Plataforma::reagir()
+{
+}

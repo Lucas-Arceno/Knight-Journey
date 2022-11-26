@@ -88,3 +88,7 @@ void Entidades::Personagens::Inimigos::Rei::ataqueJogador(sf::Vector2f posJogado
 	}
 	*/
 }
+
+void Entidades::Personagens::Inimigos::Rei::reagir() {
+
+}

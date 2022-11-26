@@ -29,7 +29,7 @@ namespace Fases {
 
 		//const int getPontuacao();
 
-		void teste();
+		//void teste();
 
 		void multiplayer(bool status);
 

@@ -20,6 +20,7 @@ namespace Entidades {
 		void update();
 		void updateEmpuxo();
 		void updateMovimento();
+		void reagir();
 		void disparoEspada(sf::Vector2f posJogador, bool isDir);
 
 		void setScalee(float x, float y) { this->corpo.setScale(x, y); }

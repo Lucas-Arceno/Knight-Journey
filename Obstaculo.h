@@ -13,6 +13,7 @@ namespace Entidades {
 
 			virtual void update() = 0;
 			virtual void updateMovimento() = 0;
+			virtual void reagir() = 0;
 		};
 	}
 }

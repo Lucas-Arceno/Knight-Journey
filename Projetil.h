@@ -22,6 +22,7 @@ namespace Entidades {
 		void update();
 		void updateMovimento();
 		void updateProjetil(float posX, float posY);
+		void reagir();
 		sf::Vector2f normalizedVector(sf::Vector2f direcao); // Creditos : www.youtube.com/watch?v=_Qc_cj1Nggw&list=LL&index=14
 	};
 

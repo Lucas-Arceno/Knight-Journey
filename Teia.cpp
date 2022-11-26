@@ -27,3 +27,8 @@ void Entidades::Obstaculos::Teia::update()
 void Entidades::Obstaculos::Teia::updateMovimento()
 {
 }
+
+void Entidades::Obstaculos::Teia::reagir()
+{
+	printf("tstewstisdjt");
+}

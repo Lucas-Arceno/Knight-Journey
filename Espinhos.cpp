@@ -39,3 +39,7 @@ void Entidades::Obstaculos::Espinhos::update()
 void Entidades::Obstaculos::Espinhos::updateMovimento()
 {
 }
+
+void Entidades::Obstaculos::Espinhos::reagir()
+{
+}

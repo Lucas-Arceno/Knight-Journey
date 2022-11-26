@@ -32,9 +32,8 @@ namespace Entidades {
 				void update();
 				void updateMovimento();
 				void updateAnimations();
+				void reagir();
 			};
-
-
 		}
 	}
 }

@@ -88,3 +88,7 @@ void Entidades::Personagens::Inimigos::Morcego::updateMovimento()
 	}
 	else randomMovimento();
 }
+
+void Entidades::Personagens::Inimigos::Morcego::reagir() {
+
+}

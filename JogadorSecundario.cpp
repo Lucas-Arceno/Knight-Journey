@@ -140,3 +140,7 @@ void Entidades::Personagens::Jogadores::JogadorSecundario::updateAnimations()
 		this->sprite.setOrigin(50, 50);
 	}
 }
+
+void Entidades::Personagens::Jogadores::JogadorSecundario::reagir() {
+
+}

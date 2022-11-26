@@ -23,9 +23,8 @@ namespace Entidades {
 				void updateMovimento();
 				void persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
 				void ataqueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo);
+				void reagir();
 			};
-
-
 		}
 	}
 }
