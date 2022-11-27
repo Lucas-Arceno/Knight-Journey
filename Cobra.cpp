@@ -1,5 +1,21 @@
 #include "Cobra.h"
 
+Entidades::Personagens::Inimigos::Cobra::Cobra(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, float posX, float posY, float tamX, float tamY): Entidades::Personagens::Inimigos::Inimigo(21, pJogadores, sf::Vector2f(posX, posY), sf::Vector2f(tamX, tamY)), vidaMaxima(2), venenosa(false)
+{
+	int aux = rand() % 2 + 1;
+	if (aux == 1) {
+		this->venenosa = false;
+		this->texture.loadFromFile("assets/cobra.png");
+	}
+	if (aux == 2) {
+		this->venenosa = true;
+		this->texture.loadFromFile("assets/cobravenenosa.png");
+	}
+	setVida(vidaMaxima);
+	this->corpo.setFillColor(sf::Color::White);
+	this->corpo.setTexture(&texture);
+}
+
 Entidades::Personagens::Inimigos::Cobra::Cobra(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(21, pJogadores, posicao, tamanho), vidaMaxima(2), venenosa(false)
 {
 	int aux = rand() % 2 + 1;

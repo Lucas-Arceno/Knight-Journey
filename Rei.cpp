@@ -1,7 +1,13 @@
 #include "Rei.h"
 #include <iostream>
 
-Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(1000)
+Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, float posX, float posY, float tamX, float tamY) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, sf::Vector2f(posX, posY), sf::Vector2f(tamX, tamY)), vidaMaxima(15)
+{
+	this->corpo.setFillColor(sf::Color::Magenta);
+	this->vida = vidaMaxima;
+}
+
+Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(15)
 {
 	this->corpo.setFillColor(sf::Color::Magenta);
 	this->vida = vidaMaxima;
