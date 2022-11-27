@@ -45,7 +45,7 @@ void Save::savePontos(int pt, string nome) {
 
 		//Grava a lista em ranking.txt
 		for (int i = 0; i < informacoes.size(); i++) {
-			Gravador << ' ' << informacoes[i].nome << ' ' << informacoes[i].pont << endl;
+			Gravador << informacoes[i].nome << ' ' << informacoes[i].pont << endl;
 		}
 
 		Gravador.close();
