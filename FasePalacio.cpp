@@ -213,7 +213,7 @@ void Fases::FasePalacio::criaObstaculos()
 		while (!(listaPosObstaculos[aux2].isLivre)) {
 			aux2 = rand() % 14;
 		}
-		listaEntidades.addEntidade(criaTeia(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaEntidades.addEntidade(criaTeia(Jogadores, sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosObstaculos[aux2].isLivre = false;
 	}
 

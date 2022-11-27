@@ -7,9 +7,9 @@ Fases::Fase::~Fase()
 {
 }
 
-Entidades::Obstaculos::Teia* Fases::Fase::criaTeia(sf::Vector2f(posicao), sf::Vector2f(tamanho))
+Entidades::Obstaculos::Teia* Fases::Fase::criaTeia(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f(posicao), sf::Vector2f(tamanho))
 {
-	return new Entidades::Obstaculos::Teia(posicao, tamanho);
+	return new Entidades::Obstaculos::Teia(pJogadores, posicao, tamanho);
 }
 
 Entidades::Obstaculos::Portal* Fases::Fase::criaPortal(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f(destino), sf::Vector2f(posicao), sf::Vector2f(tamanho))

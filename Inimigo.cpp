@@ -86,6 +86,7 @@ void Entidades::Personagens::Inimigos::Inimigo::updateDano(int dano) {
 	for (auto const& pJogador : *pJogadores) {
 		if (!pJogador->isInvencivel()) {
 			pJogador->operator-(dano);
+			printf("vida %d", pJogador->getVida());
 		}
 	}
 }

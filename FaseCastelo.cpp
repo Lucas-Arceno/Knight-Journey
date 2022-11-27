@@ -250,7 +250,7 @@ void Fases::FaseCastelo::criaObstaculos()
 		while (!(listaPosObstaculos[aux2].isLivre)) {
 			aux2 = rand() % 29;
 		}
-		listaEntidades.addEntidade(criaTeia(sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
+		listaEntidades.addEntidade(criaTeia(Jogadores, sf::Vector2f(listaPosObstaculos[aux2].cord), sf::Vector2f(100.0f, 100.0f)));
 		listaPosObstaculos[aux2].isLivre = false;
 	}
 
@@ -264,18 +264,18 @@ void Fases::FaseCastelo::criaObstaculos()
 	}
 
 	num_Espinhos = num_Espinhos + 3;
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(850.f, 625.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(1000.f, 625.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(2000.f, 800.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5300.f, 550.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5450.f, 550.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5600.f, 550.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5750.f, 550.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(5900.f, 550.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6050.f, 550.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6200.f, 550.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6350.f, 550.f)));
-	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(sf::Vector2f(6500.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(850.f, 625.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(1000.f, 625.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(2000.f, 800.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(5300.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(5450.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(5600.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(5750.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(5900.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(6050.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(6200.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(6350.f, 550.f)));
+	listaEntidades.addEntidade(new Entidades::Obstaculos::Espinhos(Jogadores, sf::Vector2f(6500.f, 550.f)));
 
 	num_Portais = num_Portais + 2;
 	listaEntidades.addEntidade(criaPortal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(700.0f, 300.0f), sf::Vector2f(70.f, 70.f)));

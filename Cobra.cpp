@@ -78,9 +78,9 @@ void Entidades::Personagens::Inimigos::Cobra::updateMovimento()
 
 void Entidades::Personagens::Inimigos::Cobra::reagir() {
 	if (this->venenosa == true) {
-		updateDanotest(2);
+		updateDano(2);
 	}
 	else {
-		updateDanotest(1);
+		updateDano(1);
 	}
 }

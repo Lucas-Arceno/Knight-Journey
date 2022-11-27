@@ -104,5 +104,5 @@ void Entidades::Projetil::updateProjetil(float posX, float posY) {
 }
 
 void Entidades::Projetil::reagir() {
-
+	//pJogador->giveDano(1);
 }

@@ -80,8 +80,8 @@ void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					(*pListaObstaculos)[i]->reagir();
-					//pJogador->setVelocityX(0.1f  * (static_cast<Entidades::Obstaculos::Teia*>((*pListaObstaculos)[i])->getEstagio()));
+					//(*pListaObstaculos)[i]->reagir();
+					pJogador->setVelocityX(0.1f  * (static_cast<Entidades::Obstaculos::Teia*>((*pListaObstaculos)[i])->getEstagio()));
 				}
 			}
 		}
@@ -89,8 +89,9 @@ void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					pJogador->operator-(1 * (static_cast<Entidades::Obstaculos::Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
+					//pJogador->operator-(1 * (static_cast<Entidades::Obstaculos::Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
 					//printf("danoEspinho %d\n", pJogador->getVida());
+					(*pListaObstaculos)[i]->reagir();
 				}
 			}
 		}
@@ -103,7 +104,6 @@ void Gerenciadores::GerenciadorColisoes::checkColInimigos()
 		for (auto const& pJogador : *pJogadores) {
 			if ((*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f)) {
 				(*pListaInimigos)[i]->reagir();
-				pJogador->setColdownPulo(false);
 			}
 			if (pJogador->espadaP->GetColisao().verificaColisao((*pListaInimigos)[i]->getCorpo())) {
 				pJogador->espadaP->reagir();

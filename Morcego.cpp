@@ -64,7 +64,7 @@ void Entidades::Personagens::Inimigos::Morcego::update()
 	updateMovimento();
 	updatePhysics();
 	updateEmpuxo();
-	updateDano(1);
+	//updateDano(1);
 	
 	// Variavel para passar a pos do inimigo
 	sf::Vector2f posInimigo = corpo.getPosition();
@@ -95,5 +95,5 @@ void Entidades::Personagens::Inimigos::Morcego::updateMovimento()
 }
 
 void Entidades::Personagens::Inimigos::Morcego::reagir() {
-	updateDanotest(1);
+	updateDano(1);
 }
