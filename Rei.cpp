@@ -1,7 +1,7 @@
 #include "Rei.h"
 #include <iostream>
 
-Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, float posX, float posY, float tamX, float tamY) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, sf::Vector2f(posX, posY), sf::Vector2f(tamX, tamY)), vidaMaxima(15)
+Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, float posX, float posY, float tamX, float tamY) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, sf::Vector2f(posX, posY), sf::Vector2f(tamX, tamY)), vidaMaxima(10)
 {
 	this->vida = vidaMaxima;
 	this->corpo.setFillColor(sf::Color::White);
@@ -9,7 +9,7 @@ Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jog
 	this->corpo.setTexture(&texture);
 }
 
-Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(15)
+Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(10)
 {
 	this->vida = vidaMaxima;
 	this->corpo.setFillColor(sf::Color::White);

@@ -166,7 +166,6 @@ namespace List {
 	template <class TL>
 	TL* Lista<TL>::pop(int index) {
 		if (index >= tam || index < 0) {
-			std::cout << "ERROR: Segmentation fault on List<TL>::pop(int index). Exceeded boundaries. Index " << index << " out of " << tam << " elements." << std::endl;
 			exit(1);
 		}
 

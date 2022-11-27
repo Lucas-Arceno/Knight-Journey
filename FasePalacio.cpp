@@ -256,6 +256,11 @@ void Fases::FasePalacio::multiplayer(bool status)
 
 bool Fases::FasePalacio::checkTerminou()
 {
+	for (int i = 0; i < listaInimigos.getTamanho(); i++) {
+		if (listaInimigos[i]->getID() == 24 && listaInimigos[i]->getIsVivo() == false) {
+			return true;
+		}
+	}
 	if (Jogadores->front()->getVida() <= 0) {
 		return true;
 	}
