@@ -63,7 +63,6 @@ void Entidades::Personagens::Inimigos::Rei::ataqueJogador(sf::Vector2f posJogado
 		this->velocidade.y -= 40 * this->gravity;
 		cooldownPulo = true;
 	}
-	updateDano(10);
 }
 
 void Entidades::Personagens::Inimigos::Rei::reagir() {
