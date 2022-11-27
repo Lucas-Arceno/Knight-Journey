@@ -53,7 +53,7 @@ Fases::FasePalacio::FasePalacio(std::list<Entidades::Personagens::Jogadores::Jog
 
 Fases::FasePalacio::~FasePalacio()
 {
-	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		if (listaEntidades[i]->getID() == 0) {
 			listaEntidades.removeEntidade(listaEntidades[i]);
 		}
@@ -256,7 +256,7 @@ void Fases::FasePalacio::multiplayer(bool status)
 
 bool Fases::FasePalacio::checkTerminou()
 {
-	for (int i = 0; i < listaInimigos.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaInimigos.getTamanho(); i++) {
 		if (listaInimigos[i]->getID() == 24 && listaInimigos[i]->getIsVivo() == false) {
 			return true;
 		}
