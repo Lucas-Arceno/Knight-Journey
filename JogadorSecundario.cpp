@@ -6,9 +6,18 @@ void Entidades::Personagens::Jogadores::JogadorSecundario::initAnimations()
 	this->animationSwitch = true;
 }
 
-Entidades::Personagens::Jogadores::JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(50), Jogador(posicao, tamanho)
+Entidades::Personagens::Jogadores::JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(20), Jogador(posicao, tamanho)
 {
-	this->vida = vidaMaxima;
+	int aux = rand() % 3 + 1;
+	if (aux == 1) {
+		isTemplarioAprendiz = true;
+	}
+	if (isTemplarioAprendiz == true) {
+		this->vida = vidaMaxima * 0.5;
+	}
+	else {
+		this->vida = vidaMaxima;
+	}
 	this->animState = IDLE2;
 	this->currentFrame = sf::IntRect(0, 0, 96, 96);
 	initSprite();

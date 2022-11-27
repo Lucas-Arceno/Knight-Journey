@@ -11,9 +11,10 @@ namespace Entidades {
 			private:
 				const int vidaMaxima;
 
+				bool isTemplarioAprendiz;
+
 				sf::Vector2i size;
 				sf::Clock animationTimer;
-
 			private:
 				void initAnimations();
 

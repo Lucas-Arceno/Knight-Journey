@@ -21,6 +21,8 @@ namespace Entidades {
 				void updateDano(int dano);
 				void randomMovimento();
 
+				void reagirDano();
+
 				virtual void update() = 0;
 				virtual void updateMovimento() = 0;
 				virtual void reagir() = 0;

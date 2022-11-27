@@ -80,7 +80,6 @@ void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					//(*pListaObstaculos)[i]->reagir();
 					pJogador->setVelocityX(0.1f  * (static_cast<Entidades::Obstaculos::Teia*>((*pListaObstaculos)[i])->getEstagio()));
 				}
 			}
@@ -105,9 +104,7 @@ void Gerenciadores::GerenciadorColisoes::checkColInimigos()
 			if ((*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f)) {
 				(*pListaInimigos)[i]->reagir();
 			}
-			if (pJogador->espadaP->GetColisao().verificaColisao((*pListaInimigos)[i]->getCorpo())) {
-				pJogador->espadaP->reagir();
-			}
+			(*pListaInimigos)[i]->reagirDano();
 		}
 	}
 }

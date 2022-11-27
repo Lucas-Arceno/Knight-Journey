@@ -15,6 +15,7 @@ namespace Entidades {
 			void setVida(int vida);
 			int getVida();
 
+			void reagirDano();
 			//void updateDano(int dano);
 		};
 	}

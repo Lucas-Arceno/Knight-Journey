@@ -42,6 +42,7 @@ namespace Entidades {
 		virtual void updateMovimento() = 0;
 
 		virtual void reagir() = 0;
+		virtual void reagirDano() = 0;
 
 		const sf::RectangleShape getCorpo();
 	};

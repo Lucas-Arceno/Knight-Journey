@@ -21,6 +21,10 @@ int Entidades::Personagens::Personagem::getVida() {
 	return this->vida;
 }
 
+void Entidades::Personagens::Personagem::reagirDano()
+{
+}
+
 //void Personagem::updateDano(int dano)
 //{
 ////	

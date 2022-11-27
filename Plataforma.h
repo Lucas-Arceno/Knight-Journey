@@ -14,6 +14,7 @@ namespace Entidades {
 		void updateEmpuxo();
 		void updateMovimento();
 
+		void reagirDano();
 		void reagir();
 	};
 }

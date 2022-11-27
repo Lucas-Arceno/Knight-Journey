@@ -7,3 +7,7 @@ Entidades::ProjetilBase::ProjetilBase(int id, sf::Vector2f posicao, sf::Vector2f
 Entidades::ProjetilBase::~ProjetilBase() {
 
 }
+
+void Entidades::ProjetilBase::reagirDano()
+{
+}

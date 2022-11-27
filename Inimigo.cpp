@@ -82,6 +82,34 @@ void Entidades::Personagens::Inimigos::Inimigo::randomMovimento()
 	cont_mov++;
 }
 
+void Entidades::Personagens::Inimigos::Inimigo::reagirDano()
+{
+	// Contador para o frame de invulnerabilidade
+	if (iFrame > 0) {
+		iFrame++;
+		if (iFrame > 30) {
+		iFrame = 0;
+		}
+	}
+	for (auto const& pJogador : *pJogadores)
+	{
+		if (pJogador->espadaP->getEspadaProjetilGlobal().intersects(this->getCorpo().getGlobalBounds())) {
+			printf("%d\n", this->getVida());
+			if (iFrame == 0) {
+				this->giveDano(1);
+				iFrame++;
+			}
+			//verifica se morto
+			if (this->vida <= 0) {
+				pJogador->givePontuacao(5);
+				this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
+				pJogador->operator++();
+				this->isVivo = false;
+			}
+		}
+	}
+}
+
 void Entidades::Personagens::Inimigos::Inimigo::updateDano(int dano) {
 	for (auto const& pJogador : *pJogadores) {
 		if (!pJogador->isInvencivel()) {

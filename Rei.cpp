@@ -1,10 +1,20 @@
 #include "Rei.h"
 #include <iostream>
 
-Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(1000)
+Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, float posX, float posY, float tamX, float tamY) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, sf::Vector2f(posX, posY), sf::Vector2f(tamX, tamY)), vidaMaxima(15)
 {
-	this->corpo.setFillColor(sf::Color::Magenta);
 	this->vida = vidaMaxima;
+	this->corpo.setFillColor(sf::Color::White);
+	this->texture.loadFromFile("assets/rei.png");
+	this->corpo.setTexture(&texture);
+}
+
+Entidades::Personagens::Inimigos::Rei::Rei(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(24, pJogadores, posicao, tamanho), vidaMaxima(15)
+{
+	this->vida = vidaMaxima;
+	this->corpo.setFillColor(sf::Color::White);
+	this->texture.loadFromFile("assets/rei.png");
+	this->corpo.setTexture(&texture);
 }
 
 Entidades::Personagens::Inimigos::Rei::~Rei() {
@@ -42,7 +52,7 @@ void Entidades::Personagens::Inimigos::Rei::updateMovimento() {
 	if (fabs(posJogador.x - posInimigo.x) <= 400 && fabs(posJogador.y - posInimigo.y) <= 400) {
 		persegueJogador(posJogador, posInimigo);
 	}
-	if (fabs(posJogador.x - posInimigo.x) <= 200 && fabs(posJogador.y - posInimigo.y) <= 100) {
+	if (fabs(posJogador.x - posInimigo.x) <= 400 && fabs(posJogador.y - posInimigo.y) <= 400) {
 		ataqueJogador(posJogador, posInimigo);
 	}
 }
@@ -66,5 +76,5 @@ void Entidades::Personagens::Inimigos::Rei::ataqueJogador(sf::Vector2f posJogado
 }
 
 void Entidades::Personagens::Inimigos::Rei::reagir() {
-	updateDano(10);
+	updateDano(50);
 }

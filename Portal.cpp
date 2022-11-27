@@ -1,11 +1,10 @@
 #include "Portal.h"
 
-Entidades::Obstaculos::Portal::Portal(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores,sf::Vector2f(destino), sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(13, posicao, tamanho)
+Entidades::Obstaculos::Portal::Portal(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores,sf::Vector2f(destino), sf::Vector2f posicao, sf::Vector2f tamanho) : Obstaculo(13, pJogadores, posicao, tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/portal.png");
 	this->corpo.setTexture(&texture);
-	this->pJogadores = pJogadores;
 	this->destino = destino;
 }
 

@@ -2,7 +2,15 @@
 
 Entidades::Personagens::Jogadores::JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(20), Jogador(posicao, tamanho)
 {
-	this->vida = vidaMaxima;
+	int aux = rand() % 3 + 1;
+	if (aux == 1) {
+		isLiderTemplario = true;
+		this->vida = vidaMaxima * 2;
+	}
+	else {
+		isLiderTemplario = false;
+		this->vida = vidaMaxima;
+	}
 	this->animState = IDLE;
 	this->currentFrame = sf::IntRect(0, 0, 96, 96);
 	initSprite();

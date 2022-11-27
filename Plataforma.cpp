@@ -49,6 +49,10 @@ void Entidades::Plataforma::updateMovimento()
 {
 }
 
+void Entidades::Plataforma::reagirDano()
+{
+}
+
 void Entidades::Plataforma::reagir()
 {
 }

@@ -171,6 +171,13 @@ void Fases::FasePalacio::criaMapa()
 	}
 	//CONSTRUCAO SALA DO BOSS
 	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-3000.0f, 285.0f), sf::Vector2f(50.0f, 1500.0f), 1));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-2400.0f, 150.0f), sf::Vector2f(50.0f, 50.0f), 1));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-2675.0f, 50.0f), sf::Vector2f(50.0f, 50.0f), 1));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-2455.0f, 250.0f), sf::Vector2f(50.0f, 50.0f), 1));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-2821.0f, 350.0f), sf::Vector2f(50.0f, 50.0f), 1));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-2900.0f, 100.0f), sf::Vector2f(50.0f, 50.0f), 1));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-23210.0f, 100.0f), sf::Vector2f(50.0f, 50.0f), 1));
+	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-2200.0f, 350.0f), sf::Vector2f(50.0f, 50.0f), 1));
 	for (int i = 0; i < 2; i++) {
 		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-(2300.0f + (500 * i)), 550.0f), sf::Vector2f(525.0f, 70.0f), 1));
 		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(-(2300.0f + (500 * i)), -400.0f), sf::Vector2f(525.0f, 70.0f), 1));

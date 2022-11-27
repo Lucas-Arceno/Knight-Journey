@@ -1,12 +1,10 @@
 #include "Espinhos.h"
 
-Entidades::Obstaculos::Espinhos::Espinhos(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Obstaculos::Obstaculo(12,posicao,tamanho)
+Entidades::Obstaculos::Espinhos::Espinhos(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Obstaculos::Obstaculo(12, pJogadores,posicao,tamanho)
 {
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/espinhos.png");
 	this->corpo.setTexture(&texture);
-	this->pJogadores = pJogadores;
-
 	this->nivelAfiado = rand() % 3 + 1;
 }
 
