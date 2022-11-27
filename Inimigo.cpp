@@ -21,50 +21,6 @@ Entidades::Personagens::Inimigos::Inimigo::~Inimigo()
 {
 }
 
-
-// Função que atualiza o dano recebido ou dado ao jogador
-//void Entidades::Personagens::Inimigos::Inimigo::updateDano(int dano)
-//{
-//	
-//	// Contador para o frame de invulnerabilidade
-//	if (iFrame > 0) {
-//		iFrame++;
-//		if (iFrame > 30) {
-//			iFrame = 0;
-//		}
-//	}
-//	
-//	// Dano do player no inimigo
-//	for (auto const& pJogador : *pJogadores)
-//	{
-//		if (pJogador->espadaP->getEspadaProjetilGlobal().intersects(this->getCorpo().getGlobalBounds())) {
-//			printf("%d\n", this->getVida());
-//			if (iFrame == 0) {
-//				this->giveDano(1);
-//				iFrame++;
-//				printf("hit : %d\n", this->getVida());
-//			}
-//			
-//
-//			//Verifica se morto
-//			if (this->vida <= 0) {
-//				//pJogador->givePontuacao(5);
-//				//this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
-//				pJogador->operator++();
-//				this->isVivo = false;
-//			}
-//		}
-//		// Dano do inimigo no player
-//		else if (this->getCorpo().getGlobalBounds().intersects(pJogador->getCorpo().getGlobalBounds()) && pJogador->isInvencivel() == false) {
-//			printf("dano player %d \n", pJogador->getVida());
-//			pJogador->operator-(dano);
-//			//pJogador->giveDano(dano);
-//			//pJogador->setInvFrame();
-//		}
-//	}
-//}
-
-
 // Função para movimento aleatorio dos inimigos
 void Entidades::Personagens::Inimigos::Inimigo::randomMovimento()
 {
@@ -101,10 +57,9 @@ void Entidades::Personagens::Inimigos::Inimigo::reagirDano()
 			}
 			//verifica se morto
 			if (this->vida <= 0) {
-				pJogador->givePontuacao(5);
-				this->setCorpoPosicao(sf::Vector2f(0.0f, 6000.f));
 				pJogador->operator++();
 				this->isVivo = false;
+				this->update();
 			}
 		}
 	}

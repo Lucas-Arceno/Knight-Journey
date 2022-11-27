@@ -10,6 +10,7 @@ Entidades::Personagens::Jogadores::Jogador::Jogador(sf::Vector2f posicao, sf::Ve
 
 Entidades::Personagens::Jogadores::Jogador::~Jogador()
 {
+	delete espadaP;
 }
 
 void Entidades::Personagens::Jogadores::Jogador::setListaEntidade(List::ListaEntidade* pListaEntidade)

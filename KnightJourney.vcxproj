@@ -175,6 +175,7 @@
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="Projetil.cpp" />
     <ClCompile Include="Rei.cpp" />
+    <ClCompile Include="VAZIOcpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao.h" />

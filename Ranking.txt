@@ -1,5 +1,5 @@
-vazio 0
-vazio 0
+Fulano 20
+Rick 10
 vazio 0
 vazio 0
 vazio 0

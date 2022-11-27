@@ -116,13 +116,14 @@ void Menus::MenuMorte::getStringPlayer() {
 	if (pGrafico->getJanela()->pollEvent(evento)) {
 		if (evento.type == sf::Event::TextEntered)
 		{
-			if (evento.text.unicode < 128 && evento.text.unicode != 8) { // Somente ASCII
+			// Somente caracteres ascii, com exceção de backspace e space
+			if (evento.text.unicode < 128 && evento.text.unicode != 8 && evento.text.unicode != 32) { 
 				if (playerInput.size() < 10) {
 					playerInput += evento.text.unicode;
 						
 				}
 			}
-			if (evento.text.unicode == 8) { // Backspace
+			if (evento.text.unicode == 8) { // Deletar
 				playerInput = playerInput.substr(0, playerInput.size() - 1);
 			}
 		}
