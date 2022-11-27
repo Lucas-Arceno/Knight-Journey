@@ -16,6 +16,7 @@ namespace Fases {
 
 		int num_Teias;
 		int num_Portais;
+
 	public:
 		FasePalacio(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores);
 		~FasePalacio();

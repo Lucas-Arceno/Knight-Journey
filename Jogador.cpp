@@ -41,9 +41,14 @@ void Entidades::Personagens::Jogadores::Jogador::setPosition(const float x, cons
 	this->corpo.setPosition(x, y);
 }
 
-int Entidades::Personagens::Jogadores::Jogador::getInvFrame()
+bool Entidades::Personagens::Jogadores::Jogador::isInvencivel()
 {
-	return invFrame;
+	if (invFrame != 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 void Entidades::Personagens::Jogadores::Jogador::setInvFrame()

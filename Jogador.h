@@ -31,6 +31,11 @@ namespace Entidades {
 				int idJogador = 3; // id para diferenciar entre jogador 1 ou 2
 
 				sf::Vector2f posJogador; // Posição do player para a espada
+
+				//Animação
+				short animState;
+				sf::IntRect currentFrame;
+				bool animationSwitch;
 			public:
 				Jogador(sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(50.f, 50.f));
 				virtual	~Jogador();
@@ -52,7 +57,7 @@ namespace Entidades {
 				void setPosition(const float x, const float y);
 
 				//iFrame
-				int getInvFrame();
+				bool isInvencivel();
 				void setInvFrame();
 
 				//Pontuação

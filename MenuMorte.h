@@ -20,8 +20,10 @@ namespace Menus {
 		void MoveUp();
 		void MoveDown();
 		void update();
-
+		
+		// Função para somar a pontuação dos jogadores
 		void setPontPlayers(int pont);
+		// Função para pegar o nome do jogador
 		void getStringPlayer();
 	};
 }

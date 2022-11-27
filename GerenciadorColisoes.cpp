@@ -100,6 +100,14 @@ void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 void Gerenciadores::GerenciadorColisoes::checkColInimigos()
 {
 	for (unsigned int i = 0; i < pListaInimigos->getTamanho(); i++) {
-		//(*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f);
+		for (auto const& pJogador : *pJogadores) {
+			if ((*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f)) {
+				(*pListaInimigos)[i]->reagir();
+				pJogador->setColdownPulo(false);
+			}
+			if (pJogador->espadaP->GetColisao().verificaColisao((*pListaInimigos)[i]->getCorpo())) {
+				pJogador->espadaP->reagir();
+			}
+		}
 	}
 }
