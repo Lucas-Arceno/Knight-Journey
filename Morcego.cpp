@@ -1,6 +1,11 @@
 #include "Morcego.h"
 
 
+Entidades::Personagens::Inimigos::Morcego::Morcego(List::ListaEntidade* pListaEntidade, std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, float posX, float posY, float tamX, float tamY) : Entidades::Personagens::Inimigos::Inimigo(22, pJogadores, sf::Vector2f(posX, posY), sf::Vector2f(tamX, tamY)), vidaMaxima(1), projetil()
+{
+
+}
+
 Entidades::Personagens::Inimigos::Morcego::Morcego(List::ListaEntidade* pListaEntidade, std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : Entidades::Personagens::Inimigos::Inimigo(22, pJogadores, posicao, tamanho), vidaMaxima(1), projetil()
 {
 	this->pListaEntidade = pListaEntidade;
