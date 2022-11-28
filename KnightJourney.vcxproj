@@ -177,7 +177,6 @@
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="ProjetilInimigo.cpp" />
     <ClCompile Include="Rei.cpp" />
-    <ClCompile Include="VAZIOcpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao.h" />
