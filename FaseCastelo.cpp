@@ -51,7 +51,7 @@ Fases::FaseCastelo::FaseCastelo(std::list<Entidades::Personagens::Jogadores::Jog
 
 Fases::FaseCastelo::~FaseCastelo()
 {
-	for (int i = 0; i < listaEntidades.getTamanho(); i++) {
+	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		if(listaEntidades[i]->getID() == 0) {
 			listaEntidades.removeEntidade(listaEntidades[i]);
 		}
