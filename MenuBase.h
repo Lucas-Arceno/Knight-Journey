@@ -3,6 +3,8 @@
 #include "Botao.h"
 #include "Ente.h"
 
+// Os menus foram feitos com a ajuda de : www.youtube.com/watch?v=h8-Q4eu3Qt4
+
 namespace Menus{
 	class MenuBase : public Ente
 	{

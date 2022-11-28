@@ -2,12 +2,12 @@
 #include "ProjetilBase.h"
 #include "Jogador.h"
 
+// Projetil feito com a ajuda de : www.youtube.com/watch?v=_Qc_cj1Nggw&list=LL&index=14, mais especificamente a função normalizedVector.
 
 namespace Entidades {
 	class Projetil : public ProjetilBase
 	{
 	private:
-		//bool colisaoProjetil = true;
 		// Coordenadas que o projetil deverá ir ( diferença de pos do morcego e do player )
 		sf::Vector2f Direcao;
 		sf::Vector2f posJogador;
@@ -23,8 +23,6 @@ namespace Entidades {
 		void updateMovimento();
 		void updateProjetil(float posX, float posY);
 		void reagir();
-		sf::Vector2f normalizedVector(sf::Vector2f direcao); // Creditos : www.youtube.com/watch?v=_Qc_cj1Nggw&list=LL&index=14
+		sf::Vector2f normalizedVector(sf::Vector2f direcao); 
 	};
-
-
 }
