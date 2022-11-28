@@ -17,7 +17,7 @@ namespace Entidades {
 
 		sf::Texture texture;
 
-		//Physics
+		// Fisica dos objetos
 		float acceleration;
 		float drag;
 		float gravity;
@@ -36,15 +36,17 @@ namespace Entidades {
 		const int getID() { return ID; }
 		bool getIsVivo() { return isVivo; }
 		
+		const sf::RectangleShape getCorpo();
+
+		// Inicializa e atualiza a fisica
 		void initPhysics();
 		void updatePhysics();
+
 		virtual void update() = 0;
 		virtual void updateMovimento() = 0;
 
 		virtual void reagir() = 0;
 		virtual void reagirDano() = 0;
-
-		const sf::RectangleShape getCorpo();
 	};
 }
 

@@ -9,6 +9,7 @@ calculoColisao::~calculoColisao()
 {
 }
 
+// Função simples para ver se houve colisão
 bool calculoColisao::verificaColisao(sf::RectangleShape outroCorpo)
 {
 	if (this->corpo.getGlobalBounds().intersects(outroCorpo.getGlobalBounds())) {
@@ -19,7 +20,8 @@ bool calculoColisao::verificaColisao(sf::RectangleShape outroCorpo)
 	}
 }
 
-bool calculoColisao::CheckCollision(calculoColisao outro, float push)
+// Além de conferir se houve colisão, a função também empurra em sentido contrario qualquer corpo colidindo.
+bool calculoColisao::verificaEColide(calculoColisao outro, float push)
 {
 	sf::Vector2f outroPosicao = outro.GetPosition();
 	sf::Vector2f outroHalfSize = outro.GetHalfSize();
@@ -57,6 +59,5 @@ bool calculoColisao::CheckCollision(calculoColisao outro, float push)
 		}
 		return true;
 	}
-
 	return false;
 }

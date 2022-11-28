@@ -52,6 +52,7 @@ namespace Fases {
 		Fase();
 		virtual ~Fase();
 
+		// Funções para criar os objetos
 		Entidades::Obstaculos::Teia* criaTeia(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f(posicao), sf::Vector2f(tamanho));
 		Entidades::Obstaculos::Portal* criaPortal(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f(destino), sf::Vector2f(posicao), sf::Vector2f(tamanho));
 		Entidades::Plataforma* criaPlataforma(sf::Vector2f(posicao), sf::Vector2f(tamanho), const int tipo);

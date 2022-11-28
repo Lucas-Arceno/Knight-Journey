@@ -31,7 +31,7 @@ void Gerenciadores::GerenciadorColisoes::checkColPlataforma()
 	// Se colisão, projetil teleportado para longe.
 	for (unsigned int j = 0; j < pListaInimigos->getTamanho(); j++) {
 		for (unsigned int k = 0; k < pListaPlataformas->getTamanho(); k++) {
-			if((*pListaInimigos)[j]->GetColisao().CheckCollision((*pListaPlataformas)[k]->GetColisao(), 0.0f) && (*pListaInimigos)[j]->getID() == 23){
+			if((*pListaInimigos)[j]->GetColisao().verificaEColide((*pListaPlataformas)[k]->GetColisao(), 0.0f) && (*pListaInimigos)[j]->getID() == 23){
 				(*pListaInimigos)[j]->setCorpoPosicao(sf::Vector2f(0.f, 5000.f));
 			}
 		}
@@ -40,7 +40,7 @@ void Gerenciadores::GerenciadorColisoes::checkColPlataforma()
 	//Colisão de Obstaculo com Plataforma
 	for (unsigned int h = 0; h < pListaObstaculos->getTamanho(); h++) {
 		for (unsigned int o = 0; o < pListaPlataformas->getTamanho(); o++) {
-			(*pListaObstaculos)[h]->GetColisao().CheckCollision((*pListaPlataformas)[o]->GetColisao(), 0.0f);
+			(*pListaObstaculos)[h]->GetColisao().verificaEColide((*pListaPlataformas)[o]->GetColisao(), 0.0f);
 		}
 	}
 
@@ -49,7 +49,7 @@ void Gerenciadores::GerenciadorColisoes::checkColPlataforma()
 	for (unsigned int i = 0; i < pListaPlataformas->getTamanho(); i++) {
 		for (auto const& pJogador : *pJogadores)
 		{
-			if (pJogador->GetColisao().CheckCollision((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
+			if (pJogador->GetColisao().verificaEColide((*pListaPlataformas)[i]->GetColisao(), 0.0f)) {
 				pJogador->resetVelocity();
 				if ((*pListaPlataformas)[i]->getCorpo().getPosition().y >
 					pJogador->getCorpo().getPosition().y + pJogador->getCorpo().getGlobalBounds().height / 2.0f) {
@@ -100,11 +100,13 @@ void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 void Gerenciadores::GerenciadorColisoes::checkColInimigos()
 {
 	for (unsigned int i = 0; i < pListaInimigos->getTamanho(); i++) {
-		for (auto const& pJogador : *pJogadores) {
-			if ((*pListaInimigos)[i]->GetColisao().CheckCollision(pJogador->GetColisao(), 1.0f)) {
-				(*pListaInimigos)[i]->reagir();
+		if ((*pListaInimigos)[i]->getIsVivo()) {
+			for (auto const& pJogador : *pJogadores) {
+				if ((*pListaInimigos)[i]->GetColisao().verificaEColide(pJogador->GetColisao(), 1.0f)) {
+					(*pListaInimigos)[i]->reagir();
+				}
+				(*pListaInimigos)[i]->reagirDano();
 			}
-			(*pListaInimigos)[i]->reagirDano();
 		}
 	}
 }

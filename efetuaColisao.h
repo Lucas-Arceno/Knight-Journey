@@ -10,9 +10,13 @@ public:
 	~calculoColisao();
 
 	void Move(float dx, float dy) { corpo.move(dx, dy); }
+	
 
+	// Função simples para ver se houve colisão
 	bool verificaColisao(sf::RectangleShape outroCorpo);
-	bool CheckCollision(calculoColisao outro, float push);
+
+	// Além de conferir se houve colisão, a função também empurra em sentido contrario qualquer corpo colidindo.
+	bool verificaEColide(calculoColisao outro, float push);
 	sf::Vector2f GetPosition() { return corpo.getPosition(); }
 	sf::Vector2f GetHalfSize() { return corpo.getSize() / 2.0f; }
 };

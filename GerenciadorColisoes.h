@@ -16,7 +16,9 @@ namespace Gerenciadores {
 	public:
 		GerenciadorColisoes(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, List::ListaEntidade* listaInimigos, List::ListaEntidade* listaPlataformas, List::ListaEntidade* ListaObstaculos);
 		~GerenciadorColisoes();
+
 		void updateColisao();
+
 		void checkColPlataforma();
 		void checkColObstaculos();
 		void checkColInimigos();

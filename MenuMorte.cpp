@@ -53,11 +53,11 @@ void Menus::MenuMorte::updateEstado(int& aux) {
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (selectedItemIndex == 0) {
 					saves.savePontos(pontPlayers, playerInput);
-					exit(1);
+					aux = 66;
 				}
 				else if (selectedItemIndex == 1) {
 					printf("botao 2");
-					exit(1);
+					aux = 66;
 				}
 			}
 		}

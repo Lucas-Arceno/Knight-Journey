@@ -135,6 +135,13 @@ void Fases::FasePalacio::checkQuarto()
 		num_sala = 3;
 	}
 
+	sf::RectangleShape inicio;
+	inicio.setSize(sf::Vector2f(200.0f, 200.0f));
+	inicio.setPosition(sf::Vector2f(90.f, 90.0f));
+	inicio.setFillColor(sf::Color::Red);
+	if (Jogadores->front()->getCorpo().getGlobalBounds().intersects(inicio.getGlobalBounds())) {
+		num_sala = 0;
+	}
 }
 
 void Fases::FasePalacio::criaMapa()
@@ -234,7 +241,7 @@ void Fases::FasePalacio::criaObstaculos()
 	}
 }
 
-void Fases::FasePalacio::teste()
+void Fases::FasePalacio::setListaEnt()
 {
 	for (auto const& Jogador : *Jogadores)
 	{
@@ -276,7 +283,7 @@ void Fases::FasePalacio::update()
 	checkQuarto();
 }
 
-void Fases::	FasePalacio::render()
+void Fases::FasePalacio::render()
 {
 	if (num_sala == 0) {
 		pGrafico->setView(sf::Vector2f(509.987488f, 66.165459f));

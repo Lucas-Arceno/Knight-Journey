@@ -24,8 +24,17 @@ Game::Game() : pGrafico(pGrafico->getGerenciadorGrafico()), pEvento(pEvento->get
 
 Game::~Game()
 {
-	delete Palacio;
-	delete Castelo;
+	if (!Castelo) {
+		delete Castelo;
+	}
+	if (!Palacio) {
+		delete Palacio;
+	}
+	for (auto const& Jogador : Jogadores)
+	{
+		delete Jogador;
+	}
+	/*Jogadores.clear();*/
 }
 
 void Game::exec()
@@ -66,11 +75,14 @@ void Game::exec()
 					if (Castelo->checkMorreu()) {
 						delete Castelo;
 						delete Palacio;
+						Castelo = NULL;
+						Palacio = NULL;
 						i = 5;
 					}
 				}
 				else {
 					delete Castelo;
+					Castelo = NULL;
 					flagCastelo = false;
 					i = 4;
 				}
@@ -93,6 +105,7 @@ void Game::exec()
 				
 				if (flagCastelo) {
 					delete Castelo;
+					Castelo = NULL;
 					flagCastelo = false;
 				}
 
@@ -107,7 +120,7 @@ void Game::exec()
 						Jogador->setCorpoPosicao(sf::Vector2f(100, 100));
 					}
 
-					Palacio->teste();
+					Palacio->setListaEnt();
 					flagJogador = false;
 				}
 
@@ -127,6 +140,10 @@ void Game::exec()
 				MenuMorte.updateEstado(i);
 				MenuMorte.getStringPlayer();
 				MenuMorte.draw(*pGrafico->getJanela());
+			}
+			if (i == 66) {
+				this->~Game();
+				exit(1);
 			}
 			pGrafico->mostraElementos();
 		}

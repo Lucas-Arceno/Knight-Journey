@@ -1,6 +1,6 @@
 #include "JogadorPrincipal.h"
 
-Entidades::Personagens::Jogadores::JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(20), Jogador(posicao, tamanho)
+Entidades::Personagens::Jogadores::JogadorPrincipal::JogadorPrincipal(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(10), Jogador(posicao, tamanho)
 {
 	int aux = rand() % 3 + 1;
 	if (aux == 1) {

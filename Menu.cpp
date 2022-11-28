@@ -59,7 +59,7 @@ void Menus::Menu::updateEstado(int& aux) {
 				}
 				else if (selectedItemIndex == 2) {
 					printf("botao 3");
-					exit(1);
+					aux = 66;
 				}
 			}
 		}

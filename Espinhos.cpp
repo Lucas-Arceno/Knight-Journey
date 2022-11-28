@@ -12,27 +12,12 @@ Entidades::Obstaculos::Espinhos::~Espinhos()
 {
 }
 
-const int Entidades::Obstaculos::Espinhos::getNivelAfiado()
-{
-	if (clock == 0) {
-		clock++;
-		return nivelAfiado;
-	}
-	else {
-		return 0;
-	}
-}
+
 
 void Entidades::Obstaculos::Espinhos::update()
 {
 	updateMovimento();
 	updatePhysics();
-
-	if (clock > 0) {
-		clock++;
-		if (clock > 50)
-			clock = 0;
-	}
 }
 
 void Entidades::Obstaculos::Espinhos::updateMovimento()

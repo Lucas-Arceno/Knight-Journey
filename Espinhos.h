@@ -6,13 +6,12 @@ namespace Entidades {
 		class Espinhos : public Obstaculo
 		{
 		private:
+			// nivelAfiado determina que o jogador recebe
 			int nivelAfiado;
-			int clock = 0;
+
 		public:
 			Espinhos(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao = sf::Vector2f(0.f, 0.f), sf::Vector2f tamanho = sf::Vector2f(150.f, 200.f));
 			virtual ~Espinhos();
-
-			const int getNivelAfiado();
 
 			void update();
 			void updateMovimento();
