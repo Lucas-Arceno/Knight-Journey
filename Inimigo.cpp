@@ -50,7 +50,6 @@ void Entidades::Personagens::Inimigos::Inimigo::reagirDano()
 	for (auto const& pJogador : *pJogadores)
 	{
 		if (pJogador->espadaP->getEspadaProjetilGlobal().intersects(this->getCorpo().getGlobalBounds())) {
-			printf("%d\n", this->getVida());
 			if (iFrame == 0) {
 				this->giveDano(1);
 				iFrame++;

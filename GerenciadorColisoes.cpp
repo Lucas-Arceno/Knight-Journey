@@ -80,7 +80,6 @@ void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					//pJogador->setVelocityX(0.1f  * (static_cast<Entidades::Obstaculos::Teia*>((*pListaObstaculos)[i])->getEstagio()));
 					(*pListaObstaculos)[i]->reagir();
 				}
 			}
@@ -89,8 +88,6 @@ void Gerenciadores::GerenciadorColisoes::checkColObstaculos()
 			for (auto const& pJogador : *pJogadores)
 			{
 				if (pJogador->GetColisao().verificaColisao((*pListaObstaculos)[i]->getCorpo())) {
-					//pJogador->operator-(1 * (static_cast<Entidades::Obstaculos::Espinhos*>((*pListaObstaculos)[i])->getNivelAfiado()));
-					//printf("danoEspinho %d\n", pJogador->getVida());
 					(*pListaObstaculos)[i]->reagir();
 				}
 			}
