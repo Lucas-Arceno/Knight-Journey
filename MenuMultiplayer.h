@@ -2,13 +2,13 @@
 #include "MenuBase.h"
 
 namespace Menus{
-	class MenuEscolhaOnline : public MenuBase
+	class MenuMultiplayer : public MenuBase
 	{
 	private:
 
 	public:
-		MenuEscolhaOnline(float widht, float height);
-		~MenuEscolhaOnline();
+		MenuMultiplayer(float widht, float height);
+		~MenuMultiplayer();
 
 		void updateEstado(int& aux);
 		void draw(sf::RenderWindow& window);

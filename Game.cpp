@@ -41,7 +41,7 @@ void Game::exec()
 {
 	Menus::Menu Menu(1200, 800);
 	Menus::MenuFases MenuFases(1200, 800);
-	Menus::MenuEscolhaOnline MenuOnline(1200, 800);
+	Menus::MenuMultiplayer MenuMultiplayer(1200, 800);
 	Menus::MenuMorte MenuMorte(1200, 800);
 	Menus::MenuRank MenuRank(1200, 800);
 	
@@ -53,61 +53,71 @@ void Game::exec()
 	bool flagMultiplayer = false;
 	// Flag usada no fim do jogo
 	bool flagPont = true;
-	// Flag usada para poder deletar o castelo no estado 4
-	bool flagCastelo = true;
 
 	int i = 1;
 	while (i != -1) {
 		while (pGrafico->verificaJanelaAberta() && i != -1) {
 			pEvento->exec();
 			pGrafico->limpaJanela();
+			
+			// Menu Principal
 			if (i == 1) {
 				Menu.updateEstado(i);
 				Menu.draw(*pGrafico->getJanela());
 			}
+
+			// Menu de rank
 			else if (i == 11) {
 				MenuRank.updateEstado(i);
 				MenuRank.draw(*pGrafico->getJanela());
 			}
+
+			// Fase Castelo
 			else if (i == 2) {
 				if (!Castelo->checkTerminou()) {
 					Castelo->update();
 					if (Castelo->checkMorreu()) {
-						delete Castelo;
-						delete Palacio;
-						Castelo = NULL;
-						Palacio = NULL;
 						i = 5;
 					}
 				}
+
+				// Deleta o castelo ao passar de fase
 				else {
 					delete Castelo;
 					Castelo = NULL;
-					flagCastelo = false;
 					i = 4;
 				}
 			}
+
+			// Menu de escolha multiplayer
 			else if (i == 3) {
-				MenuOnline.updateEstado(i);
-				MenuOnline.draw(*pGrafico->getJanela());
+				MenuMultiplayer.updateEstado(i);
+				MenuMultiplayer.draw(*pGrafico->getJanela());
 			}
+			
+			// Menu de escolha de fases
 			else if (i == 7) {
 				MenuFases.updateEstado(i);
 				MenuFases.draw(*pGrafico->getJanela());
 			}
+
+			// Se multiplayer, cria o segundo jogador
 			else if (i == 8) {
 				Jogadores.push_back(new Entidades::Personagens::Jogadores::JogadorSecundario(sf::Vector2f(150.f, 250.f), sf::Vector2f(100.f, 100.f)));
 				Castelo->multiplayer(true);
 				i = 7;
 				flagMultiplayer = true;
 			}
+
+			// Fase palacio
 			else if (i == 4) {
 				
-				if (flagCastelo) {
+				// Deleta o castelo
+				if (!Castelo) {
 					delete Castelo;
 					Castelo = NULL;
-					flagCastelo = false;
 				}
+
 
 				if (flagMultiplayer) {
 					Palacio->multiplayer(true);
@@ -129,6 +139,8 @@ void Game::exec()
 					i = 5;
 				}
 			}
+
+			// Menu de morte
 			else if (i == 5) {
 				if (flagPont) {
 					for (auto const& Jogador : Jogadores)
@@ -141,6 +153,7 @@ void Game::exec()
 				MenuMorte.getStringPlayer();
 				MenuMorte.draw(*pGrafico->getJanela());
 			}
+
 			if (i == 66) {
 				this->~Game();
 				exit(1);

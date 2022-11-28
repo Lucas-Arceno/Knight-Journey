@@ -151,7 +151,6 @@ void Fases::FaseCastelo::criaMapa()
 
 	// Chao
 	for (int i = 0; i < 4; i++) {
-		//listaEntidades.addEntidade(new Entidades::Plataforma(sf::Vector2f(200.0f + (i*500), 700.0f), sf::Vector2f(500.0f, 70.0f)));
 		listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(200.0f + (i * 500), 700.0f), sf::Vector2f(500.0f, 70.0f), 0));
 	}
 	listaEntidades.addEntidade(criaPlataforma(sf::Vector2f(1950.0f, 800.0f), sf::Vector2f(50.0f, 250.0f), 0));
@@ -210,16 +209,13 @@ void Fases::FaseCastelo::criaMapa()
 
 void Fases::FaseCastelo::criaInimigos()
 {
-	//for (int i = 0; i < 100; i++) {
-	//	listaEntidades.addEntidade(criaCobra(Jogadores, sf::Vector2f(10, 10), sf::Vector2f(100.0f, 100.0f)));
-	//}
 
-	// define a quantidade de inimigos
+	// Define a quantidade de inimigos
 	this->num_Cobras = (rand() % (10 + 1 - 3) + 3);
 	this->num_Morcegos = (rand() % (15 + 1 - 3) + 3);
 
 
-	// loop adição de cobras
+	// Cria as cobras
 	for (int i = 0; i < num_Cobras; i++) {
 		int aux = rand() % 19;
 		while (!(listaPosCobras[aux].isLivre)) {
@@ -229,7 +225,7 @@ void Fases::FaseCastelo::criaInimigos()
 		listaPosCobras[aux].isLivre = false;
 	}
 
-	// loop adição de morcego
+	// Cria os morcegos
 	for (int i = 0; i < num_Morcegos; i++) {
 		int aux = rand() % 27;
 		while (!(listaPosMorcegos[aux].isLivre)) {
@@ -241,10 +237,13 @@ void Fases::FaseCastelo::criaInimigos()
 }
 
 void Fases::FaseCastelo::criaObstaculos()
-{
+{	
+	// Define a quantidade de obstaculos
 	this->num_Teias = std::rand() % (18 + 1 - 3) + 3;
 	this->num_Portais = std::rand() % (5 + 1 - 3) + 3;
+	
 
+	// Cria as teias
 	for (int i = 0; i < num_Teias; i++) {
 		int aux2 = rand() % 29;
 		while (!(listaPosObstaculos[aux2].isLivre)) {
@@ -254,6 +253,7 @@ void Fases::FaseCastelo::criaObstaculos()
 		listaPosObstaculos[aux2].isLivre = false;
 	}
 
+	// Cria os portais
 	for (int i = 0; i < num_Portais; i++) {
 		int aux3 = rand() % 29;
 		while (!(listaPosObstaculos[aux3].isLivre)) {
@@ -282,19 +282,6 @@ void Fases::FaseCastelo::criaObstaculos()
 	listaEntidades.addEntidade(criaPortal(Jogadores, sf::Vector2f(100.f, 100.f), sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(70.f, 70.f)));
 
 }
-
-//int const Fases::FaseCastelo::getPontuacao()
-//{
-//	return this->Jogadores->front()->getPontucao();
-//}
-
-//void Fases::FaseCastelo::teste()
-//{
-//	for (auto const& Jogador : *Jogadores)
-//	{
-//		Jogador->setListaEntidade(&listaEntidades);
-//	}
-//}
 
 void Fases::FaseCastelo::multiplayer(bool status)
 {
@@ -348,9 +335,6 @@ void Fases::FaseCastelo::render()
 	pGrafico->setView(sf::Vector2f(Jogadores->front()->getCorpo().getPosition().x, 300));
 	background.setPosition(sf::Vector2f(Jogadores->front()->getCorpo().getPosition().x - 1000, -200));
 	pGrafico->desenhaElementos(this->background);
-
-
-	//pJogador->salvePontuacao();
 
 	for (unsigned int i = 0; i < listaEntidades.getTamanho(); i++) {
 		

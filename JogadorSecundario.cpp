@@ -6,7 +6,7 @@ void Entidades::Personagens::Jogadores::JogadorSecundario::initAnimations()
 	this->animationSwitch = true;
 }
 
-Entidades::Personagens::Jogadores::JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(20), Jogador(posicao, tamanho)
+Entidades::Personagens::Jogadores::JogadorSecundario::JogadorSecundario(sf::Vector2f posicao, sf::Vector2f tamanho) : vidaMaxima(50), Jogador(posicao, tamanho)
 {
 	int aux = rand() % 3 + 1;
 	if (aux == 1) {

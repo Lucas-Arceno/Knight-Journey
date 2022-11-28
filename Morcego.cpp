@@ -12,7 +12,7 @@ Entidades::Personagens::Inimigos::Morcego::Morcego(List::ListaEntidade* pListaEn
 	this->corpo.setFillColor(sf::Color::White);
 	this->texture.loadFromFile("assets/morcego.png");
 	this->corpo.setTexture(&texture);
-	projetil = new Projetil(pJogadores);
+	projetil = new ProjetilInimigo(pJogadores);
 	this->pListaEntidade->addEntidade(projetil);
 	setVida(vidaMaxima);
 }

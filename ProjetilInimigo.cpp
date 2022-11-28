@@ -1,38 +1,39 @@
-#include "Projetil.h"
+#include "ProjetilInimigo.h"
 #include <iostream>
 using namespace std;
 
-Entidades::Projetil::Projetil(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : ProjetilBase(23, posicao, tamanho) {
+Entidades::ProjetilInimigo::ProjetilInimigo(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, sf::Vector2f posicao, sf::Vector2f tamanho) : ProjetilBase(23, posicao, tamanho) {
 	this->corpo.setFillColor(sf::Color::Red);
 	this->pJogadores = pJogadores;
 	pJogador = NULL;
 }
 
 
-Entidades::Projetil::~Projetil() {
+Entidades::ProjetilInimigo::~ProjetilInimigo() {
 
 }
 
  
-void Entidades::Projetil::update()
+void Entidades::ProjetilInimigo::update()
 {
 	updatePhysics();
 	updateMovimento();
 }
 
 
-void Entidades::Projetil::updateMovimento()
+// Usado para negar a gravidade
+void Entidades::ProjetilInimigo::updateMovimento()
 {
-	//Gravity
+	// Gravidade
 	this->velocidade.y += 1 * this->gravity;
 	if (std::abs(this->velocidade.x) > this->velocidadeMaxY) {
 		this->velocidade.y = this->velocidadeMaxY * ((this->velocidade.y < 0.f) ? -1.f : 1.f);
 	}
 
-	//Deceleration
+	// Desaceleração
 	this->velocidade *= this->drag;
 
-	//Limit deceleration
+	// Limita a desaceleração
 	if (std::abs(this->velocidade.x) < this->velocidadeMin) {
 		this->velocidade.x = 0.0f;
 	}
@@ -45,7 +46,7 @@ void Entidades::Projetil::updateMovimento()
 
 // Vetor unitario
 // Retorna um vetor de comprimento 1
-sf::Vector2f Entidades::Projetil::normalizedVector(sf::Vector2f direcao)
+sf::Vector2f Entidades::ProjetilInimigo::normalizedVector(sf::Vector2f direcao)
 {
 	float m = sqrt(direcao.x * direcao.x + direcao.y * direcao.y);
 	
@@ -57,11 +58,11 @@ sf::Vector2f Entidades::Projetil::normalizedVector(sf::Vector2f direcao)
 	return vetorNormalizado;
 }
 
-void Entidades::Projetil::updateProjetil(float posX, float posY) {
+void Entidades::ProjetilInimigo::updateProjetil(float posX, float posY) {
 	if (disparo == true) { 
 		corpo.setPosition(sf::Vector2f(posX, posY));
 
-		// O alvo se torna o jogador mais proximo
+		// Muda o alvo dependendo de quem está mais proximo
 		if (pJogadores->front()->getCorpo().getPosition().x > pJogadores->back()->getCorpo().getPosition().x) {
 			pJogador = pJogadores->back();
 		}
@@ -79,6 +80,7 @@ void Entidades::Projetil::updateProjetil(float posX, float posY) {
 	}
 	else {
 
+		// Muda o alvo dependendo de quem está mais proximo
 		if (pJogadores->front()->getCorpo().getPosition().x > pJogadores->back()->getCorpo().getPosition().x) {
 			pJogador = pJogadores->back();
 		}
@@ -103,6 +105,6 @@ void Entidades::Projetil::updateProjetil(float posX, float posY) {
 	}
 }
 
-void Entidades::Projetil::reagir() {
-	//pJogador->giveDano(1);
+void Entidades::ProjetilInimigo::reagir() {
+
 }

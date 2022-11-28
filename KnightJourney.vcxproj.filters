@@ -66,7 +66,7 @@
     <ClCompile Include="FaseCastelo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Projetil.cpp">
+    <ClCompile Include="ProjetilInimigo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Espinhos.cpp">
@@ -111,7 +111,7 @@
     <ClCompile Include="JogadorSecundario.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="MenuEscolhaOnline.cpp">
+    <ClCompile Include="MenuMultiplayer.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="MenuMorte.cpp">
@@ -179,7 +179,7 @@
     <ClInclude Include="FaseCastelo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Projetil.h">
+    <ClInclude Include="ProjetilInimigo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Espinhos.h">
@@ -224,7 +224,7 @@
     <ClInclude Include="JogadorSecundario.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="MenuEscolhaOnline.h">
+    <ClInclude Include="MenuMultiplayer.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="MenuMorte.h">

@@ -144,7 +144,7 @@
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="JogadorPrincipal.cpp" />
     <ClCompile Include="JogadorSecundario.cpp" />
-    <ClCompile Include="MenuEscolhaOnline.cpp" />
+    <ClCompile Include="MenuMultiplayer.cpp" />
     <ClCompile Include="MenuMorte.cpp" />
     <ClCompile Include="MenuRank.cpp" />
     <ClCompile Include="ProjetilBase.cpp" />
@@ -175,7 +175,7 @@
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Portal.cpp" />
-    <ClCompile Include="Projetil.cpp" />
+    <ClCompile Include="ProjetilInimigo.cpp" />
     <ClCompile Include="Rei.cpp" />
     <ClCompile Include="VAZIOcpp.cpp" />
   </ItemGroup>
@@ -183,7 +183,7 @@
     <ClInclude Include="Botao.h" />
     <ClInclude Include="JogadorPrincipal.h" />
     <ClInclude Include="JogadorSecundario.h" />
-    <ClInclude Include="MenuEscolhaOnline.h" />
+    <ClInclude Include="MenuMultiplayer.h" />
     <ClInclude Include="MenuMorte.h" />
     <ClInclude Include="MenuRank.h" />
     <ClInclude Include="ProjetilBase.h" />
@@ -214,7 +214,7 @@
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Portal.h" />
-    <ClInclude Include="Projetil.h" />
+    <ClInclude Include="ProjetilInimigo.h" />
     <ClInclude Include="Rei.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

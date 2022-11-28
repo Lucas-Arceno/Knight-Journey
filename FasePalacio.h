@@ -23,6 +23,7 @@ namespace Fases {
 
 		void setPosicoesLivres();
 
+		// A checkQuarto confere em qual quarto o jogador está, para poder mudar a posição da janela
 		void checkQuarto();
 
 		void criaMapa();

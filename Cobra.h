@@ -10,6 +10,8 @@ namespace Entidades {
 			{
 			private:
 				const int vidaMaxima;
+
+				// Se a cobra for venenosa seu dano é dobrado ( 1 para 2 )
 				bool venenosa;
 			public:
 				Cobra(std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, float posX, float posY, float tamX, float tamY);

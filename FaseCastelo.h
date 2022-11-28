@@ -27,10 +27,6 @@ namespace Fases {
 		void criaInimigos();
 		void criaObstaculos();
 
-		//const int getPontuacao();
-
-		//void teste();
-
 		void multiplayer(bool status);
 
 		bool checkMorreu();

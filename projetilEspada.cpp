@@ -35,6 +35,7 @@ void Entidades::Personagens::Jogadores::projetilEspada::update()
 	updateEmpuxo();
 }
 
+// Usado para negar a gravidade
 void Entidades::Personagens::Jogadores::projetilEspada::updateEmpuxo()
 {
 	//Gravity

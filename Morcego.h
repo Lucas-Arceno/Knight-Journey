@@ -1,7 +1,7 @@
 #pragma once
 #include "ListaEntidade.h"
 #include "Inimigo.h"
-#include "Projetil.h"
+#include "ProjetilInimigo.h"
 #include "GerenciadorGrafico.h"
 
 namespace Entidades {
@@ -12,7 +12,7 @@ namespace Entidades {
 			private:
 				const int vidaMaxima;
 				List::ListaEntidade* pListaEntidade;
-				Projetil* projetil;
+				ProjetilInimigo* projetil;
 
 			public:
 				Morcego(List::ListaEntidade* pListaEntidade, std::list<Entidades::Personagens::Jogadores::Jogador*>* pJogadores, float posX, float posY, float tamX, float tamY);

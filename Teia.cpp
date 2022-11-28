@@ -12,11 +12,6 @@ Entidades::Obstaculos::Teia::~Teia()
 {
 }
 
-const int Entidades::Obstaculos::Teia::getEstagio()
-{
-	return estagio;
-}
-
 void Entidades::Obstaculos::Teia::update()
 {
 	updateMovimento();
@@ -30,6 +25,6 @@ void Entidades::Obstaculos::Teia::updateMovimento()
 void Entidades::Obstaculos::Teia::reagir()
 {
 	for (auto const& pJogador : *pJogadores) {
-		//pJogador->setVelocityX(0.1f * (static_cast<Entidades::Obstaculos::Teia*>(estagio));
+		pJogador->setVelocityX(0.1f * estagio);
 	}
 }

@@ -23,6 +23,8 @@
 #include "Rei.h"
 
 namespace Fases {
+
+	// Struct usada para determinar o possivel local de surgimento para obstaculos e inimigos
 	struct listaPos {
 		sf::Vector2f cord;
 		bool isLivre = true;
